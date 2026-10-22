@@ -148,17 +148,17 @@
     "bloco": "php",
     "tema": "PDO",
     "dificuldade": "dificil",
-    "pergunta": "Apagaste do db.php a linha do setAttribute(...ERRMODE_EXCEPTION) e há um nome de coluna mal escrito num SELECT. Segundo o manual, o que acontece?",
+    "pergunta": "Antes do PHP 8, o PDO vinha em modo silencioso por omissão. Nessa versão, sem a linha do setAttribute(...ERRMODE_EXCEPTION), o que acontecia a um SELECT com um nome de coluna mal escrito?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Falha em silêncio e ficas sem saber porquê.",
-      "O PHP corrige sozinho o nome da coluna.",
-      "A página responde sempre com o código 404.",
-      "A ligação nem chega a abrir e aparece o erro 2002."
+      "Falhava em silêncio e ficavas sem saber porquê.",
+      "O PHP corrigia sozinho o nome da coluna.",
+      "A página respondia sempre com o código 404.",
+      "A ligação nem chegava a abrir e aparecia o erro 2002."
     ],
     "correta": 0,
-    "explicacao": "O manual explica que, sem ERRMODE_EXCEPTION, uma consulta errada falha em silêncio. Com ele, o PDO lança uma exceção e vês logo o erro (por exemplo, 42S22 Unknown column).",
+    "explicacao": "Sem ERRMODE_EXCEPTION, uma consulta errada falhava em silêncio. Com ele, o PDO lança uma exceção e vês logo o erro (por exemplo, 42S22 Unknown column). Desde o PHP 8 este já é o modo por omissão, mas o db.php escreve-o na mesma, para ficar explícito.",
     "manual": "8.1"
   },
   {
@@ -371,10 +371,10 @@
       "DELETE FROM animais WHERE id_animal = '?'",
       "DELETE FROM animais WHERE id_animal = ?",
       "DELETE * FROM animais WHERE id_animal = ?",
-      "DELETE FROM animais WHERE ? = id_animal"
+      "DELETE animais WHERE id_animal = ?"
     ],
     "correta": 1,
-    "explicacao": "O DELETE usa WHERE com a chave primária e um ? no lugar do valor, sem plicas. DELETE * não é SQL válido no MySQL e '?' seria um texto, não um parâmetro.",
+    "explicacao": "O DELETE usa FROM, um WHERE com a chave primária e um ? no lugar do valor, sem plicas. DELETE * e DELETE sem FROM não são SQL válido no MySQL, e '?' seria um texto, não um parâmetro.",
     "manual": "3.7, 13.4"
   },
   {
@@ -779,7 +779,7 @@
     "tema": "PDO",
     "dificuldade": "dificil",
     "pergunta": "Alguém abre `livro_ver.php?id=abc`. O que acontece?",
-    "codigo": "$id = (int) ($_GET['id'] ?? 0);\n$stmt = $pdo->prepare('SELECT * FROM livros WHERE id_livro = ?');\n$stmt->execute([$id]);\n$livro = $stmt->fetch(PDO::FETCH_ASSOC);",
+    "codigo": "$id = (int) ($_GET['id'] ?? 0);\n$stmt = $pdo->prepare('SELECT * FROM livros WHERE id_livro = ?');\n$stmt->execute([$id]);\n$livro = $stmt->fetch(PDO::FETCH_ASSOC);\n\nif (!$livro) {\n    http_response_code(404);\n    // ... mostra \"Livro não encontrado\" e sai\n}",
     "linguagem": "php",
     "alternativas": [
       "O SQL procura o texto abc no título e devolve todos os livros.",
@@ -1192,9 +1192,9 @@
     "bloco": "php",
     "tema": "PDO",
     "dificuldade": "media",
-    "pergunta": "Quem garante que um autor com livros não é apagado?",
-    "codigo": "",
-    "linguagem": "",
+    "pergunta": "Vê a tabela livros e o autor_apagar.php. Quem garante que um autor com livros não é apagado?",
+    "codigo": "-- tabela livros\nCONSTRAINT fk_livros_autores\n    FOREIGN KEY (id_autor) REFERENCES autores (id_autor)\n    ON DELETE RESTRICT\n\n// autor_apagar.php\ntry {\n    $stmt = $pdo->prepare('DELETE FROM autores WHERE id_autor = ?');\n    $stmt->execute([(int) ($_POST['id_autor'] ?? 0)]);\n    mensagem('sucesso', 'Autor apagado.');\n} catch (PDOException $e) {\n    mensagem('erro', 'Não é possível apagar este autor, porque tem livros registados.');\n}",
+    "linguagem": "php",
     "alternativas": [
       "Um if no autor_apagar.php que conta antes os livros desse autor.",
       "O JavaScript, com o confirm() antes de apagar.",
@@ -1301,7 +1301,7 @@
     "tema": "PDO",
     "dificuldade": "dificil",
     "pergunta": "O formulário foi alterado e envia `id_autor=abc`. O que acontece?",
-    "codigo": "'id_autor' => (int) ($_POST['id_autor'] ?? 0),",
+    "codigo": "// ler_livro()\n'id_autor' => (int) ($_POST['id_autor'] ?? 0),\n\n// validar_livro()\n$stmt = $pdo->prepare('SELECT COUNT(*) FROM autores WHERE id_autor = ?');\n$stmt->execute([$livro['id_autor']]);\nif ($stmt->fetchColumn() == 0) {\n    $erros[] = 'Escolhe um autor da lista.';\n}",
     "linguagem": "php",
     "alternativas": [
       "O SQL recebe o texto abc e devolve todos os autores da tabela.",
@@ -2093,8 +2093,8 @@
     "tema": "Redirecionar e PRG",
     "dificuldade": "media",
     "pergunta": "Que HTML escreve o cabeçalho depois de `mensagem('erro', 'Esse livro não existe.');`?",
-    "codigo": "",
-    "linguagem": "",
+    "codigo": "// includes/inicio.php\nfunction mensagem($tipo, $texto)\n{\n    $_SESSION['msg'] = ['tipo' => $tipo, 'texto' => $texto];\n}\n\n// includes/cabecalho.php\n<?php if (isset($_SESSION['msg'])): ?>\n    <div class=\"msg <?= $_SESSION['msg']['tipo'] ?>\"><?= htmlspecialchars($_SESSION['msg']['texto']) ?></div>\n    <?php unset($_SESSION['msg']); ?>\n<?php endif; ?>",
+    "linguagem": "php",
     "alternativas": [
       "<div class=\"msg sucesso\">Esse livro não existe.</div>",
       "<div class=\"msg erro\">Esse livro não existe.</div>",

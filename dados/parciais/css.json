@@ -598,17 +598,17 @@
     "bloco": "web",
     "tema": "CSS",
     "dificuldade": "dificil",
-    "pergunta": "No cabeçalho, $_SESSION['msg']['tipo'] vale 'erro'. Como fica a caixa?",
+    "pergunta": "No cabeçalho, $_SESSION['msg']['tipo'] vale 'erro'. Que regras do estilo.css recebe a caixa?",
     "codigo": "<div class=\"msg <?= $_SESSION['msg']['tipo'] ?>\">\n    <?= htmlspecialchars($_SESSION['msg']['texto']) ?>\n</div>",
     "linguagem": "php",
     "alternativas": [
-      "Só com o fundo de .msg.erro, sem espaçamento nem borda.",
-      "Com o espaçamento e a borda de .msg e o fundo de .msg.erro.",
-      "Sem estilos, porque a classe é escrita pelo PHP.",
-      "Com o fundo de .msg.sucesso, que é a regra por omissão."
+      "Só a regra .msg.erro, por ser a mais específica.",
+      "As regras de .msg e as de .msg.erro.",
+      "Nenhuma, porque a classe é escrita pelo PHP.",
+      "As regras de .msg e as de .msg.sucesso."
     ],
     "correta": 1,
-    "explicacao": "O PHP escreve class=\"msg erro\" no HTML e o browser aplica-lhe .msg e .msg.erro. O tipo da mensagem funciona como classe CSS e dá a cor verde ou vermelha.",
+    "explicacao": "O PHP escreve class=\"msg erro\" no HTML e o browser aplica-lhe as duas regras: .msg dá o espaçamento e a borda, .msg.erro dá o fundo vermelho. Ser mais específica só decide as propriedades em conflito, não apaga as outras.",
     "manual": "9.3, Anexo A"
   },
   {
@@ -1714,8 +1714,8 @@
     "bloco": "web",
     "tema": "CSS",
     "dificuldade": "dificil",
-    "pergunta": "No telemóvel, os cartões ficam um por linha. Que regra da media query faz isso?",
-    "codigo": "/* fora da media query */\n.cartoes { display: flex; flex-wrap: wrap; gap: 16px; }\n.cartao  { flex: 1 1 260px; }",
+    "pergunta": "No telemóvel, os cartões ficam um por linha. Olhando para o CSS, que regra faz isso?",
+    "codigo": "/* fora da media query */\n.cartoes { display: flex; flex-wrap: wrap; gap: 16px; }\n.cartao  { flex: 1 1 260px; }\n\n/* a media query do fim do ficheiro */\n@media (max-width: 600px) {\n    .topo { padding: 12px 16px; }\n    .topo nav { gap: 12px; font-size: 0.95rem; }\n    .topo .ola { display: none; }\n    .pesquisa input { min-width: 0; flex: 1; }\n    .detalhe dt,\n    .detalhe dd { width: 100%; }\n}",
     "linguagem": "css",
     "alternativas": [
       "Uma regra .cartao { width: 100%; } dentro da @media (max-width: 600px).",

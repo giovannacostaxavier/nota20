@@ -1715,8 +1715,8 @@
     "tema": "RGPD",
     "dificuldade": "dificil",
     "pergunta": "A Maria apagou a conta e tenta entrar com o mesmo email e password. Que mensagem vê?",
-    "codigo": "",
-    "linguagem": "",
+    "codigo": "// login.php\nif ($utilizador && password_verify($password, $utilizador['password_hash'])) {\n    // guardar o utilizador na sessão\n    header('Location: livros.php');\n    exit;\n}\n// Mensagem igual nos dois casos: não se revela se o email existe\n$erros[] = 'Email ou password errados.';",
+    "linguagem": "php",
     "alternativas": [
       "\"A tua conta foi apagada.\"",
       "\"Já existe uma conta com esse email.\"",

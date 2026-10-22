@@ -256,9 +256,9 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "media",
-    "pergunta": "Cada página da Biblioteca define a variável $titulo antes de incluir o cabeçalho. Para que serve?",
-    "codigo": "",
-    "linguagem": "",
+    "pergunta": "Cada página da Biblioteca define a variável $titulo antes de incluir o cabeçalho. Vendo este excerto do includes/cabecalho.php, para que serve?",
+    "codigo": "<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title><?= htmlspecialchars($titulo) ?> · Biblioteca</title>\n    <link rel=\"stylesheet\" href=\"css/estilo.css\">\n</head>",
+    "linguagem": "php",
     "alternativas": [
       "Para o cabeçalho escolher qual ficheiro CSS deve ligar.",
       "Para o texto do <title>, no separador do browser, mudar em cada página.",
@@ -760,9 +760,9 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "dificil",
-    "pergunta": "Alguém tira o maxlength=\"200\" do campo do título com F12 e envia um título com 300 caracteres. O que acontece na Biblioteca?",
-    "codigo": "",
-    "linguagem": "",
+    "pergunta": "Alguém tira o maxlength=\"200\" do campo do título com F12 e envia um título com 300 caracteres. Vendo a validação no servidor (em baixo), o que acontece?",
+    "codigo": "function validar_livro($pdo, $livro)\n{\n    $erros = [];\n\n    if ($livro['titulo'] === '' || mb_strlen($livro['titulo']) > 200) {\n        $erros[] = 'O título é obrigatório e não pode ter mais de 200 caracteres.';\n    }\n    // ...\n}",
+    "linguagem": "php",
     "alternativas": [
       "O servidor recusa e mostra o erro, porque valida o tamanho outra vez.",
       "O livro é gravado com os 300 caracteres.",
@@ -832,9 +832,9 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "dificil",
-    "pergunta": "No login, o campo da password é este. Escreves uma password com 5 caracteres e envias. O que faz o validacao.js?",
-    "codigo": "<input type=\"password\" id=\"password\" name=\"password\" required>",
-    "linguagem": "html",
+    "pergunta": "No login, o campo da password é <input type=\"password\" id=\"password\" name=\"password\" required>, sem data-minimo. Escreves uma password com 5 caracteres e envias. Vendo esta parte do validacao.js, o que acontece?",
+    "codigo": "// 3. Password com pelo menos 8 caracteres (só no registo)\nconst password = document.getElementById('password');\nif (password && password.dataset.minimo && password.value !== '' && password.value.length < 8) {\n    erros.push('A password tem de ter pelo menos 8 caracteres.');\n}",
+    "linguagem": "javascript",
     "alternativas": [
       "Deixa enviar: a regra dos 8 caracteres só atua se houver data-minimo.",
       "Impede o envio, porque o required exige 8 caracteres.",
@@ -1300,9 +1300,9 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "dificil",
-    "pergunta": "O botão Apagar foi feito com este formulário. O que acontece na Biblioteca quando é enviado?",
-    "codigo": "<form method=\"get\" action=\"livro_apagar.php\">\n    <input type=\"hidden\" name=\"id_livro\" value=\"3\">\n    <button type=\"submit\">Apagar</button>\n</form>",
-    "linguagem": "html",
+    "pergunta": "O botão Apagar foi feito com <form method=\"get\" action=\"livro_apagar.php\">, com um hidden id_livro=3. O livro_apagar.php é este. O que acontece quando o formulário é enviado?",
+    "codigo": "<?php\nrequire 'includes/inicio.php';\nrequire 'includes/auth.php';\n\nif ($_SERVER['REQUEST_METHOD'] !== 'POST') {\n    header('Location: livros.php');\n    exit;\n}\n\n$stmt = $pdo->prepare('DELETE FROM livros WHERE id_livro = ?');\n$stmt->execute([(int) ($_POST['id_livro'] ?? 0)]);",
+    "linguagem": "php",
     "alternativas": [
       "Nada é apagado: o livro_apagar.php só aceita POST e volta para a lista.",
       "O livro 3 é apagado, mas o id aparece no endereço.",
@@ -1606,9 +1606,9 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "media",
-    "pergunta": "O formulário de pesquisa não tem id=\"form-principal\". O validacao.js atua sobre ele?",
-    "codigo": "<form method=\"get\" action=\"livros.php\" class=\"pesquisa\">\n    <input type=\"search\" name=\"q\">\n    <button type=\"submit\">Pesquisar</button>\n</form>",
-    "linguagem": "html",
+    "pergunta": "O formulário de pesquisa não tem id=\"form-principal\". Vendo o início do validacao.js, este atua sobre a pesquisa?",
+    "codigo": "document.addEventListener('DOMContentLoaded', function () {\n    const form = document.getElementById('form-principal');\n    if (!form) {\n        return; // esta página não tem formulário para validar\n    }\n    form.addEventListener('submit', function (event) {\n        // ... validações ...\n    });\n});",
+    "linguagem": "javascript",
     "alternativas": [
       "Não, porque o validacao.js só atua em formulários que têm o atributo novalidate.",
       "Sim: o validacao.js atua em todos os formulários da página.",
@@ -2290,17 +2290,17 @@
     "bloco": "web",
     "tema": "CSS",
     "dificuldade": "dificil",
-    "pergunta": "No cabeçalho, $_SESSION['msg']['tipo'] vale 'erro'. Como fica a caixa?",
+    "pergunta": "No cabeçalho, $_SESSION['msg']['tipo'] vale 'erro'. Que regras do estilo.css recebe a caixa?",
     "codigo": "<div class=\"msg <?= $_SESSION['msg']['tipo'] ?>\">\n    <?= htmlspecialchars($_SESSION['msg']['texto']) ?>\n</div>",
     "linguagem": "php",
     "alternativas": [
-      "Só com o fundo de .msg.erro, sem espaçamento nem borda.",
-      "Com o espaçamento e a borda de .msg e o fundo de .msg.erro.",
-      "Sem estilos, porque a classe é escrita pelo PHP.",
-      "Com o fundo de .msg.sucesso, que é a regra por omissão."
+      "Só a regra .msg.erro, por ser a mais específica.",
+      "As regras de .msg e as de .msg.erro.",
+      "Nenhuma, porque a classe é escrita pelo PHP.",
+      "As regras de .msg e as de .msg.sucesso."
     ],
     "correta": 1,
-    "explicacao": "O PHP escreve class=\"msg erro\" no HTML e o browser aplica-lhe .msg e .msg.erro. O tipo da mensagem funciona como classe CSS e dá a cor verde ou vermelha.",
+    "explicacao": "O PHP escreve class=\"msg erro\" no HTML e o browser aplica-lhe as duas regras: .msg dá o espaçamento e a borda, .msg.erro dá o fundo vermelho. Ser mais específica só decide as propriedades em conflito, não apaga as outras.",
     "manual": "9.3, Anexo A"
   },
   {
@@ -3406,8 +3406,8 @@
     "bloco": "web",
     "tema": "CSS",
     "dificuldade": "dificil",
-    "pergunta": "No telemóvel, os cartões ficam um por linha. Que regra da media query faz isso?",
-    "codigo": "/* fora da media query */\n.cartoes { display: flex; flex-wrap: wrap; gap: 16px; }\n.cartao  { flex: 1 1 260px; }",
+    "pergunta": "No telemóvel, os cartões ficam um por linha. Olhando para o CSS, que regra faz isso?",
+    "codigo": "/* fora da media query */\n.cartoes { display: flex; flex-wrap: wrap; gap: 16px; }\n.cartao  { flex: 1 1 260px; }\n\n/* a media query do fim do ficheiro */\n@media (max-width: 600px) {\n    .topo { padding: 12px 16px; }\n    .topo nav { gap: 12px; font-size: 0.95rem; }\n    .topo .ola { display: none; }\n    .pesquisa input { min-width: 0; flex: 1; }\n    .detalhe dt,\n    .detalhe dd { width: 100%; }\n}",
     "linguagem": "css",
     "alternativas": [
       "Uma regra .cartao { width: 100%; } dentro da @media (max-width: 600px).",
@@ -3658,7 +3658,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "media",
-    "pergunta": "Com o JavaScript desligado, tentas registar-te sem assinalar a caixa do consentimento. O que tem de acontecer?",
+    "pergunta": "Com o JavaScript desligado, tentas registar-te sem assinalar a caixa do consentimento. O formulário tem novalidate. O que tem de acontecer?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -6863,7 +6863,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, porque é que este INSERT falha?",
-    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nINSERT INTO livros (id_autor, titulo)\nVALUES (9, 'Livro de teste');",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- autores\n-- id_autor | nome                             | nacionalidade\n-- 1        | José Saramago                    | Portuguesa\n-- 2        | Sophia de Mello Breyner Andresen | Portuguesa\n-- 3        | Eça de Queirós                   | Portuguesa\n-- 4        | Machado de Assis                 | Brasileira\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nINSERT INTO livros (id_autor, titulo)\nVALUES (9, 'Livro de teste');",
     "linguagem": "sql",
     "alternativas": [
       "Não existe nenhum autor com id_autor = 9.",
@@ -7169,7 +7169,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
     "pergunta": "Que valor fica na coluna `nacionalidade` depois deste INSERT?",
-    "codigo": "INSERT INTO autores (nome) VALUES ('Ana');",
+    "codigo": "CREATE TABLE autores (\n    id_autor      INT AUTO_INCREMENT PRIMARY KEY,\n    nome          VARCHAR(120) NOT NULL,\n    nacionalidade VARCHAR(60)  NULL\n);\n\nINSERT INTO autores (nome) VALUES ('Ana');",
     "linguagem": "sql",
     "alternativas": [
       "O texto 'NULL' entre plicas.",
@@ -7187,7 +7187,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "O que acontece a este INSERT?",
-    "codigo": "INSERT INTO livros (id_autor, isbn)\nVALUES (1, '9780000000000');",
+    "codigo": "CREATE TABLE livros (\n    id_livro   INT AUTO_INCREMENT PRIMARY KEY,\n    id_autor   INT          NOT NULL,\n    titulo     VARCHAR(200) NOT NULL,\n    isbn       VARCHAR(13)  NULL UNIQUE,\n    ano_edicao SMALLINT     NULL,\n    sinopse    TEXT         NULL,\n    ...\n);\n\nINSERT INTO livros (id_autor, isbn)\nVALUES (1, '9780000000000');",
     "linguagem": "sql",
     "alternativas": [
       "É aceite, com o titulo vazio ('').",
@@ -7222,9 +7222,9 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
-    "pergunta": "A tua base de dados `biblioteca` já tem livros que inseriste à mão. O que acontece se voltares a importar o base_dados.sql?",
-    "codigo": "",
-    "linguagem": "",
+    "pergunta": "A tua base de dados biblioteca já tem livros que inseriste à mão. O base_dados.sql começa assim. O que acontece se o voltares a importar?",
+    "codigo": "DROP DATABASE IF EXISTS biblioteca;\nCREATE DATABASE biblioteca CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\nUSE biblioteca;",
+    "linguagem": "sql",
     "alternativas": [
       "Perdem-se: o DROP DATABASE apaga tudo antes de criar de novo.",
       "Os dados de exemplo juntam-se aos livros que já lá estavam.",
@@ -7511,10 +7511,10 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Pesquisas \"do\" na lista de livros. Quantos cartões aparecem?",
-    "codigo": "SELECT titulo FROM livros\nWHERE titulo LIKE '%do%';",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nSELECT titulo FROM livros\nWHERE titulo LIKE '%do%';",
     "linguagem": "sql",
     "alternativas": [
-      "Nenhuma",
+      "Nenhum",
       "1",
       "2",
       "3"
@@ -7529,7 +7529,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Pesquisas \"ca\" na lista de livros. Que títulos aparecem?",
-    "codigo": "SELECT titulo FROM livros\nWHERE titulo LIKE '%ca%';",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nSELECT titulo FROM livros\nWHERE titulo LIKE '%ca%';",
     "linguagem": "sql",
     "alternativas": [
       "O Cavaleiro da Dinamarca e Dom Casmurro",
@@ -8014,8 +8014,8 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
-    "pergunta": "Quantos livros de autores portugueses lista esta consulta?",
-    "codigo": "SELECT l.titulo, a.nome\nFROM livros l\nJOIN autores a ON l.id_autor = a.id_autor\nWHERE a.nacionalidade = 'Portuguesa';",
+    "pergunta": "Com os dados de exemplo, quantos livros de autores portugueses lista esta consulta?",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- autores\n-- id_autor | nome                             | nacionalidade\n-- 1        | José Saramago                    | Portuguesa\n-- 2        | Sophia de Mello Breyner Andresen | Portuguesa\n-- 3        | Eça de Queirós                   | Portuguesa\n-- 4        | Machado de Assis                 | Brasileira\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nSELECT l.titulo, a.nome\nFROM livros l\nJOIN autores a ON l.id_autor = a.id_autor\nWHERE a.nacionalidade = 'Portuguesa';",
     "linguagem": "sql",
     "alternativas": [
       "3",
@@ -8141,7 +8141,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, o que acontece a este INSERT?",
-    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nINSERT INTO livros (titulo, id_autor, isbn)\nVALUES ('Os Maias', 3, '9789722036597');",
+    "codigo": "-- Na tabela livros (base_dados.sql):\n--   titulo VARCHAR(200) NOT NULL\n--   isbn   VARCHAR(13)  NULL UNIQUE\n\n-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nINSERT INTO livros (titulo, id_autor, isbn)\nVALUES ('Os Maias', 3, '9789722036597');",
     "linguagem": "sql",
     "alternativas": [
       "Substitui o \"Os Maias\" que já estava na tabela.",
@@ -8159,7 +8159,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, o que acontece a este INSERT?",
-    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nINSERT INTO livros (titulo, id_autor)\nVALUES ('Os Maias', 3);",
+    "codigo": "-- Na tabela livros (base_dados.sql):\n--   titulo VARCHAR(200) NOT NULL\n--   isbn   VARCHAR(13)  NULL UNIQUE\n\n-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nINSERT INTO livros (titulo, id_autor)\nVALUES ('Os Maias', 3);",
     "linguagem": "sql",
     "alternativas": [
       "É recusado: já existe um livro com esse título.",
@@ -8321,7 +8321,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, o que acontece a esta instrução?",
-    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nUPDATE livros SET isbn = '9789722036597'\nWHERE id_livro = 6;",
+    "codigo": "-- Na tabela livros (base_dados.sql):\n--   titulo VARCHAR(200) NOT NULL\n--   isbn   VARCHAR(13)  NULL UNIQUE\n\n-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nUPDATE livros SET isbn = '9789722036597'\nWHERE id_livro = 6;",
     "linguagem": "sql",
     "alternativas": [
       "É recusada porque o ISBN não se pode alterar depois de criado.",
@@ -8752,7 +8752,7 @@
     "bloco": "dados",
     "tema": "Segurança",
     "dificuldade": "media",
-    "pergunta": "No phpMyAdmin, a tabela utilizadores tem a coluna password com valores como Demo1234. Que medida falha e com que consequência?",
+    "pergunta": "O manual avisa: \"Sem as passwords com hash ou sem as consultas preparadas, o projeto não passa dos 49 pontos.\" No phpMyAdmin, a tabela utilizadores tem a coluna password com valores como Demo1234. Que medida falha e com que consequência?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -10535,8 +10535,8 @@
     "tema": "RGPD",
     "dificuldade": "dificil",
     "pergunta": "A Maria apagou a conta e tenta entrar com o mesmo email e password. Que mensagem vê?",
-    "codigo": "",
-    "linguagem": "",
+    "codigo": "// login.php\nif ($utilizador && password_verify($password, $utilizador['password_hash'])) {\n    // guardar o utilizador na sessão\n    header('Location: livros.php');\n    exit;\n}\n// Mensagem igual nos dois casos: não se revela se o email existe\n$erros[] = 'Email ou password errados.';",
+    "linguagem": "php",
     "alternativas": [
       "\"A tua conta foi apagada.\"",
       "\"Já existe uma conta com esse email.\"",
@@ -10985,7 +10985,7 @@
     "tema": "PHP essencial",
     "dificuldade": "dificil",
     "pergunta": "Ao gravar um livro aparece \"Cannot modify header information - headers already sent\". O config/db.php acaba assim, com uma linha em branco no fim. Qual é a solução indicada no manual?",
-    "codigo": "$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\n?>\n",
+    "codigo": "$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\n?>\n\n",
     "linguagem": "php",
     "alternativas": [
       "Tirar o ?> do fim, porque o ficheiro só tem PHP.",
@@ -12910,17 +12910,17 @@
     "bloco": "php",
     "tema": "PDO",
     "dificuldade": "dificil",
-    "pergunta": "Apagaste do db.php a linha do setAttribute(...ERRMODE_EXCEPTION) e há um nome de coluna mal escrito num SELECT. Segundo o manual, o que acontece?",
+    "pergunta": "Antes do PHP 8, o PDO vinha em modo silencioso por omissão. Nessa versão, sem a linha do setAttribute(...ERRMODE_EXCEPTION), o que acontecia a um SELECT com um nome de coluna mal escrito?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Falha em silêncio e ficas sem saber porquê.",
-      "O PHP corrige sozinho o nome da coluna.",
-      "A página responde sempre com o código 404.",
-      "A ligação nem chega a abrir e aparece o erro 2002."
+      "Falhava em silêncio e ficavas sem saber porquê.",
+      "O PHP corrigia sozinho o nome da coluna.",
+      "A página respondia sempre com o código 404.",
+      "A ligação nem chegava a abrir e aparecia o erro 2002."
     ],
     "correta": 0,
-    "explicacao": "O manual explica que, sem ERRMODE_EXCEPTION, uma consulta errada falha em silêncio. Com ele, o PDO lança uma exceção e vês logo o erro (por exemplo, 42S22 Unknown column).",
+    "explicacao": "Sem ERRMODE_EXCEPTION, uma consulta errada falhava em silêncio. Com ele, o PDO lança uma exceção e vês logo o erro (por exemplo, 42S22 Unknown column). Desde o PHP 8 este já é o modo por omissão, mas o db.php escreve-o na mesma, para ficar explícito.",
     "manual": "8.1"
   },
   {
@@ -13133,10 +13133,10 @@
       "DELETE FROM animais WHERE id_animal = '?'",
       "DELETE FROM animais WHERE id_animal = ?",
       "DELETE * FROM animais WHERE id_animal = ?",
-      "DELETE FROM animais WHERE ? = id_animal"
+      "DELETE animais WHERE id_animal = ?"
     ],
     "correta": 1,
-    "explicacao": "O DELETE usa WHERE com a chave primária e um ? no lugar do valor, sem plicas. DELETE * não é SQL válido no MySQL e '?' seria um texto, não um parâmetro.",
+    "explicacao": "O DELETE usa FROM, um WHERE com a chave primária e um ? no lugar do valor, sem plicas. DELETE * e DELETE sem FROM não são SQL válido no MySQL, e '?' seria um texto, não um parâmetro.",
     "manual": "3.7, 13.4"
   },
   {
@@ -13541,7 +13541,7 @@
     "tema": "PDO",
     "dificuldade": "dificil",
     "pergunta": "Alguém abre `livro_ver.php?id=abc`. O que acontece?",
-    "codigo": "$id = (int) ($_GET['id'] ?? 0);\n$stmt = $pdo->prepare('SELECT * FROM livros WHERE id_livro = ?');\n$stmt->execute([$id]);\n$livro = $stmt->fetch(PDO::FETCH_ASSOC);",
+    "codigo": "$id = (int) ($_GET['id'] ?? 0);\n$stmt = $pdo->prepare('SELECT * FROM livros WHERE id_livro = ?');\n$stmt->execute([$id]);\n$livro = $stmt->fetch(PDO::FETCH_ASSOC);\n\nif (!$livro) {\n    http_response_code(404);\n    // ... mostra \"Livro não encontrado\" e sai\n}",
     "linguagem": "php",
     "alternativas": [
       "O SQL procura o texto abc no título e devolve todos os livros.",
@@ -13954,9 +13954,9 @@
     "bloco": "php",
     "tema": "PDO",
     "dificuldade": "media",
-    "pergunta": "Quem garante que um autor com livros não é apagado?",
-    "codigo": "",
-    "linguagem": "",
+    "pergunta": "Vê a tabela livros e o autor_apagar.php. Quem garante que um autor com livros não é apagado?",
+    "codigo": "-- tabela livros\nCONSTRAINT fk_livros_autores\n    FOREIGN KEY (id_autor) REFERENCES autores (id_autor)\n    ON DELETE RESTRICT\n\n// autor_apagar.php\ntry {\n    $stmt = $pdo->prepare('DELETE FROM autores WHERE id_autor = ?');\n    $stmt->execute([(int) ($_POST['id_autor'] ?? 0)]);\n    mensagem('sucesso', 'Autor apagado.');\n} catch (PDOException $e) {\n    mensagem('erro', 'Não é possível apagar este autor, porque tem livros registados.');\n}",
+    "linguagem": "php",
     "alternativas": [
       "Um if no autor_apagar.php que conta antes os livros desse autor.",
       "O JavaScript, com o confirm() antes de apagar.",
@@ -14063,7 +14063,7 @@
     "tema": "PDO",
     "dificuldade": "dificil",
     "pergunta": "O formulário foi alterado e envia `id_autor=abc`. O que acontece?",
-    "codigo": "'id_autor' => (int) ($_POST['id_autor'] ?? 0),",
+    "codigo": "// ler_livro()\n'id_autor' => (int) ($_POST['id_autor'] ?? 0),\n\n// validar_livro()\n$stmt = $pdo->prepare('SELECT COUNT(*) FROM autores WHERE id_autor = ?');\n$stmt->execute([$livro['id_autor']]);\nif ($stmt->fetchColumn() == 0) {\n    $erros[] = 'Escolhe um autor da lista.';\n}",
     "linguagem": "php",
     "alternativas": [
       "O SQL recebe o texto abc e devolve todos os autores da tabela.",
@@ -14873,8 +14873,8 @@
     "tema": "Redirecionar e PRG",
     "dificuldade": "media",
     "pergunta": "Que HTML escreve o cabeçalho depois de `mensagem('erro', 'Esse livro não existe.');`?",
-    "codigo": "",
-    "linguagem": "",
+    "codigo": "// includes/inicio.php\nfunction mensagem($tipo, $texto)\n{\n    $_SESSION['msg'] = ['tipo' => $tipo, 'texto' => $texto];\n}\n\n// includes/cabecalho.php\n<?php if (isset($_SESSION['msg'])): ?>\n    <div class=\"msg <?= $_SESSION['msg']['tipo'] ?>\"><?= htmlspecialchars($_SESSION['msg']['texto']) ?></div>\n    <?php unset($_SESSION['msg']); ?>\n<?php endif; ?>",
+    "linguagem": "php",
     "alternativas": [
       "<div class=\"msg sucesso\">Esse livro não existe.</div>",
       "<div class=\"msg erro\">Esse livro não existe.</div>",
@@ -16106,7 +16106,7 @@
       "session_close()"
     ],
     "correta": 0,
-    "explicacao": "session_destroy() destrói a sessão. session_end(), session_close() e session_delete() não existem em PHP.",
+    "explicacao": "session_destroy() destrói a sessão. session_terminate(), session_end() e session_close() não existem em PHP.",
     "manual": "10.5, Anexo B"
   },
   {

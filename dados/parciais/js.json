@@ -148,7 +148,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "media",
-    "pergunta": "Com o JavaScript desligado, tentas registar-te sem assinalar a caixa do consentimento. O que tem de acontecer?",
+    "pergunta": "Com o JavaScript desligado, tentas registar-te sem assinalar a caixa do consentimento. O formulário tem novalidate. O que tem de acontecer?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [

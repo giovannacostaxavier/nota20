@@ -689,7 +689,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, porque é que este INSERT falha?",
-    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nINSERT INTO livros (id_autor, titulo)\nVALUES (9, 'Livro de teste');",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- autores\n-- id_autor | nome                             | nacionalidade\n-- 1        | José Saramago                    | Portuguesa\n-- 2        | Sophia de Mello Breyner Andresen | Portuguesa\n-- 3        | Eça de Queirós                   | Portuguesa\n-- 4        | Machado de Assis                 | Brasileira\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nINSERT INTO livros (id_autor, titulo)\nVALUES (9, 'Livro de teste');",
     "linguagem": "sql",
     "alternativas": [
       "Não existe nenhum autor com id_autor = 9.",
@@ -995,7 +995,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
     "pergunta": "Que valor fica na coluna `nacionalidade` depois deste INSERT?",
-    "codigo": "INSERT INTO autores (nome) VALUES ('Ana');",
+    "codigo": "CREATE TABLE autores (\n    id_autor      INT AUTO_INCREMENT PRIMARY KEY,\n    nome          VARCHAR(120) NOT NULL,\n    nacionalidade VARCHAR(60)  NULL\n);\n\nINSERT INTO autores (nome) VALUES ('Ana');",
     "linguagem": "sql",
     "alternativas": [
       "O texto 'NULL' entre plicas.",
@@ -1013,7 +1013,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "O que acontece a este INSERT?",
-    "codigo": "INSERT INTO livros (id_autor, isbn)\nVALUES (1, '9780000000000');",
+    "codigo": "CREATE TABLE livros (\n    id_livro   INT AUTO_INCREMENT PRIMARY KEY,\n    id_autor   INT          NOT NULL,\n    titulo     VARCHAR(200) NOT NULL,\n    isbn       VARCHAR(13)  NULL UNIQUE,\n    ano_edicao SMALLINT     NULL,\n    sinopse    TEXT         NULL,\n    ...\n);\n\nINSERT INTO livros (id_autor, isbn)\nVALUES (1, '9780000000000');",
     "linguagem": "sql",
     "alternativas": [
       "É aceite, com o titulo vazio ('').",
@@ -1048,9 +1048,9 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
-    "pergunta": "A tua base de dados `biblioteca` já tem livros que inseriste à mão. O que acontece se voltares a importar o base_dados.sql?",
-    "codigo": "",
-    "linguagem": "",
+    "pergunta": "A tua base de dados biblioteca já tem livros que inseriste à mão. O base_dados.sql começa assim. O que acontece se o voltares a importar?",
+    "codigo": "DROP DATABASE IF EXISTS biblioteca;\nCREATE DATABASE biblioteca CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\nUSE biblioteca;",
+    "linguagem": "sql",
     "alternativas": [
       "Perdem-se: o DROP DATABASE apaga tudo antes de criar de novo.",
       "Os dados de exemplo juntam-se aos livros que já lá estavam.",
@@ -1337,10 +1337,10 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Pesquisas \"do\" na lista de livros. Quantos cartões aparecem?",
-    "codigo": "SELECT titulo FROM livros\nWHERE titulo LIKE '%do%';",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nSELECT titulo FROM livros\nWHERE titulo LIKE '%do%';",
     "linguagem": "sql",
     "alternativas": [
-      "Nenhuma",
+      "Nenhum",
       "1",
       "2",
       "3"
@@ -1355,7 +1355,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Pesquisas \"ca\" na lista de livros. Que títulos aparecem?",
-    "codigo": "SELECT titulo FROM livros\nWHERE titulo LIKE '%ca%';",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nSELECT titulo FROM livros\nWHERE titulo LIKE '%ca%';",
     "linguagem": "sql",
     "alternativas": [
       "O Cavaleiro da Dinamarca e Dom Casmurro",
@@ -1840,8 +1840,8 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
-    "pergunta": "Quantos livros de autores portugueses lista esta consulta?",
-    "codigo": "SELECT l.titulo, a.nome\nFROM livros l\nJOIN autores a ON l.id_autor = a.id_autor\nWHERE a.nacionalidade = 'Portuguesa';",
+    "pergunta": "Com os dados de exemplo, quantos livros de autores portugueses lista esta consulta?",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- autores\n-- id_autor | nome                             | nacionalidade\n-- 1        | José Saramago                    | Portuguesa\n-- 2        | Sophia de Mello Breyner Andresen | Portuguesa\n-- 3        | Eça de Queirós                   | Portuguesa\n-- 4        | Machado de Assis                 | Brasileira\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nSELECT l.titulo, a.nome\nFROM livros l\nJOIN autores a ON l.id_autor = a.id_autor\nWHERE a.nacionalidade = 'Portuguesa';",
     "linguagem": "sql",
     "alternativas": [
       "3",
@@ -1967,7 +1967,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, o que acontece a este INSERT?",
-    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nINSERT INTO livros (titulo, id_autor, isbn)\nVALUES ('Os Maias', 3, '9789722036597');",
+    "codigo": "-- Na tabela livros (base_dados.sql):\n--   titulo VARCHAR(200) NOT NULL\n--   isbn   VARCHAR(13)  NULL UNIQUE\n\n-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nINSERT INTO livros (titulo, id_autor, isbn)\nVALUES ('Os Maias', 3, '9789722036597');",
     "linguagem": "sql",
     "alternativas": [
       "Substitui o \"Os Maias\" que já estava na tabela.",
@@ -1985,7 +1985,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, o que acontece a este INSERT?",
-    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nINSERT INTO livros (titulo, id_autor)\nVALUES ('Os Maias', 3);",
+    "codigo": "-- Na tabela livros (base_dados.sql):\n--   titulo VARCHAR(200) NOT NULL\n--   isbn   VARCHAR(13)  NULL UNIQUE\n\n-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nINSERT INTO livros (titulo, id_autor)\nVALUES ('Os Maias', 3);",
     "linguagem": "sql",
     "alternativas": [
       "É recusado: já existe um livro com esse título.",
@@ -2147,7 +2147,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, o que acontece a esta instrução?",
-    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nUPDATE livros SET isbn = '9789722036597'\nWHERE id_livro = 6;",
+    "codigo": "-- Na tabela livros (base_dados.sql):\n--   titulo VARCHAR(200) NOT NULL\n--   isbn   VARCHAR(13)  NULL UNIQUE\n\n-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nUPDATE livros SET isbn = '9789722036597'\nWHERE id_livro = 6;",
     "linguagem": "sql",
     "alternativas": [
       "É recusada porque o ISBN não se pode alterar depois de criado.",

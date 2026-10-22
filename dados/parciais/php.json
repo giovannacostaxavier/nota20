@@ -293,7 +293,7 @@
     "tema": "PHP essencial",
     "dificuldade": "dificil",
     "pergunta": "Ao gravar um livro aparece \"Cannot modify header information - headers already sent\". O config/db.php acaba assim, com uma linha em branco no fim. Qual é a solução indicada no manual?",
-    "codigo": "$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\n?>\n",
+    "codigo": "$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\n?>\n\n",
     "linguagem": "php",
     "alternativas": [
       "Tirar o ?> do fim, porque o ficheiro só tem PHP.",

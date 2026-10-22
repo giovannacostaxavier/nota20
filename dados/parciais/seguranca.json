@@ -40,7 +40,7 @@
     "bloco": "dados",
     "tema": "Segurança",
     "dificuldade": "media",
-    "pergunta": "No phpMyAdmin, a tabela utilizadores tem a coluna password com valores como Demo1234. Que medida falha e com que consequência?",
+    "pergunta": "O manual avisa: \"Sem as passwords com hash ou sem as consultas preparadas, o projeto não passa dos 49 pontos.\" No phpMyAdmin, a tabela utilizadores tem a coluna password com valores como Demo1234. Que medida falha e com que consequência?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
