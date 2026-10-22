@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nota20 · Simulados UC00615</title>
+    <meta name="description" content="Simulados do teste UC00615 (Stack A · PHP): teste geral de 45 perguntas ou por bloco, com correção, explicações e progresso guardado no teu browser.">
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+    <script>
+        // Aplica o tema guardado antes de desenhar a página (evita o "piscar")
+        try {
+            const t = localStorage.getItem('nota20_tema');
+            if (t) document.documentElement.dataset.theme = t;
+        } catch (e) {}
+    </script>
+</head>
+<body>
+    <a class="skip" href="#app">Saltar para o conteúdo</a>
+
+    <header class="topo">
+        <div class="topo-dentro">
+            <a href="#/" class="logo" aria-label="Nota20, início">
+                <span class="logo-marca" aria-hidden="true">20</span>
+                <span class="logo-texto">Nota<b>20</b></span>
+            </a>
+            <nav class="menu" aria-label="Navegação principal">
+                <a href="#/" data-rota="inicio">Início</a>
+                <a href="#/progresso" data-rota="progresso">Progresso</a>
+                <a href="#/sobre" data-rota="sobre">Como funciona</a>
+            </nav>
+            <button class="botao-icone" id="alternar-tema" type="button" aria-label="Mudar entre tema claro e escuro" title="Tema claro/escuro">
+                <svg class="icone-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+                <svg class="icone-lua" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <main id="app" tabindex="-1">
+        <div class="carregar" role="status">
+            <div class="spinner" aria-hidden="true"></div>
+            <p>A preparar os simulados…</p>
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <p><b>Nota20</b> · Simulados para o teste UC00615 · Stack A (PHP)</p>
+        <p class="rodape-nota">Perguntas baseadas no manual do formador. O teu progresso fica guardado só neste browser.</p>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <noscript><div class="cartao erro-js">Ativa o JavaScript para usar os simulados.</div></noscript>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" defer></script>
+    <script src="js/banco.js" defer></script>
+    <script src="js/armazenamento.js" defer></script>
+    <script src="js/sorteio.js" defer></script>
+    <script src="js/app.js" defer></script>
+</body>
+</html>

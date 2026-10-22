@@ -1,0 +1,1802 @@
+[
+  {
+    "id": "css-001",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Que linha liga uma folha de estilos externa à página?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "<link rel=\"stylesheet\" href=\"css/estilo.css\">",
+      "<style src=\"css/estilo.css\"></style>",
+      "<script href=\"css/estilo.css\"></script>",
+      "<css rel=\"stylesheet\" src=\"css/estilo.css\">"
+    ],
+    "correta": 0,
+    "explicacao": "Uma folha externa liga-se com <link rel=\"stylesheet\" href=\"...\">. O <style> não tem atributo src e o <script> serve para JavaScript.",
+    "manual": "5.1"
+  },
+  {
+    "id": "css-002",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Em que parte da página se põe o <link> da folha de estilos?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "No fim do <body>, junto ao <script>.",
+      "Dentro do <footer>, no rodapé.",
+      "Dentro do <head>, antes do <body>.",
+      "Depois de </html>, no fim do ficheiro."
+    ],
+    "correta": 2,
+    "explicacao": "O <link> vai no <head>: na Biblioteca está no cabecalho.php, a seguir ao <title>. Quem fica no fim do <body> é o <script> do JavaScript.",
+    "manual": "4.1, 5.1"
+  },
+  {
+    "id": "css-003",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Queres mudar a cor de todos os botões da Biblioteca, em todas as páginas. O que tens de alterar?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O atributo style de cada botão, página a página.",
+      "O cabecalho.php e o rodape.php, onde estão os botões.",
+      "Um bloco <style> no topo de cada ficheiro .php.",
+      "Só a regra dos botões no css/estilo.css."
+    ],
+    "correta": 3,
+    "explicacao": "Todas as páginas ligam o mesmo ficheiro externo, por isso o aspeto do site inteiro muda num só sítio. É uma das duas vantagens de ter o CSS fora das páginas.",
+    "manual": "5.1"
+  },
+  {
+    "id": "css-004",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Porque é que, com o CSS num ficheiro externo, as páginas seguintes carregam mais depressa?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O browser guarda o ficheiro em cache e reutiliza-o.",
+      "O servidor envia o CSS já misturado no HTML.",
+      "O PHP aplica os estilos antes de enviar a página.",
+      "O ficheiro externo só é lido quando se carrega em F5."
+    ],
+    "correta": 0,
+    "explicacao": "O browser descarrega o estilo.css uma vez e guarda-o em cache; nas páginas seguintes já o tem. O CSS é sempre aplicado no browser, nunca pelo PHP.",
+    "manual": "5.1"
+  },
+  {
+    "id": "css-005",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve o atributo rel=\"stylesheet\" no <link>?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Indica o caminho do ficheiro .css a carregar.",
+      "Diz ao browser que o ficheiro ligado é uma folha de estilos.",
+      "Faz com que os estilos só se apliquem a esta página.",
+      "Dá às regras do ficheiro prioridade sobre as outras."
+    ],
+    "correta": 1,
+    "explicacao": "O rel diz que tipo de relação tem o ficheiro com a página (aqui, folha de estilos). O caminho vai no href.",
+    "manual": "5.1"
+  },
+  {
+    "id": "css-006",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "O ficheiro está em css/estilo.css e a página livros.php está na pasta principal do projeto. O cabeçalho tem esta linha e a página aparece sem estilos. Qual é o problema?",
+    "codigo": "<link rel=\"stylesheet\" href=\"estilo.css\">",
+    "linguagem": "html",
+    "alternativas": [
+      "O href devia ser css/estilo.css.",
+      "Falta o atributo type=\"text/css\" no <link>.",
+      "O <link> só funciona se estiver dentro do <body>.",
+      "O rel devia ser \"style\" e não \"stylesheet\"."
+    ],
+    "correta": 0,
+    "explicacao": "O href é um caminho para o ficheiro: sem css/ o browser procura estilo.css ao lado da página e não o encontra. Na Biblioteca é href=\"css/estilo.css\".",
+    "manual": "5.1, 2.5"
+  },
+  {
+    "id": "css-007",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Onde corre o CSS de uma aplicação como a Biblioteca?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "No servidor Apache, antes de enviar a página.",
+      "No MySQL, junto com os dados.",
+      "No browser do utilizador.",
+      "No PHP, dentro do cabecalho.php."
+    ],
+    "correta": 2,
+    "explicacao": "HTML, CSS e JavaScript correm no browser. O PHP corre no servidor e só envia o texto do HTML, onde está o <link> para o CSS.",
+    "manual": "1.4"
+  },
+  {
+    "id": "css-008",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Qual é o erro neste <head>?",
+    "codigo": "<head>\n    <meta charset=\"UTF-8\">\n    <title>Livros</title>\n    <style src=\"css/estilo.css\"></style>\n</head>",
+    "linguagem": "html",
+    "alternativas": [
+      "O <style> tem de ficar dentro do <body> para ser aplicado.",
+      "Para ligar um ficheiro usa-se <link>, não <style src>.",
+      "Falta o atributo rel=\"stylesheet\" dentro do <style>.",
+      "O caminho do ficheiro tem de começar por http://localhost."
+    ],
+    "correta": 1,
+    "explicacao": "Não existe <style src>. Uma folha externa liga-se sempre com <link rel=\"stylesheet\" href=\"css/estilo.css\">.",
+    "manual": "5.1"
+  },
+  {
+    "id": "css-009",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Um colega copiou o mesmo CSS para um bloco <style> em cada página. Que desvantagem tem isto em relação ao estilo.css?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "As regras dentro de <style> só se aplicam ao primeiro elemento.",
+      "O <style> só funciona quando o JavaScript está ligado.",
+      "O PHP deixa de conseguir incluir o cabeçalho.",
+      "Cada mudança de aspeto obriga a alterar todas as páginas."
+    ],
+    "correta": 3,
+    "explicacao": "Com os estilos espalhados pelas páginas perde-se a grande vantagem do ficheiro externo: mudar o aspeto num só sítio (e o browser guardá-lo em cache).",
+    "manual": "5.1"
+  },
+  {
+    "id": "css-010",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Que linha do <head> faz a página adaptar-se à largura do telemóvel?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "<meta charset=\"UTF-8\">",
+      "<meta name=\"viewport\" ...>",
+      "<link rel=\"stylesheet\" media=\"mobile\">",
+      "<html lang=\"pt\">"
+    ],
+    "correta": 1,
+    "explicacao": "A meta viewport faz a página usar a largura real do ecrã do telemóvel. O charset trata dos acentos e o lang indica a língua.",
+    "manual": "4.1, 5.5"
+  },
+  {
+    "id": "css-011",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Numa regra de CSS, o que é o seletor?",
+    "codigo": ".cartao {\n    padding: 18px;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "O nome que aparece antes dos dois pontos, dentro das chavetas.",
+      "A parte antes das chavetas, que diz a que elementos a regra se aplica.",
+      "O valor que aparece depois dos dois pontos.",
+      "O bloco entre as chavetas, com as propriedades."
+    ],
+    "correta": 1,
+    "explicacao": "Cada regra tem um seletor (aqui .cartao) e um bloco de propriedades entre chavetas, cada uma com propriedade: valor;.",
+    "manual": "5.2"
+  },
+  {
+    "id": "css-012",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Qual destas regras está escrita corretamente?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      ".btn ( color = #ffffff; )",
+      ".btn { color = #ffffff, }",
+      ".btn { color: #ffffff; }",
+      ".btn [ color: #ffffff ]"
+    ],
+    "correta": 2,
+    "explicacao": "O bloco vai entre chavetas e cada declaração é propriedade: valor; (dois pontos e ponto e vírgula).",
+    "manual": "5.2"
+  },
+  {
+    "id": "css-013",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Como se escreve um comentário numa folha de estilos?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "// Botões",
+      "<!-- Botões -->",
+      "/* Botões */",
+      "# Botões"
+    ],
+    "correta": 2,
+    "explicacao": "Em CSS os comentários ficam entre /* e */, como os que dividem o estilo.css em partes numeradas. // é de JavaScript e <!-- --> de HTML.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-014",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "Esta regra tem um ponto e vírgula em falta. O que acontece ao cartão?",
+    "codigo": ".cartao {\n    background: #ffffff\n    border-radius: 8px;\n    padding: 18px;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Toda a regra é ignorada, incluindo o padding.",
+      "O fundo e os cantos não se aplicam, mas o padding sim.",
+      "Funciona tudo, porque o ponto e vírgula é opcional.",
+      "A página deixa de abrir e aparece um erro no browser."
+    ],
+    "correta": 1,
+    "explicacao": "Sem o ;, o browser lê \"#ffffff border-radius: 8px\" como um único valor inválido e ignora essa declaração. O CSS não dá erro: continua na declaração seguinte.",
+    "manual": "5.2"
+  },
+  {
+    "id": "css-015",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "A que elementos se aplica o seletor p?",
+    "codigo": "p {\n    color: red;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Ao elemento com id=\"p\".",
+      "A todos os parágrafos da página.",
+      "Aos elementos com class=\"p\".",
+      "Só ao primeiro parágrafo da página."
+    ],
+    "correta": 1,
+    "explicacao": "Um seletor de elemento, sem ponto nem cardinal, aplica-se a todos os elementos com esse nome.",
+    "manual": "5.2"
+  },
+  {
+    "id": "css-016",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Que seletor escolhe todos os elementos com class=\"btn\"?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "#btn",
+      "btn",
+      "*btn",
+      ".btn"
+    ],
+    "correta": 3,
+    "explicacao": "O ponto indica uma classe. # é para id e btn sozinho procuraria elementos <btn>, que não existem.",
+    "manual": "5.2"
+  },
+  {
+    "id": "css-017",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Que seletor escolhe o elemento com id=\"erros-js\"?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      ".erros-js",
+      "erros-js",
+      "#erros-js",
+      "@erros-js"
+    ],
+    "correta": 2,
+    "explicacao": "O cardinal (#) seleciona pelo id; o ponto seleciona pela classe.",
+    "manual": "5.2"
+  },
+  {
+    "id": "css-018",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Qual é a diferença entre um id e uma classe?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A classe é de um único elemento; o id pode repetir-se.",
+      "O id só serve para o CSS e a classe só para o JavaScript.",
+      "O id é de um único elemento na página; a classe pode repetir-se.",
+      "Não há diferença: # e . são duas formas de escrever o mesmo."
+    ],
+    "correta": 2,
+    "explicacao": "Só existe um elemento com cada id em cada página (como diz o comentário do estilo.css). Uma classe, como btn, pode estar em muitos elementos.",
+    "manual": "5.2, Anexo A"
+  },
+  {
+    "id": "css-019",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Na Biblioteca, um <a href=\"livros.php\" class=\"btn\"> parece um botão verde, tal como os <button>. Porquê?",
+    "codigo": ".btn,\nbutton {\n    background: #00713c;\n    color: #ffffff;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "A regra aplica-se a qualquer elemento com a classe btn, seja <a> ou não.",
+      "O browser converte os <a> com classe em <button>.",
+      "O seletor button também se aplica aos links que estão dentro de um formulário.",
+      "Os links herdam sempre o aspeto dos botões da página."
+    ],
+    "correta": 0,
+    "explicacao": "Um seletor de classe não olha para o nome do elemento: qualquer elemento com class=\"btn\" recebe a regra. O button aplica-se só aos <button>.",
+    "manual": "5.2"
+  },
+  {
+    "id": "css-020",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Tens <div id=\"total\" class=\"caixa\">. Qual destes seletores NÃO apanha este elemento?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "#total",
+      ".caixa",
+      "div",
+      ".total"
+    ],
+    "correta": 3,
+    "explicacao": "total é o id, por isso seleciona-se com #total. .total procuraria um elemento com class=\"total\".",
+    "manual": "5.2"
+  },
+  {
+    "id": "css-021",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "Que efeito tem esta combinação de CSS e JavaScript na caixa <div id=\"erros-js\">?",
+    "codigo": "/* estilo.css */\n#erros-js {\n    display: none;\n}\n\n// validacao.js, quando há erros\ncaixa.style.display = 'block';",
+    "linguagem": "css",
+    "alternativas": [
+      "Nunca aparece, porque o estilo.css ganha ao JavaScript.",
+      "Aparece sempre, porque o display: none só vale no telemóvel.",
+      "Começa escondida e só aparece quando o JavaScript encontra erros.",
+      "Aparece sempre, porque o JavaScript corre antes do CSS."
+    ],
+    "correta": 2,
+    "explicacao": "O estilo.css esconde a caixa ao carregar a página. Quando há erros, o validacao.js muda o estilo do próprio elemento para display: block e a caixa aparece.",
+    "manual": "6.2, Anexo A"
+  },
+  {
+    "id": "css-022",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "A que elementos se aplica o seletor .topo nav a?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Aos elementos que são ao mesmo tempo .topo, <nav> e <a>.",
+      "Aos <a> dentro de um <nav> dentro de um .topo.",
+      "A todos os elementos .topo, a todos os <nav> e a todos os <a>.",
+      "Ao primeiro <a> que aparece a seguir a um <nav>."
+    ],
+    "correta": 1,
+    "explicacao": "Os espaços indicam descendência: lê-se da direita para a esquerda, \"os a dentro de nav dentro de .topo\". Para aplicar a vários seletores usa-se a vírgula.",
+    "manual": "5.2"
+  },
+  {
+    "id": "css-023",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "Com esta regra, que parágrafo fica cinzento?",
+    "codigo": "/* CSS */\n.cartao .meta { color: #6b7780; }\n\n<!-- HTML -->\n<p class=\"meta\">A</p>\n<article class=\"cartao\">\n    <p class=\"meta\">B</p>\n</article>",
+    "linguagem": "css",
+    "alternativas": [
+      "Só o A.",
+      "O A e o B.",
+      "Nenhum dos dois.",
+      "Só o B."
+    ],
+    "correta": 3,
+    "explicacao": "O espaço em .cartao .meta quer dizer \"um .meta dentro de um .cartao\". O A está fora de qualquer cartão, por isso a regra não se lhe aplica.",
+    "manual": "5.2"
+  },
+  {
+    "id": "css-024",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Qual é a diferença entre .formulario input e .formulario, input?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O primeiro apanha .formulario e todos os input; o segundo só os input dentro de .formulario.",
+      "O primeiro só apanha os input dentro de .formulario; o segundo apanha .formulario e todos os input.",
+      "São iguais: o espaço e a vírgula têm o mesmo significado.",
+      "O primeiro dá erro, porque falta a vírgula entre os dois seletores."
+    ],
+    "correta": 1,
+    "explicacao": "O espaço é o seletor descendente; a vírgula é o agrupamento, que aplica o mesmo bloco a dois seletores independentes.",
+    "manual": "5.2"
+  },
+  {
+    "id": "css-025",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "Com este HTML, qual das duas regras se aplica à lista <ul>?",
+    "codigo": "/* CSS */\n.msg ul { padding-left: 20px; }\nul.msg { padding-left: 36px; }\n\n<!-- HTML -->\n<div class=\"msg erro\">\n    <ul>\n        <li>O título é obrigatório.</li>\n    </ul>\n</div>",
+    "linguagem": "css",
+    "alternativas": [
+      "Só ul.msg.",
+      "Só .msg ul.",
+      "As duas.",
+      "Nenhuma das duas."
+    ],
+    "correta": 1,
+    "explicacao": ".msg ul (com espaço) apanha um <ul> dentro de um .msg, que é o caso. ul.msg (sem espaço) só apanharia um <ul> que tivesse ele próprio a classe msg.",
+    "manual": "5.2, Anexo A"
+  },
+  {
+    "id": "css-026",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "O que seleciona ul.msg, escrito sem espaço?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Os <ul> que estão dentro de um .msg.",
+      "Todos os <ul> e todos os .msg.",
+      "Os .msg que estão dentro de um <ul>.",
+      "Os <ul> que têm a classe msg."
+    ],
+    "correta": 3,
+    "explicacao": "Sem espaço, os dois seletores aplicam-se ao mesmo elemento: um <ul> com class=\"msg\". Com espaço seria um descendente.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-027",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "O que faz a vírgula nesta regra?",
+    "codigo": ".btn,\nbutton {\n    cursor: pointer;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Aplica o mesmo bloco aos elementos .btn e aos <button>.",
+      "Aplica o bloco só aos <button> que estão dentro de um .btn.",
+      "Aplica o bloco só aos elementos que são .btn e <button> ao mesmo tempo.",
+      "Separa duas propriedades dentro do mesmo bloco."
+    ],
+    "correta": 0,
+    "explicacao": "A vírgula agrupa seletores: é como escrever duas regras iguais, uma para .btn e outra para button.",
+    "manual": "5.2"
+  },
+  {
+    "id": "css-028",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "A que elementos se aplica esta regra?",
+    "codigo": ".formulario input,\n.formulario select,\n.formulario textarea {\n    padding: 9px 10px;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "A todos os input, select e textarea da página.",
+      "Ao .formulario e a todos os campos da página.",
+      "Só aos campos que tenham ao mesmo tempo as três etiquetas.",
+      "Aos input, select e textarea que estão dentro de .formulario."
+    ],
+    "correta": 3,
+    "explicacao": "São três seletores descendentes agrupados com vírgulas. Cada um começa por .formulario, por isso só os campos dentro do formulário são apanhados.",
+    "manual": "5.2, Anexo A"
+  },
+  {
+    "id": "css-029",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "Um aluno simplificou a regra assim. O que acontece a um <select> que está fora de qualquer formulário?",
+    "codigo": ".formulario input,\nselect {\n    border: 1px solid #c9d0d4;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Não recebe a borda, porque .formulario vale para os dois seletores.",
+      "Não recebe a borda, porque a regra fica inválida sem o segundo .formulario.",
+      "Só recebe a borda quando o rato está por cima.",
+      "Também recebe a borda, porque select ficou sozinho depois da vírgula."
+    ],
+    "correta": 3,
+    "explicacao": "Cada seletor do grupo é independente. O segundo é só select, que se aplica a todos os <select> da página.",
+    "manual": "5.2"
+  },
+  {
+    "id": "css-030",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "O que seleciona .btn.perigo, escrito sem espaço?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Os elementos .perigo que estão dentro de um .btn.",
+      "Todos os elementos .btn e todos os elementos .perigo.",
+      "Os elementos que têm as duas classes, btn e perigo.",
+      "Os elementos com uma classe chamada \"btn.perigo\"."
+    ],
+    "correta": 2,
+    "explicacao": "Sem espaço, as duas classes aplicam-se ao mesmo elemento. É assim que se escolhe o botão vermelho de apagar.",
+    "manual": "5.2"
+  },
+  {
+    "id": "css-031",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Queres um link com o aspeto de .btn e também o vermelho de .btn.perigo. Que HTML escreves?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "<a href=\"...\" class=\"btn perigo\">Apagar</a>",
+      "<a href=\"...\" class=\"btn.perigo\">Apagar</a>",
+      "<a href=\"...\" class=\"btn, perigo\">Apagar</a>",
+      "<a href=\"...\" class=\"btn\" class=\"perigo\">Apagar</a>"
+    ],
+    "correta": 0,
+    "explicacao": "Várias classes escrevem-se no mesmo atributo class, separadas por espaços. O ponto só se usa no CSS; um segundo atributo class seria ignorado.",
+    "manual": "5.2"
+  },
+  {
+    "id": "css-032",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "O botão continua verde em vez de ficar vermelho. Porquê?",
+    "codigo": "/* CSS */\n.btn { background: #00713c; }\n.btn .perigo { background: #c0392b; }\n\n<!-- HTML -->\n<a href=\"...\" class=\"btn perigo\">Apagar</a>",
+    "linguagem": "css",
+    "alternativas": [
+      "A regra .btn ganha porque aparece primeiro no ficheiro.",
+      "Um elemento só pode ter uma classe; a segunda é ignorada.",
+      "Com espaço, procura um .perigo dentro de um .btn.",
+      "O vermelho só se aplica a <button>, nunca a links."
+    ],
+    "correta": 2,
+    "explicacao": "Para as duas classes no mesmo elemento escreve-se .btn.perigo, sem espaço. Com espaço é um seletor descendente.",
+    "manual": "5.2"
+  },
+  {
+    "id": "css-033",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Que regras se aplicam a <div class=\"msg sucesso\">?",
+    "codigo": ".msg { padding: 12px 16px; border-left: 5px solid; }\n.msg.sucesso { background: #e6f4ec; }\n.msg.erro { background: #fdecea; }",
+    "linguagem": "css",
+    "alternativas": [
+      "Só .msg.sucesso.",
+      ".msg e .msg.sucesso.",
+      "Só .msg, a primeira classe do atributo.",
+      "As três, porque todas começam por .msg."
+    ],
+    "correta": 1,
+    "explicacao": "O elemento tem as classes msg e sucesso, por isso recebe a regra .msg e a .msg.sucesso. A .msg.erro exige a classe erro, que ele não tem.",
+    "manual": "5.2, 9.3"
+  },
+  {
+    "id": "css-034",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "No cabeçalho, $_SESSION['msg']['tipo'] vale 'erro'. Como fica a caixa?",
+    "codigo": "<div class=\"msg <?= $_SESSION['msg']['tipo'] ?>\">\n    <?= htmlspecialchars($_SESSION['msg']['texto']) ?>\n</div>",
+    "linguagem": "php",
+    "alternativas": [
+      "Só com o fundo de .msg.erro, sem espaçamento nem borda.",
+      "Com o espaçamento e a borda de .msg e o fundo de .msg.erro.",
+      "Sem estilos, porque a classe é escrita pelo PHP.",
+      "Com o fundo de .msg.sucesso, que é a regra por omissão."
+    ],
+    "correta": 1,
+    "explicacao": "O PHP escreve class=\"msg erro\" no HTML e o browser aplica-lhe .msg e .msg.erro. O tipo da mensagem funciona como classe CSS e dá a cor verde ou vermelha.",
+    "manual": "9.3, Anexo A"
+  },
+  {
+    "id": "css-035",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Quando se aplica a regra .btn:hover?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Depois de o utilizador clicar no elemento.",
+      "Quando a página acaba de carregar.",
+      "Quando o link já foi visitado.",
+      "Enquanto o rato está por cima do elemento."
+    ],
+    "correta": 3,
+    "explicacao": ":hover é uma pseudo-classe que só vale enquanto o rato está por cima. Na Biblioteca serve para o botão escurecer.",
+    "manual": "5.2"
+  },
+  {
+    "id": "css-036",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Passas o rato por cima de um botão e depois tiras. De que cor fica o fundo?",
+    "codigo": ".btn { background: #00713c; }\n.btn:hover { background: #005a30; }",
+    "linguagem": "css",
+    "alternativas": [
+      "Fica com a cor de .btn:hover até se recarregar a página.",
+      "Fica com a cor de .btn:hover, porque é a regra mais abaixo.",
+      "Fica sem fundo, porque as duas regras se anulam.",
+      "Volta à cor de .btn quando o rato sai."
+    ],
+    "correta": 3,
+    "explicacao": "A regra .btn:hover só se aplica durante o hover. Quando o rato sai, só sobra a regra .btn.",
+    "manual": "5.2"
+  },
+  {
+    "id": "css-037",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Como se chama o :hover em .btn:hover?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Seletor de id.",
+      "Pseudo-classe.",
+      "Seletor descendente.",
+      "Media query."
+    ],
+    "correta": 1,
+    "explicacao": "O manual chama-lhe pseudo-classe: aplica a regra conforme o estado do elemento (aqui, o rato estar por cima).",
+    "manual": "5.2"
+  },
+  {
+    "id": "css-038",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Na Biblioteca, quando é que um link do menu fica branco?",
+    "codigo": ".topo nav a { color: #d5dbdf; }\n.topo nav a:hover { color: #ffffff; }",
+    "linguagem": "css",
+    "alternativas": [
+      "Quando o rato passa por cima dele.",
+      "Sempre, porque a segunda regra está mais abaixo.",
+      "Quando é o link da página onde estás.",
+      "Só no telemóvel, por causa da media query."
+    ],
+    "correta": 0,
+    "explicacao": "A segunda regra tem :hover, por isso só vale enquanto o rato está por cima. No resto do tempo o link fica com a cor da primeira.",
+    "manual": "5.2, Anexo A"
+  },
+  {
+    "id": "css-039",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "A que elementos se aplica o seletor * do início do estilo.css?",
+    "codigo": "* {\n    box-sizing: border-box;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Só ao elemento <body>.",
+      "Só aos elementos que têm uma classe.",
+      "A todos os elementos da página.",
+      "Só aos elementos que têm um id."
+    ],
+    "correta": 2,
+    "explicacao": "O asterisco é o seletor universal: escolhe todos os elementos. Por isso o box-sizing vale para a página inteira.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-040",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Duas regras dão cores diferentes ao mesmo elemento. Qual é a ordem de força dos seletores, do mais forte para o mais fraco?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "classe, id, elemento.",
+      "id, classe, elemento.",
+      "elemento, classe, id.",
+      "id, elemento, classe."
+    ],
+    "correta": 1,
+    "explicacao": "Ganha a regra mais específica: o id ganha à classe e a classe ganha ao elemento.",
+    "manual": "5.3"
+  },
+  {
+    "id": "css-041",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Duas regras igualmente específicas dão valores diferentes à mesma propriedade. Qual ganha?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A que aparece mais acima no ficheiro.",
+      "A que tem mais propriedades no bloco.",
+      "A que aparece mais abaixo no ficheiro.",
+      "Nenhuma: o browser usa o valor por omissão."
+    ],
+    "correta": 2,
+    "explicacao": "Em caso de empate na especificidade, ganha a última, a que está mais abaixo no ficheiro.",
+    "manual": "5.3"
+  },
+  {
+    "id": "css-042",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "De que cor fica o texto de <p class=\"destaque\" id=\"total\">Total</p>?",
+    "codigo": "#total    { color: green; }\n.destaque { color: blue; }\np         { color: red; }",
+    "linguagem": "css",
+    "alternativas": [
+      "Azul.",
+      "Vermelho.",
+      "Verde.",
+      "Preto, porque as regras se anulam."
+    ],
+    "correta": 2,
+    "explicacao": "O id é o seletor mais específico e ganha à classe e ao elemento, mesmo estando em cima. A ordem só desempata regras igualmente específicas.",
+    "manual": "5.3"
+  },
+  {
+    "id": "css-043",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "De que cor fica o título <h1 class=\"titulo\">Livros</h1>?",
+    "codigo": ".titulo { color: blue; }\nh1      { color: red; }",
+    "linguagem": "css",
+    "alternativas": [
+      "Vermelho, porque a regra h1 está mais abaixo.",
+      "Azul, porque a classe é mais específica do que o elemento.",
+      "Vermelho, porque o elemento ganha sempre à classe.",
+      "Roxo, porque as duas cores se misturam."
+    ],
+    "correta": 1,
+    "explicacao": "A classe ganha ao elemento. A posição no ficheiro só conta quando as regras são igualmente específicas.",
+    "manual": "5.3"
+  },
+  {
+    "id": "css-044",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Na Biblioteca existem estas duas regras. De que cor ficam os links do menu (dentro de .topo nav)?",
+    "codigo": "a {\n    color: #00713c;\n}\n\n.topo nav a {\n    color: #d5dbdf;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Com a cor de a, porque se aplica a todos os links da página.",
+      "Com a cor de a, porque a regra está mais acima.",
+      "Com a cor de .topo nav a, que é mais específica.",
+      "Alternam entre as duas cores, link sim, link não."
+    ],
+    "correta": 2,
+    "explicacao": ".topo nav a tem uma classe e é mais específica do que o seletor de elemento a. Os outros links da página ficam com a cor de a.",
+    "manual": "5.3, Anexo A"
+  },
+  {
+    "id": "css-045",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "De que cor fica o fundo de <a href=\"livros.php\" class=\"btn secundario\">Voltar</a>?",
+    "codigo": ".btn { background: #00713c; }\n/* ... */\n.btn.secundario { background: #d5dbdf; }",
+    "linguagem": "css",
+    "alternativas": [
+      "Cinzento claro (o de .btn.secundario).",
+      "Verde (o de .btn), porque é a classe principal.",
+      "Depende da ordem das classes no atributo class.",
+      "Sem fundo, porque as duas regras entram em conflito."
+    ],
+    "correta": 0,
+    "explicacao": "A regra .btn.secundario é mais específica (duas classes) e, além disso, está mais abaixo. A ordem das classes dentro do atributo class não conta.",
+    "manual": "5.3, Anexo A"
+  },
+  {
+    "id": "css-046",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "Acrescentaste esta regra no fim do estilo.css. Como ficam os cartões?",
+    "codigo": "/* mais acima no ficheiro */\n.cartao {\n    background: #ffffff;\n    border-radius: 8px;\n    padding: 18px;\n}\n\n/* no fim do ficheiro */\n.cartao {\n    background: #eeeeee;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Com fundo #eeeeee, mantendo os cantos e o padding da primeira regra.",
+      "Com fundo #eeeeee, mas sem cantos arredondados nem padding.",
+      "Com fundo #ffffff, porque a primeira regra é a mais completa.",
+      "Sem nenhum estilo, porque há duas regras com o mesmo seletor."
+    ],
+    "correta": 0,
+    "explicacao": "A cascata decide propriedade a propriedade. Só o background está em conflito e ganha a regra mais abaixo; o resto continua a vir da primeira.",
+    "manual": "5.3"
+  },
+  {
+    "id": "css-047",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "Esta caixa existe na página do registo. Aparece quando a página carrega?",
+    "codigo": "/* CSS */\n.msg      { padding: 12px 16px; border-left: 5px solid; }\n.msg.erro { background: #fdecea; }\n#erros-js { display: none; }\n\n<!-- HTML -->\n<div id=\"erros-js\" class=\"msg erro\"></div>",
+    "linguagem": "css",
+    "alternativas": [
+      "Sim: as duas classes ganham ao id, por serem mais.",
+      "Não: #erros-js põe display: none e nada o muda.",
+      "Sim: .msg.erro está mais acima e por isso ganha.",
+      "Só aparece no telemóvel, por causa do display: none."
+    ],
+    "correta": 1,
+    "explicacao": "As regras somam-se: a caixa recebe o padding, a borda e o fundo das classes, e o display: none do id. Como nenhuma outra regra mexe no display, fica escondida até o JavaScript a mostrar.",
+    "manual": "5.3, 6.2, Anexo A"
+  },
+  {
+    "id": "css-048",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Duas regras com o mesmo seletor dão cores diferentes ao texto de .vazio. O que decide qual ganha?",
+    "codigo": ".vazio { color: #6b7780; }\n/* ... muitas linhas ... */\n.vazio { color: black; }",
+    "linguagem": "css",
+    "alternativas": [
+      "A posição: ganha a que está mais abaixo.",
+      "A cor mais escura ganha sempre.",
+      "A primeira, porque foi definida antes.",
+      "O browser mistura as duas cores."
+    ],
+    "correta": 0,
+    "explicacao": "Os seletores são iguais, por isso têm a mesma especificidade. Nesse caso ganha a regra que aparece mais abaixo no ficheiro.",
+    "manual": "5.3"
+  },
+  {
+    "id": "css-049",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Que propriedade muda a cor do texto?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "background-color",
+      "color",
+      "font-color",
+      "text-color"
+    ],
+    "correta": 1,
+    "explicacao": "color é a cor do texto; background-color (ou background) é a cor do fundo. font-color e text-color não existem.",
+    "manual": "5.2, Anexo B"
+  },
+  {
+    "id": "css-050",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Queres texto branco sobre fundo verde num aviso. Qual é a regra certa?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      ".aviso { color: green; background-color: white; }",
+      ".aviso { font-color: white; background: green; }",
+      ".aviso { text-color: white; color-background: green; }",
+      ".aviso { color: white; background-color: green; }"
+    ],
+    "correta": 3,
+    "explicacao": "color pinta o texto e background-color pinta o fundo. Trocá-las dá texto verde em fundo branco.",
+    "manual": "5.2, Anexo B"
+  },
+  {
+    "id": "css-051",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Qual é a diferença entre padding e margin?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "padding é o espaço fora do elemento; margin é o espaço dentro, até ao texto.",
+      "padding só existe em botões; margin serve para todos os elementos.",
+      "padding é o espaço dentro do elemento; margin é o espaço fora, até aos vizinhos.",
+      "São iguais: padding é o nome antigo de margin."
+    ],
+    "correta": 2,
+    "explicacao": "O padding fica entre o conteúdo e a borda (por isso tem a cor de fundo do elemento). A margin fica do lado de fora da borda e afasta os outros elementos.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-052",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "O que quer dizer este padding com dois valores?",
+    "codigo": ".msg {\n    padding: 12px 16px;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "12px à esquerda e à direita, 16px em cima e em baixo.",
+      "12px em cima e em baixo, 16px à esquerda e à direita.",
+      "12px em cima, 16px em baixo e nada dos lados.",
+      "Um padding entre 12px e 16px, conforme o ecrã."
+    ],
+    "correta": 1,
+    "explicacao": "Com dois valores, o primeiro vale para cima e baixo e o segundo para a esquerda e a direita.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-053",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "O que fazem estas duas propriedades em conjunto?",
+    "codigo": "main {\n    max-width: 960px;\n    margin: 32px auto;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Fixam a largura em 960px e encostam o conteúdo à esquerda.",
+      "Centram o texto dentro do main, linha a linha.",
+      "Limitam a largura do conteúdo e centram-no na horizontal.",
+      "Centram o conteúdo na vertical, a meio do ecrã."
+    ],
+    "correta": 2,
+    "explicacao": "max-width impede que o conteúdo passe de 960px e margin com auto à esquerda e à direita reparte o espaço que sobra, centrando-o. Para centrar texto usa-se text-align: center.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-054",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Num telemóvel com 400px de largura, que largura tem o main?",
+    "codigo": "main {\n    max-width: 960px;\n    margin: 32px auto;\n    padding: 0 20px;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "960px, e aparece uma barra de scroll horizontal.",
+      "960px reduzidos a metade, por causa do auto.",
+      "Zero, porque o ecrã é mais estreito do que o máximo.",
+      "A largura do ecrã, porque max-width é só um limite máximo."
+    ],
+    "correta": 3,
+    "explicacao": "max-width não fixa a largura: só impede que passe de 960px. Num ecrã mais estreito, o main ocupa a largura disponível. Um width: 960px é que obrigaria ao scroll.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-055",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "O que faz border-radius: 8px num cartão?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Põe uma borda de 8px à volta.",
+      "Afasta o cartão 8px dos vizinhos.",
+      "Põe uma sombra de 8px por baixo.",
+      "Arredonda os cantos."
+    ],
+    "correta": 3,
+    "explicacao": "border-radius arredonda os cantos do elemento. A espessura da borda define-se com border.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-056",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Como fica o cartão com esta declaração?",
+    "codigo": ".cartao {\n    border-top: 4px solid #00713c;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Com uma linha contínua de 4px só no topo.",
+      "Com uma borda de 4px nos quatro lados.",
+      "Afastado 4px do elemento de cima.",
+      "Com 4px de espaço entre o topo e o texto."
+    ],
+    "correta": 0,
+    "explicacao": "border-top só desenha a borda de cima. Os três valores são a espessura, o estilo (solid = linha contínua) e a cor.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-057",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Em border: 1px solid #c9d0d4, o que são os três valores?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A cor, a espessura e o estilo da linha.",
+      "A largura, a altura e a cor do elemento.",
+      "O padding, a margin e a cor da borda.",
+      "A espessura, o estilo da linha e a cor."
+    ],
+    "correta": 3,
+    "explicacao": "A propriedade border junta espessura (1px), estilo (solid, linha contínua) e cor.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-058",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "De que cor fica a borda esquerda de <div class=\"msg sucesso\">?",
+    "codigo": ".msg {\n    border-left: 5px solid;\n}\n\n.msg.sucesso {\n    border-color: #00713c;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Com a cor de .msg.sucesso, numa borda de 5px.",
+      "Sem borda, porque .msg não indica a cor.",
+      "Com a cor do texto, porque border-color só vale para as outras bordas.",
+      "Com 5px nos quatro lados, com a cor de .msg.sucesso."
+    ],
+    "correta": 0,
+    "explicacao": "A .msg cria uma borda esquerda de 5px sem cor; a .msg.sucesso dá-lhe a cor. Assim a mesma borda fica verde nas mensagens de sucesso e vermelha nas de erro.",
+    "manual": "Anexo A, 9.3"
+  },
+  {
+    "id": "css-059",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Que propriedade centra o texto do rodapé na horizontal?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "align-items: center",
+      "text-align: center",
+      "justify-content: center",
+      "margin: center"
+    ],
+    "correta": 1,
+    "explicacao": "text-align: center centra o texto. align-items e justify-content são do flexbox e alinham elementos-filho, não linhas de texto.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-060",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve text-decoration: none nos links do menu e nos .btn?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Esconde o link quando o rato não está por cima.",
+      "Tira a cor azul dos links visitados.",
+      "Impede que o link seja clicado.",
+      "Tira o sublinhado que os links têm por omissão."
+    ],
+    "correta": 3,
+    "explicacao": "Os links aparecem sublinhados por omissão; text-decoration: none tira o sublinhado, o que dá jeito em links com aspeto de botão.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-061",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "O que faz cursor: pointer nos botões?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Faz o botão seguir o rato pela página.",
+      "Põe o cursor de texto dentro do botão.",
+      "Mostra a mãozinha quando o rato passa por cima.",
+      "Muda a cor do botão quando se clica."
+    ],
+    "correta": 2,
+    "explicacao": "cursor: pointer muda o ponteiro do rato para a mão, mostrando que o elemento é clicável.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-062",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Porque é que os .btn usam display: inline-block?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Ficam escondidos até o rato passar por cima deles.",
+      "Ficam na linha do texto, mas aceitam padding.",
+      "Ocupam a linha toda, como um parágrafo.",
+      "Passam a pôr os seus filhos lado a lado."
+    ],
+    "correta": 1,
+    "explicacao": "inline-block mantém o botão ao lado do texto e dos outros botões, mas respeita o padding e as dimensões. Para pôr filhos lado a lado é o display: flex no contentor.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-063",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "O que acontece a um elemento com display: none?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Deixa de aparecer e não ocupa espaço na página.",
+      "Fica transparente, mas continua a ocupar o seu espaço.",
+      "É apagado do ficheiro HTML pelo browser.",
+      "Fica por baixo dos outros elementos."
+    ],
+    "correta": 0,
+    "explicacao": "display: none esconde o elemento por completo: os outros ocupam o seu lugar. O elemento continua no HTML e pode voltar a aparecer, como a caixa #erros-js.",
+    "manual": "Anexo A, 6.2"
+  },
+  {
+    "id": "css-064",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Em font-size: 1.7rem, o que quer dizer rem?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Um número fixo de píxeis do ecrã.",
+      "Uma percentagem da largura do elemento-pai.",
+      "Um múltiplo do tamanho de letra base da página.",
+      "Uma percentagem da altura do ecrã."
+    ],
+    "correta": 2,
+    "explicacao": "1rem é o tamanho de letra base; 1.7rem é 1,7 vezes esse tamanho e 0.9rem é um pouco menor. px é a unidade fixa e % é relativa ao elemento-pai.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-065",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Que largura tem uma tabela com width: 100%?",
+    "codigo": ".tabela {\n    width: 100%;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Toda a largura do ecrã, mesmo que fique cortada.",
+      "Toda a largura do elemento onde está.",
+      "100 píxeis.",
+      "A largura do seu conteúdo, mais 100%."
+    ],
+    "correta": 1,
+    "explicacao": "Uma percentagem é relativa ao elemento que contém a tabela: aqui, ocupa a largura toda do main.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-066",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "O que faz font: inherit nos botões e nos campos do formulário?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Herdam o tipo de letra do elemento-pai.",
+      "Passam o seu tipo de letra a todos os elementos da página.",
+      "Ficam com o tipo de letra por omissão do browser.",
+      "Mudam o tipo de letra conforme o tamanho do ecrã."
+    ],
+    "correta": 0,
+    "explicacao": "inherit quer dizer \"herdar do pai\". Os botões e campos têm um tipo de letra próprio do browser; assim ficam iguais ao resto da página.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-067",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Que propriedade põe o texto em negrito, como nas etiquetas do formulário?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "font-weight",
+      "font-size",
+      "font-style",
+      "text-decoration"
+    ],
+    "correta": 0,
+    "explicacao": "font-weight define a grossura da letra (bold ou 600). font-style é para o itálico e font-size para o tamanho.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-068",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Para que serve white-space: nowrap nos links do menu?",
+    "codigo": ".topo nav a {\n    white-space: nowrap;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Impede que o texto de um link se parta em duas linhas.",
+      "Tira os espaços entre os links do menu.",
+      "Esconde o link quando não há espaço.",
+      "Impede que os links passem para a linha seguinte."
+    ],
+    "correta": 0,
+    "explicacao": "nowrap mantém \"A minha conta\" numa só linha. Os links como um todo podem passar para a linha seguinte (o nav tem flex-wrap: wrap), mas não se partem ao meio.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-069",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "Com esta regra, que largura total ocupa a caixa?",
+    "codigo": "* { box-sizing: border-box; }\n\n.caixa {\n    width: 200px;\n    padding: 20px;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "240px: 200px mais 20px de cada lado.",
+      "220px: 200px mais 20px.",
+      "200px, com o padding incluído.",
+      "160px: 200px menos o padding."
+    ],
+    "correta": 2,
+    "explicacao": "Com box-sizing: border-box, a largura indicada já inclui o padding e a borda: o conteúdo é que encolhe. Sem ela, o padding somava-se (240px).",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-070",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve body { margin: 0; } no estilo.css?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Centra o conteúdo da página na horizontal.",
+      "Tira o espaço entre o texto e a borda do body.",
+      "Esconde a barra de scroll da página.",
+      "Tira o espaço que o browser põe à volta da página."
+    ],
+    "correta": 3,
+    "explicacao": "O browser põe uma margem à volta do body; margin: 0 tira-a, para o cabeçalho escuro encostar às bordas da janela.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-071",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve border: none na regra dos botões?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Tira o espaço entre o texto e a borda.",
+      "Tira a borda que o browser põe nos botões.",
+      "Esconde o botão até o rato passar por cima.",
+      "Tira os cantos arredondados do botão."
+    ],
+    "correta": 1,
+    "explicacao": "Os <button> têm uma borda por omissão; border: none tira-a. O espaço interior é o padding e os cantos são o border-radius.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-072",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Que declaração põe os filhos de um elemento lado a lado?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "display: block",
+      "display: flex",
+      "display: none",
+      "text-align: center"
+    ],
+    "correta": 1,
+    "explicacao": "display: flex no contentor põe os filhos lado a lado, numa linha. display: block faz o contrário: cada elemento numa linha própria.",
+    "manual": "5.4"
+  },
+  {
+    "id": "css-073",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Queres os cartões dos livros lado a lado. Em que elemento pões display: flex?",
+    "codigo": "<div class=\"cartoes\">\n    <article class=\"cartao\">...</article>\n    <article class=\"cartao\">...</article>\n    <article class=\"cartao\">...</article>\n</div>",
+    "linguagem": "html",
+    "alternativas": [
+      "No contentor .cartoes.",
+      "Em cada .cartao.",
+      "No <body>.",
+      "No <h2> de cada cartão."
+    ],
+    "correta": 0,
+    "explicacao": "O flexbox aplica-se ao elemento que contém os outros: são os filhos dele que ficam lado a lado.",
+    "manual": "5.4"
+  },
+  {
+    "id": "css-074",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Com muitos livros, os cartões ficam todos numa linha, esmagados. O que falta?",
+    "codigo": ".cartoes {\n    display: flex;\n    gap: 16px;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "flex-direction: column",
+      "justify-content: space-between",
+      "flex-wrap: wrap",
+      "display: block"
+    ],
+    "correta": 2,
+    "explicacao": "flex-wrap: wrap deixa os filhos passar para a linha seguinte quando não cabem, em vez de ficarem esmagados.",
+    "manual": "5.4"
+  },
+  {
+    "id": "css-075",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "O que faz gap: 16px num contentor flex?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Põe 16px de espaço à volta do contentor.",
+      "Põe 16px de espaço entre os filhos.",
+      "Põe 16px de espaço dentro de cada filho.",
+      "Obriga cada filho a ter 16px de largura."
+    ],
+    "correta": 1,
+    "explicacao": "gap é o espaço entre os filhos. O espaço à volta é a margin e o espaço dentro é o padding.",
+    "manual": "5.4"
+  },
+  {
+    "id": "css-076",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "No cabeçalho, o que faz justify-content: space-between?",
+    "codigo": ".topo {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Centra os filhos na vertical.",
+      "Encosta o primeiro à esquerda e o último à direita.",
+      "Põe os filhos uns por baixo dos outros.",
+      "Junta todos os filhos no centro da linha, colados uns aos outros."
+    ],
+    "correta": 1,
+    "explicacao": "space-between distribui os filhos na horizontal: o título fica à esquerda e o menu à direita. A centragem vertical é do align-items.",
+    "manual": "5.4"
+  },
+  {
+    "id": "css-077",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Num contentor flex em linha, o que faz align-items: center?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Centra os filhos na horizontal.",
+      "Centra o texto dentro de cada filho.",
+      "Põe o contentor a meio da página.",
+      "Centra os filhos na vertical."
+    ],
+    "correta": 3,
+    "explicacao": "align-items: center centra os filhos na vertical, por exemplo o título e o menu que têm alturas diferentes. A distribuição na horizontal é com justify-content.",
+    "manual": "5.4"
+  },
+  {
+    "id": "css-078",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "Queres que o campo de pesquisa e o botão \"Novo\" fiquem alinhados ao meio, na vertical. O aluno escreveu isto. O que acontece?",
+    "codigo": ".barra {\n    display: flex;\n    justify-content: center;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Ficam juntos ao centro na horizontal, sem alinhamento vertical.",
+      "Ficam alinhados ao meio, na vertical, como queria.",
+      "Ficam um por baixo do outro, centrados.",
+      "Nada muda, porque justify-content só funciona com flex-wrap."
+    ],
+    "correta": 0,
+    "explicacao": "justify-content trata da horizontal (numa linha). Para centrar na vertical usa-se align-items: center.",
+    "manual": "5.4"
+  },
+  {
+    "id": "css-079",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Porque é que, no formulário, as etiquetas e os campos ficam uns por baixo dos outros?",
+    "codigo": ".formulario {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "gap: 6px obriga cada filho a ficar numa linha própria.",
+      "display: flex põe sempre os filhos uns por baixo dos outros.",
+      "flex-direction: column põe-nos em coluna.",
+      "Os campos de formulário nunca ficam lado a lado."
+    ],
+    "correta": 2,
+    "explicacao": "Por omissão o flex põe os filhos em linha. Com flex-direction: column ficam em coluna, e o gap passa a ser o espaço vertical entre eles.",
+    "manual": "5.4"
+  },
+  {
+    "id": "css-080",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Em flex: 1 1 260px, o que é o 260px?",
+    "codigo": ".cartao {\n    flex: 1 1 260px;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "O tamanho com que cada cartão começa.",
+      "A largura máxima de cada cartão.",
+      "O espaço entre os cartões.",
+      "A largura do ecrã a partir da qual há cartões."
+    ],
+    "correta": 0,
+    "explicacao": "O terceiro valor é o tamanho de partida: cada cartão começa com 260px e depois cresce para ocupar o espaço livre.",
+    "manual": "5.4"
+  },
+  {
+    "id": "css-081",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "O que significa cada número em flex: 1 1 260px?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Uma linha, uma coluna, 260px de largura máxima.",
+      "Ordem 1, grupo 1, 260px de espaço entre filhos.",
+      "Pode crescer, não pode encolher, nunca passa de 260px.",
+      "Pode crescer, pode encolher, começa com 260px."
+    ],
+    "correta": 3,
+    "explicacao": "O primeiro 1 deixa o cartão crescer para ocupar o espaço livre, o segundo deixa-o encolher se for preciso, e 260px é o tamanho de partida.",
+    "manual": "5.4"
+  },
+  {
+    "id": "css-082",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "O main tem 920px úteis para os cartões. Quantos cartões ficam em cada linha?",
+    "codigo": ".cartoes { display: flex; flex-wrap: wrap; gap: 16px; }\n.cartao  { flex: 1 1 260px; }",
+    "linguagem": "css",
+    "alternativas": [
+      "Quatro, que encolhem para caber.",
+      "Três, com um espaço vazio à direita.",
+      "Três, que crescem para ocupar a linha toda.",
+      "Um, porque o flex-wrap obriga a mudar de linha."
+    ],
+    "correta": 2,
+    "explicacao": "Três cartões ocupam 3 × 260 + 2 × 16 = 812px e cabem; um quarto já não cabe e passa para a linha seguinte. Como o primeiro valor é 1, os três crescem até preencher a linha.",
+    "manual": "5.4"
+  },
+  {
+    "id": "css-083",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "Porque é que os cartões NÃO estão lado a lado?",
+    "codigo": ".cartoes {\n    flex-wrap: wrap;\n    gap: 16px;\n}\n\n.cartao {\n    flex: 1 1 260px;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Falta display: flex no .cartoes.",
+      "Falta display: flex em cada .cartao.",
+      "O gap tem de ser maior do que o flex-basis.",
+      "Falta justify-content: space-between."
+    ],
+    "correta": 0,
+    "explicacao": "flex-wrap, gap e flex só funcionam se o contentor tiver display: flex. Sem ele, os cartões ficam uns por baixo dos outros.",
+    "manual": "5.4"
+  },
+  {
+    "id": "css-084",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "O aluno pôs display: flex no sítio errado. O que se vê?",
+    "codigo": ".cartoes {\n    gap: 16px;\n}\n\n.cartao {\n    display: flex;\n    flex: 1 1 260px;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Os cartões ficam lado a lado, como se o flex estivesse no .cartoes.",
+      "Os cartões desaparecem, porque o flex não pode estar no filho.",
+      "Fica tudo igual, porque display: flex num filho é ignorado.",
+      "Os cartões ficam em coluna e o conteúdo de cada um em linha."
+    ],
+    "correta": 3,
+    "explicacao": "display: flex afeta os filhos do elemento onde está. No .cartao põe lado a lado o título e os parágrafos de cada cartão; os cartões em si continuam em coluna.",
+    "manual": "5.4"
+  },
+  {
+    "id": "css-085",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "O .topo já tem display: flex. Porque é que a regra .topo nav também precisa de display: flex?",
+    "codigo": "<header class=\"topo\">\n    <a href=\"index.php\">Biblioteca</a>\n    <nav>\n        <a href=\"livros.php\">Livros</a>\n        <a href=\"autores.php\">Autores</a>\n    </nav>\n</header>",
+    "linguagem": "html",
+    "alternativas": [
+      "Sem ela, o <nav> ficava escondido no telemóvel por causa da media query.",
+      "Um <nav> não pode estar dentro de um contentor flex.",
+      "Não precisa: a regra está lá só para o gap ser maior.",
+      "O flex só arruma os filhos diretos, e os links são filhos do <nav>."
+    ],
+    "correta": 3,
+    "explicacao": "O flex do .topo põe lado a lado os seus filhos: o link do título e o <nav>. Para os links dentro do <nav> ficarem lado a lado, o próprio <nav> tem de ser flex.",
+    "manual": "5.4, Anexo A"
+  },
+  {
+    "id": "css-086",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Como fica o campo de pesquisa ao lado do botão \"Pesquisar\"?",
+    "codigo": ".pesquisa {\n    display: flex;\n    gap: 8px;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Um por baixo do outro, com 8px de espaço.",
+      "Lado a lado, colados, com 8px de margem à volta.",
+      "Lado a lado, com 8px de espaço entre eles.",
+      "O campo à esquerda e o botão encostado à direita da página."
+    ],
+    "correta": 2,
+    "explicacao": "display: flex põe o input e o botão lado a lado e o gap dá 8px entre eles. Encostar às pontas seria justify-content: space-between.",
+    "manual": "5.4, Anexo A"
+  },
+  {
+    "id": "css-087",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "Na página de detalhe, como ficam a etiqueta (dt) e o valor (dd)?",
+    "codigo": ".detalhe dl {\n    display: flex;\n    flex-wrap: wrap;\n}\n.detalhe dt { width: 140px; }\n.detalhe dd { width: calc(100% - 140px); margin: 0; }",
+    "linguagem": "css",
+    "alternativas": [
+      "Lado a lado: 140px para a etiqueta e o resto para o valor.",
+      "Um por baixo do outro, cada um a ocupar a largura toda da página.",
+      "Todos os dt e dd na mesma linha, esmagados.",
+      "A etiqueta à direita e o valor à esquerda."
+    ],
+    "correta": 0,
+    "explicacao": "Um dt (140px) e um dd (100% menos 140px) enchem exatamente uma linha; o par seguinte passa para a linha de baixo por causa do flex-wrap.",
+    "manual": "5.4, Anexo A"
+  },
+  {
+    "id": "css-088",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "O que é uma media query?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Uma consulta à base de dados feita a partir do CSS.",
+      "Regras que só se aplicam se o ecrã cumprir uma condição.",
+      "Uma regra que se aplica só quando o rato está por cima do elemento.",
+      "Um ficheiro CSS separado só para telemóveis."
+    ],
+    "correta": 1,
+    "explicacao": "Uma media query, como @media (max-width: 600px), aplica as regras lá dentro só quando a condição é verdadeira. A Biblioteca usa-a para o telemóvel, no mesmo estilo.css.",
+    "manual": "5.5"
+  },
+  {
+    "id": "css-089",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Quando se aplicam as regras dentro de @media (max-width: 600px)?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Quando o ecrã tem 600px de largura ou mais.",
+      "Só quando o ecrã tem exatamente 600px.",
+      "Quando o ecrã tem 600px de largura ou menos.",
+      "Quando a página tem mais de 600px de altura."
+    ],
+    "correta": 2,
+    "explicacao": "max-width quer dizer \"até esta largura\": vale para ecrãs pequenos, como o telemóvel.",
+    "manual": "5.5"
+  },
+  {
+    "id": "css-090",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Se a Biblioteca usasse @media (min-width: 600px), quando se aplicavam as regras?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Em ecrãs com 600px de largura ou mais.",
+      "Em ecrãs com 600px de largura ou menos.",
+      "Em todos os ecrãs, porque min e max são iguais.",
+      "Só quando a janela é redimensionada."
+    ],
+    "correta": 0,
+    "explicacao": "min-width é \"a partir desta largura\" (ecrãs grandes); max-width é \"até esta largura\" (ecrãs pequenos).",
+    "manual": "5.5"
+  },
+  {
+    "id": "css-091",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Qual é a sintaxe certa de uma media query?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "@media max-width = 600px { .topo { padding: 12px; } }",
+      "media(max-width: 600px) .topo { padding: 12px; }",
+      ".topo @media (max-width: 600px) { padding: 12px; }",
+      "@media (max-width: 600px) { .topo { padding: 12px; } }"
+    ],
+    "correta": 3,
+    "explicacao": "A media query começa por @media, a condição vai entre parênteses e as regras ficam dentro das chavetas dela.",
+    "manual": "5.5"
+  },
+  {
+    "id": "css-092",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "Num telemóvel com 400px de largura, que padding tem o .topo?",
+    "codigo": ".topo {\n    display: flex;\n    padding: 14px 32px;\n}\n\n/* ... no fim do ficheiro ... */\n@media (max-width: 600px) {\n    .topo {\n        padding: 12px 16px;\n    }\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "14px 32px.",
+      "26px 48px, a soma dos dois.",
+      "Nenhum, porque as regras entram em conflito.",
+      "12px 16px."
+    ],
+    "correta": 3,
+    "explicacao": "As duas regras têm o mesmo seletor; no telemóvel a media query aplica-se e, por estar mais abaixo, ganha.",
+    "manual": "5.5, 5.3"
+  },
+  {
+    "id": "css-093",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "No telemóvel, o .topo continua com o fundo escuro e com display: flex?",
+    "codigo": ".topo {\n    display: flex;\n    padding: 14px 32px;\n    background: #1f2a30;\n}\n\n@media (max-width: 600px) {\n    .topo { padding: 12px 16px; }\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Não: dentro da media query só valem as propriedades lá escritas.",
+      "Não: a media query apaga a regra .topo original no telemóvel.",
+      "Só o fundo; o display: flex tem de ser repetido.",
+      "Sim: a media query só muda o padding; o resto continua a valer."
+    ],
+    "correta": 3,
+    "explicacao": "A media query não substitui a regra de fora: só acrescenta ou muda as propriedades que lá estão. Tudo o que não mexe continua igual.",
+    "manual": "5.5"
+  },
+  {
+    "id": "css-094",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "O que acontece ao \"Olá, nome\" do menu?",
+    "codigo": "@media (max-width: 600px) {\n    .topo .ola {\n        display: none;\n    }\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Desaparece em todos os ecrãs.",
+      "Aparece só em ecrãs até 600px.",
+      "Fica invisível, mas continua a ocupar espaço no telemóvel.",
+      "Desaparece em ecrãs até 600px e aparece nos maiores."
+    ],
+    "correta": 3,
+    "explicacao": "No telemóvel não há espaço para o \"Olá\", por isso a media query esconde-o. Num ecrã largo a regra não se aplica e ele aparece.",
+    "manual": "5.5"
+  },
+  {
+    "id": "css-095",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "O aluno pôs a media query no INÍCIO do estilo.css, antes da regra .topo. Que padding tem o .topo num telemóvel?",
+    "codigo": "@media (max-width: 600px) {\n    .topo { padding: 12px 16px; }\n}\n\n.topo {\n    padding: 14px 32px;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "14px 32px, porque a regra de fora fica mais abaixo.",
+      "12px 16px, porque a media query ganha sempre.",
+      "12px 16px, porque é mais específica.",
+      "Depende da largura do computador onde se criou o CSS."
+    ],
+    "correta": 0,
+    "explicacao": "A media query não dá mais força às regras. Com o mesmo seletor ganha a que está mais abaixo, e aqui é a de fora. Por isso a Biblioteca põe a media query no fim do ficheiro.",
+    "manual": "5.5, 5.3"
+  },
+  {
+    "id": "css-096",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "No telemóvel, os cartões ficam um por linha. Que regra da media query faz isso?",
+    "codigo": "/* fora da media query */\n.cartoes { display: flex; flex-wrap: wrap; gap: 16px; }\n.cartao  { flex: 1 1 260px; }",
+    "linguagem": "css",
+    "alternativas": [
+      "Uma regra .cartao { width: 100%; } dentro da @media (max-width: 600px).",
+      "Uma regra .cartoes { flex-direction: column; } dentro da @media do fim.",
+      "Nenhuma: só cabe um de 260px por linha e o flex-wrap passa o resto.",
+      "Uma regra .cartoes { display: block; } dentro da @media (max-width: 600px)."
+    ],
+    "correta": 2,
+    "explicacao": "Não é preciso media query para os cartões: num ecrã estreito só cabe um de 260px por linha, que cresce até ocupar a largura toda.",
+    "manual": "5.4, 5.5"
+  },
+  {
+    "id": "css-097",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "No telemóvel, o que muda no campo de pesquisa com estas regras?",
+    "codigo": "/* fora */\n.pesquisa input { min-width: 240px; }\n\n@media (max-width: 600px) {\n    .pesquisa input {\n        min-width: 0;\n        flex: 1;\n    }\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Fica escondido, porque min-width: 0 quer dizer largura zero.",
+      "Fica com 240px exatos e o botão passa para baixo.",
+      "Ocupa o ecrã todo e o botão desaparece.",
+      "Deixa de ter 240px de mínimo e ocupa o espaço livre ao lado do botão."
+    ],
+    "correta": 3,
+    "explicacao": "min-width: 0 tira o limite mínimo, que num ecrã estreito empurraria o botão. flex: 1 faz o campo crescer para ocupar o espaço que sobra ao lado do botão.",
+    "manual": "5.5, Anexo A"
+  },
+  {
+    "id": "css-098",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "Na página de detalhe, como ficam a etiqueta e o valor num telemóvel?",
+    "codigo": ".detalhe dt { width: 140px; }\n.detalhe dd { width: calc(100% - 140px); }\n\n@media (max-width: 600px) {\n    .detalhe dt,\n    .detalhe dd {\n        width: 100%;\n    }\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Um por baixo do outro, cada um com a largura toda.",
+      "Lado a lado, com 140px para a etiqueta.",
+      "Lado a lado, cada um com metade da largura.",
+      "Só a etiqueta aparece, porque o valor deixa de caber."
+    ],
+    "correta": 0,
+    "explicacao": "No telemóvel os dois passam a ocupar 100% da linha e, como o dl tem flex-wrap: wrap, cada um vai para uma linha própria.",
+    "manual": "5.5, Anexo A"
+  },
+  {
+    "id": "css-099",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Como vês no computador o aspeto da Biblioteca num telemóvel?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Ctrl + Shift + N, para abrir uma janela anónima.",
+      "F12 e depois Ctrl + Shift + P, escrevendo Disable JavaScript.",
+      "F12 e depois Ctrl + Shift + M (modo de dispositivo).",
+      "F5 várias vezes, até a página se adaptar."
+    ],
+    "correta": 2,
+    "explicacao": "Ctrl + Shift + M nas ferramentas de programador (F12) ativa o modo de dispositivo, onde escolhes um telemóvel. Ctrl + Shift + N abre uma janela anónima.",
+    "manual": "5.5"
+  },
+  {
+    "id": "css-100",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "No modo de dispositivo do browser escolhes um ecrã com 375px de largura. Que regras se aplicam?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "As de fora e também as da @media (max-width: 600px).",
+      "Só as regras dentro de @media (max-width: 600px).",
+      "Só as regras de fora da media query.",
+      "Nenhuma, até recarregares a página no telemóvel verdadeiro."
+    ],
+    "correta": 0,
+    "explicacao": "As regras de fora valem sempre; num ecrã até 600px juntam-se as da media query, que mudam só o que lá está escrito.",
+    "manual": "5.5"
+  }
+]

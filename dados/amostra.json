@@ -1,0 +1,272 @@
+[
+  {
+    "id": "amostra-001",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Enviaste o formulário com este campo preenchido, mas no servidor $_POST['email'] não existe. Porquê?",
+    "codigo": "<label for=\"email\">Email</label>\n<input type=\"email\" id=\"email\" required>",
+    "linguagem": "html",
+    "alternativas": [
+      "Falta o atributo name: sem ele, o campo não é enviado.",
+      "Falta o atributo value com o email escrito.",
+      "O type=\"email\" só é enviado em formulários com method=\"get\".",
+      "O id e o for têm de ter valores diferentes."
+    ],
+    "correta": 0,
+    "explicacao": "O valor chega ao servidor com a chave do atributo name ($_POST['email']). O id só serve para o <label for>, o CSS e o JavaScript.",
+    "manual": "4.2"
+  },
+  {
+    "id": "amostra-002",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Sabendo que estas três regras estão no mesmo ficheiro, por esta ordem, de que cor fica o texto de <p class=\"aviso\">Atenção</p>?",
+    "codigo": ".aviso { color: blue; }\np      { color: red; }\n.aviso { color: orange; }",
+    "linguagem": "css",
+    "alternativas": [
+      "Vermelho, porque a regra p é a do meio.",
+      "Azul, porque é a primeira regra de classe.",
+      "Laranja.",
+      "Preto, porque as regras contraditórias anulam-se."
+    ],
+    "correta": 2,
+    "explicacao": "A classe ganha ao elemento, por isso o vermelho perde. Entre as duas regras .aviso, igualmente específicas, ganha a que aparece mais abaixo no ficheiro: laranja.",
+    "manual": "5.3"
+  },
+  {
+    "id": "amostra-003",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "facil",
+    "pergunta": "No validacao.js, que instrução impede que o formulário seja enviado quando há erros?",
+    "codigo": "form.addEventListener('submit', function (event) {\n    if (erros.length > 0) {\n        ________;\n    }\n});",
+    "linguagem": "javascript",
+    "alternativas": [
+      "event.stopPropagation()",
+      "form.cancel()",
+      "return true",
+      "event.preventDefault()"
+    ],
+    "correta": 3,
+    "explicacao": "preventDefault() cancela o comportamento normal do evento: neste caso, o envio do formulário. stopPropagation() só impede o evento de subir aos elementos-pai e form.cancel() não existe.",
+    "manual": "6.2"
+  },
+  {
+    "id": "amostra-004",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "Abres livro_ver.php?id=999 e esse livro não existe. Que código de estado a Biblioteca devolve?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "200",
+      "302",
+      "404",
+      "500"
+    ],
+    "correta": 2,
+    "explicacao": "404 = não encontrado: a página faz http_response_code(404) quando o fetch() devolve false. O 500 é para quando o código rebenta e o 302 é um redirecionamento.",
+    "manual": "1.3, 12.3"
+  },
+  {
+    "id": "amostra-005",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Sabendo que a autora Ana ainda não tem nenhum livro, o que mostra esta consulta para ela?",
+    "codigo": "SELECT a.nome, COUNT(l.id_livro) AS total_livros\nFROM autores a\nLEFT JOIN livros l ON l.id_autor = a.id_autor\nGROUP BY a.id_autor, a.nome;",
+    "linguagem": "sql",
+    "alternativas": [
+      "A Ana não aparece, porque não tem livros.",
+      "Ana | 0",
+      "Ana | 1",
+      "Ana | NULL"
+    ],
+    "correta": 1,
+    "explicacao": "O LEFT JOIN mantém todos os autores, mesmo sem livros. O COUNT(l.id_livro) só conta valores não nulos, por isso dá 0. Com JOIN, a Ana não apareceria.",
+    "manual": "3.7, 13.1"
+  },
+  {
+    "id": "amostra-006",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Numa clínica veterinária, um tutor tem vários animais e cada animal tem um só tutor. Onde fica a chave estrangeira?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Na tabela animais, numa coluna id_tutor.",
+      "Na tabela tutores, numa coluna id_animal.",
+      "Nas duas tabelas, uma em cada.",
+      "Numa terceira tabela, obrigatoriamente."
+    ],
+    "correta": 0,
+    "explicacao": "Numa relação 1:N, a chave estrangeira fica sempre do lado N (animais). Um tutor não pode ter id_animal, porque teria de guardar vários números na mesma célula.",
+    "manual": "3.3, 13.4"
+  },
+  {
+    "id": "amostra-007",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "dificil",
+    "pergunta": "O que acontece se alguém pesquisar ' OR 1=1 --  neste código?",
+    "codigo": "$q = $_GET['q'];\n$sql = \"SELECT * FROM livros WHERE titulo LIKE '%$q%'\";\n$livros = $pdo->query($sql)->fetchAll();",
+    "linguagem": "php",
+    "alternativas": [
+      "Dá um erro de sintaxe e não aparece nenhum livro.",
+      "Devolve todos os livros da tabela.",
+      "Procura um livro com esse título estranho e não encontra nenhum.",
+      "O PDO deteta o ataque e recusa a consulta."
+    ],
+    "correta": 1,
+    "explicacao": "A variável entra no texto do SQL: a plica fecha o texto, o OR 1=1 é sempre verdadeiro e o -- comenta o resto. É SQL injection. Com prepare() e execute(), a consulta procuraria esse título e não encontraria nada.",
+    "manual": "8.4"
+  },
+  {
+    "id": "amostra-008",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "No formulário de registo, qual é a forma correta de pedir o consentimento?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Uma caixa já marcada, para o utilizador não se esquecer.",
+      "Uma frase \"Ao criares conta, aceitas a política\", sem caixa.",
+      "Uma caixa desmarcada, verificada só no JavaScript.",
+      "Uma caixa desmarcada, com link para a política, verificada também no servidor."
+    ],
+    "correta": 3,
+    "explicacao": "Uma caixa já marcada não é consentimento. Tem de estar desmarcada, ter link para a política e ser verificada no servidor (o JavaScript pode ser desligado). A data fica em consentimento_em.",
+    "manual": "15.2"
+  },
+  {
+    "id": "amostra-009",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "facil",
+    "pergunta": "O que mostra este código?",
+    "codigo": "<?php\n$titulo = 'Os Maias';\necho 'Livro: $titulo';",
+    "linguagem": "php",
+    "alternativas": [
+      "Livro: Os Maias",
+      "Livro: $titulo",
+      "Livro: ",
+      "Dá erro, porque falta o ponto para juntar os textos."
+    ],
+    "correta": 1,
+    "explicacao": "Com aspas simples, o texto é literal e a variável não é substituída. Com aspas duplas (\"Livro: $titulo\"), apareceria Livro: Os Maias.",
+    "manual": "7.2"
+  },
+  {
+    "id": "amostra-010",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "media",
+    "pergunta": "Uma página faz a inclusão de includes/rodape.php, mas esse ficheiro não existe. Qual é a diferença entre usar include e require?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O require dá um erro fatal e para a página; o include dá um aviso e continua.",
+      "O include dá um erro fatal e para a página; o require dá um aviso e continua.",
+      "Não há diferença: os dois param a página.",
+      "O include é mais rápido, por isso mostra a página sem o rodapé."
+    ],
+    "correta": 0,
+    "explicacao": "A diferença só se vê quando o ficheiro falta: o require para com erro fatal e o include só avisa. A Biblioteca usa sempre require, porque sem esses ficheiros a página não funciona.",
+    "manual": "7.6"
+  },
+  {
+    "id": "amostra-011",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Depois de inserir um livro novo, queres redirecionar para a página dele. Como obténs o id que o AUTO_INCREMENT gerou?",
+    "codigo": "$stmt = $pdo->prepare('INSERT INTO livros (titulo, id_autor) VALUES (?, ?)');\n$stmt->execute([$titulo, $idAutor]);\n$novoId = ________;",
+    "linguagem": "php",
+    "alternativas": [
+      "$stmt->rowCount()",
+      "$_POST['id_livro']",
+      "$pdo->lastInsertId()",
+      "$stmt->fetchColumn()"
+    ],
+    "correta": 2,
+    "explicacao": "lastInsertId() devolve o id gerado pelo último INSERT. rowCount() diz quantas linhas um UPDATE ou um DELETE afetou, e o formulário nunca envia o id de um livro novo.",
+    "manual": "8.2, 12.4"
+  },
+  {
+    "id": "amostra-012",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "dificil",
+    "pergunta": "Qual é o problema deste livro_apagar.php?",
+    "codigo": "<?php\nrequire 'includes/inicio.php';\nrequire 'includes/auth.php';\n\nif ($_SERVER['REQUEST_METHOD'] !== 'POST') {\n    header('Location: livros.php');\n}\n\n$stmt = $pdo->prepare('DELETE FROM livros WHERE id_livro = ?');\n$stmt->execute([(int) ($_POST['id_livro'] ?? 0)]);",
+    "linguagem": "php",
+    "alternativas": [
+      "Falta o exit depois do header(): num pedido GET, o resto da página continua a ser executado.",
+      "O header() tinha de vir depois do DELETE.",
+      "O (int) impede que o livro seja apagado.",
+      "Para apagar devia usar-se $_GET em vez de $_POST."
+    ],
+    "correta": 0,
+    "explicacao": "O header() só manda o browser ir para outra página; o PHP continua a correr. O exit logo a seguir é obrigatório, senão o código abaixo (aqui, o DELETE) é executado na mesma.",
+    "manual": "7.7, 12.6"
+  },
+  {
+    "id": "amostra-013",
+    "bloco": "php",
+    "tema": "Passwords",
+    "dificuldade": "dificil",
+    "pergunta": "No login, porque não se encontra o utilizador comparando password_hash($password, PASSWORD_DEFAULT) com o hash guardado?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Porque o password_hash() é demasiado lento para o login.",
+      "Porque o hash é reversível e devia ser decifrado primeiro.",
+      "Porque falta o htmlspecialchars() na password.",
+      "Porque o sal é aleatório: o mesmo texto dá um hash diferente de cada vez."
+    ],
+    "correta": 3,
+    "explicacao": "Cada password_hash() gera um sal novo, por isso o hash nunca coincide. Procura-se o utilizador pelo email e compara-se com password_verify(), que usa o sal guardado no próprio hash.",
+    "manual": "10.1, 10.4"
+  },
+  {
+    "id": "amostra-014",
+    "bloco": "php",
+    "tema": "Sessões",
+    "dificuldade": "media",
+    "pergunta": "No logout.php, porque se volta a chamar session_start() logo depois de session_destroy()?",
+    "codigo": "$_SESSION = [];\nsession_destroy();\nsession_start();\nmensagem('sucesso', 'Sessão terminada.');\nheader('Location: index.php');\nexit;",
+    "linguagem": "php",
+    "alternativas": [
+      "Para voltar a iniciar sessão com o mesmo utilizador.",
+      "Para abrir uma sessão nova e vazia, só para levar a mensagem à página seguinte.",
+      "Porque o session_destroy() só funciona se houver um session_start() depois.",
+      "Para gerar um novo id de sessão contra a fixação de sessão."
+    ],
+    "correta": 1,
+    "explicacao": "A sessão antiga já foi apagada. A nova está vazia e só serve para a função mensagem() guardar \"Sessão terminada.\" até ao index.php. O novo id contra a fixação é o session_regenerate_id(), usado no login.",
+    "manual": "10.5"
+  },
+  {
+    "id": "amostra-015",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "media",
+    "pergunta": "Alguém gravou um livro com o título <script>alert(1)</script>. O que acontece quando a lista o mostra assim?",
+    "codigo": "<h2><?= htmlspecialchars($livro['titulo']) ?></h2>",
+    "linguagem": "php",
+    "alternativas": [
+      "Abre-se uma janela de alerta no browser de quem vê a lista.",
+      "A base de dados recusou gravar o título, por isso não aparece.",
+      "O título aparece como texto, tal e qual, e nada é executado.",
+      "O título aparece vazio, porque o htmlspecialchars() apaga as tags."
+    ],
+    "correta": 2,
+    "explicacao": "O htmlspecialchars() troca < e > por &lt; e &gt;, que o browser mostra como texto. É a defesa contra o XSS: escapar ao mostrar os dados, não ao gravar.",
+    "manual": "14.1"
+  }
+]
