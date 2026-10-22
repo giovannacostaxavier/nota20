@@ -66,3 +66,5 @@ python -m http.server 8000
 ## Publicar
 
 Funciona em GitHub Pages, Vercel ou Netlify sem configuração: basta publicar a raiz do repositório.
+
+Depois de mudar CSS, JS ou o banco, atualiza o `?v=` dos links no `index.html` para os browsers não usarem a versão antiga em cache.
