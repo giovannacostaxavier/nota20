@@ -1,0 +1,1658 @@
+[
+  {
+    "id": "html-001",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve a linha <!DOCTYPE html> no início de uma página?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Diz ao browser que a página é HTML5.",
+      "Liga a folha de estilos à página.",
+      "Indica a língua em que a página está escrita.",
+      "Faz os acentos aparecerem corretamente."
+    ],
+    "correta": 0,
+    "explicacao": "O <!DOCTYPE html> só declara que o documento é HTML5. A língua é o lang do <html>, os acentos são o meta charset e o CSS liga-se com <link>.",
+    "manual": "4.1"
+  },
+  {
+    "id": "html-002",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Que linha do <head> garante que os acentos aparecem corretamente?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "<html lang=\"pt\">",
+      "<!DOCTYPE html>",
+      "<meta name=\"viewport\" content=\"width=device-width\">",
+      "<meta charset=\"UTF-8\">"
+    ],
+    "correta": 3,
+    "explicacao": "O meta charset diz ao browser a codificação do texto; com UTF-8, \"ç\", \"ã\" e \"é\" aparecem bem. O lang indica a língua, mas não resolve a codificação.",
+    "manual": "4.1"
+  },
+  {
+    "id": "html-003",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve o atributo lang=\"pt\" em <html lang=\"pt\">?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Faz o browser traduzir a página para português automaticamente.",
+      "Garante que os acentos aparecem bem em qualquer browser.",
+      "Indica a língua da página, o que ajuda os leitores de ecrã e os tradutores.",
+      "Obriga o browser a mostrar os erros dos formulários em português."
+    ],
+    "correta": 2,
+    "explicacao": "O lang só declara a língua do conteúdo. Os acentos dependem do meta charset, e as mensagens de erro em português vêm do nosso validacao.js.",
+    "manual": "4.1"
+  },
+  {
+    "id": "html-004",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Abres a tua aplicação no telemóvel e a página aparece minúscula, como se fosse um ecrã de computador encolhido. Que linha falta no <head>?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "<html lang=\"pt\">",
+      "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+      "<link rel=\"stylesheet\" href=\"css/estilo.css\">",
+      "<meta charset=\"UTF-8\">"
+    ],
+    "correta": 1,
+    "explicacao": "O meta viewport faz a página adaptar-se à largura do ecrã do telemóvel. Sem ele, o telemóvel simula um ecrã largo e encolhe tudo.",
+    "manual": "4.1"
+  },
+  {
+    "id": "html-005",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Onde aparece o texto que está dentro de <title>?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Só no código-fonte, nunca é visível.",
+      "No separador do browser.",
+      "No rodapé de todas as páginas.",
+      "No topo da página, como título principal."
+    ],
+    "correta": 1,
+    "explicacao": "O <title> fica no <head> e dá o texto do separador do browser. O título que aparece na própria página é o <h1>.",
+    "manual": "4.1"
+  },
+  {
+    "id": "html-006",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Qual é a forma correta de ligar uma folha de estilos externa a uma página?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "<style src=\"css/estilo.css\"></style>",
+      "<script href=\"css/estilo.css\"></script>",
+      "<link rel=\"stylesheet\" href=\"css/estilo.css\">",
+      "<link src=\"css/estilo.css\" type=\"text/stylesheet\">"
+    ],
+    "correta": 2,
+    "explicacao": "O CSS externo liga-se com <link rel=\"stylesheet\" href=\"...\">. O <style> não tem src, e o <script> serve para JavaScript.",
+    "manual": "4.1, 5.1, Anexo B"
+  },
+  {
+    "id": "html-007",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Em que parte da página deve ficar o <link rel=\"stylesheet\">?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "No fim do <body>, depois do conteúdo.",
+      "Dentro do <footer>.",
+      "Antes da linha <!DOCTYPE html>.",
+      "Dentro do <head>."
+    ],
+    "correta": 3,
+    "explicacao": "O <link> do CSS vai no <head>, junto ao <title> e aos <meta>, para o browser já ter os estilos quando desenha o conteúdo.",
+    "manual": "4.1, 5.1"
+  },
+  {
+    "id": "html-008",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Qual é a diferença entre o <head> e o <body> de uma página?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O <head> tem dados sobre a página; o <body> tem o que se vê.",
+      "O <head> tem o menu visível no topo; o <body> tem o resto do conteúdo.",
+      "O <head> é processado pelo servidor; o <body> pelo browser.",
+      "O <head> só pode ter CSS; o <body> só pode ter HTML."
+    ],
+    "correta": 0,
+    "explicacao": "No <head> ficam o charset, o viewport, o <title> e o <link> do CSS, que não aparecem como conteúdo. O menu visível no topo é o <header>, que fica dentro do <body>.",
+    "manual": "4.1, 9.2"
+  },
+  {
+    "id": "html-009",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Na Biblioteca, onde fica o menu com os links Livros, Autores e Sair?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Num <nav>, dentro do <head>.",
+      "No <footer>, antes do </body>.",
+      "Num <nav>, dentro do <header>, no <body>.",
+      "Dentro do <head>, logo a seguir ao <title> e ao <meta>."
+    ],
+    "correta": 2,
+    "explicacao": "O <header> é o cabeçalho visível da página e fica no <body>; o <nav> agrupa os links de navegação. Não confundas <header> com <head>, que não mostra conteúdo.",
+    "manual": "9.2"
+  },
+  {
+    "id": "html-010",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "O validacao.js tem de estar em todas as páginas. Como é que a Biblioteca faz isso?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Com <script href=\"js/validacao.js\"></script> no cabeçalho, antes do <title>.",
+      "Com <script src=\"js/validacao.js\"></script> no rodapé, incluído por todas as páginas.",
+      "Com <link rel=\"script\" href=\"js/validacao.js\"> em cada formulário.",
+      "Com <script src=\"js/validacao.js\"></script> no db.php, que é o primeiro a ser incluído."
+    ],
+    "correta": 1,
+    "explicacao": "O rodape.php carrega o script com src, no fim do <body>, e é incluído por todas as páginas. O <script> usa src (não href), e o db.php não gera HTML.",
+    "manual": "9.2, 6.3"
+  },
+  {
+    "id": "html-011",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Qual é a forma correta de carregar um ficheiro de JavaScript externo?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "<script src=\"js/validacao.js\"></script>",
+      "<link rel=\"stylesheet\" href=\"js/validacao.js\">",
+      "<js src=\"js/validacao.js\"></js>",
+      "<script href=\"js/validacao.js\"></script>"
+    ],
+    "correta": 0,
+    "explicacao": "O ficheiro de JavaScript carrega-se com o atributo src do <script>. O href é do <a> e do <link>; trocar os dois é um erro frequente.",
+    "manual": "9.2, 6.3"
+  },
+  {
+    "id": "html-012",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "Qual é o problema desta página?",
+    "codigo": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Livros</title>\n</head>\n<body>\n    <link rel=\"stylesheet\" href=\"css/estilo.css\">\n    <h1>Os Maias</h1>\n</body>\n</html>",
+    "linguagem": "html",
+    "alternativas": [
+      "Falta fechar o <link> com a tag </link> correspondente.",
+      "O <title> devia estar dentro do <body>.",
+      "O <h1> só pode aparecer dentro de um <header>.",
+      "A ligação ao CSS devia estar dentro do <head>."
+    ],
+    "correta": 3,
+    "explicacao": "O <link rel=\"stylesheet\"> pertence ao <head>. O <link> não tem tag de fecho, e o <title> fica mesmo no <head>.",
+    "manual": "4.1, 5.1"
+  },
+  {
+    "id": "html-013",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "O cabeçalho da Biblioteca abre <html>, <body> e <main>. Uma página inclui o cabeçalho mas esquece-se de incluir o rodapé. O que fica a faltar no HTML enviado?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Nada, porque o cabeçalho já fecha a página toda.",
+      "Só o </html>; tudo o resto já vem do cabeçalho.",
+      "O link da política, o validacao.js e o fecho do main, body e html.",
+      "O <head>, com o <title> e a ligação ao CSS."
+    ],
+    "correta": 2,
+    "explicacao": "O rodapé fecha o que o cabeçalho abriu (</main>, </body>, </html>), mostra o <footer> com o link da política e carrega o validacao.js. O <head> está no cabeçalho, por isso não falta.",
+    "manual": "9.2"
+  },
+  {
+    "id": "html-014",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Cada página da Biblioteca define a variável $titulo antes de incluir o cabeçalho. Para que serve?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Para o cabeçalho escolher qual ficheiro CSS deve ligar.",
+      "Para o texto do <title>, no separador do browser, mudar em cada página.",
+      "Para o <h1> de cada página ser criado automaticamente.",
+      "Para o browser saber em que língua está a página."
+    ],
+    "correta": 1,
+    "explicacao": "O cabeçalho escreve <title><?= htmlspecialchars($titulo) ?> · Biblioteca</title>, por isso cada página tem o seu texto no separador. O <h1> é escrito por cada página.",
+    "manual": "9.2"
+  },
+  {
+    "id": "html-015",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Que método deve usar o formulário de registo, que cria uma conta?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "method=\"send\"",
+      "method=\"submit\"",
+      "method=\"get\"",
+      "method=\"post\""
+    ],
+    "correta": 3,
+    "explicacao": "Tudo o que cria ou altera dados usa method=\"post\": os dados vão no corpo do pedido e não no endereço.",
+    "manual": "4.2, 1.2"
+  },
+  {
+    "id": "html-016",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve o atributo action de um <form>?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Indica o endereço para onde os dados são enviados.",
+      "Dá ao formulário um nome para o servidor o reconhecer.",
+      "Indica se os dados vão por GET ou por POST.",
+      "Define a função de JavaScript que valida o formulário."
+    ],
+    "correta": 0,
+    "explicacao": "O action diz para onde vão os dados (por exemplo, o próprio registo.php). O GET ou POST é escolhido pelo method.",
+    "manual": "4.2"
+  },
+  {
+    "id": "html-017",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Num formulário com method=\"post\", onde vão os dados dos campos?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "No corpo do pedido, sem aparecerem no endereço.",
+      "No endereço, depois do ?.",
+      "Num cookie que o browser cria para o formulário.",
+      "Na sessão do utilizador, guardada no browser."
+    ],
+    "correta": 0,
+    "explicacao": "Com POST, os campos vão no corpo do pedido. Com GET é que aparecem no endereço depois do ?.",
+    "manual": "1.2, 4.2"
+  },
+  {
+    "id": "html-018",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Porque é que o formulário de pesquisa da Biblioteca usa method=\"get\"?",
+    "codigo": "<form method=\"get\" action=\"livros.php\" class=\"pesquisa\">\n    <input type=\"search\" name=\"q\" placeholder=\"Pesquisar por título\">\n    <button type=\"submit\">Pesquisar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "Porque um campo type=\"search\" só funciona com method=\"get\".",
+      "O texto vai no endereço, por isso a pesquisa pode ser guardada ou partilhada.",
+      "Porque o POST não consegue enviar mais do que um campo.",
+      "Porque o GET é mais seguro do que o POST para enviar texto."
+    ],
+    "correta": 1,
+    "explicacao": "Pesquisar só lê dados, por isso é um GET: o texto fica no URL (?q=mar), que pode ir para os favoritos. Não é uma questão de segurança.",
+    "manual": "12.2, 1.2"
+  },
+  {
+    "id": "html-020",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "Este formulário de login não tem o atributo method. O que acontece quando é enviado?",
+    "codigo": "<form action=\"login.php\">\n    <label for=\"email\">Email</label>\n    <input type=\"email\" id=\"email\" name=\"email\">\n    <label for=\"password\">Password</label>\n    <input type=\"password\" id=\"password\" name=\"password\">\n    <button type=\"submit\">Entrar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "É enviado com POST, que é o método por omissão.",
+      "Não é enviado: o method é obrigatório.",
+      "É enviado com GET, e a password aparece no endereço.",
+      "O browser pergunta ao utilizador que método quer usar no envio."
+    ],
+    "correta": 2,
+    "explicacao": "Sem method, o browser usa GET, por isso os campos vão para o URL (login.php?email=...&password=...). Um formulário com password tem de ter method=\"post\".",
+    "manual": "4.2, 1.2"
+  },
+  {
+    "id": "html-021",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "O formulário de edição tem action=\"livro_editar.php?id=7\" e method=\"post\". Como é que o id chega ao servidor?",
+    "codigo": "<form method=\"post\" action=\"livro_editar.php?id=7\">\n    <label for=\"titulo\">Título</label>\n    <input type=\"text\" id=\"titulo\" name=\"titulo\" value=\"Os Maias\">\n    <button type=\"submit\">Guardar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "Chega em $_POST['id'], junto com os campos do formulário.",
+      "Não chega: num POST, o que está depois do ? é ignorado.",
+      "Só chega se houver também um campo hidden com name=\"id\".",
+      "Vem no endereço do action, por isso lê-se em $_GET['id'], mesmo num POST."
+    ],
+    "correta": 3,
+    "explicacao": "O que está no action depois do ? vai no endereço e lê-se em $_GET; os campos do formulário vão no corpo e lêem-se em $_POST. Por isso o id chega também no POST.",
+    "manual": "12.5, 7.5"
+  },
+  {
+    "id": "html-022",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Que método deve usar o formulário de login, e porquê?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "POST, porque é mais rápido do que o GET.",
+      "POST, porque envia a password, que não deve aparecer no endereço.",
+      "GET, porque o login só lê dados e não grava nada.",
+      "GET, porque assim o login pode ir para os favoritos."
+    ],
+    "correta": 1,
+    "explicacao": "O login usa POST: os dados vão no corpo do pedido. Com GET, a password ficava no URL, no histórico e nos favoritos.",
+    "manual": "1.2, 4.2"
+  },
+  {
+    "id": "html-023",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Que elemento se usa para o botão que envia um formulário?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "<button type=\"submit\">",
+      "<input type=\"send\" value=\"Enviar\">",
+      "<button type=\"send\">",
+      "<a href=\"#\">Enviar</a>"
+    ],
+    "correta": 0,
+    "explicacao": "O botão que envia o formulário é <button type=\"submit\">. Um link <a> não envia os campos do formulário.",
+    "manual": "4.2, Anexo B"
+  },
+  {
+    "id": "html-024",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Qual é o problema de usar method=\"get\" num formulário que cria um livro?",
+    "codigo": "<form method=\"get\" action=\"livro_novo.php\">\n    <label for=\"titulo\">Título</label>\n    <input type=\"text\" id=\"titulo\" name=\"titulo\">\n    <button type=\"submit\">Guardar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "Com GET, a sinopse não pode ter acentos nem espaços.",
+      "Com GET, o botão type=\"submit\" deixa de funcionar.",
+      "Um GET não deve alterar dados: o endereço pode ser repetido, guardado ou partilhado.",
+      "Não há problema, desde que o servidor valide os dados."
+    ],
+    "correta": 2,
+    "explicacao": "Um GET deve poder repetir-se sem efeitos. Se criar um livro, basta abrir o endereço outra vez (ou um robô segui-lo) para criar outro. Para criar dados usa-se POST.",
+    "manual": "1.2, 4.4"
+  },
+  {
+    "id": "html-025",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Que atributo de um campo define a chave com que o valor chega ao servidor?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "id",
+      "name",
+      "for",
+      "value"
+    ],
+    "correta": 1,
+    "explicacao": "O name é a chave: name=\"email\" chega como $_POST['email']. Sem name, o campo não é enviado. O id serve para o <label for>, o CSS e o JavaScript.",
+    "manual": "4.2"
+  },
+  {
+    "id": "html-026",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Com que chave lês no servidor o valor escrito neste campo?",
+    "codigo": "<label for=\"titulo\">Título do livro</label>\n<input type=\"text\" id=\"titulo\" name=\"nome_livro\">",
+    "linguagem": "html",
+    "alternativas": [
+      "$_POST['nome_livro']",
+      "$_POST['Título do livro']",
+      "$_POST['titulo']",
+      "$_POST['text']"
+    ],
+    "correta": 0,
+    "explicacao": "A chave é sempre o name do campo. O id (titulo) só liga o campo à etiqueta; o texto da etiqueta e o type não são enviados.",
+    "manual": "4.2"
+  },
+  {
+    "id": "html-027",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Qual é a diferença entre os atributos id e name de um campo?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O name só serve para o CSS e o JavaScript; o id só serve para o servidor.",
+      "São sinónimos: o browser envia o que existir.",
+      "O id é a chave do valor enviado; o name identifica o elemento.",
+      "O name é a chave do valor enviado; o id identifica o elemento."
+    ],
+    "correta": 3,
+    "explicacao": "O servidor recebe o valor com a chave do name. O id é usado pelo <label for>, pelo CSS (#id) e pelo getElementById() no JavaScript.",
+    "manual": "4.2, 6.2"
+  },
+  {
+    "id": "html-028",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "Num projeto, ao gravar um registo, aparece \"Warning: Undefined array key \"isbn\"\". O campo do formulário é este. Qual é a causa?",
+    "codigo": "<label for=\"isbn\">ISBN (opcional)</label>\n<input type=\"text\" id=\"isbn\" maxlength=\"13\">",
+    "linguagem": "html",
+    "alternativas": [
+      "O id devia ser diferente do for do <label>.",
+      "O campo não tem required, por isso chega vazio.",
+      "O campo não tem name, por isso não é enviado.",
+      "O maxlength cortou o valor antes de ser enviado."
+    ],
+    "correta": 2,
+    "explicacao": "Sem name, o browser não envia o campo e $_POST['isbn'] não existe. Um campo vazio chegava na mesma, como texto vazio.",
+    "manual": "17.1, 4.2"
+  },
+  {
+    "id": "html-029",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Como se liga uma etiqueta <label> a um campo?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O <label> e o campo têm o mesmo name.",
+      "O <label> é escrito logo a seguir ao campo.",
+      "O for do <label> tem o mesmo valor que o name do campo.",
+      "O for do <label> tem o mesmo valor que o id do campo."
+    ],
+    "correta": 3,
+    "explicacao": "<label for=\"email\"> liga-se ao campo com id=\"email\". O name não entra nesta ligação: serve para enviar o valor.",
+    "manual": "4.2, Anexo B"
+  },
+  {
+    "id": "html-030",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "O que se ganha em ligar um <label> ao seu campo?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Clicar no texto põe o cursor no campo, e os leitores de ecrã sabem o que pede.",
+      "O browser passa a validar o campo automaticamente.",
+      "O texto da etiqueta é enviado ao servidor junto com o valor.",
+      "O texto da etiqueta aparece dentro do campo como sugestão."
+    ],
+    "correta": 0,
+    "explicacao": "A ligação dá conforto (o clique no texto vai para o campo) e acessibilidade. A etiqueta não é enviada nem valida nada.",
+    "manual": "4.2"
+  },
+  {
+    "id": "html-031",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "O que acontece quando clicas no texto \"Email\"?",
+    "codigo": "<label for=\"email\">Email</label>\n<input type=\"email\" id=\"mail\" name=\"email\">",
+    "linguagem": "html",
+    "alternativas": [
+      "O cursor vai para o campo, porque o for corresponde ao name.",
+      "O formulário é enviado, porque o campo é do tipo email.",
+      "Nada: o for não corresponde a nenhum id, por isso o cursor não vai para o campo.",
+      "O browser mostra um erro e a página não aparece."
+    ],
+    "correta": 2,
+    "explicacao": "O for liga-se ao id, e aqui o id é \"mail\". O name (email) não conta para a etiqueta. O browser não dá erro: a etiqueta só fica sem efeito.",
+    "manual": "4.2"
+  },
+  {
+    "id": "html-032",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "No registo, a caixa do consentimento está dentro do próprio <label>. Que efeito tem isso?",
+    "codigo": "<label class=\"check\" for=\"consentimento\">\n    <input type=\"checkbox\" id=\"consentimento\" name=\"consentimento\" required>\n    <span>Li e aceito a política de privacidade.</span>\n</label>",
+    "linguagem": "html",
+    "alternativas": [
+      "O texto da etiqueta passa a ser enviado como valor da caixa.",
+      "Clicar no texto ativa ou desativa a caixa, como clicar na própria caixa.",
+      "A caixa deixa de ser enviada ao servidor, por estar dentro de outro elemento.",
+      "A caixa fica assinalada logo quando a página abre."
+    ],
+    "correta": 1,
+    "explicacao": "A etiqueta continua ligada à caixa, por isso clicar no texto muda o estado da caixa. Isso é conforto para o utilizador; o valor enviado não muda.",
+    "manual": "4.2"
+  },
+  {
+    "id": "html-033",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Que valor deve ter o atributo for da etiqueta deste campo?",
+    "codigo": "<label for=\"______\">Ano de edição</label>\n<input type=\"number\" id=\"ano_edicao\" name=\"ano\">",
+    "linguagem": "html",
+    "alternativas": [
+      "Ano de edição",
+      "ano",
+      "ano_edicao",
+      "number"
+    ],
+    "correta": 2,
+    "explicacao": "O for tem de ser igual ao id do campo (ano_edicao). O name (ano) é só a chave com que o valor chega ao servidor.",
+    "manual": "4.2"
+  },
+  {
+    "id": "html-034",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "Este campo não tem id e a etiqueta não tem for. A etiqueta fica ligada ao campo?",
+    "codigo": "<label>\n    Email\n    <input type=\"email\" name=\"email\">\n</label>",
+    "linguagem": "html",
+    "alternativas": [
+      "Sim, porque o name tem o mesmo texto que a etiqueta.",
+      "Sim, porque o campo está dentro do <label>.",
+      "Não, porque sem for e id não há ligação.",
+      "Não, e o campo também deixa de ser enviado."
+    ],
+    "correta": 1,
+    "explicacao": "Há duas formas de ligar: for igual ao id, ou o campo dentro do <label>. O campo continua a ser enviado, porque tem name.",
+    "manual": "4.2"
+  },
+  {
+    "id": "html-035",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve o atributo value de um <input>?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Dá o valor inicial do campo.",
+      "Liga o campo à etiqueta com o mesmo texto.",
+      "Limita o número de caracteres que se podem escrever.",
+      "Dá a chave com que o valor chega ao servidor."
+    ],
+    "correta": 0,
+    "explicacao": "O value é o valor com que o campo aparece preenchido. A chave é o name, o limite é o maxlength e a etiqueta liga-se pelo id.",
+    "manual": "4.2"
+  },
+  {
+    "id": "html-036",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "No registo, o campo do nome tem value=\"<?= htmlspecialchars($nome) ?>\". Para que serve este value?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Para o browser validar o nome antes de enviar o formulário.",
+      "Para o nome ser guardado no cookie da sessão.",
+      "Para o nome ir no endereço depois do envio.",
+      "Para, depois de um erro, o campo voltar com o que o utilizador escreveu."
+    ],
+    "correta": 3,
+    "explicacao": "Quando a validação falha, a página volta a mostrar o formulário; com o value, os campos não aparecem vazios e o utilizador não tem de escrever tudo outra vez.",
+    "manual": "4.2, 9.5"
+  },
+  {
+    "id": "html-037",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "Pesquisaste \"mar\" e a página livros.php?q=mar foi mostrada. O que aparece dentro da caixa de pesquisa?",
+    "codigo": "<input type=\"search\" name=\"q\"\n       placeholder=\"Pesquisar por título\"\n       value=\"<?= htmlspecialchars($q) ?>\">",
+    "linguagem": "html",
+    "alternativas": [
+      "Nada, porque o value só funciona com method=\"post\".",
+      "mar",
+      "q",
+      "Pesquisar por título"
+    ],
+    "correta": 1,
+    "explicacao": "O $q tem o texto pesquisado e é posto no value, por isso a caixa mostra \"mar\". O placeholder só aparece quando a caixa está vazia.",
+    "manual": "12.2"
+  },
+  {
+    "id": "html-038",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "Porque é que a Biblioteca usa htmlspecialchars() dentro de value=\"...\"?",
+    "codigo": "<input type=\"text\" id=\"titulo\" name=\"titulo\"\n       value=\"<?= htmlspecialchars($livro['titulo']) ?>\">",
+    "linguagem": "html",
+    "alternativas": [
+      "Para que aspas ou < no texto não partam o HTML nem sejam executados.",
+      "Para que o browser cifre o valor antes de o enviar.",
+      "Para que o maxlength conte bem os caracteres com acento.",
+      "Para que o valor seja gravado em UTF-8 na base de dados."
+    ],
+    "correta": 0,
+    "explicacao": "Um título com \" fecharia o atributo value e o resto seria lido como HTML. O htmlspecialchars() troca \", <, > e & por entidades, que aparecem como texto.",
+    "manual": "14.1, 4.2"
+  },
+  {
+    "id": "html-039",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "No formulário de edição de um livro, os campos já aparecem preenchidos. Como?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Os dados vêm num campo hidden enviado pela página de detalhe.",
+      "O selected preenche todos os campos com os valores atuais.",
+      "O browser lembra-se do que foi escrito da última vez que o livro foi criado.",
+      "No GET, o livro é lido da base de dados e posto no value de cada campo."
+    ],
+    "correta": 3,
+    "explicacao": "O livro_editar.php faz um SELECT no GET e o formulário escreve esses valores no value dos campos (e no meio da textarea). O selected só serve para as opções de um <select>.",
+    "manual": "12.5, 4.2"
+  },
+  {
+    "id": "html-040",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "O que indica o atributo required num campo?",
+    "codigo": "<label for=\"nome\">Nome</label>\n<input type=\"text\" id=\"nome\" name=\"nome\" required>",
+    "linguagem": "html",
+    "alternativas": [
+      "Que o servidor recusa sempre o pedido inteiro se esse campo chegar vazio.",
+      "Que o campo é enviado mesmo que não tenha name.",
+      "Que o campo é obrigatório e o formulário não deve ir com ele vazio.",
+      "Que o valor do campo é cifrado antes de ser enviado."
+    ],
+    "correta": 2,
+    "explicacao": "O required é uma regra para o browser (e, na Biblioteca, um sinal para o validacao.js). O servidor só recusa porque tem a sua própria validação.",
+    "manual": "4.2"
+  },
+  {
+    "id": "html-041",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Um formulário tem required em todos os campos. O servidor ainda precisa de verificar se vêm vazios?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Não, desde que o formulário tenha também o atributo novalidate.",
+      "Só nos campos de password, porque os outros são verificados pelo browser.",
+      "Não: o browser nunca envia um formulário com um campo required vazio.",
+      "Sim: o required pode ser contornado, por isso a validação no servidor é obrigatória."
+    ],
+    "correta": 3,
+    "explicacao": "Basta desligar o JavaScript, alterar o HTML com F12 ou enviar o pedido sem o formulário. A validação no browser é conforto; a segurança está no servidor.",
+    "manual": "6.1, 6.4, 14"
+  },
+  {
+    "id": "html-042",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "O que faz o atributo maxlength=\"13\" no campo do ISBN?",
+    "codigo": "<label for=\"isbn\">ISBN (opcional)</label>\n<input type=\"text\" id=\"isbn\" name=\"isbn\" maxlength=\"13\">",
+    "linguagem": "html",
+    "alternativas": [
+      "Faz o servidor recusar ISBN com mais de 13 algarismos.",
+      "Mostra o campo com 13 caracteres de largura.",
+      "Não deixa escrever mais de 13 caracteres no campo.",
+      "Obriga a escrever exatamente 13 caracteres."
+    ],
+    "correta": 2,
+    "explicacao": "O maxlength limita o que se pode escrever no browser. Não obriga a um tamanho mínimo, e o servidor tem a sua própria regra.",
+    "manual": "4.2"
+  },
+  {
+    "id": "html-043",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "Alguém tira o maxlength=\"200\" do campo do título com F12 e envia um título com 300 caracteres. O que acontece na Biblioteca?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O servidor recusa e mostra o erro, porque valida o tamanho outra vez.",
+      "O livro é gravado com os 300 caracteres.",
+      "O browser corta automaticamente o título para 200 caracteres antes de o enviar.",
+      "A página dá um erro 500 e não mostra nada."
+    ],
+    "correta": 0,
+    "explicacao": "O validar_livro() verifica que o título não tem mais de 200 caracteres. As regras do browser podem ser contornadas, por isso o servidor repete-as.",
+    "manual": "12.4, 14"
+  },
+  {
+    "id": "html-044",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "O que faz o atributo novalidate no <form> do registo?",
+    "codigo": "<form method=\"post\" action=\"registo.php\"\n      id=\"form-principal\" class=\"formulario\" novalidate>",
+    "linguagem": "html",
+    "alternativas": [
+      "Desliga a validação no servidor para esse formulário.",
+      "Desliga as mensagens automáticas do browser, para o nosso JavaScript mostrar os erros.",
+      "Desliga o validacao.js nesse formulário.",
+      "Impede o envio enquanto houver campos required vazios."
+    ],
+    "correta": 1,
+    "explicacao": "Com novalidate, o browser não mostra os seus avisos; é o validacao.js que mostra todos os erros juntos e em português. O servidor valida sempre.",
+    "manual": "4.2"
+  },
+  {
+    "id": "html-045",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "O <form> do registo tem novalidate. Com o JavaScript desligado, envias o registo em branco. O que acontece?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Nada acontece: o botão fica desativado sem JavaScript.",
+      "A conta é criada com os campos vazios.",
+      "O pedido chega ao servidor, que encontra e mostra os erros.",
+      "O browser mostra os seus avisos automáticos e não envia nada."
+    ],
+    "correta": 2,
+    "explicacao": "O novalidate desliga os avisos do browser e o JavaScript está desligado, por isso o formulário é enviado. É a validação no servidor que encontra os erros.",
+    "manual": "6.3, 4.2, 16"
+  },
+  {
+    "id": "html-046",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "No registo, o campo da password tem data-minimo=\"8\". Para que serve este atributo?",
+    "codigo": "<label for=\"password\">Password (mínimo 8 caracteres)</label>\n<input type=\"password\" id=\"password\" name=\"password\"\n       required data-minimo=\"8\">",
+    "linguagem": "html",
+    "alternativas": [
+      "Define a largura do campo, em caracteres.",
+      "É lido pelo validacao.js, que só verifica os 8 caracteres onde ele existe.",
+      "Faz o servidor exigir uma password com pelo menos 8 caracteres.",
+      "É uma regra do HTML: o browser recusa passwords com menos de 8."
+    ],
+    "correta": 1,
+    "explicacao": "Os atributos data-* são nossos: o browser ignora-os e o JavaScript lê-os (password.dataset.minimo). A regra dos 8 só atua onde ele existe, ou seja, no registo.",
+    "manual": "6.3, 4.2"
+  },
+  {
+    "id": "html-047",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "No login, o campo da password é este. Escreves uma password com 5 caracteres e envias. O que faz o validacao.js?",
+    "codigo": "<input type=\"password\" id=\"password\" name=\"password\" required>",
+    "linguagem": "html",
+    "alternativas": [
+      "Deixa enviar: a regra dos 8 caracteres só atua se houver data-minimo.",
+      "Impede o envio, porque o required exige 8 caracteres.",
+      "Mostra \"A password tem de ter pelo menos 8 caracteres.\"",
+      "Apaga a password do campo e pede para escrever outra vez."
+    ],
+    "correta": 0,
+    "explicacao": "O validacao.js só verifica o tamanho quando o campo tem data-minimo; no login não tem. O required só exige que não esteja vazio.",
+    "manual": "6.3"
+  },
+  {
+    "id": "html-048",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Como se cria um campo de password num formulário?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "<input type=\"text\" secret>",
+      "<input type=\"hidden\">",
+      "<password>",
+      "<input type=\"password\">"
+    ],
+    "correta": 3,
+    "explicacao": "O campo de password é <input type=\"password\">: o texto aparece como pontos. O hidden não aparece de todo.",
+    "manual": "4.2, Anexo B"
+  },
+  {
+    "id": "html-049",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "O que faz, de facto, um campo <input type=\"password\">?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Impede que a password seja enviada num formulário com method=\"get\".",
+      "Mostra pontos no ecrã; o valor é enviado tal como foi escrito.",
+      "Guarda o hash da password no browser.",
+      "Cifra a password no browser antes de a enviar."
+    ],
+    "correta": 1,
+    "explicacao": "O type=\"password\" só esconde o texto de quem olha para o ecrã. Não cifra nada: é preciso POST, HTTPS e password_hash() no servidor.",
+    "manual": "4.2, 14.3"
+  },
+  {
+    "id": "html-050",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Que vantagem tem usar <input type=\"email\"> num telemóvel?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O email é enviado cifrado.",
+      "Não deixa registar emails repetidos.",
+      "Aparece o teclado com o @.",
+      "O browser confirma que o email existe."
+    ],
+    "correta": 2,
+    "explicacao": "No telemóvel, o type=\"email\" mostra o teclado com @. Verificar o formato a sério e impedir repetidos é trabalho do servidor (e do UNIQUE).",
+    "manual": "4.2"
+  },
+  {
+    "id": "html-051",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Que tipo de campo usa a Biblioteca para o ano de edição de um livro?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "<input type=\"number\">",
+      "<input type=\"search\">",
+      "<input type=\"date\">",
+      "<input type=\"year\" min=\"1450\">"
+    ],
+    "correta": 0,
+    "explicacao": "O ano é um número, por isso usa type=\"number\". O type=\"year\" não existe, e o date pede um dia completo.",
+    "manual": "4.2"
+  },
+  {
+    "id": "html-052",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Que tipo de campo usa a Biblioteca para a caixa de pesquisa?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "<input type=\"searchbox\">",
+      "<input type=\"filter\">",
+      "<input type=\"find\">",
+      "<input type=\"search\">"
+    ],
+    "correta": 3,
+    "explicacao": "A caixa de pesquisa é <input type=\"search\">, num formulário com method=\"get\". Os outros tipos não existem.",
+    "manual": "4.2, 12.2"
+  },
+  {
+    "id": "html-053",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Que elemento se usa para um texto com várias linhas, como a sinopse de um livro?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "<text>",
+      "<textarea>",
+      "<input type=\"multiline\">",
+      "<input type=\"text\" rows=\"4\">"
+    ],
+    "correta": 1,
+    "explicacao": "O texto em várias linhas escreve-se numa <textarea>. O <input type=\"text\"> só tem uma linha.",
+    "manual": "4.2"
+  },
+  {
+    "id": "html-054",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "Ao editar, a sinopse não aparece no campo. Qual é o erro?",
+    "codigo": "<label for=\"sinopse\">Sinopse</label>\n<textarea id=\"sinopse\" name=\"sinopse\" rows=\"4\"\n          value=\"<?= htmlspecialchars($livro['sinopse']) ?>\"></textarea>",
+    "linguagem": "html",
+    "alternativas": [
+      "Falta o atributo type=\"text\" na textarea.",
+      "O value só funciona em formulários com method=\"get\".",
+      "Uma textarea não pode ter o atributo name.",
+      "Numa textarea, o valor vai entre <textarea> e </textarea>, não em value."
+    ],
+    "correta": 3,
+    "explicacao": "A <textarea> não tem atributo value: o texto inicial escreve-se entre a tag de abertura e a de fecho, como na Biblioteca.",
+    "manual": "12.4, 4.2"
+  },
+  {
+    "id": "html-055",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Uma caixa <input type=\"checkbox\" name=\"consentimento\"> não foi assinalada. O que chega ao servidor?",
+    "codigo": "<input type=\"checkbox\" id=\"consentimento\"\n       name=\"consentimento\" required>",
+    "linguagem": "html",
+    "alternativas": [
+      "$_POST['consentimento'] com o valor \"off\".",
+      "$_POST['consentimento'] com o valor \"false\".",
+      "Nada: a caixa não é enviada, por isso não existe em $_POST.",
+      "$_POST['consentimento'] com um texto vazio."
+    ],
+    "correta": 2,
+    "explicacao": "Uma checkbox só é enviada se estiver assinalada. Por isso o servidor usa isset($_POST['consentimento']) para saber se o utilizador aceitou.",
+    "manual": "7.5, 10.2"
+  },
+  {
+    "id": "html-056",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Porque é que a caixa do consentimento tem de vir desmarcada quando a página abre?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Porque o utilizador tem de a assinalar ele próprio; já assinalada não é consentimento.",
+      "Porque o browser não envia caixas que já vêm assinaladas.",
+      "Porque o servidor só aceita caixas que mudaram de estado.",
+      "Porque o required não funciona numa caixa já assinalada."
+    ],
+    "correta": 0,
+    "explicacao": "O consentimento tem de ser um ato do utilizador. Uma caixa já assinalada não prova que ele aceitou a política.",
+    "manual": "15.2"
+  },
+  {
+    "id": "html-057",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve um <input type=\"hidden\">?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Para esconder a password enquanto o utilizador a escreve.",
+      "Para guardar um valor no servidor entre pedidos.",
+      "Para enviar um valor sem ele aparecer na página.",
+      "Para enviar um valor cifrado ao servidor."
+    ],
+    "correta": 2,
+    "explicacao": "Na Biblioteca, o hidden leva o id do livro a apagar, sem aparecer. Esconder a password é o type=\"password\"; guardar entre pedidos é a sessão.",
+    "manual": "4.2, 4.4"
+  },
+  {
+    "id": "html-058",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "O botão Apagar tem <input type=\"hidden\" name=\"id_livro\" value=\"3\">. Alguém muda o valor para 5 com F12 e envia. O que recebe o servidor?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Não recebe nada: o browser não envia um hidden alterado.",
+      "Recebe 5: um hidden não aparece, mas pode ser alterado como outro campo.",
+      "Recebe 3, porque os campos hidden não podem ser alterados.",
+      "Recebe 3 e 5, e usa o primeiro valor."
+    ],
+    "correta": 1,
+    "explicacao": "Tudo o que vem do browser pode ser alterado, incluindo os hidden. Por isso o servidor nunca confia nesses valores sem os verificar (e controla o acesso).",
+    "manual": "4.2, 12.4, 14"
+  },
+  {
+    "id": "html-059",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "Envias este formulário sem assinalar a caixa. Que chaves existem em $_POST?",
+    "codigo": "<form method=\"post\" action=\"guardar.php\">\n    <input type=\"hidden\" name=\"id_autor\" value=\"4\">\n    <input type=\"text\" name=\"nome\" value=\"Sophia\">\n    <input type=\"checkbox\" name=\"ativo\">\n    <input type=\"text\" id=\"pais\" value=\"Portugal\">\n    <button type=\"submit\">Guardar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "id_autor e nome",
+      "nome e pais",
+      "id_autor, nome e ativo",
+      "nome, ativo e pais"
+    ],
+    "correta": 0,
+    "explicacao": "O hidden é enviado (só não aparece). A checkbox não assinalada não é enviada, e o campo do país não tem name, por isso também não vai.",
+    "manual": "4.2, 7.5"
+  },
+  {
+    "id": "html-060",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Qual é o problema deste campo num formulário de login?",
+    "codigo": "<label for=\"password\">Password</label>\n<input type=\"text\" id=\"password\" name=\"password\">",
+    "linguagem": "html",
+    "alternativas": [
+      "O for e o id não podem ter o mesmo valor.",
+      "A password não é enviada, porque o type=\"text\" não tem value.",
+      "O name não pode ser \"password\", porque é uma palavra reservada do HTML.",
+      "A password aparece em claro no ecrã; devia ser type=\"password\"."
+    ],
+    "correta": 3,
+    "explicacao": "Com type=\"text\", quem estiver ao lado vê a password. O campo é enviado na mesma, porque tem name; o for igual ao id está certo.",
+    "manual": "4.2"
+  },
+  {
+    "id": "html-061",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "O botão \"Criar conta\" deste formulário é um link. O que acontece ao clicar nele?",
+    "codigo": "<form method=\"post\" action=\"registo.php\">\n    <label for=\"nome\">Nome</label>\n    <input type=\"text\" id=\"nome\" name=\"nome\">\n    <a href=\"registo.php\" class=\"btn\">Criar conta</a>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "O formulário é enviado com POST, porque o link está dentro dele.",
+      "O browser abre registo.php com GET, sem enviar os campos.",
+      "Nada, porque um link não funciona dentro de um <form>.",
+      "O formulário é enviado com GET, com o nome no endereço."
+    ],
+    "correta": 1,
+    "explicacao": "Um link faz sempre um pedido GET ao seu href e ignora o formulário. Para enviar os campos é preciso um <button type=\"submit\">.",
+    "manual": "4.4, 4.2"
+  },
+  {
+    "id": "html-062",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Que elementos se usam para mostrar uma lista de opções para escolher uma?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "<ul> com um <li> por opção, dentro do <form>",
+      "<input type=\"list\"> com um <li> por opção",
+      "<choice> com um <item> por opção",
+      "<select> com um <option> por opção"
+    ],
+    "correta": 3,
+    "explicacao": "Uma caixa de seleção é um <select> com vários <option>. Uma lista <ul> só mostra itens, não envia nada.",
+    "manual": "4.3"
+  },
+  {
+    "id": "html-063",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "O utilizador escolhe \"Sophia de Mello Breyner\" e envia. O que chega ao servidor?",
+    "codigo": "<select id=\"id_autor\" name=\"id_autor\">\n    <option value=\"\">— escolhe —</option>\n    <option value=\"1\">José Saramago</option>\n    <option value=\"2\">Sophia de Mello Breyner</option>\n</select>",
+    "linguagem": "html",
+    "alternativas": [
+      "$_POST['id_autor'] com o valor '2'",
+      "$_POST['option'] com o valor '2'",
+      "$_POST['Sophia de Mello Breyner'] com o valor '2'",
+      "$_POST['id_autor'] com \"Sophia de Mello Breyner\""
+    ],
+    "correta": 0,
+    "explicacao": "A chave é o name do <select> e o valor é o value da opção escolhida. O texto visível é só para o utilizador.",
+    "manual": "4.3"
+  },
+  {
+    "id": "html-064",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Na caixa de seleção do autor, porque é que o value de cada <option> é o id e não o nome?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Porque um <select> só aceita valores numéricos.",
+      "Porque o browser não consegue enviar textos com acentos.",
+      "Porque o que se guarda na chave estrangeira do livro é o id do autor.",
+      "Porque assim o nome não aparece duas vezes na lista."
+    ],
+    "correta": 2,
+    "explicacao": "O livro guarda id_autor (a chave estrangeira). O utilizador vê o nome, mas é enviado o id.",
+    "manual": "4.3, 3.3"
+  },
+  {
+    "id": "html-065",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve o atributo selected num <option>?",
+    "codigo": "<select id=\"id_autor\" name=\"id_autor\">\n    <option value=\"\">— escolhe —</option>\n    <option value=\"1\">José Saramago</option>\n    <option value=\"3\" selected>Eça de Queirós</option>\n</select>",
+    "linguagem": "html",
+    "alternativas": [
+      "Impede o utilizador de escolher qualquer outra opção da lista.",
+      "Deixa essa opção já escolhida quando a página abre.",
+      "Destaca a opção a outra cor, sem a escolher.",
+      "Torna obrigatório escolher essa opção."
+    ],
+    "correta": 1,
+    "explicacao": "O selected indica a opção escolhida à partida. Ao editar um livro, é assim que aparece o autor atual.",
+    "manual": "4.3"
+  },
+  {
+    "id": "html-066",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "Ao editar um livro, o formulário não põe selected em nenhuma opção. O que vê o utilizador na caixa do autor?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A primeira opção, \"— escolhe —\", em vez do autor atual.",
+      "O autor atual, porque o browser lembra-se do valor gravado.",
+      "A caixa vazia, sem nenhuma opção na lista.",
+      "A última opção da lista, por ser a mais recente."
+    ],
+    "correta": 0,
+    "explicacao": "Sem selected, o browser mostra a primeira opção. Se o utilizador gravar sem reparar, envia o value vazio e o servidor recusa (\"Escolhe um autor da lista.\").",
+    "manual": "4.3, 12.4"
+  },
+  {
+    "id": "html-067",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "O <select> do autor é required e a primeira opção é <option value=\"\">— escolhe —</option>. O que acontece se o utilizador não escolher nenhum autor?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "É enviado o id do primeiro autor que aparece na lista.",
+      "O campo id_autor não é enviado de todo.",
+      "É enviado o texto \"— escolhe —\".",
+      "O campo vai vazio e é tratado como não preenchido."
+    ],
+    "correta": 3,
+    "explicacao": "O valor enviado é o value da opção, que aqui é vazio. O validacao.js acusa o campo obrigatório e, no servidor, o id fica 0 e o autor é recusado.",
+    "manual": "4.3, 6.3, 12.4"
+  },
+  {
+    "id": "html-068",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "O utilizador só pode escolher autores da lista. Porque é que o servidor confirma na base de dados que o id_autor existe?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Porque o required do <select> só funciona no servidor.",
+      "Porque o browser não envia o value das opções com acentos.",
+      "Porque o formulário pode ser alterado e enviar um id que não está na lista.",
+      "Porque o <select> às vezes envia o nome em vez do id."
+    ],
+    "correta": 2,
+    "explicacao": "Alguém pode alterar o HTML ou o pedido e enviar id_autor=999. Por isso validar_livro() verifica na base de dados que o autor existe.",
+    "manual": "12.4"
+  },
+  {
+    "id": "html-069",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Que tipo de pedido faz um link <a href=\"...\">?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "GET ou POST, conforme o que o servidor pedir.",
+      "Um pedido POST, se o link estiver dentro de um <form>.",
+      "Um pedido POST, se o link tiver target=\"_blank\".",
+      "Sempre um pedido GET."
+    ],
+    "correta": 3,
+    "explicacao": "Um link é sempre um pedido GET. Por isso serve para navegar, nunca para alterar dados.",
+    "manual": "4.4, 1.2"
+  },
+  {
+    "id": "html-070",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Porque é que a Biblioteca não apaga livros com um link como <a href=\"livro_apagar.php?id=3\">?",
+    "codigo": "<!-- Errado: um link para apagar -->\n<a href=\"livro_apagar.php?id=3\" class=\"btn perigo\">Apagar</a>",
+    "linguagem": "html",
+    "alternativas": [
+      "Um link não consegue levar o id do livro até ao servidor.",
+      "Um GET é mais lento do que um POST para apagar dados.",
+      "Um link é um GET: um robô ou uma pré-visualização podia segui-lo e apagar o livro.",
+      "Um link não pode apontar para um ficheiro PHP."
+    ],
+    "correta": 2,
+    "explicacao": "Um GET nunca deve alterar dados, porque qualquer coisa que siga o link o executa. Apagar faz-se com um formulário POST.",
+    "manual": "1.2, 4.4"
+  },
+  {
+    "id": "html-072",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Qual é a forma correta de fazer o botão Apagar de um livro?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Um <a href=\"livro_apagar.php?id=3\" class=\"btn perigo\">Apagar</a>.",
+      "Um <form method=\"post\"> com um hidden para o id e um botão submit.",
+      "Um <form method=\"get\"> com um hidden para o id e um botão submit.",
+      "Um <button> com onclick que muda o endereço para livro_apagar.php?id=3."
+    ],
+    "correta": 1,
+    "explicacao": "Apagar altera dados, por isso é um formulário POST, mesmo que só tenha um botão. Os outros fazem um GET, que nunca deve apagar.",
+    "manual": "4.4"
+  },
+  {
+    "id": "html-074",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Qual destas ações deve ser feita com um link ou um formulário GET?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Criar uma conta.",
+      "Apagar um autor.",
+      "Pesquisar livros por título.",
+      "Gravar as alterações de um livro."
+    ],
+    "correta": 2,
+    "explicacao": "Pesquisar só lê dados, por isso é GET. Criar, gravar e apagar alteram dados e usam POST.",
+    "manual": "1.2, 12.1"
+  },
+  {
+    "id": "html-075",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "O botão Apagar foi feito com este formulário. O que acontece na Biblioteca quando é enviado?",
+    "codigo": "<form method=\"get\" action=\"livro_apagar.php\">\n    <input type=\"hidden\" name=\"id_livro\" value=\"3\">\n    <button type=\"submit\">Apagar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "Nada é apagado: o livro_apagar.php só aceita POST e volta para a lista.",
+      "O livro 3 é apagado, mas o id aparece no endereço.",
+      "O livro 3 é apagado, porque o id vai no hidden.",
+      "O browser recusa enviar um hidden com method=\"get\"."
+    ],
+    "correta": 0,
+    "explicacao": "Com GET, o pedido é livro_apagar.php?id_livro=3, e o livro_apagar.php começa por recusar tudo o que não seja POST. Um formulário GET é tão GET como um link.",
+    "manual": "12.6, 4.4"
+  },
+  {
+    "id": "html-076",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "No apagar de um livro, o id vai num campo hidden; no editar, vai no action (livro_editar.php?id=7). Onde lê o servidor cada um?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Os dois em $_POST, porque os dois formulários são POST.",
+      "Apagar: $_GET['id_livro']; editar: $_POST['id'].",
+      "Os dois em $_GET, porque os ids vão sempre no endereço.",
+      "Apagar: $_POST['id_livro']; editar: $_GET['id']."
+    ],
+    "correta": 3,
+    "explicacao": "O hidden é um campo do formulário e vai no corpo do POST ($_POST). O que está no action depois do ? vai no endereço ($_GET).",
+    "manual": "12.5, 12.6, 7.5"
+  },
+  {
+    "id": "html-077",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Um formulário tem method=\"get\" e um campo com name=\"q\". Onde lês o valor no servidor?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "$_GET['q']",
+      "$_SESSION['q']",
+      "$_GET['search']",
+      "$_POST['q']"
+    ],
+    "correta": 0,
+    "explicacao": "Com GET, os campos vão no endereço e lêem-se em $_GET, com a chave do name.",
+    "manual": "7.5, 12.2"
+  },
+  {
+    "id": "html-078",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Este link mostra o detalhe de um livro. Como chega o id ao servidor?",
+    "codigo": "<a href=\"livro_ver.php?id=7\">Ver detalhe →</a>",
+    "linguagem": "html",
+    "alternativas": [
+      "No corpo de um pedido POST, escondido; lê-se em $_POST['id'].",
+      "No endereço, num pedido GET; lê-se em $_GET['id'].",
+      "Não chega: os links não enviam valores.",
+      "Num cookie; lê-se em $_SESSION['id']."
+    ],
+    "correta": 1,
+    "explicacao": "O que está depois do ? num link vai no endereço de um pedido GET e lê-se em $_GET.",
+    "manual": "1.2, 7.5, 12.3"
+  },
+  {
+    "id": "html-079",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Na página de detalhe, o formulário do botão Apagar tem action=\"livro_apagar.php\". Para onde vão os dados quando é enviado?",
+    "codigo": "<form method=\"post\" action=\"livro_apagar.php\">\n    <input type=\"hidden\" name=\"id_livro\" value=\"3\">\n    <button type=\"submit\">Apagar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "Para a página inicial.",
+      "Para a própria página de detalhe.",
+      "Para o livro_apagar.php.",
+      "Para o ficheiro onde o <form> foi escrito."
+    ],
+    "correta": 2,
+    "explicacao": "Os dados vão sempre para o endereço do action, que pode ser outro ficheiro. O livro_apagar.php apaga e depois redireciona para a lista.",
+    "manual": "4.2, 4.4"
+  },
+  {
+    "id": "html-080",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Com method=\"post\", a password fica protegida enquanto viaja até ao servidor?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Não, porque o POST põe os dados no endereço.",
+      "Sim: só o servidor consegue ler o corpo de um pedido POST.",
+      "Sim: o POST cifra os dados do formulário.",
+      "Não: não aparece no endereço, mas vai em claro no corpo do pedido sem HTTPS."
+    ],
+    "correta": 3,
+    "explicacao": "O POST tira os dados do endereço, mas não os cifra. Para não viajarem em claro, uma aplicação real precisa de HTTPS.",
+    "manual": "1.2, 14.3"
+  },
+  {
+    "id": "html-081",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "O que faz o atributo target=\"_blank\" num link?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Abre o link noutro separador.",
+      "Descarrega a página em vez de a mostrar.",
+      "Só abre o link se o formulário estiver preenchido.",
+      "Abre o link na mesma página, por cima do formulário."
+    ],
+    "correta": 0,
+    "explicacao": "target=\"_blank\" abre o destino num separador novo, deixando a página atual como estava.",
+    "manual": "4.2, 15.2"
+  },
+  {
+    "id": "html-082",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "No registo, porque é que o link para a política de privacidade tem target=\"_blank\"?",
+    "codigo": "<span>Li e aceito a\n    <a href=\"privacidade.php\" target=\"_blank\">política de privacidade</a>.\n</span>",
+    "linguagem": "html",
+    "alternativas": [
+      "Para a política não contar como uma página da aplicação.",
+      "Para o utilizador a ler noutro separador antes de aceitar, sem sair do formulário.",
+      "Porque a política tem de estar alojada noutro servidor.",
+      "Para a caixa do consentimento ficar assinalada ao abrir a política."
+    ],
+    "correta": 1,
+    "explicacao": "O utilizador pode ler a política antes de aceitar, sem perder o que já escreveu no registo. A caixa tem de ser assinalada por ele.",
+    "manual": "15.2, 4.2"
+  },
+  {
+    "id": "html-083",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Que elemento se usa para o rodapé da página?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "<footnote>",
+      "<tfoot>",
+      "<foot>",
+      "<footer>"
+    ],
+    "correta": 3,
+    "explicacao": "O rodapé é o <footer>; na Biblioteca tem o link para a política de privacidade. O <tfoot> é só para tabelas.",
+    "manual": "9.2"
+  },
+  {
+    "id": "html-084",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Que elemento agrupa os links de navegação do menu?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "<navigation>",
+      "<head>",
+      "<nav>",
+      "<links>"
+    ],
+    "correta": 2,
+    "explicacao": "O menu está num <nav>, dentro do <header>. O <head> não mostra conteúdo.",
+    "manual": "9.2"
+  },
+  {
+    "id": "html-085",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "O cabeçalho da Biblioteca abre <main> e o rodapé fecha-o. O que fica dentro do <main>?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O menu de navegação com os links.",
+      "O link para a política de privacidade.",
+      "A ligação ao CSS e ao JavaScript.",
+      "O conteúdo próprio de cada página, incluindo as mensagens."
+    ],
+    "correta": 3,
+    "explicacao": "O <main> tem o conteúdo principal: as mensagens e tudo o que cada página escreve. O menu está no <header> e a política no <footer>.",
+    "manual": "9.2"
+  },
+  {
+    "id": "html-086",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Na página de detalhe, os dados do livro estão numa lista <dl>. Qual é o papel de <dt> e <dd>?",
+    "codigo": "<dl>\n    <dt>Autor</dt>\n    <dd>José Saramago</dd>\n    <dt>Ano de edição</dt>\n    <dd>1982</dd>\n</dl>",
+    "linguagem": "html",
+    "alternativas": [
+      "<dt> é o nome do dado e <dd> é o seu valor.",
+      "<dt> e <dd> são itens de uma lista numerada.",
+      "<dt> é o valor e <dd> é o nome do dado.",
+      "<dt> é uma linha e <dd> é uma coluna de uma tabela."
+    ],
+    "correta": 0,
+    "explicacao": "A <dl> é uma lista de pares termo/descrição: <dt> tem o termo (Autor) e <dd> a descrição (o nome do autor).",
+    "manual": "12.3"
+  },
+  {
+    "id": "html-087",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Na lista de livros, cada livro aparece num <article class=\"cartao\">. Porque é um <article>?",
+    "codigo": "<article class=\"cartao\">\n    <h2>Memorial do Convento</h2>\n    <p class=\"meta\">José Saramago · 1982</p>\n    <a href=\"livro_ver.php?id=1\">Ver detalhe →</a>\n</article>",
+    "linguagem": "html",
+    "alternativas": [
+      "Porque o <article> é o único elemento que aceita display: flex no CSS.",
+      "Porque o <article> põe o título do livro a negrito.",
+      "Porque cada cartão é um bloco de conteúdo independente: um livro.",
+      "Porque o <article> é obrigatório dentro de um <main>."
+    ],
+    "correta": 2,
+    "explicacao": "O <article> delimita um bloco que faz sentido sozinho, como o cartão de um livro. O aspeto (flexbox, negrito) vem do CSS, não do elemento.",
+    "manual": "12.2"
+  },
+  {
+    "id": "html-088",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Na lista de livros, o título da página está num <h1> e o título de cada livro num <h2>. Porquê?",
+    "codigo": "<h1>Livros</h1>\n<article class=\"cartao\">\n    <h2>Os Maias</h2>\n</article>\n<article class=\"cartao\">\n    <h2>Mensagem</h2>\n</article>",
+    "linguagem": "html",
+    "alternativas": [
+      "Só pode haver um <h2> por página, e os livros repetem-se.",
+      "O <h1> é o título principal da página; o <h2> é o título de cada parte.",
+      "O <h2> é maior do que o <h1>, por isso destaca os livros.",
+      "O <h1> só pode estar dentro do <header>."
+    ],
+    "correta": 1,
+    "explicacao": "Os títulos têm níveis: <h1> para o título da página, <h2> para as secções dentro dela. O tamanho vem do CSS.",
+    "manual": "12.2"
+  },
+  {
+    "id": "html-089",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "A Biblioteca mostra os erros de validação numa lista <ul> com um <li> por erro. Que tipo de lista é a <ul>?",
+    "codigo": "<ul>\n    <li>O email não é válido.</li>\n    <li>A password tem de ter pelo menos 8 caracteres.</li>\n</ul>",
+    "linguagem": "html",
+    "alternativas": [
+      "Uma lista de termos e descrições.",
+      "Uma tabela simples, com uma linha por item.",
+      "Uma lista numerada: 1, 2, 3...",
+      "Uma lista com pontos, sem números."
+    ],
+    "correta": 3,
+    "explicacao": "A <ul> é uma lista com pontos, sem números; cada item é um <li>. A lista de termos e descrições é a <dl>.",
+    "manual": "9.4"
+  },
+  {
+    "id": "html-090",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Qual é a forma correta de escrever um link para outra página?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "<a link=\"livros.php\">Livros</a>",
+      "<a href=\"livros.php\">Livros</a>",
+      "<a src=\"livros.php\">Livros</a>",
+      "<link href=\"livros.php\">Livros</link>"
+    ],
+    "correta": 1,
+    "explicacao": "Um link é <a href=\"...\">texto</a>. O <link> só serve no <head>, para ligar o CSS.",
+    "manual": "4.4, Anexo B"
+  },
+  {
+    "id": "html-091",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "A página de detalhe agrupa o título, os dados e os botões num <section class=\"detalhe\">. Para que serve o <section>?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Agrupa uma parte da página com um tema comum.",
+      "Cria um formulário com os dados do livro.",
+      "Liga a página a outra secção do site.",
+      "Esconde o conteúdo até o utilizador clicar no título da secção."
+    ],
+    "correta": 0,
+    "explicacao": "O <section> agrupa uma parte da página com um tema (aqui, o detalhe do livro). A classe \"detalhe\" serve para o CSS lhe dar aspeto.",
+    "manual": "12.3"
+  },
+  {
+    "id": "html-092",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "O formulário de pesquisa não tem id=\"form-principal\". O validacao.js atua sobre ele?",
+    "codigo": "<form method=\"get\" action=\"livros.php\" class=\"pesquisa\">\n    <input type=\"search\" name=\"q\">\n    <button type=\"submit\">Pesquisar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "Não, porque o validacao.js só atua em formulários que têm o atributo novalidate.",
+      "Sim: o validacao.js atua em todos os formulários da página.",
+      "Não: o validacao.js só atua no formulário com id=\"form-principal\".",
+      "Sim, desde que o formulário tenha method=\"get\"."
+    ],
+    "correta": 2,
+    "explicacao": "O validacao.js começa por getElementById('form-principal'); se não houver, não faz nada. Por isso a pesquisa não é validada.",
+    "manual": "6.3"
+  },
+  {
+    "id": "html-093",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "O registo.php mostra o formulário e também recebe os dados (action=\"registo.php\"). Como distingue o PHP as duas situações?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Vê se o $_GET tem a chave action.",
+      "Vê se $_SERVER['REQUEST_METHOD'] é 'POST'.",
+      "Vê se o id do formulário é form-principal.",
+      "Vê se o formulário tem o atributo novalidate."
+    ],
+    "correta": 1,
+    "explicacao": "Abrir a página é um GET; enviar o formulário é um POST. O PHP vê o método em $_SERVER['REQUEST_METHOD'].",
+    "manual": "7.5, 10.2"
+  },
+  {
+    "id": "html-094",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Que dois valores do atributo method se usam nos formulários desta UC?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "send e receive",
+      "get e put",
+      "post e delete",
+      "get e post"
+    ],
+    "correta": 3,
+    "explicacao": "Nesta UC só se usam GET (ler dados, com os campos no endereço) e POST (alterar dados, com os campos no corpo do pedido).",
+    "manual": "1.2, 4.2"
+  },
+  {
+    "id": "html-095",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "O registo foi enviado com a password curta e o servidor mostrou o formulário outra vez, com os erros. Que campos aparecem preenchidos?",
+    "codigo": "<input type=\"text\" id=\"nome\" name=\"nome\" required\n       value=\"<?= htmlspecialchars($nome) ?>\">\n<input type=\"email\" id=\"email\" name=\"email\" required\n       value=\"<?= htmlspecialchars($email) ?>\">\n<input type=\"password\" id=\"password\" name=\"password\" required>",
+    "linguagem": "html",
+    "alternativas": [
+      "Todos, porque o browser guarda o que foi escrito.",
+      "Nenhum, porque a página foi carregada de novo.",
+      "O nome e o email; a password aparece vazia.",
+      "Só o email, porque o type=\"email\" guarda o valor."
+    ],
+    "correta": 2,
+    "explicacao": "Só os campos com value voltam preenchidos. O campo da password não tem value, por isso aparece vazio e o utilizador tem de a escrever outra vez.",
+    "manual": "4.2, 9.5"
+  }
+]

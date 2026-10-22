@@ -9,6 +9,10 @@ Site de simulados para o teste da UC00615. As regras são as do teste do formado
   1. HTML e formulários · CSS · JavaScript
   2. HTTP · SQL e base de dados · Segurança · RGPD
   3. PHP (Stack A): PHP essencial, include/require, PDO, redirecionar e PRG, passwords, sessões, controlo de acesso e XSS
+- **Pontos fracos**: 15 perguntas distribuídas pelos temas onde erras mais.
+  - O site calcula a taxa de erro de cada tema a partir das tuas respostas.
+  - Os temas com mais erros recebem mais perguntas, até 5 por tema.
+  - Fica disponível depois de responderes a 10 perguntas.
 - **Rever erradas**: 15 perguntas que falhaste da última vez.
 - **Dois modos**:
   - **Estudo**: correção imediata, com explicação e a secção do manual.

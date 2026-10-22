@@ -1,0 +1,1802 @@
+[
+  {
+    "id": "seg-001",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "Qual destas NÃO é uma das seis medidas de segurança obrigatórias do projeto?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Ligação HTTPS com certificado.",
+      "Consultas preparadas contra SQL injection.",
+      "Consentimento no registo.",
+      "Política de privacidade acessível."
+    ],
+    "correta": 0,
+    "explicacao": "As seis medidas são: passwords com hash, consultas preparadas, validação no servidor, controlo de acesso, consentimento no registo e política de privacidade acessível. O HTTPS aparece no manual só como algo que faltaria numa aplicação real.",
+    "manual": "14, 14.3"
+  },
+  {
+    "id": "seg-002",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "Segundo o manual, sem que medidas é que o projeto não passa dos 49 pontos?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Sem a política de privacidade ou sem o consentimento.",
+      "Sem a validação no browser ou sem a confirmação ao apagar.",
+      "Sem o controlo de acesso ou sem a página de detalhe.",
+      "Sem as passwords com hash ou sem as consultas preparadas."
+    ],
+    "correta": 3,
+    "explicacao": "São as duas medidas eliminatórias: guardar as passwords só com hash e fazer todas as consultas com prepare() e execute(). Faltando uma delas, o projeto fica limitado a 49 pontos.",
+    "manual": "14"
+  },
+  {
+    "id": "seg-003",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "No phpMyAdmin, a tabela utilizadores tem a coluna password com valores como Demo1234. Que medida falha e com que consequência?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Passwords com hash; perde-se só a cotação dessa medida.",
+      "Consultas preparadas; o projeto não passa dos 49 pontos.",
+      "Passwords com hash; o projeto não passa dos 49 pontos.",
+      "Consentimento no registo; perde-se só essa cotação."
+    ],
+    "correta": 2,
+    "explicacao": "A password está guardada em claro, por isso falha a medida das passwords com hash. É uma das duas medidas sem as quais o projeto não passa dos 49 pontos, não uma simples cotação perdida.",
+    "manual": "14, 10.1"
+  },
+  {
+    "id": "seg-004",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "Como confirmas, no phpMyAdmin, que as passwords estão guardadas com hash?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Os valores da coluna aparecem escondidos com asteriscos.",
+      "Os valores da coluna password_hash começam por $2.",
+      "A coluna tem o tipo PASSWORD em vez de VARCHAR.",
+      "A coluna está vazia, porque o hash fica na sessão."
+    ],
+    "correta": 1,
+    "explicacao": "O password_hash() usa o bcrypt, que produz textos começados por $2y$. Se vires a password escrita tal como foi registada, a medida falha.",
+    "manual": "14, 16"
+  },
+  {
+    "id": "seg-005",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "Como testas a medida \"validação no servidor\"?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Envias os formulários vazios com o JavaScript ligado.",
+      "Desligas o JavaScript e envias os formulários vazios.",
+      "Abres os formulários numa janela anónima e envias.",
+      "Abres os formulários numa janela anónima e envias-os vazios."
+    ],
+    "correta": 1,
+    "explicacao": "Com o JavaScript ligado, quem encontra os erros é o browser. Só com ele desligado é que o pedido chega ao servidor e se prova que o servidor valida sozinho.",
+    "manual": "14, 6.1"
+  },
+  {
+    "id": "seg-006",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "Como testas a medida \"controlo de acesso\"?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Com sessão iniciada, confirmas que o menu mostra os links certos.",
+      "Fazes logout e confirmas que os links do menu desaparecem.",
+      "Numa janela anónima, abres o endereço de cada página restrita.",
+      "Desligas o JavaScript e tentas abrir a lista pelo menu."
+    ],
+    "correta": 2,
+    "explicacao": "Na janela anónima não há sessão. Escrever o endereço à mão é o que faria um atacante: tens de ser mandado para o login. Ver o menu não prova nada, porque esconder links não é controlo de acesso.",
+    "manual": "14, 11.3"
+  },
+  {
+    "id": "seg-007",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Qual destes testes prova que o consentimento é verificado no servidor?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Registar sem assinalar a caixa, com o JavaScript ligado.",
+      "Confirmar no phpMyAdmin que existe a coluna consentimento_em.",
+      "Abrir o registo e confirmar que a caixa vem já assinalada.",
+      "Registar sem assinalar a caixa, com o JavaScript desligado."
+    ],
+    "correta": 3,
+    "explicacao": "Com o JavaScript ligado, quem recusa é o browser. Desligado, só o servidor pode recusar o registo. E a caixa tem de vir desmarcada: uma caixa já assinalada não é consentimento.",
+    "manual": "14, 16"
+  },
+  {
+    "id": "seg-008",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "No teste, pesquisas ' OR 1=1 -- e confirmas que não devolve tudo nem dá erro. Que medida obrigatória estás a testar?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "As consultas preparadas.",
+      "A validação no servidor.",
+      "O controlo de acesso.",
+      "As passwords com hash."
+    ],
+    "correta": 0,
+    "explicacao": "Este teste tenta uma injeção de SQL pela caixa de pesquisa. Só não resulta se a consulta usar prepare() com ? e execute().",
+    "manual": "14, 16"
+  },
+  {
+    "id": "seg-009",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Na tabela das seis medidas, onde está a validação no servidor?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "No validacao.js, ligado no rodapé de todas as páginas.",
+      "Nos atributos required e maxlength dos campos do formulário.",
+      "No PHP que verifica os dados antes do INSERT ou do UPDATE.",
+      "Nas restrições UNIQUE e NOT NULL da base de dados."
+    ],
+    "correta": 2,
+    "explicacao": "A validação no servidor está no PHP: registo.php, validar_livro() e autor_form.php. O validacao.js e o required correm no browser e podem ser contornados.",
+    "manual": "14, 12.4"
+  },
+  {
+    "id": "seg-010",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Na Biblioteca, que consultas são feitas com prepare() e execute()?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Só as que recebem dados de formulários POST.",
+      "Todas, sem exceção.",
+      "Só as do login e do registo, onde há passwords.",
+      "Só os DELETE e os UPDATE, que alteram dados."
+    ],
+    "correta": 1,
+    "explicacao": "A medida diz \"todas as consultas: prepare() + execute([...])\". Até uma consulta sem valores, como a lista de autores, é feita assim.",
+    "manual": "14, 8.2"
+  },
+  {
+    "id": "seg-011",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Qual destas proteções é usada em todas as páginas da Biblioteca, mas NÃO está na lista das seis medidas obrigatórias?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Escapar os dados com htmlspecialchars() ao mostrá-los.",
+      "Guardar as passwords com password_hash().",
+      "Verificar a sessão no topo das páginas com o includes/auth.php.",
+      "Validar os dados no servidor antes de gravar."
+    ],
+    "correta": 0,
+    "explicacao": "O htmlspecialchars() é explicado à parte, na secção 14.1 (XSS). As outras três estão na tabela das seis medidas.",
+    "manual": "14, 14.1"
+  },
+  {
+    "id": "seg-012",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "Na Biblioteca, como fica provado que o utilizador deu o consentimento?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Fica guardado um cookie no browser com a resposta.",
+      "O email de confirmação fica na tabela utilizadores.",
+      "A caixa assinalada fica guardada na sessão.",
+      "A data fica guardada na coluna consentimento_em."
+    ],
+    "correta": 3,
+    "explicacao": "O servidor verifica a caixa e grava a data com NOW() na coluna consentimento_em. É isso que permite provar que o utilizador aceitou a política.",
+    "manual": "14, 15.2"
+  },
+  {
+    "id": "seg-013",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "O que é a injeção de SQL (SQL injection)?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Inserir muitos registos de uma vez para encher a base de dados.",
+      "Gravar um script que corre no browser de quem abre a página.",
+      "Escrever num campo um texto que altera o SQL executado.",
+      "Ler a password da base de dados no código-fonte da página."
+    ],
+    "correta": 2,
+    "explicacao": "Quando o valor é colado ao texto do SQL, quem escreve no campo pode fechar o texto e acrescentar código SQL seu. Gravar um script para outros utilizadores é XSS, outro ataque.",
+    "manual": "8.4"
+  },
+  {
+    "id": "seg-014",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "dificil",
+    "pergunta": "Alguém escreve ' OR 1=1 -- na caixa de pesquisa. Que SQL chega à base de dados?",
+    "codigo": "$q = $_GET['q'];\n$sql = \"SELECT * FROM livros WHERE titulo LIKE '%$q%'\";\n$livros = $pdo->query($sql)->fetchAll();",
+    "linguagem": "php",
+    "alternativas": [
+      "SELECT * FROM livros WHERE titulo LIKE '%$q%'",
+      "SELECT * FROM livros WHERE titulo LIKE '%' OR 1=1 -- %'",
+      "SELECT * FROM livros WHERE titulo LIKE '%\\' OR 1=1 -- %'",
+      "SELECT * FROM livros WHERE titulo LIKE ?"
+    ],
+    "correta": 1,
+    "explicacao": "Dentro de aspas duplas, o PHP substitui $q pelo texto escrito, tal como está: nada é escapado. A plica fecha o texto, o OR 1=1 é sempre verdadeiro e o -- comenta o resto.",
+    "manual": "8.4"
+  },
+  {
+    "id": "seg-015",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "No ataque ' OR 1=1 -- , para que serve a plica do início?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Abre um comentário que anula o resto da consulta.",
+      "Indica ao MySQL que o valor que vem a seguir é um número inteiro.",
+      "Escapa o OR para não ser lido como texto.",
+      "Fecha o texto que o SQL tinha aberto; o resto passa a ser lido como código."
+    ],
+    "correta": 3,
+    "explicacao": "O SQL tinha LIKE '%...%'. A plica do atacante fecha esse texto antes do tempo, e o OR 1=1 fica fora das plicas, como código SQL. O comentário é o --.",
+    "manual": "8.4"
+  },
+  {
+    "id": "seg-016",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "No ataque ' OR 1=1 -- , o que faz o -- ?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Transforma o resto da linha num comentário, que é ignorado.",
+      "Subtrai o valor seguinte ao resultado da pesquisa.",
+      "Fecha a plica que o SQL tinha aberto antes do valor.",
+      "Termina a consulta atual e começa a seguir uma segunda consulta."
+    ],
+    "correta": 0,
+    "explicacao": "Em SQL, -- inicia um comentário. Assim, a plica e o % que o código original punha depois do valor deixam de contar e a consulta não dá erro.",
+    "manual": "8.4"
+  },
+  {
+    "id": "seg-017",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Porque é que, com o OR 1=1, esta consulta devolve todas as linhas?",
+    "codigo": "SELECT * FROM livros WHERE titulo LIKE '%' OR 1=1 -- %'",
+    "linguagem": "sql",
+    "alternativas": [
+      "Porque 1=1 é sempre verdadeiro, para qualquer linha.",
+      "Porque o OR desliga o WHERE e o ORDER BY da consulta.",
+      "Porque 1=1 seleciona a primeira coluna de cada tabela.",
+      "Porque o MySQL ignora as condições que vêm depois do LIKE."
+    ],
+    "correta": 0,
+    "explicacao": "Com OR, basta uma das condições ser verdadeira. Como 1=1 é verdadeiro para qualquer linha, todas as linhas passam no WHERE.",
+    "manual": "8.4"
+  },
+  {
+    "id": "seg-018",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Segundo o manual, o mesmo truque usado numa página de login vulnerável permite…",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "descobrir a password original a partir do hash.",
+      "entrar sem saber a password.",
+      "executar um script no browser de quem abre o login.",
+      "apagar o cookie de sessão dos outros utilizadores."
+    ],
+    "correta": 1,
+    "explicacao": "Se o email e a password forem juntados ao SQL, a condição passa a ser sempre verdadeira e o login aceita o atacante. Executar scripts no browser de outros é XSS.",
+    "manual": "8.4"
+  },
+  {
+    "id": "seg-019",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Alguém envia id_livro com o valor 0 OR 1=1 para esta página. O que acontece?",
+    "codigo": "$id = $_POST['id_livro'];\n$pdo->query(\"DELETE FROM livros WHERE id_livro = $id\");",
+    "linguagem": "php",
+    "alternativas": [
+      "Não apaga nada, porque o id não é um número.",
+      "Apaga só o livro com o id 0, que não existe.",
+      "Dá um erro 404, porque a página só aceita números.",
+      "Apaga todas as linhas da tabela, e não só uma."
+    ],
+    "correta": 3,
+    "explicacao": "Com um OR 1=1 injetado, o WHERE do DELETE fica verdadeiro para todas as linhas. O manual resume: \"com um DELETE, apaga a tabela\".",
+    "manual": "8.4"
+  },
+  {
+    "id": "seg-020",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "Qual é a defesa contra a injeção de SQL usada no projeto?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Validar os campos no browser com JavaScript.",
+      "Passar todos os valores por htmlspecialchars() antes do query().",
+      "Consultas preparadas: prepare() com ? e execute() com os valores.",
+      "Guardar os valores na base de dados com password_hash()."
+    ],
+    "correta": 2,
+    "explicacao": "O SQL vai com ? no lugar dos valores, e os valores vão à parte no execute(). O htmlspecialchars() é a defesa contra XSS, não contra a injeção de SQL.",
+    "manual": "8.4, 14"
+  },
+  {
+    "id": "seg-021",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Porque é que as consultas preparadas impedem a injeção de SQL?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O PDO apaga do valor as plicas e os traços antes de o juntar ao SQL.",
+      "O prepare() cifra o valor antes de o enviar à base de dados.",
+      "O execute() só aceita números, por isso o texto é recusado.",
+      "O valor vai à parte e é tratado como texto, nunca como código."
+    ],
+    "correta": 3,
+    "explicacao": "Com parâmetros, o valor nunca é colado ao SQL: a base de dados trata-o sempre como texto, nunca como código. Nada é apagado nem cifrado.",
+    "manual": "8.4"
+  },
+  {
+    "id": "seg-022",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "dificil",
+    "pergunta": "Este código usa prepare(). Está protegido contra a injeção de SQL?",
+    "codigo": "$id = $_GET['id'];\n$stmt = $pdo->prepare(\"DELETE FROM livros WHERE id_livro = $id\");\n$stmt->execute();",
+    "linguagem": "php",
+    "alternativas": [
+      "Sim: qualquer consulta feita com prepare() fica protegida.",
+      "Não: a variável está dentro do texto do SQL.",
+      "Sim, porque um id é sempre um número inteiro.",
+      "Não, mas basta trocar as aspas duplas por plicas."
+    ],
+    "correta": 1,
+    "explicacao": "O prepare() só protege os valores passados no execute() no lugar dos ?. Aqui o $id é colado ao SQL antes. Com plicas, $id nem seria substituído e a consulta daria erro.",
+    "manual": "8.4"
+  },
+  {
+    "id": "seg-023",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "dificil",
+    "pergunta": "O $id já foi convertido com (int). Este código cumpre a regra do manual?",
+    "codigo": "$id = (int) ($_GET['id'] ?? 0);\n$stmt = $pdo->query(\"SELECT * FROM livros WHERE id_livro = $id\");\n$livro = $stmt->fetch(PDO::FETCH_ASSOC);",
+    "linguagem": "php",
+    "alternativas": [
+      "Não: nenhuma variável entra no SQL, nem os ids.",
+      "Sim: o (int) garante que só chega um número ao SQL.",
+      "Sim, porque o id vem de $_GET e não de $_POST.",
+      "Não: faltava htmlspecialchars($id) antes da consulta."
+    ],
+    "correta": 0,
+    "explicacao": "A regra é simples: nenhuma variável dentro do texto do SQL, nem as do próprio site, nem os ids, nem os números. Faz-se prepare('... WHERE id_livro = ?') e execute([$id]).",
+    "manual": "8.4, 14.2"
+  },
+  {
+    "id": "seg-024",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Queres pesquisar os títulos que contêm o texto $q. Qual é a forma segura?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "prepare(\"... WHERE titulo LIKE '%$q%'\") e execute()",
+      "prepare('... WHERE titulo LIKE %?%') e execute([$q])",
+      "prepare('... WHERE titulo LIKE ?') e execute(['%' . $q . '%'])",
+      "query(\"... WHERE titulo LIKE '%\" . $q . \"%'\")"
+    ],
+    "correta": 2,
+    "explicacao": "Os % são acrescentados ao valor, não ao SQL. O SQL fica só com o ?, e o texto completo (%mar%) vai no execute().",
+    "manual": "8.4, 12.2"
+  },
+  {
+    "id": "seg-025",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Qual destas instruções cumpre a regra \"nenhuma variável dentro do SQL\"?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "$pdo->prepare(\"UPDATE livros SET titulo = ? WHERE id_livro = $id\")",
+      "$pdo->prepare('UPDATE livros SET titulo = ? WHERE id_livro = ?')",
+      "$pdo->query(\"UPDATE livros SET titulo = '$titulo' WHERE id_livro = 1\")",
+      "$pdo->prepare('UPDATE livros SET titulo = ' . $titulo . ' WHERE id_livro = ?')"
+    ],
+    "correta": 1,
+    "explicacao": "Se vires um $ dentro das aspas do SQL, ou um texto juntado com o ponto, está mal. Só a que tem ? em todos os valores está certa; os valores seguem depois no execute().",
+    "manual": "8.4"
+  },
+  {
+    "id": "seg-026",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "dificil",
+    "pergunta": "Onde está o problema deste login?",
+    "codigo": "$email = $_POST['email'] ?? '';\n$sql = \"SELECT * FROM utilizadores WHERE email = '$email'\";\n$utilizador = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC);",
+    "linguagem": "php",
+    "alternativas": [
+      "O email entra no texto do SQL: uma plica no campo muda a consulta.",
+      "Falta passar o $email por htmlspecialchars() antes de fazer a consulta.",
+      "Devia ser $_GET['email'], porque é um SELECT.",
+      "As aspas duplas impedem que $email seja substituído."
+    ],
+    "correta": 0,
+    "explicacao": "É injeção de SQL: o valor é colado ao SQL e o query() executa-o assim. Corrige-se com prepare('... WHERE email = ?') e execute([$email]). As aspas duplas fazem precisamente a substituição.",
+    "manual": "8.4"
+  },
+  {
+    "id": "seg-027",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "dificil",
+    "pergunta": "Com este código, alguém pesquisa ' OR 1=1 -- . O que procura a base de dados?",
+    "codigo": "$stmt = $pdo->prepare('SELECT * FROM livros WHERE titulo LIKE ?');\n$stmt->execute(['%' . $q . '%']);\n$livros = $stmt->fetchAll(PDO::FETCH_ASSOC);",
+    "linguagem": "php",
+    "alternativas": [
+      "Todos os livros, porque 1=1 é sempre verdadeiro.",
+      "Nada: o execute() recusa valores com plicas e dá erro.",
+      "Títulos que contêm OR 1=1, sem a plica e sem o --.",
+      "Títulos que contêm o texto ' OR 1=1 -- , tal e qual."
+    ],
+    "correta": 3,
+    "explicacao": "Com parâmetros, o valor é só texto: a base de dados procura um título com esse texto estranho e não encontra nenhum. É o resultado esperado no teste: não devolve tudo e não dá erro.",
+    "manual": "8.4, 16"
+  },
+  {
+    "id": "seg-028",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "dificil",
+    "pergunta": "Num projeto, a pesquisa ' OR 1=1 -- devolve todos os registos. O que concluis?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Está correto: com quase nada escrito, o LIKE encontra tudo.",
+      "Falta htmlspecialchars() no value da caixa de pesquisa.",
+      "Há uma consulta que junta o texto da pesquisa ao SQL.",
+      "O formulário de pesquisa devia usar POST em vez de GET."
+    ],
+    "correta": 2,
+    "explicacao": "Com consultas preparadas, este teste não devolve tudo nem dá erro. Se devolve tudo, o OR 1=1 foi executado como código: a consulta não usa parâmetros.",
+    "manual": "8.4, 16"
+  },
+  {
+    "id": "seg-029",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "O que é o cross-site scripting (XSS)?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Alterar o SQL escrevendo uma plica num campo de texto.",
+      "Fazer um robô seguir um link que apaga dados.",
+      "Descobrir que emails têm conta pela mensagem do login.",
+      "Gravar um script que corre no browser de quem abrir a página."
+    ],
+    "correta": 3,
+    "explicacao": "No XSS, alguém grava por exemplo um título com <script>...</script>. Se for escrito na página tal como está, o browser de quem a abrir executa esse script.",
+    "manual": "14.1"
+  },
+  {
+    "id": "seg-030",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "Qual é a diferença entre a injeção de SQL e o XSS?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A de SQL ataca a base de dados; o XSS ataca os outros utilizadores.",
+      "A injeção de SQL ataca os utilizadores; o XSS ataca a base de dados.",
+      "Os dois atacam a base de dados, mas por campos diferentes.",
+      "Os dois atacam o servidor, e evitam-se ambos com consultas preparadas."
+    ],
+    "correta": 0,
+    "explicacao": "A injeção de SQL altera a consulta feita à base de dados. O XSS põe um script na página que outro utilizador abre, e é no browser dele que o ataque acontece.",
+    "manual": "14.1"
+  },
+  {
+    "id": "seg-031",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "Que par ataque → defesa está certo?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Injeção de SQL → htmlspecialchars(); XSS → consultas preparadas.",
+      "Injeção de SQL → password_hash(); XSS → atributo required nos campos.",
+      "Injeção de SQL → consultas preparadas; XSS → htmlspecialchars().",
+      "Injeção de SQL e XSS → validação em JavaScript."
+    ],
+    "correta": 2,
+    "explicacao": "Cada ataque tem a sua defesa: os parâmetros separam os valores do SQL; o htmlspecialchars() faz o browser mostrar como texto o HTML escrito pelo utilizador.",
+    "manual": "8.4, 14.1"
+  },
+  {
+    "id": "seg-032",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Segundo o manual, o que pode fazer, por exemplo, um script injetado por XSS?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Apagar a tabela dos livros na base de dados.",
+      "Roubar o cookie da sessão de quem abre a página.",
+      "Ler o código PHP das páginas no servidor.",
+      "Descobrir a password do MySQL guardada no db.php."
+    ],
+    "correta": 1,
+    "explicacao": "O script corre no browser da vítima, por isso chega ao que o browser tem, como o cookie da sessão. Não chega ao código PHP nem à base de dados.",
+    "manual": "14.1"
+  },
+  {
+    "id": "seg-033",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "dificil",
+    "pergunta": "Um script injetado por XSS rouba o cookie de sessão (PHPSESSID) de um utilizador. O que consegue o atacante com ele?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Ler a password do utilizador, que vai guardada no cookie.",
+      "Apagar diretamente a base de dados no servidor.",
+      "Fazer pedidos como se fosse esse utilizador, com a sessão dele.",
+      "Ver o código PHP das páginas da aplicação."
+    ],
+    "correta": 2,
+    "explicacao": "O cookie leva o identificador da sessão: quem o envia é tratado pelo servidor como o dono dessa sessão. A password nunca vai no cookie; os dados da sessão ficam no servidor.",
+    "manual": "14.1, 10.3"
+  },
+  {
+    "id": "seg-034",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "dificil",
+    "pergunta": "As consultas são todas preparadas, mas a lista mostra os títulos sem escapar. Alguém grava um livro com <script> no título. Quem é afetado?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Só a base de dados, que fica com a tabela estragada.",
+      "Quem abrir a lista dos livros.",
+      "Só o utilizador que gravou o livro.",
+      "Ninguém, porque o INSERT foi feito com prepare()."
+    ],
+    "correta": 1,
+    "explicacao": "O prepare() grava o título com segurança, mas não o torna inofensivo ao mostrar. O script corre no browser de todos os que abrem a página. É por isso que XSS e injeção de SQL têm defesas diferentes.",
+    "manual": "14.1"
+  },
+  {
+    "id": "seg-035",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Gravas um registo com <script>alert(1)</script> num campo de texto. O que tem de acontecer numa aplicação protegida?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O texto aparece tal e qual e não abre nenhuma janela.",
+      "Abre uma janela com 1, o que prova que foi gravado.",
+      "O registo é recusado com um erro de SQL.",
+      "O campo aparece vazio, porque o script foi apagado."
+    ],
+    "correta": 0,
+    "explicacao": "É o teste 20. Com htmlspecialchars(), os < e > são escritos como &lt; e &gt; e o browser mostra o texto em vez de o executar. Se abrir a janela, há XSS.",
+    "manual": "16, 14.1"
+  },
+  {
+    "id": "seg-036",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "Porque é que não se guarda a password tal como foi escrita?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Porque o VARCHAR não aceita caracteres especiais nem letras acentuadas.",
+      "Porque a password ocupa mais espaço do que o seu hash.",
+      "Porque o login ficaria mais lento com a password em claro.",
+      "Se a base de dados for roubada, o atacante fica com as passwords."
+    ],
+    "correta": 3,
+    "explicacao": "E como muitas pessoas usam a mesma password em vários sites, o atacante ficaria também com o acesso ao email e ao banco delas. Por isso guarda-se só o hash.",
+    "manual": "10.1"
+  },
+  {
+    "id": "seg-037",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "O que é o hash de uma password?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A password cifrada, que se decifra com a chave guardada no db.php.",
+      "O resultado de uma função que não se pode reverter.",
+      "A password escrita noutra codificação, como o base64.",
+      "Uma cópia da password guardada na sessão do utilizador."
+    ],
+    "correta": 1,
+    "explicacao": "O hash é um texto de tamanho fixo calculado a partir da password, e a partir dele não há forma de chegar à password. Não há nenhuma chave para o \"decifrar\".",
+    "manual": "10.1"
+  },
+  {
+    "id": "seg-038",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Um colega guarda as passwords assim, porque \"na base de dados ficam ilegíveis\". Está bem?",
+    "codigo": "$guardar = base64_encode($password);",
+    "linguagem": "php",
+    "alternativas": [
+      "Não: o base64 não é um hash, só reescreve o texto.",
+      "Sim: ninguém consegue ler a password na base de dados.",
+      "Sim, desde que a ligação use charset=utf8mb4.",
+      "Não, porque o base64 é demasiado lento para o login."
+    ],
+    "correta": 0,
+    "explicacao": "O base64 desfaz-se de imediato: é só outra representação do mesmo texto. Para passwords usa-se sempre password_hash().",
+    "manual": "10.1"
+  },
+  {
+    "id": "seg-039",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Um colega guarda as passwords assim. Porque é que md5() e sha1() não servem para isto?",
+    "codigo": "$hash = md5($password);",
+    "linguagem": "php",
+    "alternativas": [
+      "São reversíveis: dá para decifrar o hash.",
+      "Geram textos maiores do que a coluna aceita.",
+      "Só funcionam com passwords até 8 caracteres.",
+      "São rápidos demais e, por isso, fáceis de atacar."
+    ],
+    "correta": 3,
+    "explicacao": "Um hash rápido deixa o atacante experimentar milhões de passwords. O bcrypt do password_hash() tem um custo que o torna lento de atacar.",
+    "manual": "10.1"
+  },
+  {
+    "id": "seg-040",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Se o hash não é reversível, como se confirma a password no login?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Decifra-se o hash guardado e compara-se com o que foi escrito.",
+      "Compara-se o texto escrito diretamente com a coluna password_hash.",
+      "Calcula-se o hash da password escrita e compara-se com o guardado.",
+      "Lê-se a password original guardada na sessão no momento do registo."
+    ],
+    "correta": 2,
+    "explicacao": "No login compara-se, não se \"decifra\". O password_verify() calcula o hash da password escrita com o sal guardado e vê se dá o mesmo.",
+    "manual": "10.1"
+  },
+  {
+    "id": "seg-041",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "dificil",
+    "pergunta": "Registas duas contas com a mesma password. Como são os hashes guardados?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Iguais, porque a função de hash é sempre a mesma.",
+      "Iguais, e por isso o UNIQUE recusa a segunda conta.",
+      "Diferentes, porque cada hash inclui o email da conta.",
+      "Diferentes, por causa do sal aleatório de cada hash."
+    ],
+    "correta": 3,
+    "explicacao": "O password_hash() usa um sal, um valor aleatório que fica dentro do próprio hash. Com sais diferentes, a mesma password dá hashes diferentes.",
+    "manual": "10.1"
+  },
+  {
+    "id": "seg-042",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "O browser já valida os formulários. Porque é obrigatório validar outra vez no servidor?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Porque o browser não consegue validar o formato do email.",
+      "Porque o JavaScript só corre depois de o pedido chegar ao servidor.",
+      "Dá para desligar o JavaScript ou enviar o pedido sem o formulário.",
+      "Porque o servidor mostra os erros mais depressa do que o browser."
+    ],
+    "correta": 2,
+    "explicacao": "Tudo o que corre no browser está nas mãos do utilizador. Só o servidor garante que os dados são verificados.",
+    "manual": "6.1, 14"
+  },
+  {
+    "id": "seg-043",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "Este campo tem required. O que podes concluir?",
+    "codigo": "<input type=\"text\" id=\"titulo\" name=\"titulo\" required>",
+    "linguagem": "html",
+    "alternativas": [
+      "O browser pede o valor, mas o servidor tem de validar na mesma.",
+      "O campo nunca pode chegar vazio ao servidor, venha o pedido de onde vier.",
+      "A validação deste campo no servidor é dispensável.",
+      "O campo passa a ser verificado pela base de dados."
+    ],
+    "correta": 0,
+    "explicacao": "O required pode ser contornado: basta desligar a validação do browser ou enviar o pedido sem passar pelo formulário. A validação no servidor continua obrigatória.",
+    "manual": "14, 6.4"
+  },
+  {
+    "id": "seg-044",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "O campo título tem maxlength=\"200\". O servidor ainda precisa de verificar o tamanho?",
+    "codigo": "<input type=\"text\" name=\"titulo\" maxlength=\"200\" required>",
+    "linguagem": "html",
+    "alternativas": [
+      "Não: o browser não deixa escrever mais de 200 caracteres.",
+      "Sim: o maxlength também pode ser contornado.",
+      "Não: a base de dados corta o texto que sobrar.",
+      "Só quando o JavaScript estiver desligado."
+    ],
+    "correta": 1,
+    "explicacao": "Por isso validar_livro() confirma que o título não passa de 200 caracteres com mb_strlen(). Qualquer limite posto no HTML é só conforto para o utilizador.",
+    "manual": "12.4, 14"
+  },
+  {
+    "id": "seg-045",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve, então, a validação em JavaScript?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Impedir que cheguem dados maliciosos ao servidor.",
+      "Proteger os campos de texto contra a injeção de SQL.",
+      "Dar resposta imediata ao utilizador, sem esperar pelo servidor.",
+      "Substituir a validação no servidor nos formulários simples."
+    ],
+    "correta": 2,
+    "explicacao": "O manual diz que é uma questão de conforto, e não de segurança. A segurança depende da validação no servidor.",
+    "manual": "6.1"
+  },
+  {
+    "id": "seg-046",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "dificil",
+    "pergunta": "Envias o registo em branco com o JavaScript desligado e a página recarrega com os erros. O que prova este teste?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Que o validacao.js está mal ligado no rodapé.",
+      "Que a validação no servidor funciona sozinha.",
+      "Que os campos não têm o atributo required.",
+      "Que o formulário usa GET em vez de POST."
+    ],
+    "correta": 1,
+    "explicacao": "Sem JavaScript, os erros só podem vir do servidor; por isso a página recarrega. Com o JavaScript ligado, os erros aparecem sem recarregar.",
+    "manual": "6.1, 16"
+  },
+  {
+    "id": "seg-047",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "dificil",
+    "pergunta": "O formulário do livro tem uma lista de autores. Porque é que validar_livro() confirma na base de dados que o autor existe?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Alguém pode alterar o formulário e enviar um id_autor fora da lista.",
+      "Porque a lista de autores pode vir vazia quando o JavaScript está desligado.",
+      "Porque o select envia o nome do autor, e não o seu id.",
+      "Porque o (int) pode transformar o id do autor num texto."
+    ],
+    "correta": 0,
+    "explicacao": "O servidor não pode confiar no que o formulário mostrou: o pedido pode trazer id_autor=999. Por isso conta, com uma consulta preparada, se esse autor existe.",
+    "manual": "12.4"
+  },
+  {
+    "id": "seg-048",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "O que deve verificar a validação no servidor antes do INSERT ou do UPDATE?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Só os campos que não têm required no HTML.",
+      "Só o formato do email, que o browser não verifica bem.",
+      "Só se o utilizador tem a sessão iniciada.",
+      "Campos vazios, tamanhos, formatos e valores das listas."
+    ],
+    "correta": 3,
+    "explicacao": "O servidor tem de verificar tudo de novo, incluindo os campos que já têm required e os valores que vêm de listas. A sessão é assunto do controlo de acesso.",
+    "manual": "12.4, 14"
+  },
+  {
+    "id": "seg-049",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "dificil",
+    "pergunta": "Todos os campos deste formulário têm required no HTML. Que medida falta neste código?",
+    "codigo": "if ($_SERVER['REQUEST_METHOD'] === 'POST') {\n    $titulo = trim($_POST['titulo'] ?? '');\n    $stmt = $pdo->prepare('INSERT INTO livros (titulo, id_autor) VALUES (?, ?)');\n    $stmt->execute([$titulo, (int) ($_POST['id_autor'] ?? 0)]);\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "As consultas preparadas: os valores deviam ir dentro do texto do prepare().",
+      "A validação no servidor: podem chegar campos vazios ou inválidos.",
+      "O htmlspecialchars() no título antes de o gravar.",
+      "Não falta nada: o required garante os campos preenchidos."
+    ],
+    "correta": 1,
+    "explicacao": "A consulta está preparada, mas nada verifica se o título vem vazio ou se o autor existe. O required pode ser contornado.",
+    "manual": "14, 12.4"
+  },
+  {
+    "id": "seg-050",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "Esconder o link \"Livros\" do menu a quem não tem sessão é controlo de acesso?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Sim: sem o link, ninguém consegue chegar à página.",
+      "Sim, desde que o link fique escondido também no telemóvel.",
+      "Não: qualquer pessoa pode escrever o endereço no browser.",
+      "Não, porque o link devia ser escondido com JavaScript."
+    ],
+    "correta": 2,
+    "explicacao": "Esconder um link ou um botão não protege nada: a página continua a responder a quem a pedir diretamente.",
+    "manual": "11.1"
+  },
+  {
+    "id": "seg-051",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "O que é, segundo o manual, controlar o acesso?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O servidor verificar, em cada pedido, a sessão e a permissão.",
+      "O browser esconder as páginas restritas com CSS.",
+      "O servidor verificar a sessão só no momento do login.",
+      "O JavaScript mandar para o login quem não tem sessão."
+    ],
+    "correta": 0,
+    "explicacao": "A verificação tem de ser no servidor e repetida em cada pedido, porque cada pedido HTTP é independente. CSS e JavaScript correm no browser e podem ser contornados.",
+    "manual": "11.1, 14"
+  },
+  {
+    "id": "seg-052",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Para que serve esta linha do login, logo depois de a password ser confirmada?",
+    "codigo": "session_regenerate_id(true);",
+    "linguagem": "php",
+    "alternativas": [
+      "Apaga a mensagem de sucesso guardada na sessão anterior.",
+      "Permite ao utilizador manter dois logins abertos ao mesmo tempo, em dois browsers.",
+      "Cifra o cookie da sessão com a password do utilizador.",
+      "Muda o identificador da sessão, para um fixado antes do login não servir."
+    ],
+    "correta": 3,
+    "explicacao": "Protege contra o ataque em que alguém fixa o identificador de sessão antes do login e o reutiliza depois. É uma das boas práticas da secção 14.2.",
+    "manual": "10.4, 14.2"
+  },
+  {
+    "id": "seg-053",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Para que serve este bloco no início da livro_apagar.php?",
+    "codigo": "if ($_SERVER['REQUEST_METHOD'] !== 'POST') {\n    header('Location: livros.php');\n    exit;\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Impede que quem não tem sessão consiga apagar livros.",
+      "Garante que um GET, como um link, nunca apaga nada.",
+      "Evita que o F5 apague o mesmo livro duas vezes.",
+      "Mostra a confirmação antes de o livro ser apagado."
+    ],
+    "correta": 1,
+    "explicacao": "Apagar altera dados, por isso só se aceita POST; um pedido GET volta para a lista sem apagar nada. Quem trata da sessão é o auth.php, incluído antes deste bloco.",
+    "manual": "12.6, 14.2"
+  },
+  {
+    "id": "seg-054",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "dificil",
+    "pergunta": "Este login funciona. Que problema de segurança tem?",
+    "codigo": "if (!$utilizador) {\n    $erros[] = 'Esse email não está registado.';\n} elseif (!password_verify($password, $utilizador['password_hash'])) {\n    $erros[] = 'A password está errada.';\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Mostra a password em claro na mensagem de erro.",
+      "Permite a injeção de SQL pelo campo do email.",
+      "Guarda a password errada na sessão do utilizador.",
+      "Permite descobrir que emails têm conta na aplicação."
+    ],
+    "correta": 3,
+    "explicacao": "As duas mensagens dizem a um atacante se o email existe. A boa prática é uma só mensagem para os dois casos: \"Email ou password errados.\"",
+    "manual": "10.4, 14.2"
+  },
+  {
+    "id": "seg-055",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Que problema tem este botão para apagar?",
+    "codigo": "<a href=\"livro_apagar.php?id=3\">Apagar</a>",
+    "linguagem": "html",
+    "alternativas": [
+      "Um link não consegue enviar o id do livro ao servidor.",
+      "Falta o atributo method=\"delete\" no link para o servidor saber o que fazer.",
+      "Um GET não deve alterar dados: um robô pode seguir o link.",
+      "O id devia ir no texto do link e não no href."
+    ],
+    "correta": 2,
+    "explicacao": "Basta um robô de pesquisa ou uma pré-visualização seguir o link para o livro desaparecer. Na Biblioteca, apagar é um formulário POST, com confirmação antes.",
+    "manual": "1.2, 14.2"
+  },
+  {
+    "id": "seg-056",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "Que duas boas práticas mostra este formulário?",
+    "codigo": "<form method=\"post\" action=\"livro_apagar.php\"\n      onsubmit=\"return confirm('Apagar este livro?');\">\n    <input type=\"hidden\" name=\"id_livro\" value=\"7\">\n    <button type=\"submit\">Apagar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "POST para alterar dados e confirmação antes de apagar.",
+      "POST para cifrar o id e validação do id no browser.",
+      "Campo escondido para proteger o id e confirmação no servidor.",
+      "GET para apagar e confirmação feita pelo JavaScript."
+    ],
+    "correta": 0,
+    "explicacao": "Tudo o que altera dados vai por POST, e o confirm() pede confirmação antes de enviar. O campo hidden não esconde nada de quem vê o código-fonte, e o POST não cifra o id.",
+    "manual": "14.2, 6.4"
+  },
+  {
+    "id": "seg-057",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Porque é que as credenciais da base de dados ficam só no config/db.php?",
+    "codigo": "$host = 'localhost';\n$bd   = 'biblioteca';\n$user = 'root';\n$pass = '';",
+    "linguagem": "php",
+    "alternativas": [
+      "Porque o browser lê o db.php para se ligar ao MySQL.",
+      "Porque o new PDO() só funciona num ficheiro chamado db.php.",
+      "Ficam fora das páginas e, se mudarem, muda-se só um ficheiro.",
+      "Para o utilizador as poder ver no código-fonte se precisar."
+    ],
+    "correta": 2,
+    "explicacao": "Ter as credenciais num só ficheiro, incluído pelas páginas, é uma das boas práticas da secção 14.2. O browser nunca fala com a base de dados nem recebe o PHP.",
+    "manual": "8.1, 14.2"
+  },
+  {
+    "id": "seg-058",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "O db.php tem a password do MySQL. Um utilizador vê-a com \"Ver código-fonte da página\"?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Sim, se o db.php for incluído com require.",
+      "Não: o browser só recebe o HTML que o PHP produziu.",
+      "Sim, porque o PHP segue para o browser com o HTML.",
+      "Não, porque o XAMPP cifra o ficheiro db.php."
+    ],
+    "correta": 1,
+    "explicacao": "O PHP corre no servidor; ao browser só chega o resultado. É por isso que o PHP pode ter a password da base de dados sem que o utilizador a veja.",
+    "manual": "1.1"
+  },
+  {
+    "id": "seg-059",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "O id_livro vem de um campo hidden que o próprio site escreveu. Porque é convertido com (int) na mesma?",
+    "codigo": "$stmt = $pdo->prepare('DELETE FROM livros WHERE id_livro = ?');\n$stmt->execute([(int) ($_POST['id_livro'] ?? 0)]);",
+    "linguagem": "php",
+    "alternativas": [
+      "Porque o pedido pode ser alterado e trazer outra coisa que não um número.",
+      "Porque o campo hidden envia sempre o valor cifrado.",
+      "Porque o execute() só aceita valores do tipo inteiro.",
+      "Porque sem (int) o valor era juntado ao texto do SQL."
+    ],
+    "correta": 0,
+    "explicacao": "Quem faz o pedido pode mudar qualquer campo, incluindo os escondidos. Converter os ids com (int) antes de os usar é uma das boas práticas da secção 14.2; a proteção contra a injeção continua a ser o ?.",
+    "manual": "12.6, 14.2"
+  },
+  {
+    "id": "seg-060",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Qual destas NÃO é uma das boas práticas que já estão no código da Biblioteca?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Um novo identificador de sessão no login.",
+      "Os ids convertidos em inteiros com (int).",
+      "As credenciais num só ficheiro, fora das páginas.",
+      "Um limite de tentativas de login."
+    ],
+    "correta": 3,
+    "explicacao": "O limite de tentativas é uma das coisas que, segundo o manual, ficariam a faltar numa aplicação real. As outras três estão na lista da secção 14.2.",
+    "manual": "14.2, 14.3"
+  },
+  {
+    "id": "seg-061",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "Numa aplicação publicada na internet, para que seria preciso o HTTPS?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Para guardar as passwords com hash na base de dados.",
+      "Para que as passwords não viajem em claro pela rede.",
+      "Para impedir a injeção de SQL nos formulários.",
+      "Para esconder o código PHP de quem vê o código-fonte."
+    ],
+    "correta": 1,
+    "explicacao": "Sem HTTPS, o que o formulário envia, incluindo a password, viaja tal como foi escrito. O hash protege a password guardada, não a que viaja.",
+    "manual": "14.3"
+  },
+  {
+    "id": "seg-062",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "Para que serviriam os tokens CSRF nos formulários?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Impedir que um script corra no browser de outro utilizador.",
+      "Impedir que o formulário seja reenviado ao carregar em F5 depois de gravar.",
+      "Impedir que uma plica num campo altere o SQL.",
+      "Impedir que outro site envie formulários em nome do utilizador."
+    ],
+    "correta": 3,
+    "explicacao": "É o que diz a secção 14.3. As outras opções descrevem o XSS, o problema que o Post/Redirect/Get resolve e a injeção de SQL.",
+    "manual": "14.3"
+  },
+  {
+    "id": "seg-063",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Qual destas medidas, que faltariam numa aplicação real, trava quem experimenta muitas passwords seguidas na mesma conta?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Um limite de tentativas de login.",
+      "Tokens CSRF nos formulários.",
+      "O HTTPS em todas as páginas.",
+      "A mesma mensagem para email e password errados."
+    ],
+    "correta": 0,
+    "explicacao": "Limitar as tentativas impede que se adivinhe a password à força de tentar. A mensagem igual só esconde que emails existem, e já está na Biblioteca.",
+    "manual": "14.3"
+  },
+  {
+    "id": "seg-064",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "O HTTPS, os tokens CSRF e o limite de tentativas são obrigatórios no projeto?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Sim: fazem parte das seis medidas obrigatórias.",
+      "Só o HTTPS, porque a aplicação guarda passwords dos utilizadores.",
+      "Não: segundo o manual, só faltariam numa aplicação real.",
+      "Só os tokens CSRF, porque há formulários POST."
+    ],
+    "correta": 2,
+    "explicacao": "A secção 14.3 diz que não é obrigatório no projeto, mas que é bom saber que existe. As obrigatórias são as seis medidas.",
+    "manual": "14.3"
+  },
+  {
+    "id": "seg-065",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "No projeto, a password só tem de ter 8 caracteres. Segundo o manual, o que exigiria uma aplicação real?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Que a password fosse guardada com md5().",
+      "Uma política de passwords mais exigente.",
+      "Que a regra dos 8 caracteres fosse só no browser.",
+      "Que a password ficasse guardada na sessão."
+    ],
+    "correta": 1,
+    "explicacao": "A política de passwords mais exigente é uma das quatro coisas da secção 14.3, com o HTTPS, os tokens CSRF e o limite de tentativas.",
+    "manual": "14.3"
+  },
+  {
+    "id": "acesso-001",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "facil",
+    "pergunta": "Qual destas linhas protege corretamente uma página restrita?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "if (isset($_SESSION['id_utilizador'])) { header('Location: login.php'); exit; }",
+      "if (!isset($_SESSION['id_utilizador'])) { echo 'Sem acesso'; }",
+      "if (!isset($_COOKIE['id_utilizador'])) { header('Location: login.php'); exit; }",
+      "if (!isset($_SESSION['id_utilizador'])) { header('Location: login.php'); exit; }"
+    ],
+    "correta": 3,
+    "explicacao": "Se não existir id_utilizador na sessão, manda para o login e para a página com exit. Só com echo o resto da página continuava a correr, e o $_COOKIE pode ser alterado pelo próprio utilizador.",
+    "manual": "11.2, Anexo B"
+  },
+  {
+    "id": "acesso-002",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "media",
+    "pergunta": "O que faz a linha do meio deste ficheiro includes/auth.php?",
+    "codigo": "if (!isset($_SESSION['id_utilizador'])) {\n    mensagem('erro', 'Tens de iniciar sessão para ver essa página.');\n    header('Location: login.php');\n    exit;\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Mostra a mensagem na página restrita e deixa-a continuar.",
+      "Escreve a mensagem no ficheiro de erros do Apache.",
+      "Guarda na sessão uma mensagem para a página de login mostrar.",
+      "Envia a mensagem por email ao administrador."
+    ],
+    "correta": 2,
+    "explicacao": "A função mensagem() do inicio.php guarda a mensagem em $_SESSION['msg']. Depois do redirecionamento, o cabeçalho do login mostra-a uma vez e apaga-a.",
+    "manual": "11.2, 9.3"
+  },
+  {
+    "id": "acesso-003",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve o exit no fim do bloco do auth.php?",
+    "codigo": "header('Location: login.php');\nexit;",
+    "linguagem": "php",
+    "alternativas": [
+      "Garante que nada do resto da página é executado.",
+      "Termina a sessão do utilizador no servidor.",
+      "Envia ao browser o código 404.",
+      "Apaga a mensagem guardada na sessão."
+    ],
+    "correta": 0,
+    "explicacao": "O header() só pede ao browser que vá a outra página; o PHP continuaria a executar o resto. O exit para tudo ali.",
+    "manual": "11.2, 7.7"
+  },
+  {
+    "id": "acesso-004",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "dificil",
+    "pergunta": "Alguém sem sessão envia um POST com id_livro=3 diretamente para esta página. O que acontece?",
+    "codigo": "<?php\nrequire 'includes/inicio.php';\nif (!isset($_SESSION['id_utilizador'])) {\n    header('Location: login.php');\n}\n$stmt = $pdo->prepare('DELETE FROM livros WHERE id_livro = ?');\n$stmt->execute([(int) ($_POST['id_livro'] ?? 0)]);",
+    "linguagem": "php",
+    "alternativas": [
+      "Vai para o login sem apagar nada, porque o header() termina a página.",
+      "O livro 3 é apagado, e só depois o browser vai para o login.",
+      "Dá o erro \"headers already sent\" e nada é apagado.",
+      "Nada é apagado, porque o pedido não traz o cookie da sessão."
+    ],
+    "correta": 1,
+    "explicacao": "Falta o exit: o header() não para o PHP, que continua e executa o DELETE. O redirecionamento só acontece quando a resposta chega ao browser.",
+    "manual": "11.2, 7.7"
+  },
+  {
+    "id": "acesso-005",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "facil",
+    "pergunta": "Numa página restrita, onde se inclui o auth.php?",
+    "codigo": "<?php\nrequire 'includes/inicio.php';\n// ← aqui?",
+    "linguagem": "php",
+    "alternativas": [
+      "No fim da página, depois do rodapé.",
+      "Logo a seguir ao inicio.php, antes de fazer seja o que for.",
+      "Dentro do cabecalho.php, para ficar em todas as páginas.",
+      "Antes do inicio.php, para ser a primeira linha."
+    ],
+    "correta": 1,
+    "explicacao": "O inicio.php abre a sessão e cria a função mensagem(), de que o auth.php precisa; a seguir protege-se a página antes de ler, gravar ou mostrar dados. No cabeçalho, protegeria também o login e o registo.",
+    "manual": "11.2, 7.8"
+  },
+  {
+    "id": "acesso-006",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "dificil",
+    "pergunta": "Que problema tem esta ordem no topo de uma página restrita?",
+    "codigo": "<?php\nrequire 'includes/auth.php';\nrequire 'includes/inicio.php';",
+    "linguagem": "php",
+    "alternativas": [
+      "Não tem problema: a ordem dos require é indiferente.",
+      "O inicio.php apaga a sessão que o auth.php acabou de verificar.",
+      "O auth.php corre antes da sessão e da função mensagem().",
+      "O auth.php deixa passar quem não tem sessão."
+    ],
+    "correta": 2,
+    "explicacao": "Sem session_start(), $_SESSION ainda não tem os dados da sessão e a função mensagem() ainda não foi definida, por isso a página dá erro. Primeiro o inicio.php, depois o auth.php.",
+    "manual": "11.2, 9.1"
+  },
+  {
+    "id": "acesso-007",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "media",
+    "pergunta": "A livro_apagar.php não mostra HTML: só recebe POST e redireciona. Precisa do auth.php?",
+    "codigo": "<?php\nrequire 'includes/inicio.php';\n// ← auth.php?\nif ($_SERVER['REQUEST_METHOD'] !== 'POST') {\n    header('Location: livros.php');\n    exit;\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Sim: sem ele, qualquer pessoa apagava livros com um pedido direto.",
+      "Não: só aceita POST, e os POST vêm sempre dos formulários do próprio site.",
+      "Não: o botão Apagar só aparece a quem tem sessão.",
+      "Só se a página passar a mostrar HTML ao utilizador."
+    ],
+    "correta": 0,
+    "explicacao": "O manual avisa que as páginas só de POST também têm de ser protegidas. Um pedido POST pode ser enviado sem passar pelo formulário.",
+    "manual": "11.2"
+  },
+  {
+    "id": "acesso-008",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "facil",
+    "pergunta": "A livro_editar.php ficou assim, sem o auth.php. O que acontece?",
+    "codigo": "<?php\nrequire 'includes/inicio.php';\nrequire 'includes/livro_funcoes.php';\n\n$id = (int) ($_GET['id'] ?? 0);",
+    "linguagem": "php",
+    "alternativas": [
+      "O PHP dá um erro fatal por faltar esse ficheiro.",
+      "Só quem tem sessão a consegue abrir, por causa do session_start().",
+      "A página manda sempre para o login.",
+      "A página fica aberta a quem escrever o endereço."
+    ],
+    "correta": 3,
+    "explicacao": "Sem o require, não há verificação: a página funciona para toda a gente. O session_start() só abre a sessão, não recusa ninguém.",
+    "manual": "11.2"
+  },
+  {
+    "id": "acesso-009",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "facil",
+    "pergunta": "Qual destas páginas da Biblioteca NÃO deve incluir o auth.php?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "login.php",
+      "livro_apagar.php",
+      "conta.php",
+      "autores.php"
+    ],
+    "correta": 0,
+    "explicacao": "O login tem de abrir sem sessão; se tivesse o auth.php, mandava para si próprio sem fim. As páginas dos livros, dos autores e da conta são restritas.",
+    "manual": "11, 11.2"
+  },
+  {
+    "id": "acesso-010",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "media",
+    "pergunta": "Este código está no cabeçalho de todas as páginas. Protege a página livros.php?",
+    "codigo": "<?php if (isset($_SESSION['id_utilizador'])): ?>\n    <a href=\"livros.php\">Livros</a>\n<?php endif; ?>",
+    "linguagem": "php",
+    "alternativas": [
+      "Sim: quem não tem sessão não vê o link e por isso não chega à página.",
+      "Não: só esconde o link; protege-a o auth.php na própria página.",
+      "Sim, desde que o cabeçalho seja incluído com require.",
+      "Não, porque devia usar $_POST em vez de $_SESSION."
+    ],
+    "correta": 1,
+    "explicacao": "Mudar o menu é conforto, não segurança: quem escrever livros.php no browser chega à página. A proteção tem de estar no topo de cada página restrita.",
+    "manual": "11.1, 9.2"
+  },
+  {
+    "id": "acesso-011",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "dificil",
+    "pergunta": "Porque é que o auth.php confia em $_SESSION['id_utilizador'] e não num campo enviado pelo browser?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Porque o $_SESSION é lido mais depressa do que o $_POST.",
+      "Porque os campos do formulário são apagados após o login.",
+      "Os dados da sessão ficam no servidor e o utilizador não os altera.",
+      "Porque o $_SESSION vai cifrado com a password do próprio utilizador."
+    ],
+    "correta": 2,
+    "explicacao": "O browser guarda só o identificador da sessão; os dados ficam no servidor. Um campo do formulário, um parâmetro do URL ou um cookie podem ser escritos por quem faz o pedido.",
+    "manual": "10.3, 11.2"
+  },
+  {
+    "id": "acesso-012",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "facil",
+    "pergunta": "Porque se usa uma janela anónima para testar o controlo de acesso?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Porque desliga o JavaScript automaticamente.",
+      "Porque envia todos os pedidos por POST.",
+      "Porque mostra os erros do PHP no ecrã.",
+      "Porque nela não tens sessão iniciada."
+    ],
+    "correta": 3,
+    "explicacao": "A janela anónima (Ctrl + Shift + N) não partilha os cookies da janela normal, por isso não tens sessão: és um visitante qualquer.",
+    "manual": "11.3"
+  },
+  {
+    "id": "acesso-013",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "media",
+    "pergunta": "Numa janela anónima, escreves localhost/biblioteca/livros.php. O que tem de acontecer?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Ir para o login, com \"Tens de iniciar sessão para ver essa página.\"",
+      "Ver a lista sem os botões de criar, editar e apagar.",
+      "Aparecer o código 404, porque a página não existe para quem não tem sessão.",
+      "Aparecer uma página em branco, sem cabeçalho nem rodapé."
+    ],
+    "correta": 0,
+    "explicacao": "É o teste 9: sem sessão, cada página restrita redireciona para o login com a mensagem do auth.php. Repete-se para todas, incluindo editar e apagar.",
+    "manual": "11.3, 16"
+  },
+  {
+    "id": "acesso-014",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "media",
+    "pergunta": "Fazes logout numa página restrita e depois carregas em Voltar e em F5. O que tem de acontecer?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Mostra a página, porque o browser ainda a tem.",
+      "Pede o login outra vez.",
+      "Mostra a página, mas sem o nome no menu.",
+      "Dá um erro 500, porque a sessão foi destruída."
+    ],
+    "correta": 1,
+    "explicacao": "Com o F5 o pedido chega ao servidor, que já não encontra a sessão; o auth.php manda para o login. É o teste 8 do capítulo 16.",
+    "manual": "16, 11.2"
+  },
+  {
+    "id": "acesso-015",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "media",
+    "pergunta": "A tua aplicação tem um administrador. Como proteges as páginas só de administrador, como sugere o manual?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Escondendo do menu os links de gestão a quem não é administrador.",
+      "Pondo as páginas de gestão numa pasta com um nome difícil de adivinhar pelos utilizadores.",
+      "Pedindo de novo a password com JavaScript antes de abrir a página.",
+      "Com um segundo controlo, como includes/admin.php, que verifica o perfil na sessão."
+    ],
+    "correta": 3,
+    "explicacao": "Tal como o auth.php, o admin.php corre no servidor em cada pedido e recusa quem não tem o perfil certo. Esconder links ou \"esconder\" páginas não é controlo de acesso.",
+    "manual": "11.3"
+  },
+  {
+    "id": "acesso-016",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "media",
+    "pergunta": "De onde vem o perfil que o includes/admin.php verifica?",
+    "codigo": "$_SESSION['id_utilizador'] = $utilizador['id_utilizador'];\n$_SESSION['nome']          = $utilizador['nome'];\n$_SESSION['perfil']        = $utilizador['perfil'];",
+    "linguagem": "php",
+    "alternativas": [
+      "De um campo escondido nos formulários de gestão.",
+      "Do endereço da página pedida, num parâmetro como ?perfil=admin.",
+      "Da sessão, onde o login o guarda a partir da coluna perfil.",
+      "De um cookie criado pelo JavaScript no login."
+    ],
+    "correta": 2,
+    "explicacao": "O manual sugere acrescentar uma coluna perfil à tabela utilizadores e guardá-la na sessão no login. Um campo escondido, o URL ou um cookie seriam alterados por quem faz o pedido.",
+    "manual": "10.5, 11.3"
+  },
+  {
+    "id": "acesso-017",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "dificil",
+    "pergunta": "Um utilizador com sessão, mas sem perfil de administrador, escreve o endereço de uma página de gestão que só tem o auth.php. O que acontece?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "É mandado para o login com a mensagem do auth.php.",
+      "Vê a página, mas sem os botões de gestão.",
+      "Recebe o código 404 em vez da página.",
+      "Abre a página: o auth.php só verifica se há sessão."
+    ],
+    "correta": 3,
+    "explicacao": "O auth.php só pergunta se existe id_utilizador na sessão. Para exigir o perfil, é preciso o segundo controlo (admin.php) nessas páginas.",
+    "manual": "11.2, 11.3"
+  },
+  {
+    "id": "acesso-018",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "dificil",
+    "pergunta": "Uma página só de administrador usa este admin.php. Qual é a ordem certa dos require no topo?",
+    "codigo": "if (($_SESSION['perfil'] ?? '') !== 'admin') {\n    mensagem('erro', 'Essa página é só para o administrador.');\n    header('Location: index.php');\n    exit;\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "inicio.php, auth.php, admin.php",
+      "auth.php, admin.php, inicio.php",
+      "inicio.php, cabecalho.php, admin.php",
+      "admin.php, inicio.php, auth.php"
+    ],
+    "correta": 0,
+    "explicacao": "Primeiro a sessão e a função mensagem() (inicio.php), depois a sessão iniciada (auth.php) e por fim o perfil (admin.php). Com o cabeçalho antes, o header() já não podia redirecionar.",
+    "manual": "11.2, 11.3, 7.8"
+  },
+  {
+    "id": "acesso-019",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "media",
+    "pergunta": "Porque é que a conta.php apaga a conta com o id da sessão, e não com um id enviado pelo formulário?",
+    "codigo": "$stmt = $pdo->prepare('DELETE FROM utilizadores WHERE id_utilizador = ?');\n$stmt->execute([$_SESSION['id_utilizador']]);",
+    "linguagem": "php",
+    "alternativas": [
+      "Porque um formulário não consegue enviar números.",
+      "Porque o DELETE só aceita valores vindos da sessão.",
+      "Assim, cada utilizador só consegue apagar a própria conta.",
+      "Para o id não aparecer no endereço do browser."
+    ],
+    "correta": 2,
+    "explicacao": "Um id enviado pelo formulário podia ser trocado pelo de outra pessoa. O da sessão foi posto lá pelo servidor no login e o utilizador não o altera.",
+    "manual": "15.4, 10.3"
+  },
+  {
+    "id": "acesso-020",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "facil",
+    "pergunta": "Quando se usa htmlspecialchars()?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Ao gravar os dados na base de dados, antes de fazer o INSERT.",
+      "Ao mostrar na página dados da base de dados ou do utilizador.",
+      "Ao ler os campos do $_POST, logo no início.",
+      "Ao preparar a consulta, dentro do prepare()."
+    ],
+    "correta": 1,
+    "explicacao": "Escapa-se no momento de mostrar, em todos os <?= ?> que escrevem dados. Na base de dados os dados ficam tal como foram escritos.",
+    "manual": "14.1, Anexo B"
+  },
+  {
+    "id": "acesso-021",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "dificil",
+    "pergunta": "Um colega grava o título com htmlspecialchars() e, como o resto da Biblioteca, também o mostra com htmlspecialchars(). O título é Ensaio & Prosa. O que aparece no ecrã?",
+    "codigo": "$titulo = htmlspecialchars(trim($_POST['titulo'] ?? ''));\n// ... INSERT com $titulo ...\n// na página de detalhe:\n<h1><?= htmlspecialchars($livro['titulo']) ?></h1>",
+    "linguagem": "php",
+    "alternativas": [
+      "Ensaio & Prosa",
+      "Ensaio &amp;amp; Prosa",
+      "Ensaio Prosa",
+      "Ensaio &amp; Prosa"
+    ],
+    "correta": 3,
+    "explicacao": "Na base de dados fica Ensaio &amp; Prosa; ao mostrar, o & volta a ser escapado e o browser exibe o &amp; como texto. Por isso escapa-se só ao mostrar, nunca ao gravar.",
+    "manual": "14.1"
+  },
+  {
+    "id": "acesso-022",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "facil",
+    "pergunta": "Que caracteres troca o htmlspecialchars()?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Os -- e os ;, para evitar a injeção de SQL.",
+      "<, >, \" e &, por &lt;, &gt;, &quot; e &amp;.",
+      "As letras acentuadas, por códigos como &eacute;.",
+      "Os espaços e as mudanças de linha, por &nbsp; e <br>."
+    ],
+    "correta": 1,
+    "explicacao": "São os caracteres com significado especial em HTML. Trocados pelos seus códigos, o browser mostra-os como texto. As mudanças de linha são o trabalho do nl2br().",
+    "manual": "14.1"
+  },
+  {
+    "id": "acesso-023",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "media",
+    "pergunta": "Porque é que trocar < por &lt; impede o ataque?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O browser mostra-o como <, mas não o lê como etiqueta.",
+      "O &lt; apaga do texto tudo o que vem a seguir.",
+      "O MySQL recusa gravar textos que tenham &lt;.",
+      "O browser desliga o JavaScript da página sempre que encontra um &lt;."
+    ],
+    "correta": 0,
+    "explicacao": "Sem um < verdadeiro não há etiqueta <script>: o texto aparece no ecrã tal e qual e nada é executado.",
+    "manual": "14.1"
+  },
+  {
+    "id": "acesso-024",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "dificil",
+    "pergunta": "Um título foi gravado como <script>alert(1)</script> e a página mostra-o com htmlspecialchars(). Que HTML chega ao browser?",
+    "codigo": "<h2><?= htmlspecialchars($livro['titulo']) ?></h2>",
+    "linguagem": "php",
+    "alternativas": [
+      "<h2><script>alert(1)</script></h2>",
+      "<h2>alert(1)</h2>",
+      "<h2>&lt;script&gt;alert(1)&lt;/script&gt;</h2>",
+      "<h2>&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;</h2>"
+    ],
+    "correta": 2,
+    "explicacao": "Os < e > são trocados por &lt; e &gt; uma vez. O browser mostra <script>alert(1)</script> como texto e não abre nenhuma janela: é o resultado do teste 20.",
+    "manual": "14.1, 16"
+  },
+  {
+    "id": "acesso-025",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "dificil",
+    "pergunta": "O título de um livro é O \"Memorial\". O que aparece dentro desta caixa de texto?",
+    "codigo": "<?php $titulo = 'O \"Memorial\"'; ?>\n<input type=\"text\" name=\"titulo\" value=\"<?= $titulo ?>\">",
+    "linguagem": "php",
+    "alternativas": [
+      "O \"Memorial\", completo.",
+      "Só O , porque a aspa fecha o value.",
+      "Nada: o campo fica vazio.",
+      "Um erro de PHP por causa das aspas."
+    ],
+    "correta": 1,
+    "explicacao": "O HTML fica value=\"O \"Memorial\"\" e o browser termina o value na segunda aspa. É por isso que o htmlspecialchars() troca \" por &quot;, e o formulário usa value=\"<?= htmlspecialchars(...) ?>\".",
+    "manual": "14.1, 12.4"
+  },
+  {
+    "id": "acesso-026",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "media",
+    "pergunta": "Que HTML produz esta linha?",
+    "codigo": "<?= htmlspecialchars('Eça de Queirós & Machado de Assis') ?>",
+    "linguagem": "php",
+    "alternativas": [
+      "E&ccedil;a de Queir&oacute;s &amp; Machado de Assis",
+      "Eça de Queirós & Machado de Assis",
+      "E&ccedil;a de Queir&oacute;s & Machado de Assis",
+      "Eça de Queirós &amp; Machado de Assis"
+    ],
+    "correta": 3,
+    "explicacao": "O htmlspecialchars() só troca <, >, \" e &. As letras acentuadas ficam como estão, porque a página está em UTF-8.",
+    "manual": "14.1"
+  },
+  {
+    "id": "acesso-027",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "media",
+    "pergunta": "Segundo o manual, que valores a Biblioteca escreve sem htmlspecialchars()?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Todos os que já foram validados no servidor.",
+      "Os que foram gravados com consultas preparadas.",
+      "Números (ids e anos) e valores fixos do próprio código.",
+      "Os que vêm da sessão, como o nome do utilizador."
+    ],
+    "correta": 2,
+    "explicacao": "Um id ou um ano não podem conter < nem >, e um valor fixo foi escrito pelo programador. Tudo o resto que veio de um utilizador, mesmo validado ou guardado na sessão, é escapado.",
+    "manual": "14.1"
+  },
+  {
+    "id": "acesso-028",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "dificil",
+    "pergunta": "Nesta lista, que linha deixa a página vulnerável a XSS?",
+    "codigo": "<?php foreach ($livros as $livro): ?>\n    <h2><?= htmlspecialchars($livro['titulo']) ?></h2>\n    <p><?= $livro['autor'] ?> · <?= $livro['ano_edicao'] ?></p>\n    <a href=\"livro_ver.php?id=<?= $livro['id_livro'] ?>\">Ver</a>\n<?php endforeach; ?>",
+    "linguagem": "php",
+    "alternativas": [
+      "A do nome do autor.",
+      "A do título do livro.",
+      "A do ano de edição.",
+      "A do link com o id."
+    ],
+    "correta": 0,
+    "explicacao": "O nome do autor é texto escrito por um utilizador e aparece sem escapar. O título já está escapado; o ano e o id são números, que a Biblioteca escreve sem htmlspecialchars().",
+    "manual": "14.1, 12.2"
+  },
+  {
+    "id": "acesso-029",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "dificil",
+    "pergunta": "Esta linha do cabeçalho mostra o nome guardado na sessão. Precisa de htmlspecialchars()?",
+    "codigo": "<span class=\"ola\">Olá, <?= $_SESSION['nome'] ?></span>",
+    "linguagem": "php",
+    "alternativas": [
+      "Sim: o nome foi escrito pelo utilizador no registo.",
+      "Não: os dados da sessão ficam no servidor e ninguém os altera.",
+      "Não: o nome só aparece ao próprio utilizador.",
+      "Só se o nome tiver letras acentuadas."
+    ],
+    "correta": 0,
+    "explicacao": "A sessão é segura contra alterações, mas o nome lá guardado veio da base de dados, onde o utilizador o escreveu. Por isso o cabeçalho da Biblioteca usa htmlspecialchars($_SESSION['nome']).",
+    "manual": "9.2, 14.1"
+  },
+  {
+    "id": "acesso-030",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "media",
+    "pergunta": "No cabeçalho, o tipo da mensagem é escrito sem htmlspecialchars(). Porque é aceitável?",
+    "codigo": "<div class=\"msg <?= $_SESSION['msg']['tipo'] ?>\">\n    <?= htmlspecialchars($_SESSION['msg']['texto']) ?>\n</div>",
+    "linguagem": "php",
+    "alternativas": [
+      "Porque está dentro de um atributo class.",
+      "Porque a mensagem é apagada da sessão logo a seguir.",
+      "Porque é sempre 'sucesso' ou 'erro', valores fixos do código.",
+      "Porque a sessão escapa tudo o que lá se guarda."
+    ],
+    "correta": 2,
+    "explicacao": "O tipo é escolhido pelo programador nas chamadas a mensagem(). Já o texto pode incluir dados do utilizador (como o nome no \"Bem-vindo\"), por isso é escapado.",
+    "manual": "9.2, 14.1"
+  },
+  {
+    "id": "acesso-031",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "media",
+    "pergunta": "A caixa de pesquisa mostra o texto procurado. Porque se usa htmlspecialchars() se $q nem vem da base de dados?",
+    "codigo": "<input type=\"search\" name=\"q\"\n       value=\"<?= htmlspecialchars($q) ?>\">",
+    "linguagem": "php",
+    "alternativas": [
+      "Porque o value só aceita texto já escapado.",
+      "Porque vem do URL: é texto de quem fez o pedido.",
+      "Para impedir a injeção de SQL na pesquisa seguinte.",
+      "Não é preciso: só os dados da base de dados se escapam."
+    ],
+    "correta": 1,
+    "explicacao": "Qualquer texto que veio de fora e é escrito na página tem de ser escapado. Um link com ?q= e umas aspas podia fechar o value e meter HTML na página.",
+    "manual": "12.2, 14.1"
+  },
+  {
+    "id": "acesso-032",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "media",
+    "pergunta": "Porque é que o cabeçalho escapa o $titulo, se é cada página que o define?",
+    "codigo": "<title><?= htmlspecialchars($titulo) ?> · Biblioteca</title>",
+    "linguagem": "php",
+    "alternativas": [
+      "Porque o <title> só aceita texto escapado.",
+      "Porque o $titulo é lido de $_GET em todas as páginas.",
+      "Porque o cabeçalho é incluído com require.",
+      "Porque no detalhe o $titulo é o título do livro."
+    ],
+    "correta": 3,
+    "explicacao": "Na livro_ver.php faz-se $titulo = $livro['titulo']. Como o mesmo cabeçalho serve todas as páginas, escapa-se sempre.",
+    "manual": "9.2, 12.3"
+  },
+  {
+    "id": "acesso-033",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "media",
+    "pergunta": "Queres mostrar a sinopse com as mudanças de linha e protegida contra XSS. Qual está certo?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "<?= nl2br(htmlspecialchars($livro['sinopse'])) ?>",
+      "<?= htmlspecialchars(nl2br($livro['sinopse'])) ?>",
+      "<?= nl2br($livro['sinopse']) ?>",
+      "<?= htmlspecialchars($livro['sinopse']) . '<br>' ?>"
+    ],
+    "correta": 0,
+    "explicacao": "Primeiro escapa-se o texto, depois o nl2br() acrescenta os <br> verdadeiros. Ao contrário, os <br> seriam escapados; só com nl2br(), o texto ficaria por escapar.",
+    "manual": "12.3"
+  },
+  {
+    "id": "acesso-034",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "dificil",
+    "pergunta": "Uma sinopse tem duas linhas. O que aparece no ecrã com esta linha?",
+    "codigo": "<dd><?= htmlspecialchars(nl2br($livro['sinopse'])) ?></dd>",
+    "linguagem": "php",
+    "alternativas": [
+      "As duas linhas separadas, como se pretende.",
+      "O texto <br /> escrito entre as duas linhas.",
+      "A sinopse inteira a negrito.",
+      "Um erro, porque nl2br() devolve um array."
+    ],
+    "correta": 1,
+    "explicacao": "O nl2br() acrescenta <br />, mas o htmlspecialchars() a seguir troca-o por &lt;br /&gt;, que o browser mostra como texto. A ordem certa é nl2br(htmlspecialchars(...)).",
+    "manual": "12.3, 14.1"
+  },
+  {
+    "id": "acesso-035",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "media",
+    "pergunta": "Um atacante grava <script>…</script> no nome de um autor. Onde atua a defesa da Biblioteca?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "No INSERT, onde o prepare() remove o script.",
+      "No validacao.js, que recusa os sinais < e >.",
+      "Na base de dados, que não aceita etiquetas HTML.",
+      "Nas páginas que mostram o nome, com htmlspecialchars()."
+    ],
+    "correta": 3,
+    "explicacao": "O nome é gravado tal como foi escrito; a defesa é escapá-lo sempre que é escrito na página. O prepare() protege o SQL, não o HTML.",
+    "manual": "14.1"
+  }
+]

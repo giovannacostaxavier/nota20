@@ -1,0 +1,1856 @@
+[
+  {
+    "id": "http-001",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "Quais são as três peças de qualquer aplicação web?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O browser, o servidor e a base de dados.",
+      "O HTML, o CSS e o JavaScript.",
+      "O browser, o phpMyAdmin e o XAMPP.",
+      "O cliente, o editor de código e o servidor."
+    ],
+    "correta": 0,
+    "explicacao": "Uma aplicação web tem sempre o browser (onde está o utilizador), o servidor (onde corre o programa) e a base de dados (onde ficam os dados).",
+    "manual": "1.1"
+  },
+  {
+    "id": "http-002",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "O browser precisa da lista de livros que está na base de dados. A quem a pede?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Diretamente ao MySQL, através do endereço escrito na barra do browser.",
+      "Ao phpMyAdmin, que lhe envia as linhas da tabela.",
+      "Ao servidor, que consulta a base de dados e devolve o resultado.",
+      "À base de dados, mas só quando o pedido é POST."
+    ],
+    "correta": 2,
+    "explicacao": "O browser nunca fala diretamente com a base de dados: pede tudo ao servidor, e é o PHP que faz a consulta SQL.",
+    "manual": "1.1"
+  },
+  {
+    "id": "http-003",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Escreves localhost/biblioteca/livros.php no browser. Qual é o caminho do pedido?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Browser consulta o MySQL → o Apache junta o PHP → o browser executa o PHP.",
+      "Browser descarrega o livros.php → executa-o e consulta o MySQL sozinho.",
+      "Browser → Apache → PHP consulta o MySQL → o HTML gerado volta ao browser.",
+      "Browser → Apache → MySQL gera o HTML → o PHP envia-o ao browser."
+    ],
+    "correta": 2,
+    "explicacao": "O Apache recebe o pedido e entrega o ficheiro ao PHP, que consulta o MySQL e usa as linhas para gerar HTML. Esse HTML é a resposta enviada ao browser.",
+    "manual": "1.1"
+  },
+  {
+    "id": "http-004",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Numa página da Biblioteca, escolhes \"Ver código-fonte da página\". O que encontras?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O código PHP completo, com as consultas SQL.",
+      "Só HTML, sem nenhum <?php nem consultas SQL.",
+      "O HTML e o PHP, mas sem as consultas SQL.",
+      "O PHP, com as passwords trocadas por asteriscos."
+    ],
+    "correta": 1,
+    "explicacao": "O browser só recebe o HTML que o PHP produziu no servidor. O código PHP e o SQL nunca saem do servidor.",
+    "manual": "1.1"
+  },
+  {
+    "id": "http-005",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Porque é que o config/db.php pode ter a password da base de dados sem que o utilizador a veja?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O browser esconde automaticamente as variáveis com passwords.",
+      "O Apache cifra os ficheiros .php antes de os enviar.",
+      "O código PHP chega ao browser, mas fica invisível na página.",
+      "O PHP corre no servidor e o browser só recebe o HTML gerado."
+    ],
+    "correta": 3,
+    "explicacao": "O PHP é executado no servidor; ao browser só chega o resultado em HTML. Por isso as credenciais ficam num ficheiro PHP, fora das páginas.",
+    "manual": "1.1, 14.2"
+  },
+  {
+    "id": "http-006",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "dificil",
+    "pergunta": "Abres esta página por http://localhost e vês o código-fonte. O que aparece na linha do título?",
+    "codigo": "<?php\n$nome = 'Maria';\n?>\n<body>\n    <h1>Olá, <?= $nome ?>!</h1>\n</body>",
+    "linguagem": "php",
+    "alternativas": [
+      "<h1>Olá, Maria!</h1>",
+      "<h1>Olá, <?= $nome ?>!</h1>",
+      "<h1>Olá, $nome!</h1>",
+      "<h1>Olá, <?php echo 'Maria'; ?>!</h1>"
+    ],
+    "correta": 0,
+    "explicacao": "O PHP corre no servidor e troca <?= $nome ?> pelo valor da variável. O browser só recebe o HTML final, já com \"Maria\".",
+    "manual": "2.4"
+  },
+  {
+    "id": "http-007",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Na página ola.php, que mostra date('H:i'), carregas em F5 várias vezes e a hora vai mudando. Porquê?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O JavaScript do browser atualiza a hora sozinho.",
+      "O browser guarda a página e só muda a hora localmente.",
+      "O PHP corre outra vez no servidor em cada pedido.",
+      "O MySQL envia a hora certa sempre que a página carrega."
+    ],
+    "correta": 2,
+    "explicacao": "Cada F5 é um novo pedido: o servidor executa o PHP de novo e gera HTML com a hora desse momento.",
+    "manual": "2.4"
+  },
+  {
+    "id": "http-008",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "O que tem sempre um pedido HTTP?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Um método e um endereço.",
+      "Um método e um código de estado.",
+      "Um endereço e uma consulta SQL.",
+      "Um cookie e um formulário."
+    ],
+    "correta": 0,
+    "explicacao": "Cada pedido tem um método (nesta UC, GET ou POST) e um endereço. O código de estado vem na resposta, não no pedido.",
+    "manual": "1.2"
+  },
+  {
+    "id": "http-009",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "Num pedido GET, onde vão os dados enviados?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "No corpo do pedido, escondidos.",
+      "Num cookie criado pelo formulário.",
+      "No endereço, depois do ?",
+      "No código de estado da resposta."
+    ],
+    "correta": 2,
+    "explicacao": "Em GET os dados vão no URL, por exemplo livros.php?q=mar. Em POST vão no corpo do pedido e não aparecem no endereço.",
+    "manual": "1.2"
+  },
+  {
+    "id": "http-010",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Fazes login com este formulário e, no endereço, não aparecem nem o email nem a password. Porquê?",
+    "codigo": "<form method=\"post\" action=\"login.php\">\n    <input type=\"email\" id=\"email\" name=\"email\">\n    <input type=\"password\" id=\"password\" name=\"password\">\n    <button type=\"submit\">Entrar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "O campo é type=\"password\", e o browser nunca envia esse tipo de campo.",
+      "O formulário usa POST, que envia os dados no corpo do pedido.",
+      "O PHP limpa o endereço depois de ler os dados.",
+      "O action aponta para a própria página login.php."
+    ],
+    "correta": 1,
+    "explicacao": "Com method=\"post\" os dados viajam no corpo do pedido. O type=\"password\" só mostra pontos no ecrã; o valor é enviado na mesma.",
+    "manual": "1.2, 4.2"
+  },
+  {
+    "id": "http-011",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Que pedido faz o browser quando clicas neste link?",
+    "codigo": "<a href=\"livro_ver.php?id=3\">Ver detalhe →</a>",
+    "linguagem": "html",
+    "alternativas": [
+      "Um POST, com id=3 no corpo do pedido.",
+      "Um GET, com id=3 no corpo do pedido.",
+      "Um POST, porque leva um parâmetro.",
+      "Um GET, com id=3 no endereço."
+    ],
+    "correta": 3,
+    "explicacao": "Um link é sempre um pedido GET, e os dados vão no URL depois do ?. Ter parâmetros não o transforma em POST.",
+    "manual": "1.2, 4.4"
+  },
+  {
+    "id": "http-012",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "Qual destas formas faz um pedido POST?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Um link <a href> com ?id= no fim.",
+      "Escrever o endereço na barra do browser.",
+      "Abrir uma página guardada nos favoritos.",
+      "Um formulário com method=\"post\"."
+    ],
+    "correta": 3,
+    "explicacao": "POST só se faz com um formulário com method=\"post\". Links, endereços escritos e favoritos são sempre pedidos GET.",
+    "manual": "1.2"
+  },
+  {
+    "id": "http-013",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Depois de enviar um formulário, carregas em F5 e o browser avisa \"Confirmar reenvio do formulário\". O que significa?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A sessão expirou e é preciso iniciar sessão de novo.",
+      "O formulário tem erros e vai ser validado outra vez pelo browser.",
+      "A página veio de um POST, e o F5 vai enviá-lo outra vez.",
+      "A página foi apagada e o servidor devolveu 404."
+    ],
+    "correta": 2,
+    "explicacao": "Repetir um POST pode criar o registo duas vezes, e o browser avisa disso. É o problema que o Post/Redirect/Get resolve.",
+    "manual": "1.2, 9.5"
+  },
+  {
+    "id": "http-014",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "Que valor tem o method do formulário de pesquisa dos livros?",
+    "codigo": "<form method=\"____\" action=\"livros.php\">\n    <input type=\"search\" name=\"q\">\n    <button type=\"submit\">Pesquisar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "method=\"get\", porque só lê dados.",
+      "method=\"post\", porque envia texto.",
+      "method=\"search\", próprio das pesquisas.",
+      "method=\"post\", para esconder o texto pesquisado."
+    ],
+    "correta": 0,
+    "explicacao": "Pesquisar não altera nada, por isso é GET: o texto vai no endereço. type=\"search\" existe no <input>, mas \"search\" não é um método.",
+    "manual": "1.2, 12.2"
+  },
+  {
+    "id": "http-015",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "dificil",
+    "pergunta": "Escreves \"mar\" na caixa e carregas em Pesquisar. Que endereço aparece no browser?",
+    "codigo": "<form method=\"get\" action=\"livros.php\">\n    <input type=\"search\" name=\"q\"\n           placeholder=\"Pesquisar por título\">\n    <button type=\"submit\">Pesquisar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "livros.php?search=mar",
+      "livros.php",
+      "livros.php#q=mar",
+      "livros.php?q=mar"
+    ],
+    "correta": 3,
+    "explicacao": "Com method=\"get\", cada campo vai no URL depois do ?, com o seu name como chave: ?q=mar. O type do campo não conta e, sem GET, nada iria para o endereço.",
+    "manual": "12.2"
+  },
+  {
+    "id": "http-016",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "O endereço é livros.php?q=mar. O que falta para o PHP ler o texto pesquisado?",
+    "codigo": "$q = trim(________ ?? '');",
+    "linguagem": "php",
+    "alternativas": [
+      "$_GET['q']",
+      "$_POST['q']",
+      "$_GET['search']",
+      "$_SESSION['q']"
+    ],
+    "correta": 0,
+    "explicacao": "Os dados de um pedido GET vêm do URL e leem-se em $_GET, com a chave do name do campo (q).",
+    "manual": "12.2"
+  },
+  {
+    "id": "http-017",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Envias a um colega, que também tem sessão iniciada, o endereço livros.php?q=mar. O que vê ele?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A lista completa, porque a pesquisa só existe no teu browser.",
+      "Um erro, porque a pesquisa tem de ser reenviada por POST.",
+      "A caixa de pesquisa vazia e nenhum livro.",
+      "A mesma pesquisa: os livros com \"mar\" no título."
+    ],
+    "correta": 3,
+    "explicacao": "Como a pesquisa é GET, o texto faz parte do endereço. Quem abre esse endereço faz exatamente o mesmo pedido.",
+    "manual": "1.2, 12.2"
+  },
+  {
+    "id": "http-018",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Porque é que apagar um livro com este link é perigoso?",
+    "codigo": "<a href=\"livro_apagar.php?id_livro=3\" class=\"btn perigo\">Apagar</a>",
+    "linguagem": "html",
+    "alternativas": [
+      "Os links não conseguem enviar o id do livro ao servidor.",
+      "O link faz um POST, que se repete sempre que alguém carrega em F5 na página.",
+      "O browser bloqueia os links que contêm a palavra apagar.",
+      "Um robô ou uma pré-visualização pode seguir o link e apagar o livro."
+    ],
+    "correta": 3,
+    "explicacao": "Um link é um GET, e um GET nunca deve alterar dados: basta alguém ou alguma coisa seguir o link para o livro desaparecer. Apagar é sempre um formulário POST.",
+    "manual": "1.2"
+  },
+  {
+    "id": "http-019",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "Qual destas ações pode ser feita com um simples link?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Apagar um livro.",
+      "Gravar as alterações de um livro.",
+      "Criar uma conta.",
+      "Abrir a ficha de um livro."
+    ],
+    "correta": 3,
+    "explicacao": "Navegar faz-se com links (GET). Tudo o que altera dados (criar, editar, apagar) faz-se com um formulário POST.",
+    "manual": "4.4"
+  },
+  {
+    "id": "http-020",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Na página de detalhe, porque é que \"Editar\" é um link e \"Apagar\" é um formulário?",
+    "codigo": "<a href=\"livro_editar.php?id=7\" class=\"btn\">Editar</a>\n<form method=\"post\" action=\"livro_apagar.php\">\n    <input type=\"hidden\" name=\"id_livro\" value=\"7\">\n    <button type=\"submit\" class=\"perigo\">Apagar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "Os links só funcionam para páginas sem PHP.",
+      "Editar só abre o formulário (GET); apagar altera dados (POST).",
+      "O formulário chega mais depressa ao servidor do que um link normal.",
+      "Editar não precisa do id do livro; apagar precisa."
+    ],
+    "correta": 1,
+    "explicacao": "O link Editar apenas mostra o formulário de edição, que é ler. Apagar muda a base de dados, por isso é POST, mesmo sendo só um botão.",
+    "manual": "4.4"
+  },
+  {
+    "id": "http-021",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "dificil",
+    "pergunta": "Alguém escreve no browser livro_apagar.php?id_livro=3. O que acontece?",
+    "codigo": "<?php\nrequire 'includes/inicio.php';\nrequire 'includes/auth.php';\n\nif ($_SERVER['REQUEST_METHOD'] !== 'POST') {\n    header('Location: livros.php');\n    exit;\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "O livro 3 é apagado, porque o id vai no endereço.",
+      "É mandado para a lista e nada é apagado.",
+      "Recebe um 404, porque a página não existe em GET.",
+      "Recebe um 500, porque falta o corpo do pedido."
+    ],
+    "correta": 1,
+    "explicacao": "Escrever um endereço faz um GET. A página só aceita POST: em qualquer outro caso redireciona para livros.php e o exit impede que o DELETE corra.",
+    "manual": "12.6, 1.2"
+  },
+  {
+    "id": "http-022",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "dificil",
+    "pergunta": "O livro_novo.php recebe pedidos GET e POST. Qual é a diferença?",
+    "codigo": "<?php\nrequire 'includes/inicio.php';\nrequire 'includes/auth.php';\n\nif ($_SERVER['REQUEST_METHOD'] === 'POST') {\n    // validar; se estiver tudo bem, INSERT e redirecionar\n}\n// mostrar o formulário",
+    "linguagem": "php",
+    "alternativas": [
+      "Em GET grava o livro novo; em POST mostra o formulário.",
+      "Em GET mostra o formulário; em POST grava o livro novo.",
+      "Em GET mostra a lista dos livros; em POST mostra a ficha do livro.",
+      "Em GET valida os campos; em POST mostra os erros."
+    ],
+    "correta": 1,
+    "explicacao": "Pedir a página (GET) mostra o formulário vazio; enviar o formulário (POST) faz o INSERT. A mesma página trata os dois casos.",
+    "manual": "12.1"
+  },
+  {
+    "id": "http-023",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Gravar as alterações de um livro em livro_editar.php?id=7: que método e que SQL?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "GET, com UPDATE livros SET ... WHERE id_livro = ?",
+      "POST, com INSERT INTO livros (...) VALUES (...)",
+      "POST, com UPDATE livros SET ... WHERE id_livro = ?",
+      "GET, com SELECT ... WHERE id_livro = ?"
+    ],
+    "correta": 2,
+    "explicacao": "Gravar altera dados, por isso é POST, e alterar um registo existente é UPDATE com WHERE. O GET à mesma página só mostra o formulário (SELECT).",
+    "manual": "12.1"
+  },
+  {
+    "id": "http-024",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Qual destas linhas do mapa de páginas está ERRADA?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Ver o detalhe → GET livro_ver.php?id=7",
+      "Listar e pesquisar → GET livros.php?q=...",
+      "Apagar → GET livro_apagar.php?id=7",
+      "Gravar o livro novo → POST livro_novo.php"
+    ],
+    "correta": 2,
+    "explicacao": "Apagar altera dados e tem de ser POST, com o id num campo escondido. Ver, listar e pesquisar só leem, por isso são GET.",
+    "manual": "12.1"
+  },
+  {
+    "id": "http-025",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "O que quer dizer o código de estado 200?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O servidor mandou o browser ir a outra página.",
+      "A página pedida não existe.",
+      "A página foi encontrada e enviada.",
+      "Houve um erro de programação no servidor."
+    ],
+    "correta": 2,
+    "explicacao": "200 é OK: correu bem. 302 é redirecionamento, 404 é não encontrado e 500 é erro no servidor.",
+    "manual": "1.3"
+  },
+  {
+    "id": "http-026",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "Quando aparece o código 500?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Quando o utilizador não tem sessão iniciada.",
+      "Quando se pede um livro que não existe.",
+      "Quando o servidor manda o browser ir a outra página depois de gravar.",
+      "Quando o código rebenta ou a base de dados está desligada."
+    ],
+    "correta": 3,
+    "explicacao": "500 é erro no servidor: um erro de programação ou a base de dados desligada. Livro inexistente é 404 e redirecionar é 302.",
+    "manual": "1.3"
+  },
+  {
+    "id": "http-027",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "Que código de estado indica que o servidor mandou o browser ir a outra página?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "200",
+      "302",
+      "404",
+      "500"
+    ],
+    "correta": 1,
+    "explicacao": "302 é o redirecionamento, usado depois de gravar (capítulo 9). 200 é OK, 404 é não encontrado e 500 é erro no servidor.",
+    "manual": "1.3"
+  },
+  {
+    "id": "http-028",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "Queres ver o método e o código de estado de cada pedido que a página faz. O que usas?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "F12, separador Rede (Network).",
+      "Ver código-fonte da página.",
+      "O phpMyAdmin, separador SQL.",
+      "O XAMPP Control Panel, botão Start."
+    ],
+    "correta": 0,
+    "explicacao": "Nas ferramentas de programador (F12), o separador Rede mostra cada pedido, o seu método (GET ou POST) e o código de estado da resposta.",
+    "manual": "1.3"
+  },
+  {
+    "id": "http-029",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "dificil",
+    "pergunta": "Com o separador Rede aberto, crias um livro com sucesso. Que dois pedidos vês, por esta ordem?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "POST livro_novo.php → 302; depois GET livro_ver.php → 200",
+      "GET livro_novo.php → 302; depois POST livro_ver.php?id=7 → 200",
+      "POST livro_novo.php → 200; depois GET livros.php → 302",
+      "POST livro_novo.php → 404; depois GET livro_ver.php → 200"
+    ],
+    "correta": 0,
+    "explicacao": "O formulário faz um POST; o servidor grava e responde 302. O browser segue o redirecionamento com um GET à página do livro, que responde 200.",
+    "manual": "1.3, 9.5"
+  },
+  {
+    "id": "http-030",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Porque é que, depois de gravar, o servidor responde com um redirecionamento em vez de uma página?",
+    "codigo": "mensagem('sucesso', 'Livro criado.');\nheader('Location: livro_ver.php?id=' . $id);\nexit;",
+    "linguagem": "php",
+    "alternativas": [
+      "Para o último pedido ser um GET e o F5 não reenviar o formulário.",
+      "Porque um pedido POST não pode receber HTML como resposta.",
+      "Para o browser poder guardar a página gravada nos favoritos do utilizador.",
+      "Porque o código 200 só existe na resposta a pedidos GET."
+    ],
+    "correta": 0,
+    "explicacao": "É o padrão Post/Redirect/Get: depois do redirecionamento, a última coisa pedida foi um GET, e repetir um GET não faz mal nenhum.",
+    "manual": "9.5"
+  },
+  {
+    "id": "http-031",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "dificil",
+    "pergunta": "Que código de estado recebe quem abre livro_ver.php?id=abc?",
+    "codigo": "$id = (int) ($_GET['id'] ?? 0);\n// ... SELECT ... WHERE l.id_livro = ?\nif (!$livro) {\n    http_response_code(404);\n    // mostra \"Livro não encontrado\"\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "500, porque o id não é um número.",
+      "200, com a ficha do primeiro livro da lista ordenada.",
+      "302, de volta à lista de livros.",
+      "404, porque (int) 'abc' dá 0 e não há livro 0."
+    ],
+    "correta": 3,
+    "explicacao": "O (int) converte \"abc\" em 0, a consulta não encontra nenhum livro e a página responde 404 com uma mensagem própria, em vez de rebentar.",
+    "manual": "12.3"
+  },
+  {
+    "id": "http-032",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Abres localhost/biblioteca/livro.php (sem o s) e aparece Not Found. Qual é a causa provável?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O MySQL está desligado no XAMPP.",
+      "O endereço não bate certo com o nome do ficheiro.",
+      "Falta o session_start() no topo da página.",
+      "Há um erro de sintaxe no código PHP do ficheiro pedido."
+    ],
+    "correta": 1,
+    "explicacao": "Not Found (404) quer dizer que o servidor não encontrou o ficheiro pedido: confirma o nome, as maiúsculas e a pasta dentro de htdocs.",
+    "manual": "17.1, 1.3"
+  },
+  {
+    "id": "http-033",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Desligas o MySQL no XAMPP e abres a lista de livros. Que código de estado é de esperar?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "500, porque o código rebenta sem a base de dados.",
+      "404, porque os livros deixam de ser encontrados.",
+      "302, porque o servidor manda para a página inicial.",
+      "200, com a mensagem \"Não foi encontrado nenhum livro\"."
+    ],
+    "correta": 0,
+    "explicacao": "O código 500 aparece quando o código rebenta, por exemplo com a base de dados desligada. O 404 é para uma página ou registo que não existe.",
+    "manual": "1.3"
+  },
+  {
+    "id": "http-034",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "dificil",
+    "pergunta": "No separador Rede vês \"POST login.php → 302\". O que te diz isto?",
+    "codigo": "if ($utilizador && password_verify($password, $utilizador['password_hash'])) {\n    // guardar o utilizador na sessão\n    header('Location: livros.php');\n    exit;\n}\n$erros[] = 'Email ou password errados.';",
+    "linguagem": "php",
+    "alternativas": [
+      "O login falhou e a página de destino da resposta não foi encontrada.",
+      "O servidor rebentou ao verificar a password.",
+      "Os dados do login foram enviados no endereço.",
+      "O login foi aceite e o browser foi mandado para outra página."
+    ],
+    "correta": 3,
+    "explicacao": "No login.php, só o login correto faz header('Location: livros.php'), que dá 302. Com a password errada, a página é mostrada outra vez com o erro.",
+    "manual": "10.4, 1.3"
+  },
+  {
+    "id": "http-035",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "Onde corre o PHP?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "No browser, depois do HTML.",
+      "No servidor (Apache).",
+      "No servidor de base de dados.",
+      "No browser, através do JavaScript."
+    ],
+    "correta": 1,
+    "explicacao": "O PHP corre no servidor: recebe os pedidos, fala com a base de dados e gera o HTML que vai para o browser.",
+    "manual": "1.4"
+  },
+  {
+    "id": "http-036",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "Onde corre o validacao.js?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "No servidor Apache, antes do PHP.",
+      "No browser.",
+      "No MySQL, ao gravar os dados.",
+      "No servidor, ao receber o POST."
+    ],
+    "correta": 1,
+    "explicacao": "O JavaScript (tal como o HTML e o CSS) corre no browser. Serve para validar os formulários antes de os enviar.",
+    "manual": "1.4"
+  },
+  {
+    "id": "http-037",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Qual destas associações está ERRADA?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "CSS — corre no browser, para o aspeto das páginas.",
+      "SQL — corre no browser, para mostrar os livros.",
+      "PHP — corre no servidor, para gerar o HTML.",
+      "HTML — corre no browser, para a estrutura e os formulários."
+    ],
+    "correta": 1,
+    "explicacao": "O SQL corre no servidor de base de dados (MySQL), a pedido do PHP. O browser só trata do HTML, do CSS e do JavaScript.",
+    "manual": "1.4"
+  },
+  {
+    "id": "http-038",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "Quem executa a consulta SELECT ... FROM livros?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O MySQL, a pedido do PHP.",
+      "O browser, quando recebe a página.",
+      "O Apache, sem passar pelo PHP.",
+      "O JavaScript, antes de enviar o formulário."
+    ],
+    "correta": 0,
+    "explicacao": "O SQL corre no servidor de base de dados. É o PHP que lhe envia a consulta e recebe as linhas.",
+    "manual": "1.4, 1.1"
+  },
+  {
+    "id": "http-039",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Que tecnologia gera o HTML que o browser recebe na lista de livros?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O JavaScript, no browser.",
+      "O MySQL, no servidor de base de dados.",
+      "O CSS, no browser.",
+      "O PHP, no servidor."
+    ],
+    "correta": 3,
+    "explicacao": "O PHP usa as linhas devolvidas pelo MySQL para gerar o HTML. O MySQL só devolve dados e o CSS só trata do aspeto.",
+    "manual": "1.4, 1.1"
+  },
+  {
+    "id": "http-040",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve a validação em JavaScript na Biblioteca?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Garantir que não chegam dados inválidos ao servidor.",
+      "Substituir a validação no servidor nos formulários mais simples da aplicação.",
+      "Dar resposta imediata ao utilizador: é conforto, não segurança.",
+      "Proteger a base de dados contra SQL injection."
+    ],
+    "correta": 2,
+    "explicacao": "O JavaScript mostra logo os erros, sem esperar pelo servidor. Mas pode ser desligado ou contornado, por isso a segurança tem de estar no servidor.",
+    "manual": "6.1, 1.4"
+  },
+  {
+    "id": "http-041",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Se o validacao.js já verifica os campos, porque é que o servidor valida tudo outra vez?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O JavaScript pode ser desligado, ou o pedido enviado sem o formulário.",
+      "O JavaScript só consegue validar os formulários que usam method=\"get\".",
+      "O browser apaga os valores que o JavaScript já validou.",
+      "O validacao.js só corre depois de os dados chegarem ao servidor."
+    ],
+    "correta": 0,
+    "explicacao": "A validação no browser pode ser contornada. Só o que é verificado no servidor é garantido.",
+    "manual": "6.1"
+  },
+  {
+    "id": "http-042",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "dificil",
+    "pergunta": "Desligas o JavaScript e envias o formulário de registo em branco. O que tem de acontecer?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A conta é criada com os campos vazios.",
+      "Os erros aparecem sem a página recarregar.",
+      "Aparecem os erros, agora vindos do servidor.",
+      "Aparece um erro 500, por faltar o JavaScript."
+    ],
+    "correta": 2,
+    "explicacao": "Sem JavaScript, o formulário chega ao servidor, que valida e mostra os erros. Os erros sem recarregar só existem com o JavaScript ligado.",
+    "manual": "16, 6.1"
+  },
+  {
+    "id": "http-043",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Este campo tem required. Isso garante que nunca chega vazio ao servidor?",
+    "codigo": "<input type=\"text\" id=\"titulo\" name=\"titulo\"\n       maxlength=\"200\" required>",
+    "linguagem": "html",
+    "alternativas": [
+      "Sim: o browser recusa sempre enviar o formulário.",
+      "Sim, desde que o formulário use method=\"post\".",
+      "Não, porque o required só funciona nos formulários com method=\"get\".",
+      "Não: o required pode ser contornado, por isso o servidor valida."
+    ],
+    "correta": 3,
+    "explicacao": "required é uma regra do browser, e o browser está nas mãos do utilizador. A validação no servidor é obrigatória.",
+    "manual": "14, 1.4"
+  },
+  {
+    "id": "http-044",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "Em que pasta tem de estar o projeto para o Apache do XAMPP o servir?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "C:\\xampp\\htdocs",
+      "C:\\xampp\\mysql\\data",
+      "C:\\xampp\\php",
+      "Na pasta Documentos do utilizador"
+    ],
+    "correta": 0,
+    "explicacao": "O Apache só serve os ficheiros que estão dentro de C:\\xampp\\htdocs. Cada pasta lá dentro passa a ter um endereço em http://localhost/.",
+    "manual": "2.3"
+  },
+  {
+    "id": "http-045",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "O ficheiro está em C:\\xampp\\htdocs\\biblioteca\\css\\estilo.css. Que endereço o abre?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "http://localhost/htdocs/biblioteca/css/estilo.css",
+      "http://localhost/biblioteca/css/estilo.css",
+      "file:///biblioteca/css/estilo.css",
+      "http://localhost/xampp/biblioteca/css/estilo.css"
+    ],
+    "correta": 1,
+    "explicacao": "A pasta htdocs corresponde a http://localhost/, por isso não entra no endereço: o resto do caminho mantém-se.",
+    "manual": "2.3"
+  },
+  {
+    "id": "http-046",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Abres o livros.php com duplo clique e o endereço começa por file:///C:/... O que vês?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A página normal, mas sem a folha de estilos.",
+      "O código PHP em bruto, porque o PHP não corre.",
+      "Um erro 404, porque o ficheiro não está no servidor.",
+      "A página normal, se o Apache estiver ligado."
+    ],
+    "correta": 1,
+    "explicacao": "Com file:/// o ficheiro não passa pelo Apache, por isso o PHP não é executado. Tem de ser sempre http://localhost/....",
+    "manual": "2.4, 17.1"
+  },
+  {
+    "id": "http-047",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "No XAMPP, que componentes fazem de servidor web e de base de dados?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "phpMyAdmin e Apache.",
+      "PHP e phpMyAdmin.",
+      "Apache e Visual Studio Code.",
+      "Apache e MySQL/MariaDB."
+    ],
+    "correta": 3,
+    "explicacao": "O Apache é o servidor web e o MySQL/MariaDB é a base de dados. O phpMyAdmin é só uma ferramenta para gerir a base de dados no browser.",
+    "manual": "2.1"
+  },
+  {
+    "id": "http-048",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Qual destes botões Apagar está feito da forma correta?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Um <a href=\"livro_apagar.php?id_livro=3\" class=\"btn\"> com o texto Apagar.",
+      "Um <form method=\"get\"> com o id num <input type=\"hidden\"> e um botão type=\"submit\".",
+      "Um <button> com onclick que abre livro_apagar.php?id_livro=3.",
+      "Um <form method=\"post\"> com o id num <input type=\"hidden\"> e um botão submit."
+    ],
+    "correta": 3,
+    "explicacao": "Apagar altera dados: tem de ser um formulário POST. As outras três fazem um GET, que pode ser seguido por robôs ou repetido sem querer.",
+    "manual": "4.4, 1.2"
+  },
+  {
+    "id": "http-049",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "Escreves diretamente na barra do browser livro_editar.php?id=7. Que pedido fazes?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Um POST, porque a página edita dados.",
+      "Um POST, com o id no corpo do pedido.",
+      "Um GET, igual ao de clicar no link Editar.",
+      "Nenhum: só se chega lá clicando no botão Editar."
+    ],
+    "correta": 2,
+    "explicacao": "Escrever um endereço é sempre um GET. Por isso o GET de livro_editar.php só mostra o formulário; gravar é que é POST.",
+    "manual": "1.2, 12.1"
+  },
+  {
+    "id": "http-050",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "dificil",
+    "pergunta": "Este formulário cria livros novos. Qual é o problema?",
+    "codigo": "<form method=\"get\" action=\"livro_novo.php\">\n    <label for=\"titulo\">Título</label>\n    <input type=\"text\" id=\"titulo\" name=\"titulo\">\n    <button type=\"submit\">Gravar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "Usa GET: o pedido pode repetir-se e criar o livro duas vezes.",
+      "Falta o atributo id no <form>, sem o qual o servidor não recebe nada.",
+      "O action não pode apontar para a mesma página que mostra o formulário.",
+      "Com GET o campo titulo não chega ao servidor, por isso nada é gravado."
+    ],
+    "correta": 0,
+    "explicacao": "Um formulário que cria dados usa method=\"post\". Com GET o título iria no endereço e qualquer repetição do pedido criava outro livro.",
+    "manual": "1.2, 4.2"
+  },
+  {
+    "id": "http-051",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "dificil",
+    "pergunta": "Em que caso a Biblioteca responde com 200 a um POST deste formulário?",
+    "codigo": "if ($_SERVER['REQUEST_METHOD'] === 'POST') {\n    // ... validar e preencher $erros\n    if (!$erros) {\n        // INSERT INTO livros ...\n        header(\"Location: livro_ver.php?id=$novoId\");\n        exit;\n    }\n}\n// mostrar o formulário (com os erros, se houver)",
+    "linguagem": "php",
+    "alternativas": [
+      "Quando o livro novo é gravado com sucesso na base de dados.",
+      "Quando a validação falha e o formulário reaparece com os erros.",
+      "Quando o livro que se tentou editar já não existe na base de dados.",
+      "Quando o código PHP rebenta a meio da gravação."
+    ],
+    "correta": 1,
+    "explicacao": "Só o sucesso redireciona (302). Quando a validação falha, a página é mostrada logo com os erros e os valores escritos, e isso é uma resposta 200.",
+    "manual": "9.5, 1.3"
+  },
+  {
+    "id": "http-052",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "O que é o código de estado de uma resposta HTTP?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O número da linha onde o PHP falhou.",
+      "O identificador da sessão do utilizador.",
+      "Um número que diz como correu o pedido.",
+      "O id do registo criado na base de dados."
+    ],
+    "correta": 2,
+    "explicacao": "Cada resposta traz um código de estado: 200, 302, 404, 500… O número da linha do erro aparece na mensagem do PHP, não no código.",
+    "manual": "1.3"
+  },
+  {
+    "id": "http-053",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "dificil",
+    "pergunta": "Sem sessão iniciada, abres livros.php e acabas no login. Que código recebeste primeiro?",
+    "codigo": "<?php\n// includes/auth.php\nif (!isset($_SESSION['id_utilizador'])) {\n    mensagem('erro', 'Tens de iniciar sessão para ver essa página.');\n    header('Location: login.php');\n    exit;\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "404, porque a página não existe para quem não entrou.",
+      "500, porque a sessão não foi encontrada.",
+      "302, porque o servidor redireciona para o login.",
+      "200, com a lista de livros vazia."
+    ],
+    "correta": 2,
+    "explicacao": "O header('Location: ...') responde com um redirecionamento (302). O browser faz depois um GET a login.php, que responde 200.",
+    "manual": "11.2, 1.3"
+  },
+  {
+    "id": "http-054",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Qual destas afirmações sobre GET e POST está certa?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Um link faz POST quando tem parâmetros depois do ?.",
+      "Um formulário faz sempre POST, seja qual for o valor do atributo method.",
+      "Um formulário pode usar GET ou POST; um link faz sempre GET.",
+      "Escrever um endereço na barra do browser faz um POST."
+    ],
+    "correta": 2,
+    "explicacao": "O formulário escolhe o método com o atributo method (a pesquisa usa get, o registo usa post). Um link é sempre um pedido GET.",
+    "manual": "1.2, 4.4"
+  },
+  {
+    "id": "http-055",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "dificil",
+    "pergunta": "Mudaram a pesquisa dos livros para este formulário. O que se perde?",
+    "codigo": "<form method=\"post\" action=\"livros.php\">\n    <input type=\"search\" name=\"q\">\n    <button type=\"submit\">Pesquisar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "O texto deixa de ir no URL: a pesquisa já não se guarda nem partilha.",
+      "Deixa de ser possível usar o LIKE na consulta SQL que faz a pesquisa.",
+      "O texto pesquisado deixa de chegar ao servidor.",
+      "A pesquisa passa a apagar os livros que não encontra."
+    ],
+    "correta": 0,
+    "explicacao": "Com POST o texto vai no corpo do pedido. Continua a chegar (em $_POST), mas o endereço deixa de ter ?q=..., por isso não vai para os favoritos nem se partilha.",
+    "manual": "1.2, 12.2"
+  },
+  {
+    "id": "http-056",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Qual é o papel do Apache na Biblioteca?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Guardar as tabelas dos utilizadores e dos livros.",
+      "Executar o JavaScript que valida os formulários antes do envio.",
+      "Desenhar as páginas no ecrã do utilizador.",
+      "Receber os pedidos e entregar os ficheiros .php ao PHP."
+    ],
+    "correta": 3,
+    "explicacao": "O Apache é o servidor web: recebe o pedido do browser e, se o ficheiro é PHP, entrega-o ao interpretador. Os dados ficam no MySQL e o JavaScript corre no browser.",
+    "manual": "1.1, 2.1"
+  },
+  {
+    "id": "http-057",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "No endereço livros.php?q=mar, o que separa o ponto de interrogação?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A página pedida dos dados enviados por GET.",
+      "O nome da pasta do nome do ficheiro.",
+      "O método do pedido (GET ou POST) do endereço da página.",
+      "O endereço do servidor da base de dados."
+    ],
+    "correta": 0,
+    "explicacao": "Num pedido GET os dados vão no URL depois do ?, no formato nome=valor. Aqui, q=mar chega ao PHP em $_GET['q'].",
+    "manual": "1.2"
+  },
+  {
+    "id": "http-058",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "dificil",
+    "pergunta": "Pesquisas um título que não existe. O que devolve o servidor?",
+    "codigo": "<?php if (count($livros) === 0): ?>\n    <p class=\"vazio\">Não foi encontrado nenhum livro.</p>\n<?php else: ?>\n    <!-- cartões dos livros -->\n<?php endif; ?>",
+    "linguagem": "php",
+    "alternativas": [
+      "Código 404, porque a pesquisa feita não encontrou nenhum livro na base.",
+      "Código 200, com a mensagem \"Não foi encontrado nenhum livro.\"",
+      "Código 500, porque a consulta não devolveu linhas.",
+      "Código 302, de volta à lista completa de livros."
+    ],
+    "correta": 1,
+    "explicacao": "A página livros.php existe e correu bem: só não há resultados. A resposta é 200 e a página mostra uma mensagem própria em vez de uma lista vazia.",
+    "manual": "12.2, 1.3"
+  },
+  {
+    "id": "http-059",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Porque é que o formulário de login usa method=\"post\"?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Com GET o servidor não consegue ler os campos do formulário.",
+      "O password_verify() só funciona com dados que vêm de POST.",
+      "Envia dados para iniciar sessão; com GET a password ia no endereço.",
+      "Com POST a password é cifrada pelo browser antes de sair do computador."
+    ],
+    "correta": 2,
+    "explicacao": "Fazer login é um dos casos de POST. Com GET, os campos iam no URL, incluindo a password, e ficavam no histórico do browser.",
+    "manual": "1.2"
+  },
+  {
+    "id": "http-060",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "dificil",
+    "pergunta": "Como chega ao servidor o id do livro quando carregas em Apagar?",
+    "codigo": "<form method=\"post\" action=\"livro_apagar.php\">\n    <input type=\"hidden\" name=\"id_livro\" value=\"7\">\n    <button type=\"submit\" class=\"perigo\">Apagar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "No endereço do pedido, como livro_apagar.php?id_livro=7.",
+      "No corpo do pedido POST, lido em $_POST['id_livro'].",
+      "Num cookie, lido em $_COOKIE['id_livro'].",
+      "No corpo do pedido, lido em $_GET['id_livro']."
+    ],
+    "correta": 1,
+    "explicacao": "O <input type=\"hidden\"> é enviado como qualquer campo, mas sem aparecer. Como o formulário é POST, vai no corpo do pedido e lê-se em $_POST.",
+    "manual": "4.2, 4.4"
+  },
+  {
+    "id": "rgpd-001",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "facil",
+    "pergunta": "A que aplicações se aplica o RGPD?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Só às aplicações publicadas na internet e abertas a qualquer pessoa.",
+      "Só às empresas com muitos clientes registados.",
+      "Só às aplicações que guardam dados bancários.",
+      "A qualquer aplicação que guarde dados de pessoas, mesmo de formação."
+    ],
+    "correta": 3,
+    "explicacao": "O RGPD aplica-se a qualquer aplicação que guarde dados de pessoas, incluindo um projeto de formação como a Biblioteca.",
+    "manual": "15"
+  },
+  {
+    "id": "rgpd-002",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "facil",
+    "pergunta": "O que diz o princípio da minimização?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Os dados guardam-se no menor número de tabelas possível, para ocupar menos espaço.",
+      "As colunas usam sempre o tipo de dados mais pequeno.",
+      "Recolhe-se tudo, mas só se mostra o necessário.",
+      "Só se recolhem os dados necessários para a finalidade declarada."
+    ],
+    "correta": 3,
+    "explicacao": "Minimização é não recolher nenhum dado \"porque sim\": cada dado tem de ter uma finalidade. Não tem nada a ver com o tamanho das tabelas ou das colunas.",
+    "manual": "15.1"
+  },
+  {
+    "id": "rgpd-003",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "Um colega quer pedir no registo a data de nascimento e o telefone, \"para o caso de virem a ser úteis\". O que lhe dizes?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Sim, desde que sejam campos opcionais.",
+      "Não: se não sabes para que serve, não recolhes.",
+      "Sim, desde que fiquem numa tabela à parte.",
+      "Sim, desde que sejam validados também no servidor."
+    ],
+    "correta": 1,
+    "explicacao": "Pelo princípio da minimização, só se recolhe o que tem uma finalidade declarada. Ser opcional ou estar noutra tabela não muda isso.",
+    "manual": "15.1"
+  },
+  {
+    "id": "rgpd-004",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "Antes de acrescentar uma coluna com um dado pessoal, que perguntas tens de saber responder?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Que tipo de dados usar e quantos caracteres pode ter.",
+      "Para que serve o dado e quanto tempo fica guardado.",
+      "Se a coluna fica NULL ou NOT NULL na tabela.",
+      "Em que página aparece e com que classe CSS."
+    ],
+    "correta": 1,
+    "explicacao": "Cada dado pessoal tem de ter uma finalidade e um prazo de conservação: é o que vai para a tabela da secção 6.2 do dossier.",
+    "manual": "15.1"
+  },
+  {
+    "id": "rgpd-005",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "facil",
+    "pergunta": "Na tabela de dados pessoais da secção 6.2 do dossier, o que se indica para cada dado?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A finalidade e o prazo de conservação.",
+      "O tipo de dados e o tamanho da coluna.",
+      "O ficheiro PHP onde o dado é lido e gravado.",
+      "Se é chave primária ou estrangeira."
+    ],
+    "correta": 0,
+    "explicacao": "A tabela tem três colunas: o dado, para que serve e quanto tempo fica guardado. Tipos e chaves são da base de dados, não do RGPD.",
+    "manual": "15.1"
+  },
+  {
+    "id": "rgpd-006",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "facil",
+    "pergunta": "Na Biblioteca, durante quanto tempo fica guardado o email do utilizador?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Até a conta ser apagada.",
+      "Até um ano depois do último login.",
+      "Até ao fim de cada sessão.",
+      "Para sempre, por ser a chave do login."
+    ],
+    "correta": 0,
+    "explicacao": "Nome, email e hash da password ficam até a conta ser apagada. Quando o utilizador a apaga em \"A minha conta\", os dados desaparecem.",
+    "manual": "15.1"
+  },
+  {
+    "id": "rgpd-007",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "facil",
+    "pergunta": "Qual é a finalidade do email na Biblioteca?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Iniciar sessão.",
+      "Enviar novidades da biblioteca.",
+      "Identificar o autor de cada livro.",
+      "Confirmar a idade do utilizador."
+    ],
+    "correta": 0,
+    "explicacao": "O email serve para iniciar sessão. Usá-lo para outra coisa, como enviar novidades, seria uma finalidade nova que teria de ser declarada.",
+    "manual": "15.1"
+  },
+  {
+    "id": "rgpd-008",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "Para que serve guardar a data do consentimento?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Para provar que o utilizador aceitou a política.",
+      "Para saber quando a sessão expira.",
+      "Para contar há quanto tempo o utilizador não entra.",
+      "Para ordenar os utilizadores por antiguidade."
+    ],
+    "correta": 0,
+    "explicacao": "A data em consentimento_em é a prova de que o utilizador aceitou a política de privacidade, e quando o fez.",
+    "manual": "15.1, 15.2"
+  },
+  {
+    "id": "rgpd-009",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "Porque é que a página \"A minha conta\" não mostra a password?",
+    "codigo": "<p>Estes são todos os dados pessoais que a aplicação guarda sobre ti:</p>\n<dl>\n    <dt>Nome</dt>            <dd><?= htmlspecialchars($eu['nome']) ?></dd>\n    <dt>Email</dt>           <dd><?= htmlspecialchars($eu['email']) ?></dd>\n    <dt>Conta criada em</dt> <dd><?= $eu['criado_em'] ?></dd>\n    <dt>Consentimento</dt>   <dd>Aceitaste a política em <?= $eu['consentimento_em'] ?></dd>\n</dl>",
+    "linguagem": "php",
+    "alternativas": [
+      "A password não é guardada: só o seu hash.",
+      "É escondida por segurança, com asteriscos.",
+      "Só o administrador a pode consultar.",
+      "Só aparece depois de a confirmares de novo."
+    ],
+    "correta": 0,
+    "explicacao": "A aplicação não tem a password para mostrar: guarda apenas o hash, e a partir do hash não se chega à password. A própria página explica isso ao utilizador.",
+    "manual": "15.4, 10.1"
+  },
+  {
+    "id": "rgpd-010",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "Como fica descrita a password na tabela de dados pessoais da Biblioteca?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Hash da password — autenticação — a password em si nunca é guardada.",
+      "Password — autenticação — guardada cifrada para a poder recuperar.",
+      "Password — autenticação — guardada em claro até ao primeiro login.",
+      "Hash da password — não entra na tabela, por não ser um dado pessoal do utilizador."
+    ],
+    "correta": 0,
+    "explicacao": "O dado guardado é o hash, com a finalidade de autenticação e o prazo \"até a conta ser apagada\". A password nunca é guardada nem pode ser recuperada.",
+    "manual": "15.1"
+  },
+  {
+    "id": "rgpd-011",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "facil",
+    "pergunta": "Uma caixa de consentimento que já vem assinalada é válida?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Sim, desde que o utilizador a possa desmarcar depois.",
+      "Sim, desde que tenha um link para a política.",
+      "Não: o utilizador tem de a assinalar ele próprio.",
+      "Não, porque o consentimento tem de ser um botão."
+    ],
+    "correta": 2,
+    "explicacao": "O consentimento pede-se com uma caixa desmarcada por omissão. Uma caixa já assinalada não é consentimento.",
+    "manual": "15.2"
+  },
+  {
+    "id": "rgpd-012",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "dificil",
+    "pergunta": "Qual é o problema deste excerto do formulário de registo?",
+    "codigo": "<label class=\"check\" for=\"consentimento\">\n    <input type=\"checkbox\" id=\"consentimento\"\n           name=\"consentimento\" checked>\n    <span>Li e aceito a <a href=\"privacidade.php\"\n          target=\"_blank\">política de privacidade</a>.</span>\n</label>",
+    "linguagem": "html",
+    "alternativas": [
+      "O link da política devia abrir no mesmo separador.",
+      "A caixa vem já assinalada por causa do checked.",
+      "Falta o atributo value com o texto \"sim\".",
+      "A caixa devia ser type=\"radio\" e não checkbox."
+    ],
+    "correta": 1,
+    "explicacao": "O atributo checked faz a caixa aparecer assinalada, e isso não é consentimento: o utilizador tem de a assinalar ele próprio. O link noutro separador está certo.",
+    "manual": "15.2, 4.2"
+  },
+  {
+    "id": "rgpd-013",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "No registo, porque é que o link para a política tem target=\"_blank\"?",
+    "codigo": "<span>Li e aceito a <a href=\"privacidade.php\" target=\"_blank\">política\n      de privacidade</a>.</span>",
+    "linguagem": "html",
+    "alternativas": [
+      "Para a política não ficar no histórico do browser.",
+      "Para o servidor ficar a saber que o utilizador a leu.",
+      "Para a política só abrir depois de criada a conta.",
+      "Para abrir noutro separador sem perder o formulário."
+    ],
+    "correta": 3,
+    "explicacao": "A política abre noutro separador, para o utilizador a poder ler antes de aceitar sem perder o que já escreveu no registo.",
+    "manual": "15.2"
+  },
+  {
+    "id": "rgpd-014",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "dificil",
+    "pergunta": "A caixa do consentimento já tem required. Porque é que o registo.php faz também esta verificação?",
+    "codigo": "if (!isset($_POST['consentimento'])) {\n    $erros[] = 'Tens de aceitar a política de privacidade.';\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "O required não funciona em caixas de verificação.",
+      "Sem isto, a coluna consentimento_em ficava a NULL na base de dados.",
+      "O required e o JavaScript podem ser desligados ou contornados.",
+      "O isset() é que faz aparecer a caixa no browser."
+    ],
+    "correta": 2,
+    "explicacao": "O consentimento tem de ser verificado no servidor, não só no browser. Quem desligar o JavaScript ou enviar o pedido diretamente passa por cima do required.",
+    "manual": "15.2, 10.2"
+  },
+  {
+    "id": "rgpd-015",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "facil",
+    "pergunta": "Onde fica guardado o momento em que o utilizador deu o consentimento?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Na sessão, em $_SESSION['consentimento'].",
+      "Na coluna consentimento_em da tabela utilizadores.",
+      "Num cookie guardado no browser do utilizador.",
+      "No ficheiro privacidade.php, numa lista de quem aceitou."
+    ],
+    "correta": 1,
+    "explicacao": "A data fica na base de dados, em consentimento_em, junto da conta. A sessão e os cookies desaparecem; a prova tem de ficar guardada.",
+    "manual": "15.2"
+  },
+  {
+    "id": "rgpd-016",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "dificil",
+    "pergunta": "Que valor fica em consentimento_em quando este registo é gravado?",
+    "codigo": "$stmt = $pdo->prepare(\n    'INSERT INTO utilizadores (nome, email, password_hash, consentimento_em)\n     VALUES (?, ?, ?, NOW())'\n);\n$stmt->execute([$nome, $email, $hash]);",
+    "linguagem": "php",
+    "alternativas": [
+      "NULL, porque não está no execute().",
+      "A data em que a política foi aberta no outro separador.",
+      "A data e a hora do momento do registo.",
+      "A data e a hora do último login."
+    ],
+    "correta": 2,
+    "explicacao": "NOW() é escrito no próprio SQL e dá a data e a hora do momento em que o INSERT corre. Só os três ? recebem valores do execute().",
+    "manual": "10.2, 15.2"
+  },
+  {
+    "id": "rgpd-017",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "Na tabela utilizadores, porque é que consentimento_em é NOT NULL?",
+    "codigo": "CREATE TABLE utilizadores (\n    id_utilizador    INT AUTO_INCREMENT PRIMARY KEY,\n    nome             VARCHAR(100) NOT NULL,\n    email            VARCHAR(150) NOT NULL UNIQUE,\n    password_hash    VARCHAR(255) NOT NULL,\n    consentimento_em DATETIME     NOT NULL,\n    criado_em        DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP\n);",
+    "linguagem": "sql",
+    "alternativas": [
+      "Para o MySQL a preencher sozinho com a data e a hora atuais.",
+      "Para impedir dois registos com a mesma data.",
+      "Para a data ser atualizada em cada login.",
+      "Não pode haver conta sem o consentimento registado."
+    ],
+    "correta": 3,
+    "explicacao": "NOT NULL torna a coluna obrigatória: não se cria nenhuma conta sem a data do consentimento. Quem preenche a data sozinho é o DEFAULT CURRENT_TIMESTAMP, e só o criado_em o tem.",
+    "manual": "3.4, 15.2"
+  },
+  {
+    "id": "rgpd-018",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "Como se testa a medida \"consentimento no registo\"?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Registar sem assinalar a caixa, com o JavaScript desligado.",
+      "Procurar a caixa do consentimento no rodapé de todas as páginas.",
+      "Ver no phpMyAdmin se a coluna começa por $2.",
+      "Abrir o registo numa janela anónima do browser."
+    ],
+    "correta": 0,
+    "explicacao": "Com o JavaScript desligado, só o servidor pode recusar. Se o registo for aceite sem a caixa assinalada, a verificação no servidor falta.",
+    "manual": "14, 16"
+  },
+  {
+    "id": "rgpd-019",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "facil",
+    "pergunta": "Que campo se usa no registo para pedir o consentimento?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "<input type=\"radio\">",
+      "<input type=\"hidden\">",
+      "<input type=\"checkbox\" checked>",
+      "<input type=\"checkbox\">"
+    ],
+    "correta": 3,
+    "explicacao": "O consentimento é uma caixa de verificação (checkbox), desmarcada por omissão. Com checked já vinha assinalada, e isso não é consentimento.",
+    "manual": "4.2, 15.2"
+  },
+  {
+    "id": "rgpd-020",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "facil",
+    "pergunta": "O que tem de dizer a política de privacidade?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Que tabelas existem, que tipos de dados usam e que chaves estrangeiras as ligam entre si.",
+      "Quem fez o projeto, em que linguagem foi escrito e como se instala o XAMPP.",
+      "Que medidas de segurança existem, que hash se usa e onde fica o servidor.",
+      "Que dados se recolhem, para quê, com que base legal, por quanto tempo e que direitos há."
+    ],
+    "correta": 3,
+    "explicacao": "A política explica ao utilizador o que acontece aos seus dados: quais, para quê, com que base legal, durante quanto tempo e que direitos tem.",
+    "manual": "15.3"
+  },
+  {
+    "id": "rgpd-021",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "facil",
+    "pergunta": "Como deve estar escrita a política de privacidade?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Em linguagem simples, que o utilizador perceba.",
+      "Em linguagem jurídica, com os artigos do RGPD.",
+      "Em inglês, por ser um regulamento europeu.",
+      "Em linguagem técnica, com os nomes das tabelas e das colunas."
+    ],
+    "correta": 0,
+    "explicacao": "A política é para o utilizador: tem de dizer, em linguagem simples, o que se faz com os seus dados.",
+    "manual": "15.3"
+  },
+  {
+    "id": "rgpd-022",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "facil",
+    "pergunta": "Onde tem de estar o link para a política de privacidade?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Só no formulário de registo.",
+      "No rodapé de todas as páginas e no registo.",
+      "Só no menu do cabeçalho, para quem tem sessão iniciada.",
+      "Só na página \"A minha conta\"."
+    ],
+    "correta": 1,
+    "explicacao": "A política tem de estar acessível em todas as páginas, com e sem sessão, pelo link do rodapé, e também no registo, junto da caixa do consentimento.",
+    "manual": "15.3, 14"
+  },
+  {
+    "id": "rgpd-023",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "dificil",
+    "pergunta": "Porque é que pôr o link neste ficheiro chega para a política estar em todas as páginas?",
+    "codigo": "</main>\n<footer class=\"rodape\">\n    Biblioteca · Projeto UC00615 ·\n    <a href=\"privacidade.php\">Política de privacidade</a>\n</footer>\n<script src=\"js/validacao.js\"></script>\n</body>\n</html>",
+    "linguagem": "html",
+    "alternativas": [
+      "O validacao.js copia o link para as outras páginas.",
+      "O browser guarda o link e mostra-o nas páginas seguintes.",
+      "Todas as páginas incluem este rodapé, com ou sem sessão.",
+      "O link abre a política noutro separador do browser."
+    ],
+    "correta": 2,
+    "explicacao": "O rodape.php é incluído no fim de todas as páginas. Escrito uma vez, o link aparece em toda a aplicação, tenha o utilizador sessão ou não.",
+    "manual": "9.2, 14"
+  },
+  {
+    "id": "rgpd-024",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "dificil",
+    "pergunta": "Se o link da política estivesse só aqui, no menu do cabeçalho, qual era o problema?",
+    "codigo": "<?php if (isset($_SESSION['id_utilizador'])): ?>\n    <a href=\"livros.php\">Livros</a>\n    <a href=\"privacidade.php\">Privacidade</a>\n<?php else: ?>\n    <a href=\"login.php\">Entrar</a>\n    <a href=\"registo.php\">Criar conta</a>\n<?php endif; ?>",
+    "linguagem": "php",
+    "alternativas": [
+      "O link não aparecia a quem ainda não tem sessão.",
+      "O link aparecia duas vezes nas páginas restritas.",
+      "A política deixava de abrir noutro separador.",
+      "O link deixava de aparecer a quem tem sessão."
+    ],
+    "correta": 0,
+    "explicacao": "O link está dentro do if da sessão, por isso só quem entrou o vê. A política tem de estar acessível em todas as páginas, com e sem sessão, até antes do registo.",
+    "manual": "14, 16"
+  },
+  {
+    "id": "rgpd-025",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "A página privacidade.php deve incluir o auth.php, como as páginas restritas?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Sim: só quem tem conta precisa de a ler.",
+      "Não: tem de abrir com e sem sessão, até antes do registo.",
+      "Sim: mostra os dados pessoais de quem a abre.",
+      "Não, mas só deve abrir a partir do link do formulário de registo."
+    ],
+    "correta": 1,
+    "explicacao": "Quem se vai registar tem de poder ler a política antes de aceitar. Por isso o link está em todas as páginas e a página não pode pedir login.",
+    "manual": "15.3, 14"
+  },
+  {
+    "id": "rgpd-026",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "facil",
+    "pergunta": "A página \"A minha conta\" mostra todos os dados guardados sobre o utilizador. Que direito cumpre?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O direito ao apagamento.",
+      "O direito de acesso.",
+      "O direito de retificação.",
+      "O direito à portabilidade."
+    ],
+    "correta": 1,
+    "explicacao": "Mostrar ao utilizador os dados que se guardam sobre ele é o direito de acesso. O botão para apagar a conta cumpre o direito ao apagamento.",
+    "manual": "15.4"
+  },
+  {
+    "id": "rgpd-027",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "facil",
+    "pergunta": "Para cumprir o direito de acesso, o que deve mostrar a página \"A minha conta\"?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Só o nome e o email, por segurança.",
+      "Os dados de todos os utilizadores registados.",
+      "Todos os dados pessoais guardados sobre o utilizador.",
+      "Os livros e os autores que o utilizador criou na aplicação."
+    ],
+    "correta": 2,
+    "explicacao": "O direito de acesso é o utilizador ver tudo o que a aplicação guarda sobre ele, e só sobre ele.",
+    "manual": "15.4"
+  },
+  {
+    "id": "rgpd-028",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "dificil",
+    "pergunta": "Porque é que a consulta da página \"A minha conta\" usa o id da sessão e não um ?id= no endereço?",
+    "codigo": "$stmt = $pdo->prepare('SELECT nome, email, consentimento_em, criado_em\n                       FROM utilizadores WHERE id_utilizador = ?');\n$stmt->execute([$_SESSION['id_utilizador']]);\n$eu = $stmt->fetch(PDO::FETCH_ASSOC);",
+    "linguagem": "php",
+    "alternativas": [
+      "O $_GET não pode ser usado em consultas com prepare() e execute().",
+      "Com ?id= qualquer pessoa podia ver os dados de outra conta.",
+      "O id que vem no endereço chega sempre como 0.",
+      "A sessão é lida mais depressa do que o endereço."
+    ],
+    "correta": 1,
+    "explicacao": "O id da sessão foi posto pelo servidor no login e o utilizador não o pode alterar. Um id no endereço podia ser trocado à mão para ver os dados de outra pessoa.",
+    "manual": "15.4, 10.3"
+  },
+  {
+    "id": "rgpd-029",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "Porque é que a página \"A minha conta\" começa assim?",
+    "codigo": "<?php\nrequire 'includes/inicio.php';\nrequire 'includes/auth.php';",
+    "linguagem": "php",
+    "alternativas": [
+      "O RGPD obriga todas as páginas a pedir login.",
+      "O auth.php é que mostra os dados ao utilizador.",
+      "Mostra e apaga dados de quem tem sessão: tem de ser restrita.",
+      "Sem o auth.php a página não carrega a folha de estilos do site."
+    ],
+    "correta": 2,
+    "explicacao": "A página trabalha sobre os dados de quem iniciou sessão. Sem o auth.php, qualquer visitante podia chegar a ela.",
+    "manual": "15.4, 11.2"
+  },
+  {
+    "id": "rgpd-030",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "dificil",
+    "pergunta": "Porque é que \"A minha conta\" também mostra a data do consentimento?",
+    "codigo": "<p>Estes são todos os dados pessoais que a aplicação guarda sobre ti:</p>\n<dl>\n    <dt>Nome</dt>            <dd><?= htmlspecialchars($eu['nome']) ?></dd>\n    <dt>Email</dt>           <dd><?= htmlspecialchars($eu['email']) ?></dd>\n    <dt>Conta criada em</dt> <dd><?= $eu['criado_em'] ?></dd>\n    <dt>Consentimento</dt>   <dd>Aceitaste a política em <?= $eu['consentimento_em'] ?></dd>\n</dl>",
+    "linguagem": "php",
+    "alternativas": [
+      "Para o utilizador poder alterar a data, se quiser.",
+      "Também é um dado pessoal guardado, e o acesso mostra todos.",
+      "Porque é a data em que a sessão vai expirar.",
+      "Porque a política obriga a renovar o consentimento todos os anos."
+    ],
+    "correta": 1,
+    "explicacao": "O direito de acesso cobre todos os dados guardados sobre o utilizador, e a data do consentimento é um deles. A página mostra tudo, exceto a password, que não é guardada.",
+    "manual": "15.4, 15.1"
+  },
+  {
+    "id": "rgpd-031",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "facil",
+    "pergunta": "O utilizador pede para apagar a conta. O que tem de acontecer?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Os seus dados pessoais são eliminados e ele é informado.",
+      "A conta fica desativada, mas os dados mantêm-se.",
+      "Os dados são apagados só ao fim de um ano.",
+      "Apaga-se o hash da password, mas o nome e o email ficam guardados."
+    ],
+    "correta": 0,
+    "explicacao": "É o direito ao apagamento: os dados pessoais são eliminados e o utilizador recebe uma mensagem a dizer que foram apagados.",
+    "manual": "15.4"
+  },
+  {
+    "id": "rgpd-032",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "O botão \"Apagar a minha conta\" está num formulário. Que método usa, e porquê?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "GET, porque é só um botão.",
+      "GET, para se poder partilhar.",
+      "POST, porque o GET não aceita botões.",
+      "POST, porque altera dados."
+    ],
+    "correta": 3,
+    "explicacao": "Apagar a conta altera a base de dados, por isso é um formulário POST. Um GET nunca deve alterar dados.",
+    "manual": "15.4, 1.2"
+  },
+  {
+    "id": "rgpd-033",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "dificil",
+    "pergunta": "Depois do DELETE, para que servem as duas linhas a seguir?",
+    "codigo": "$stmt = $pdo->prepare('DELETE FROM utilizadores WHERE id_utilizador = ?');\n$stmt->execute([$_SESSION['id_utilizador']]);\n\n$_SESSION = [];\nsession_destroy();",
+    "linguagem": "php",
+    "alternativas": [
+      "Para apagar a linha do utilizador na tabela.",
+      "Para o browser apagar o histórico de pedidos.",
+      "Para impedir que se crie uma nova conta com o mesmo email.",
+      "Para quem apagou a conta deixar de ter sessão iniciada."
+    ],
+    "correta": 3,
+    "explicacao": "O DELETE apaga os dados na base de dados. A sessão é outra coisa: tem de ser esvaziada e destruída, senão o utilizador continuava \"dentro\" de uma conta que já não existe.",
+    "manual": "15.4, 10.5"
+  },
+  {
+    "id": "rgpd-034",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "dificil",
+    "pergunta": "Nesta versão do apagar conta, o id vem do formulário. Qual é o problema?",
+    "codigo": "// conta.php (versão alterada)\n$stmt = $pdo->prepare('DELETE FROM utilizadores WHERE id_utilizador = ?');\n$stmt->execute([$_POST['id_utilizador']]);",
+    "linguagem": "php",
+    "alternativas": [
+      "O DELETE devia ser pedido com um link GET e não com um formulário POST.",
+      "Mudando o id enviado, podia apagar-se a conta de outra pessoa.",
+      "Falta o WHERE, por isso apagava todas as contas.",
+      "O $_POST não pode ser usado dentro do execute()."
+    ],
+    "correta": 1,
+    "explicacao": "O utilizador controla tudo o que o formulário envia. A conta a apagar tem de ser a de quem tem sessão, por isso usa-se $_SESSION['id_utilizador'].",
+    "manual": "15.4"
+  },
+  {
+    "id": "rgpd-035",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "Como se testa o direito ao apagamento antes de entregar?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Fazer logout e abrir \"A minha conta\" sem sessão.",
+      "Apagar a própria conta e tentar entrar outra vez.",
+      "Apagar um livro e confirmar a mensagem de sucesso.",
+      "Apagar a linha da conta no phpMyAdmin."
+    ],
+    "correta": 1,
+    "explicacao": "O teste 22 é apagar a própria conta na aplicação e tentar entrar de novo: a conta já não existe.",
+    "manual": "16"
+  },
+  {
+    "id": "rgpd-036",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "dificil",
+    "pergunta": "A Maria apagou a conta e tenta entrar com o mesmo email e password. Que mensagem vê?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "\"A tua conta foi apagada.\"",
+      "\"Já existe uma conta com esse email.\"",
+      "\"Email ou password errados.\"",
+      "\"Tens de iniciar sessão para ver essa página.\""
+    ],
+    "correta": 2,
+    "explicacao": "A linha da Maria já não existe, por isso o login não a encontra e mostra a mensagem de sempre. A aplicação não guarda nada sobre contas apagadas.",
+    "manual": "10.4, 16"
+  },
+  {
+    "id": "rgpd-037",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "Porque é que conta.php chama session_start() logo a seguir ao session_destroy()?",
+    "codigo": "$_SESSION = [];\nsession_destroy();\nsession_start();\nmensagem('sucesso', 'A tua conta e os teus dados pessoais foram apagados.');\nheader('Location: index.php');\nexit;",
+    "linguagem": "php",
+    "alternativas": [
+      "Para o utilizador continuar com sessão iniciada.",
+      "Porque o session_destroy() fecha o PHP.",
+      "Para voltar a criar a conta que foi apagada.",
+      "Para levar a mensagem até à página seguinte."
+    ],
+    "correta": 3,
+    "explicacao": "A sessão nova está vazia e serve só para levar a mensagem até ao index.php. É assim que o utilizador é informado de que os dados foram apagados.",
+    "manual": "15.4, 10.5"
+  },
+  {
+    "id": "rgpd-038",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "Para que serve o confirm() no formulário de apagar a conta?",
+    "codigo": "<form method=\"post\" action=\"conta.php\"\n      onsubmit=\"return confirm('Apagar a conta? Esta ação não pode ser desfeita.');\">\n    <button type=\"submit\" class=\"perigo\">Apagar a minha conta</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "Verificar no servidor se a conta ainda existe.",
+      "Mostrar os dados antes de os apagar.",
+      "Pedir confirmação, porque a ação não se pode desfazer.",
+      "Substituir a verificação da sessão que é feita no servidor."
+    ],
+    "correta": 2,
+    "explicacao": "O confirm() corre no browser e evita apagar a conta por engano. Não é segurança: o servidor continua a usar o id da sessão.",
+    "manual": "15.4"
+  },
+  {
+    "id": "rgpd-039",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "Uma clínica veterinária guarda o telefone dos tutores dos animais, que não têm conta. Esses dados entram na tabela 6.2?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Não, porque os tutores não têm conta.",
+      "Não, porque um telefone não é dado pessoal.",
+      "Sim, com a sua finalidade e o seu prazo.",
+      "Só se os tutores fizerem login."
+    ],
+    "correta": 2,
+    "explicacao": "Os dados de outras pessoas guardados pela aplicação também contam: entram na tabela da secção 6.2, com finalidade e prazo de conservação.",
+    "manual": "15.4"
+  },
+  {
+    "id": "rgpd-040",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "dificil",
+    "pergunta": "Numa loja com clientes e encomendas, qual destas linhas da tabela 6.2 está bem preenchida?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Morada do cliente — pode vir a ser útil — para sempre",
+      "Data de nascimento — sem finalidade definida — até a conta ser apagada",
+      "Morada do cliente — enviar as encomendas — até a conta ser apagada",
+      "Telefone do cliente — enviar as encomendas — VARCHAR(20)"
+    ],
+    "correta": 2,
+    "explicacao": "Cada dado precisa de uma finalidade concreta e de um prazo. \"Pode vir a ser útil\" não é finalidade, e VARCHAR(20) é um tipo de dados, não um prazo.",
+    "manual": "15.1"
+  },
+  {
+    "id": "rgpd-041",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "Que dados pessoais declara a Biblioteca na sua tabela de dados?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Nome e email: o hash e a data são técnicos e não contam.",
+      "Nome, email, password e livros criados.",
+      "Só o email, que é o que identifica a pessoa.",
+      "Nome, email, hash da password e data do consentimento."
+    ],
+    "correta": 3,
+    "explicacao": "A tabela da Biblioteca tem quatro dados, cada um com finalidade e prazo. A password não é guardada, só o hash, e os livros não são dados pessoais.",
+    "manual": "15.1"
+  },
+  {
+    "id": "rgpd-042",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "Um colega diz que o nome é dispensável, porque o login usa o email. Que finalidade declara a Biblioteca para o nome?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Iniciar sessão quando o email falha.",
+      "Provar que aceitou a política.",
+      "Identificar o utilizador na aplicação.",
+      "Recuperar a password, se o utilizador a esquecer."
+    ],
+    "correta": 2,
+    "explicacao": "Na tabela da Biblioteca, o nome serve para identificar o utilizador na aplicação (por exemplo, o \"Olá\" no menu). O email é que serve para iniciar sessão.",
+    "manual": "15.1"
+  },
+  {
+    "id": "rgpd-043",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "facil",
+    "pergunta": "Das seis medidas de segurança do dossier, quais são as do RGPD?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Consentimento no registo e política de privacidade acessível.",
+      "Passwords com hash e consultas preparadas.",
+      "Controlo de acesso e validação no servidor.",
+      "Consultas preparadas e política de privacidade acessível a todos."
+    ],
+    "correta": 0,
+    "explicacao": "O consentimento no registo e a política de privacidade acessível são as duas medidas ligadas ao RGPD. As outras quatro protegem contra ataques e dados inválidos.",
+    "manual": "14"
+  }
+]

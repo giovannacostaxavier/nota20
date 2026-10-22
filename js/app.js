@@ -122,8 +122,15 @@
         const certas = Object.values(porTema).reduce((s, t) => s + t.certas, 0);
         const gerais = prog.tentativas.filter(t => t.tipo === 'geral');
         const melhor = gerais.length ? Math.max(...gerais.map(t => nota20(t.acertos, t.total))) : null;
+        // Os 3 temas com mais erros (só os que já têm pelo menos 3 respostas)
+        const fracos = Object.entries(porTema)
+            .filter(([, s]) => s.respondidas >= 3 && s.certas < s.respondidas)
+            .map(([tema, s]) => ({ tema, erro: Math.round(((s.respondidas - s.certas) / s.respondidas) * 100) }))
+            .sort((a, b) => b.erro - a.erro)
+            .slice(0, 3);
         return {
-            porTema, vistas, respondidas, certas,
+            porTema, vistas, respondidas, certas, fracos,
+            respondidasTotal: respondidas,
             acerto: respondidas ? Math.round((certas / respondidas) * 100) : null,
             testes: prog.tentativas.length,
             gerais, melhor,
@@ -147,14 +154,18 @@
 
         const cartao = (tipo, extra = '') => {
             const d = TIPOS[tipo];
-            const icone = { geral: '45', web: '1', dados: '2', php: '3', erradas: '↺' }[tipo];
-            const semErradas = tipo === 'erradas' && est.erradas === 0;
-            return `<button class="teste ${tipo === 'geral' ? 'principal' : tipo}" data-tipo="${tipo}" ${semErradas ? 'disabled' : ''}>
+            const icone = { geral: '45', web: '1', dados: '2', php: '3', fracos: '◎', erradas: '↺' }[tipo];
+            let bloqueado = '';
+            if (tipo === 'erradas' && est.erradas === 0) bloqueado = 'Ainda não tens perguntas erradas para rever. Faz um teste primeiro!';
+            if (tipo === 'fracos' && est.respondidasTotal < window.Sorteio.MIN_RESPOSTAS_FRACOS) {
+                bloqueado = `Responde a pelo menos ${window.Sorteio.MIN_RESPOSTAS_FRACOS} perguntas para o Nota20 descobrir os teus pontos fracos (já tens ${est.respondidasTotal}).`;
+            }
+            return `<button class="teste ${tipo === 'geral' ? 'principal' : tipo}" data-tipo="${tipo}" ${bloqueado ? 'disabled' : ''}>
                 <span class="teste-icone" aria-hidden="true">${icone}</span>
                 <span class="teste-corpo">
                     <span class="teste-titulo">${esc(d.titulo)}</span>
                     <span class="sub">${esc(d.subtitulo)}</span>
-                    <span class="desc">${esc(semErradas ? 'Ainda não tens perguntas erradas para rever. Faz um teste primeiro!' : d.descricao)}</span>
+                    <span class="desc">${esc(bloqueado || d.descricao)}</span>
                     <span class="teste-meta">
                         <span class="pilula">${d.total} perguntas</span>
                         <span class="pilula">${d.minutos} min no modo exame</span>
@@ -216,6 +227,7 @@
                 ${cartao('web')}
                 ${cartao('dados')}
                 ${cartao('php')}
+                ${cartao('fracos', est.fracos.map(f => `<span class="pilula errado">${esc(f.tema)} · ${f.erro}% erro</span>`).join(''))}
                 ${cartao('erradas', est.erradas ? `<span class="pilula errado">${est.erradas} por rever</span>` : '')}
             </div>
 
@@ -656,6 +668,7 @@
                     <div class="acoes">
                         <button class="botao" data-acao="repetir">Fazer outro ${esc(def.titulo.toLowerCase())}</button>
                         ${t.acertos < t.total ? '<button class="botao secundario" data-acao="ver-erradas">Ver as erradas</button>' : ''}
+                        ${t.tipo !== 'fracos' && t.acertos < t.total ? '<button class="botao secundario" data-acao="fracos">Treinar pontos fracos</button>' : ''}
                         <a class="botao fantasma" href="#/">Início</a>
                     </div>
                 </div>
@@ -668,7 +681,7 @@
                 </section>
                 <section class="cartao">
                     <h2>O que estudar a seguir</h2>
-                    <ul class="fracos">${listaFracos}</ul>
+                    <ul class="lista-fracos">${listaFracos}</ul>
                 </section>
             </div>
 
@@ -694,6 +707,8 @@
             modoEscolhido = t.modo;
             iniciar(t.tipo === 'erradas' && !window.Sorteio.contarErradas(BANCO, A.estadoPergunta) ? 'geral' : t.tipo);
         });
+        const bf = app.querySelector('[data-acao="fracos"]');
+        if (bf) bf.addEventListener('click', () => { modoEscolhido = t.modo; iniciar('fracos'); });
         const ve = app.querySelector('[data-acao="ver-erradas"]');
         if (ve) ve.addEventListener('click', () => document.getElementById('revisao').scrollIntoView({ behavior: 'smooth' }));
 
@@ -903,6 +918,7 @@
                         <li>Toda a matéria vem do <b>manual do formador</b> (a aplicação Biblioteca) e da secção 3.1 do dossier, a matéria oficial do teste.</li>
                         <li>Cada explicação indica a <b>secção do manual</b> onde podes estudar o assunto.</li>
                         <li>As opções aparecem numa ordem diferente em cada tentativa.</li>
+                        <li><b>Pontos fracos:</b> o Nota20 calcula a tua taxa de erro em cada tema e monta um treino de 15 perguntas com mais perguntas dos temas onde falhas mais (até 5 por tema).</li>
                         <li>Como no teste, as perguntas vão do mais fácil ao mais difícil, e as últimas são de análise de código.</li>
                     </ul>
                     <h2 style="margin-top:18px">O teu progresso</h2>

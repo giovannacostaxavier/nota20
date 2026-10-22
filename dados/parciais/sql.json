@@ -1,0 +1,2522 @@
+[
+  {
+    "id": "sql-001",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Numa tabela da base de dados, o que representa cada linha?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Uma característica comum a todos os registos, como o título.",
+      "Um registo: uma das coisas guardadas, por exemplo um livro.",
+      "O tipo de dados que uma coluna aceita.",
+      "A ligação entre duas tabelas diferentes."
+    ],
+    "correta": 1,
+    "explicacao": "Uma tabela guarda um tipo de coisa: cada linha é uma dessas coisas (um livro) e cada coluna é uma característica (o título, o ano).",
+    "manual": "3.1"
+  },
+  {
+    "id": "sql-002",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Na tabela `livros`, o que é `titulo`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Uma coluna: uma característica que todos os livros têm.",
+      "A chave primária da tabela livros.",
+      "Uma tabela ligada à tabela livros.",
+      "Uma linha da tabela, com os dados de um livro."
+    ],
+    "correta": 0,
+    "explicacao": "As colunas são as características (titulo, ano_edicao, isbn…); as linhas são os livros. A chave primária de livros é id_livro.",
+    "manual": "3.1"
+  },
+  {
+    "id": "sql-003",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Qual é a regra para decidir que tabelas criar?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Usa-se uma só tabela com todas as colunas, para evitar o JOIN.",
+      "Cria-se uma tabela para cada formulário da aplicação.",
+      "Cria-se uma tabela para cada página PHP da aplicação.",
+      "Cada tabela guarda um tipo de coisa: utilizadores, autores, livros."
+    ],
+    "correta": 3,
+    "explicacao": "Uma tabela corresponde a um tipo de coisa, e não a páginas ou formulários. Juntar tudo numa tabela obrigaria a repetir dados; as tabelas relacionadas juntam-se com JOIN.",
+    "manual": "3.1"
+  },
+  {
+    "id": "sql-004",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "No teu projeto, além das duas entidades relacionadas em 1:N, que tabela podes manter igual à da Biblioteca?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "sessoes, para guardar a $_SESSION",
+      "livros, porque é a tabela do lado N",
+      "utilizadores, para o registo e o login",
+      "autores, porque todos os projetos têm autores"
+    ],
+    "correta": 2,
+    "explicacao": "O manual diz para trocar autores e livros pelas tuas entidades; a tabela utilizadores (registo e login) pode ficar igual.",
+    "manual": "3.7, 3.1"
+  },
+  {
+    "id": "sql-005",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Porque é que a base de dados é a primeira coisa a fazer?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Porque o Apache não arranca enquanto não houver uma base de dados criada.",
+      "Porque o phpMyAdmin só deixa criar tabelas antes de existirem ficheiros PHP.",
+      "Porque tudo depende dela: um bom modelo de dados simplifica o código.",
+      "Porque o CSS e o JavaScript leem os dados diretamente das tabelas."
+    ],
+    "correta": 2,
+    "explicacao": "O manual começa pela base de dados porque as páginas dependem do modelo: se estiver bem pensado, o código fica simples; se estiver mal, cada página precisa de remendos.",
+    "manual": "3"
+  },
+  {
+    "id": "sql-006",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "O que é a chave primária de uma tabela?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A coluna pela qual a tabela fica ordenada.",
+      "A primeira coluna escrita no CREATE TABLE.",
+      "A coluna que liga a tabela a outra tabela.",
+      "A coluna que identifica cada linha de forma única."
+    ],
+    "correta": 3,
+    "explicacao": "A chave primária (PK) identifica cada linha: não há dois livros com o mesmo id_livro. A coluna que liga a outra tabela é a chave estrangeira.",
+    "manual": "3.2"
+  },
+  {
+    "id": "sql-007",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "O que faz o AUTO_INCREMENT nesta coluna?",
+    "codigo": "id_livro INT AUTO_INCREMENT PRIMARY KEY",
+    "linguagem": "sql",
+    "alternativas": [
+      "Obriga o programa a calcular o próximo id antes de cada INSERT.",
+      "A base de dados escolhe o número seguinte sempre que se insere uma linha.",
+      "Soma 1 ao id_livro sempre que o livro é editado.",
+      "Impede que o id_livro seja usado como chave estrangeira."
+    ],
+    "correta": 1,
+    "explicacao": "Com AUTO_INCREMENT é a base de dados que escolhe o número (1, 2, 3…) a cada INSERT. Editar a linha não muda o id.",
+    "manual": "3.2"
+  },
+  {
+    "id": "sql-008",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Porque é que este INSERT não indica a coluna `id_autor`?",
+    "codigo": "INSERT INTO autores (nome, nacionalidade)\nVALUES (?, ?);",
+    "linguagem": "sql",
+    "alternativas": [
+      "Porque id_autor é AUTO_INCREMENT: a base de dados gera-o.",
+      "Porque o PHP calcula o id com COUNT(*) + 1 e junta-o sozinho.",
+      "Porque o id_autor é preenchido depois, com um UPDATE.",
+      "Porque a chave primária pode ficar NULL até haver livros."
+    ],
+    "correta": 0,
+    "explicacao": "A chave primária com AUTO_INCREMENT é escolhida pela base de dados, por isso nunca a envias no INSERT. Calcular o id à mão daria problemas quando se apagam linhas.",
+    "manual": "3.2, 3.7"
+  },
+  {
+    "id": "sql-009",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "O base_dados.sql insere 6 livros numa tabela `livros` acabada de criar, sem indicar o `id_livro`. Que ids ficam?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Números ao acaso, desde que não se repitam",
+      "Ficam todos NULL, porque o INSERT não os envia",
+      "0, 1, 2, 3, 4 e 5, pela ordem do INSERT",
+      "1, 2, 3, 4, 5 e 6, pela ordem do INSERT"
+    ],
+    "correta": 3,
+    "explicacao": "O AUTO_INCREMENT começa em 1 e vai somando 1 a cada linha inserida. É por isso que, nos INSERT de exemplo, o autor 1 é o José Saramago (o primeiro a ser inserido).",
+    "manual": "3.2, 3.5"
+  },
+  {
+    "id": "sql-010",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Na tabela `livros`, a coluna `id_autor` tem os valores 1, 1, 2, 2, 3, 4. Podia ser a chave primária de livros?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Sim, desde que a coluna seja NOT NULL.",
+      "Sim, porque é do tipo INT, como as outras chaves primárias.",
+      "Não: tem valores repetidos, e a chave primária é única em cada linha.",
+      "Não, porque uma chave primária tem de ser do tipo VARCHAR."
+    ],
+    "correta": 2,
+    "explicacao": "A chave primária identifica cada linha de forma única, por isso não pode ter valores repetidos. id_autor repete-se porque um autor tem vários livros: é a chave estrangeira.",
+    "manual": "3.2"
+  },
+  {
+    "id": "sql-011",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Porque é que a página de detalhe procura o livro com `WHERE l.id_livro = ?` e não pelo título?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Porque id_livro é a chave primária: identifica um só livro, sem dúvidas.",
+      "Porque o título só pode ser comparado com LIKE e nunca com =.",
+      "Porque o título fica guardado em hash e não se consegue comparar.",
+      "Porque uma coluna VARCHAR não pode aparecer numa cláusula WHERE."
+    ],
+    "correta": 0,
+    "explicacao": "O título não é único (podem existir dois livros com o mesmo título); a chave primária garante que o WHERE encontra exatamente uma linha.",
+    "manual": "3.2, 12.3"
+  },
+  {
+    "id": "sql-012",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Depois de importar o base_dados.sql (4 autores), inseres dois autores novos. Que `id_autor` recebe o primeiro deles?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "0",
+      "1",
+      "4",
+      "5"
+    ],
+    "correta": 3,
+    "explicacao": "O AUTO_INCREMENT continua a partir do último número usado: os autores de exemplo ficaram com 1 a 4, por isso o seguinte é o 5 (e o outro novo fica com 6).",
+    "manual": "3.2, 3.7"
+  },
+  {
+    "id": "sql-013",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "O que é uma chave estrangeira?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Uma coluna copiada de outra base de dados.",
+      "Uma coluna que guarda o id de uma linha de outra tabela.",
+      "Uma coluna cujos valores não se podem repetir.",
+      "A coluna que identifica cada linha da própria tabela."
+    ],
+    "correta": 1,
+    "explicacao": "A chave estrangeira (FK) guarda o id do lado 1 numa coluna da tabela do lado N, como livros.id_autor. A coluna que identifica a própria linha é a chave primária; a que impede repetidos é UNIQUE.",
+    "manual": "3.3"
+  },
+  {
+    "id": "sql-014",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Um autor pode ter vários livros, mas cada livro tem um só autor. Que relação é esta?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "N:N (muitos para muitos)",
+      "Nenhuma: são tabelas independentes",
+      "1:N (um para muitos)",
+      "1:1 (um para um)"
+    ],
+    "correta": 2,
+    "explicacao": "Um autor → vários livros, cada livro → um autor: é uma relação de um para muitos, escrita 1:N.",
+    "manual": "3.3"
+  },
+  {
+    "id": "sql-015",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Numa relação 1:N, em que tabela fica a chave estrangeira?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Na tabela do lado N.",
+      "Nas duas tabelas, uma em cada.",
+      "Na tabela do lado 1.",
+      "Numa terceira tabela, só com as duas chaves."
+    ],
+    "correta": 0,
+    "explicacao": "A FK fica sempre do lado N (livros.id_autor). Do lado 1 seria preciso guardar vários números na mesma célula.",
+    "manual": "3.3, Anexo B"
+  },
+  {
+    "id": "sql-016",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Numa loja, uma categoria tem vários produtos e cada produto pertence a uma só categoria. Que coluna é a chave estrangeira?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "categorias.id_categoria",
+      "produtos.id_categoria",
+      "produtos.id_produto",
+      "categorias.id_produto"
+    ],
+    "correta": 1,
+    "explicacao": "Pergunta \"uma categoria tem vários produtos?\": sim, por isso a FK fica em produtos, a guardar o id da categoria. produtos.id_produto e categorias.id_categoria são chaves primárias.",
+    "manual": "3.3, 13.4"
+  },
+  {
+    "id": "sql-017",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Um cliente faz várias encomendas e cada encomenda é de um só cliente. O que deves criar?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Uma coluna encomendas em clientes, com os ids separados por vírgulas.",
+      "As colunas id_cliente e id_encomenda na tabela clientes.",
+      "Uma coluna id_cliente na tabela encomendas.",
+      "Uma coluna id_encomenda na tabela clientes."
+    ],
+    "correta": 2,
+    "explicacao": "\"Um cliente tem várias encomendas?\" Sim, logo a FK fica em encomendas. Guardar vários ids numa célula de clientes é exatamente o erro que a regra evita.",
+    "manual": "3.3, 3.7"
+  },
+  {
+    "id": "sql-018",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Porque é que a tabela `autores` não pode ter uma coluna `id_livro`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Porque o MySQL não deixa duas tabelas terem colunas com nomes parecidos.",
+      "Porque um autor tem vários livros: teria de guardar vários números na mesma célula.",
+      "Porque id_livro já é a chave primária de livros e não pode aparecer noutra tabela.",
+      "Porque as chaves estrangeiras só podem ser do tipo VARCHAR."
+    ],
+    "correta": 1,
+    "explicacao": "É a \"regra para nunca te enganares\" do manual: a FK fica sempre do lado N. Uma PK pode perfeitamente aparecer noutra tabela, como FK; aqui o problema é o lado.",
+    "manual": "3.3"
+  },
+  {
+    "id": "sql-019",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Numa escola, uma turma tem vários alunos e cada aluno está numa só turma. Qual é a tabela do lado N?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "alunos",
+      "As duas são do lado N",
+      "Depende da tabela que for criada primeiro",
+      "turmas"
+    ],
+    "correta": 0,
+    "explicacao": "O lado N é o dos \"vários\": alunos. É lá que fica a chave estrangeira id_turma.",
+    "manual": "3.3"
+  },
+  {
+    "id": "sql-020",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Um tutor pode ter vários animais e cada animal tem um só tutor. O que está errado neste desenho?",
+    "codigo": "CREATE TABLE tutores (\n    id_tutor  INT AUTO_INCREMENT PRIMARY KEY,\n    nome      VARCHAR(100) NOT NULL,\n    id_animal INT NOT NULL\n);",
+    "linguagem": "sql",
+    "alternativas": [
+      "id_tutor devia ser VARCHAR, porque identifica uma pessoa.",
+      "Nada: a chave estrangeira pode ficar em qualquer das duas tabelas.",
+      "Falta UNIQUE em id_animal, para o tutor não repetir animais.",
+      "A FK está do lado 1: devia ser id_tutor na tabela animais."
+    ],
+    "correta": 3,
+    "explicacao": "Com id_animal em tutores, cada tutor só poderia ter um animal. A FK fica do lado N: animais.id_tutor.",
+    "manual": "3.3"
+  },
+  {
+    "id": "sql-021",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Na tabela `animais`, qual é a chave primária e qual é a chave estrangeira?",
+    "codigo": "CREATE TABLE animais (\n    id_animal INT AUTO_INCREMENT PRIMARY KEY,\n    id_tutor  INT NOT NULL,\n    nome      VARCHAR(80) NOT NULL,\n    CONSTRAINT fk_animais_tutores\n        FOREIGN KEY (id_tutor) REFERENCES tutores (id_tutor)\n        ON DELETE RESTRICT\n);",
+    "linguagem": "sql",
+    "alternativas": [
+      "PK: id_tutor; FK: id_animal",
+      "PK: id_animal; FK: nome",
+      "PK: id_animal; FK: fk_animais_tutores",
+      "PK: id_animal; FK: id_tutor"
+    ],
+    "correta": 3,
+    "explicacao": "A PK está assinalada com PRIMARY KEY (id_animal) e a FK com FOREIGN KEY (id_tutor) REFERENCES tutores. É o mesmo desenho de livros/autores.",
+    "manual": "3.2, 3.3"
+  },
+  {
+    "id": "sql-022",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Na Biblioteca, qual destas colunas é a chave estrangeira?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "autores.id_autor",
+      "livros.id_autor",
+      "livros.id_livro",
+      "utilizadores.id_utilizador"
+    ],
+    "correta": 1,
+    "explicacao": "livros.id_autor guarda o id do autor de cada livro. autores.id_autor, livros.id_livro e utilizadores.id_utilizador são chaves primárias.",
+    "manual": "3.3"
+  },
+  {
+    "id": "sql-023",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Sabendo que a Sophia de Mello Breyner Andresen foi a segunda autora inserida, que títulos devolve esta consulta com os dados de exemplo?",
+    "codigo": "SELECT titulo FROM livros WHERE id_autor = 2;",
+    "linguagem": "sql",
+    "alternativas": [
+      "A Menina do Mar e O Cavaleiro da Dinamarca",
+      "Memorial do Convento e Ensaio sobre a Cegueira",
+      "Ensaio sobre a Cegueira",
+      "Nenhum: id_autor = 2 é o id do segundo livro"
+    ],
+    "correta": 0,
+    "explicacao": "A Sophia ficou com id_autor = 2 (AUTO_INCREMENT) e os seus dois livros têm id_autor = 2. O WHERE filtra pela FK, não pelo id do livro.",
+    "manual": "3.3, 3.5"
+  },
+  {
+    "id": "sql-024",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Inseriste a autora Ana (id 5) e ainda não lhe associaste nenhum livro. O que há sobre ela na tabela `livros`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Uma coluna nova chamada id_autor_5.",
+      "Uma linha criada automaticamente pela chave estrangeira.",
+      "Nada: só aparece quando um livro tiver id_autor = 5.",
+      "Uma linha com id_autor = 5 e titulo a NULL."
+    ],
+    "correta": 2,
+    "explicacao": "A FK está do lado N: é cada livro que diz qual é o seu autor. Um autor sem livros simplesmente não aparece em livros.",
+    "manual": "3.3"
+  },
+  {
+    "id": "sql-025",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Onde está guardada a informação de que \"Os Maias\" é de Eça de Queirós?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Na coluna id_autor da linha de \"Os Maias\", que vale 3.",
+      "No id_livro de \"Os Maias\", que é igual ao id do autor.",
+      "Numa coluna livros, na linha de Eça de Queirós em autores.",
+      "Numa terceira tabela que junta autores e livros."
+    ],
+    "correta": 0,
+    "explicacao": "A relação guarda-se do lado N: a linha do livro tem id_autor = 3, o id de Eça de Queirós. É essa coluna que o JOIN usa.",
+    "manual": "3.3, 3.5"
+  },
+  {
+    "id": "sql-026",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Numa clínica veterinária (tutores 1:N animais), que regra corresponde a \"um autor com livros não se apaga\"?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Um animal com tutor não se apaga.",
+      "Um animal só se apaga junto com o tutor.",
+      "Um tutor sem animais não se apaga.",
+      "Um tutor com animais não se apaga."
+    ],
+    "correta": 3,
+    "explicacao": "O lado 1 (tutores) faz o papel dos autores; com ON DELETE RESTRICT, não se apaga o \"pai\" enquanto tiver \"filhos\" (animais).",
+    "manual": "13.4"
+  },
+  {
+    "id": "sql-027",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Na Biblioteca, o que acontece quando se tenta apagar um autor que ainda tem livros?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Apaga o autor e todos os livros dele.",
+      "Apaga o autor e os livros ficam com id_autor a NULL.",
+      "A base de dados recusa, por causa do ON DELETE RESTRICT.",
+      "Apaga o autor e os livros ficam com id_autor = 0."
+    ],
+    "correta": 2,
+    "explicacao": "A FK fk_livros_autores tem ON DELETE RESTRICT: enquanto o autor tiver livros, o DELETE é recusado. Apagar também os livros seria o CASCADE.",
+    "manual": "3.3, 13.3"
+  },
+  {
+    "id": "sql-028",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Que opção da chave estrangeira apaga o autor e também todos os seus livros?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "ON DELETE SET NULL",
+      "ON DELETE CASCADE",
+      "UNIQUE na coluna id_autor",
+      "ON DELETE RESTRICT"
+    ],
+    "correta": 1,
+    "explicacao": "CASCADE propaga o apagamento aos \"filhos\". O manual chama-lhe perigoso na Biblioteca, porque se perdem livros por engano.",
+    "manual": "3.3"
+  },
+  {
+    "id": "sql-029",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Porque é que ON DELETE SET NULL não serve na Biblioteca?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Porque SET NULL apaga também os livros, sem avisar.",
+      "Porque SET NULL só funciona com colunas VARCHAR.",
+      "Porque livros.id_autor é NOT NULL: o autor é obrigatório.",
+      "Porque o MySQL não aceita SET NULL em chaves estrangeiras."
+    ],
+    "correta": 2,
+    "explicacao": "SET NULL deixaria os livros com id_autor vazio, mas a coluna é NOT NULL (cada livro tem de ter autor). Quem apaga os livros é o CASCADE.",
+    "manual": "3.3"
+  },
+  {
+    "id": "sql-030",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Porque é que a Biblioteca usa ON DELETE RESTRICT e não CASCADE?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Porque o CASCADE impede que se insiram livros novos.",
+      "Porque o CASCADE fica lento quando há muitos livros.",
+      "Porque o RESTRICT apaga primeiro os livros e só depois o autor.",
+      "Para não se perderem livros por engano ao apagar um autor."
+    ],
+    "correta": 3,
+    "explicacao": "Com CASCADE, apagar um autor levava todos os livros dele. O RESTRICT recusa o apagamento enquanto houver livros, e nada se perde.",
+    "manual": "3.3"
+  },
+  {
+    "id": "sql-031",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Com os dados de exemplo, o que acontece a esta instrução?",
+    "codigo": "DELETE FROM autores WHERE id_autor = 1;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Apaga o José Saramago e os livros dele ficam sem autor.",
+      "Dá erro e nada é apagado: o José Saramago tem livros.",
+      "Apaga o José Saramago e os livros passam para o autor 2.",
+      "Apaga o José Saramago e os seus dois livros."
+    ],
+    "correta": 1,
+    "explicacao": "É a experiência do manual: a FK tem ON DELETE RESTRICT e o autor 1 tem dois livros, por isso a base de dados recusa e não apaga nada.",
+    "manual": "3.3, 3.7"
+  },
+  {
+    "id": "sql-032",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Se a chave estrangeira fosse ON DELETE CASCADE, quantos livros ficavam depois desta instrução, com os dados de exemplo?",
+    "codigo": "DELETE FROM autores WHERE id_autor = 2;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Nenhum",
+      "4",
+      "5",
+      "6"
+    ],
+    "correta": 1,
+    "explicacao": "Com CASCADE, apagar a Sophia (autor 2) apagava também os seus 2 livros: dos 6 ficavam 4. Com o RESTRICT da Biblioteca, a instrução seria recusada e ficavam os 6.",
+    "manual": "3.3, 3.5"
+  },
+  {
+    "id": "sql-033",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Em autor_apagar.php, quem impede que se apague um autor que tem livros?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A base de dados (ON DELETE RESTRICT); o PHP só apanha o erro.",
+      "O JavaScript, com o confirm() do botão Apagar.",
+      "Um SELECT COUNT(*) que o código faz sempre antes do DELETE.",
+      "O phpMyAdmin, que vigia as tabelas enquanto a aplicação corre."
+    ],
+    "correta": 0,
+    "explicacao": "Não é o código que verifica se o autor tem livros: é a chave estrangeira. O PHP apanha a exceção e mostra \"Não é possível apagar este autor\".",
+    "manual": "13.3"
+  },
+  {
+    "id": "sql-034",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Qual é a vantagem de ser a própria base de dados a garantir o ON DELETE RESTRICT?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Deixa de ser preciso o WHERE no DELETE dos autores.",
+      "O formulário de apagar pode passar a ser um simples link.",
+      "A regra vale mesmo que alguém apague o autor no phpMyAdmin.",
+      "Os livros do autor são apagados mais depressa."
+    ],
+    "correta": 2,
+    "explicacao": "Como a regra está na FK, nenhuma forma de apagar a contorna: nem a aplicação, nem o phpMyAdmin. O WHERE e o POST continuam a ser obrigatórios.",
+    "manual": "13.3"
+  },
+  {
+    "id": "sql-035",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Nesta parte do CREATE TABLE livros, o que indica `REFERENCES autores (id_autor)`?",
+    "codigo": "CONSTRAINT fk_livros_autores\n    FOREIGN KEY (id_autor) REFERENCES autores (id_autor)\n    ON DELETE RESTRICT",
+    "linguagem": "sql",
+    "alternativas": [
+      "A tabela e a coluna para onde a chave estrangeira aponta.",
+      "O nome que se dá à restrição da chave estrangeira.",
+      "A coluna de livros que passa a ser a chave primária.",
+      "A tabela que é apagada em conjunto com a tabela livros."
+    ],
+    "correta": 0,
+    "explicacao": "FOREIGN KEY (id_autor) é a coluna de livros; REFERENCES autores (id_autor) diz que os valores têm de existir na chave primária de autores. O nome da restrição é fk_livros_autores.",
+    "manual": "3.3, 3.5"
+  },
+  {
+    "id": "sql-036",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Nesta instrução, o que é `fk_livros_autores`?",
+    "codigo": "CONSTRAINT fk_livros_autores\n    FOREIGN KEY (id_autor) REFERENCES autores (id_autor)\n    ON DELETE RESTRICT",
+    "linguagem": "sql",
+    "alternativas": [
+      "Uma coluna nova criada na tabela livros.",
+      "O nome do índice UNIQUE do ISBN.",
+      "Uma terceira tabela que liga livros e autores.",
+      "O nome dado à chave estrangeira."
+    ],
+    "correta": 3,
+    "explicacao": "CONSTRAINT dá um nome à restrição: a chave estrangeira chama-se fk_livros_autores. Não cria tabelas nem colunas.",
+    "manual": "3.5"
+  },
+  {
+    "id": "sql-037",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Numa loja, cada produto pertence a uma categoria. O que completa a chave estrangeira?",
+    "codigo": "CREATE TABLE produtos (\n    id_produto   INT AUTO_INCREMENT PRIMARY KEY,\n    id_categoria INT NOT NULL,\n    nome         VARCHAR(120) NOT NULL,\n    CONSTRAINT fk_produtos_categorias\n        ____________________\n        ON DELETE RESTRICT\n);",
+    "linguagem": "sql",
+    "alternativas": [
+      "FOREIGN KEY (categorias.id_categoria) REFERENCES produtos (id_categoria)",
+      "PRIMARY KEY (id_categoria) REFERENCES categorias (id_categoria)",
+      "FOREIGN KEY (id_categoria) REFERENCES categorias (id_categoria)",
+      "FOREIGN KEY (id_produto) REFERENCES categorias (id_categoria)"
+    ],
+    "correta": 2,
+    "explicacao": "Primeiro FOREIGN KEY com a coluna de produtos que guarda o id (id_categoria), depois REFERENCES com a tabela e a chave primária do lado 1, tal como em livros/autores.",
+    "manual": "3.3, 3.5, 13.4"
+  },
+  {
+    "id": "sql-038",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Imagina que a tabela livros era assim. O que acontecia aos livros de Eça de Queirós ao apagá-lo?",
+    "codigo": "id_autor INT NULL,\n...\nCONSTRAINT fk_livros_autores\n    FOREIGN KEY (id_autor) REFERENCES autores (id_autor)\n    ON DELETE SET NULL",
+    "linguagem": "sql",
+    "alternativas": [
+      "O DELETE do autor era recusado.",
+      "Passavam para o autor com o id seguinte.",
+      "Eram apagados junto com o autor.",
+      "Ficavam na tabela, com id_autor vazio (NULL)."
+    ],
+    "correta": 3,
+    "explicacao": "SET NULL apaga o autor e deixa os livros com id_autor vazio. Apagar os livros é o CASCADE; recusar é o RESTRICT.",
+    "manual": "3.3"
+  },
+  {
+    "id": "sql-039",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Com os dados de exemplo, porque é que este INSERT falha?",
+    "codigo": "INSERT INTO livros (id_autor, titulo)\nVALUES (9, 'Livro de teste');",
+    "linguagem": "sql",
+    "alternativas": [
+      "Não existe nenhum autor com id_autor = 9.",
+      "Falta enviar o id_livro da nova linha.",
+      "O título tem de ter pelo menos 20 caracteres.",
+      "Faltam o isbn, o ano_edicao e a sinopse."
+    ],
+    "correta": 0,
+    "explicacao": "A chave estrangeira obriga a que id_autor exista em autores (há só 4). As restantes colunas são AUTO_INCREMENT ou opcionais (NULL). É também por isto que validar_livro() confirma que o autor existe.",
+    "manual": "3.3, 8.5"
+  },
+  {
+    "id": "sql-040",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Com os dados de exemplo e a FK com ON DELETE RESTRICT, o que acontece a esta instrução?",
+    "codigo": "DELETE FROM autores;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Apaga os 4 autores e deixa os livros sem autor.",
+      "Dá erro e nada é apagado: todos têm livros.",
+      "Apaga os 4 autores e, com eles, os 6 livros.",
+      "Pede confirmação e depois apaga os 4 autores."
+    ],
+    "correta": 1,
+    "explicacao": "Sem WHERE, o DELETE tentaria apagar todos os autores, mas todos têm livros e o RESTRICT recusa. A base de dados nunca pede confirmação: isso só existe se a aplicação a puser.",
+    "manual": "3.3, 3.7"
+  },
+  {
+    "id": "sql-041",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Que tipo de dados serve para guardar a sinopse de um livro, um texto longo?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "VARCHAR(13)",
+      "DATETIME",
+      "TEXT",
+      "SMALLINT"
+    ],
+    "correta": 2,
+    "explicacao": "TEXT é para texto longo. VARCHAR(n) é para texto curto até n caracteres (VARCHAR(13) é o ISBN), SMALLINT para inteiros pequenos e DATETIME para data e hora.",
+    "manual": "3.4"
+  },
+  {
+    "id": "sql-042",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Segundo o manual, que tipo serve para guardar um ano de edição, como 1888?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "SMALLINT",
+      "DATETIME",
+      "TEXT",
+      "VARCHAR(200)"
+    ],
+    "correta": 0,
+    "explicacao": "SMALLINT guarda inteiros pequenos (até 32 767), o que chega para um ano. DATETIME guarda data e hora completas.",
+    "manual": "3.4"
+  },
+  {
+    "id": "sql-043",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "O que quer dizer `VARCHAR(200)` em `titulo VARCHAR(200)`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Texto com exatamente 200 caracteres.",
+      "Texto longo guardado em blocos de 200.",
+      "Um número inteiro até 200.",
+      "Texto curto com, no máximo, 200 caracteres."
+    ],
+    "correta": 3,
+    "explicacao": "VARCHAR(n) guarda texto curto até n caracteres; um título mais curto ocupa só o que precisa. Para texto longo usa-se TEXT.",
+    "manual": "3.4"
+  },
+  {
+    "id": "sql-044",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Que tipo de dados guarda a data e a hora, como em `criado_em`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "INT",
+      "DATETIME",
+      "VARCHAR(20)",
+      "SMALLINT"
+    ],
+    "correta": 1,
+    "explicacao": "DATETIME guarda data e hora (consentimento_em, criado_em). Com DEFAULT CURRENT_TIMESTAMP, fica a data e hora do momento.",
+    "manual": "3.4"
+  },
+  {
+    "id": "sql-045",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "A validação no servidor diz \"O título é obrigatório e não pode ter mais de 200 caracteres\". Com que definição da coluna bate certo?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "titulo VARCHAR(200) NULL UNIQUE",
+      "titulo SMALLINT NOT NULL",
+      "titulo VARCHAR(200) NOT NULL",
+      "titulo TEXT NULL"
+    ],
+    "correta": 2,
+    "explicacao": "Obrigatório = NOT NULL; até 200 caracteres = VARCHAR(200). A validação do PHP repete as regras da coluna para dar uma mensagem clara antes de a base de dados recusar.",
+    "manual": "3.4, 12.4"
+  },
+  {
+    "id": "sql-046",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Qual deve ser o tipo da coluna `livros.id_autor`, a chave estrangeira?",
+    "codigo": "CREATE TABLE autores (\n    id_autor INT AUTO_INCREMENT PRIMARY KEY,\n    ...\n);\nCREATE TABLE livros (\n    ...\n    id_autor ____ NOT NULL,",
+    "linguagem": "sql",
+    "alternativas": [
+      "TEXT, porque um autor pode ter muitos livros",
+      "INT, como autores.id_autor",
+      "VARCHAR(120), porque guarda o nome do autor",
+      "SMALLINT, porque há poucos autores"
+    ],
+    "correta": 1,
+    "explicacao": "A FK guarda o id do autor, que é um INT; por isso também é INT. O nome do autor fica só na tabela autores.",
+    "manual": "3.4, 3.5"
+  },
+  {
+    "id": "sql-047",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Segundo a tabela de tipos do manual, qual destes pares coluna → tipo está correto?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "criado_em → SMALLINT",
+      "ano_edicao → DATETIME",
+      "id_livro → VARCHAR(13)",
+      "sinopse → TEXT"
+    ],
+    "correta": 3,
+    "explicacao": "A sinopse é texto longo (TEXT). O ano é SMALLINT, criado_em é DATETIME e id_livro é INT.",
+    "manual": "3.4"
+  },
+  {
+    "id": "sql-048",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "O que significa NOT NULL numa coluna?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A coluna é obrigatória: não pode ficar vazia.",
+      "A coluna é preenchida automaticamente.",
+      "A coluna não pode ter o valor zero.",
+      "A coluna não pode ter valores repetidos."
+    ],
+    "correta": 0,
+    "explicacao": "NOT NULL torna a coluna obrigatória. Impedir repetidos é o UNIQUE; preencher sozinho é o AUTO_INCREMENT ou o DEFAULT.",
+    "manual": "3.4"
+  },
+  {
+    "id": "sql-049",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Para impedir que dois utilizadores se registem com o mesmo email, que restrição usas na coluna?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "DEFAULT",
+      "AUTO_INCREMENT",
+      "NOT NULL",
+      "UNIQUE"
+    ],
+    "correta": 3,
+    "explicacao": "UNIQUE impede duas linhas com o mesmo valor. NOT NULL só obriga a que haja valor.",
+    "manual": "3.4, Anexo B"
+  },
+  {
+    "id": "sql-050",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "O que faz DEFAULT CURRENT_TIMESTAMP nesta coluna?",
+    "codigo": "criado_em DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP",
+    "linguagem": "sql",
+    "alternativas": [
+      "Atualiza a data sempre que a linha é alterada.",
+      "Obriga o PHP a enviar a data e hora atual em cada INSERT.",
+      "Sem valor no INSERT, fica a data e hora do momento.",
+      "Guarda a data em que a tabela foi criada."
+    ],
+    "correta": 2,
+    "explicacao": "DEFAULT é o valor usado quando o INSERT não indica a coluna. Por isso o INSERT do utilizador de teste não envia criado_em.",
+    "manual": "3.4"
+  },
+  {
+    "id": "sql-051",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Na tabela `livros`, que colunas são opcionais?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "id_autor e isbn",
+      "isbn, ano_edicao e sinopse",
+      "titulo e sinopse",
+      "id_livro e ano_edicao"
+    ],
+    "correta": 1,
+    "explicacao": "As opcionais estão declaradas como NULL: isbn, ano_edicao e sinopse. O título e o autor são NOT NULL e o id_livro é a chave primária.",
+    "manual": "3.4, 3.5"
+  },
+  {
+    "id": "sql-052",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Que colunas tem um INSERT nesta tabela de enviar obrigatoriamente?",
+    "codigo": "CREATE TABLE utilizadores (\n    id_utilizador    INT AUTO_INCREMENT PRIMARY KEY,\n    nome             VARCHAR(100) NOT NULL,\n    email            VARCHAR(150) NOT NULL UNIQUE,\n    password_hash    VARCHAR(255) NOT NULL,\n    consentimento_em DATETIME     NOT NULL,\n    criado_em        DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP\n);",
+    "linguagem": "sql",
+    "alternativas": [
+      "nome, email, password_hash e consentimento_em",
+      "As seis colunas, porque todas são NOT NULL",
+      "Só email e password_hash, as usadas no login",
+      "id_utilizador, nome, email e password_hash"
+    ],
+    "correta": 0,
+    "explicacao": "O id é AUTO_INCREMENT e criado_em tem DEFAULT, por isso podem ficar de fora. As outras quatro são NOT NULL sem valor por omissão: é exatamente o INSERT do utilizador de teste.",
+    "manual": "3.4, 3.5"
+  },
+  {
+    "id": "sql-053",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Já existe o utilizador demo@biblioteca.pt. A base de dados usa o collation utf8mb4_unicode_ci. O que acontece a este INSERT?",
+    "codigo": "INSERT INTO utilizadores (nome, email, password_hash, consentimento_em)\nVALUES ('Outro', 'DEMO@biblioteca.pt', '...', NOW());",
+    "linguagem": "sql",
+    "alternativas": [
+      "É aceite, mas o email fica gravado em minúsculas.",
+      "É aceite, porque as maiúsculas tornam o email diferente.",
+      "É recusado (Duplicate entry): o _ci ignora maiúsculas.",
+      "É recusado porque o email tem de estar em minúsculas."
+    ],
+    "correta": 2,
+    "explicacao": "O collation utf8mb4_unicode_ci compara texto sem distinguir maiúsculas de minúsculas, por isso o UNIQUE vê o mesmo email e dá o erro 1062.",
+    "manual": "3.4, 3.5, 17.2"
+  },
+  {
+    "id": "sql-054",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Nesta coluna, o que significa a combinação de NULL com UNIQUE?",
+    "codigo": "isbn VARCHAR(13) NULL UNIQUE",
+    "linguagem": "sql",
+    "alternativas": [
+      "O ISBN é opcional, mas, quando existe, não pode repetir-se.",
+      "O ISBN só não pode repetir-se dentro do mesmo autor.",
+      "O ISBN fica sempre vazio até o livro ser editado.",
+      "O ISBN é obrigatório e não pode repetir-se."
+    ],
+    "correta": 0,
+    "explicacao": "NULL torna a coluna opcional; UNIQUE impede dois livros com o mesmo ISBN.",
+    "manual": "3.4"
+  },
+  {
+    "id": "sql-055",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "O `email` dos utilizadores é NOT NULL e UNIQUE. Isso faz dele a chave primária da tabela?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Sim, mas só depois do primeiro utilizador se registar.",
+      "Sim: qualquer coluna UNIQUE passa a ser a chave primária.",
+      "Não, porque uma coluna UNIQUE não pode ser NOT NULL.",
+      "Não: a chave primária continua a ser id_utilizador."
+    ],
+    "correta": 3,
+    "explicacao": "UNIQUE só impede emails repetidos. A chave primária é a definida com PRIMARY KEY (id_utilizador INT AUTO_INCREMENT PRIMARY KEY).",
+    "manual": "3.2, 3.4"
+  },
+  {
+    "id": "sql-056",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Que valor fica na coluna `nacionalidade` depois deste INSERT?",
+    "codigo": "INSERT INTO autores (nome) VALUES ('Ana');",
+    "linguagem": "sql",
+    "alternativas": [
+      "O texto 'NULL' entre plicas.",
+      "NULL, porque a coluna é opcional.",
+      "'Portuguesa', o valor mais frequente.",
+      "Nenhum: dá erro por faltar uma coluna."
+    ],
+    "correta": 1,
+    "explicacao": "nacionalidade é VARCHAR(60) NULL: se o INSERT não a indicar, fica vazia (NULL). Só as colunas NOT NULL sem DEFAULT têm de ir no INSERT.",
+    "manual": "3.4"
+  },
+  {
+    "id": "sql-057",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "O que acontece a este INSERT?",
+    "codigo": "INSERT INTO livros (id_autor, isbn)\nVALUES (1, '9780000000000');",
+    "linguagem": "sql",
+    "alternativas": [
+      "É aceite, com o titulo vazio ('').",
+      "É recusado: titulo é NOT NULL e não foi enviado.",
+      "É aceite, com o titulo a NULL.",
+      "É aceite, porque só o id_autor é obrigatório."
+    ],
+    "correta": 1,
+    "explicacao": "titulo é NOT NULL e não tem DEFAULT, por isso é obrigatório no INSERT. O autor 1 existe e o ISBN é novo, por isso essas partes estavam bem.",
+    "manual": "3.4"
+  },
+  {
+    "id": "sql-058",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve `SET NAMES utf8mb4;` no início do base_dados.sql?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Cria uma base de dados chamada utf8mb4.",
+      "Define a password do utilizador root do MySQL.",
+      "Faz com que os acentos sejam lidos corretamente.",
+      "Converte todas as tabelas existentes para letras minúsculas."
+    ],
+    "correta": 2,
+    "explicacao": "Sem SET NAMES utf8mb4, \"José\" pode aparecer como \"JosÃ©\". É uma das soluções do erro de acentos estragados.",
+    "manual": "3.5, 17.2"
+  },
+  {
+    "id": "sql-059",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "A tua base de dados `biblioteca` já tem livros que inseriste à mão. O que acontece se voltares a importar o base_dados.sql?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Perdem-se: o DROP DATABASE apaga tudo antes de criar de novo.",
+      "Os dados de exemplo juntam-se aos livros que já lá estavam.",
+      "Dá erro, porque a base de dados biblioteca já existe no MySQL.",
+      "Só são recriadas as tabelas que estiverem vazias."
+    ],
+    "correta": 0,
+    "explicacao": "O ficheiro começa por DROP DATABASE IF EXISTS biblioteca: apaga a base de dados com tudo o que lá estava e depois cria-a de raiz.",
+    "manual": "3.5"
+  },
+  {
+    "id": "sql-060",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Porque é que o base_dados.sql começa por `DROP DATABASE IF EXISTS biblioteca;`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Para o phpMyAdmin não pedir a password do root.",
+      "Para guardar uma cópia de segurança antes de criar as tabelas.",
+      "Para apagar só as tabelas que estiverem vazias.",
+      "Para poder ser importado várias vezes com o mesmo resultado."
+    ],
+    "correta": 3,
+    "explicacao": "Apagar e criar de novo garante que cada importação dá o mesmo resultado. A contrapartida é que apaga os dados que lá estavam.",
+    "manual": "3.5"
+  },
+  {
+    "id": "sql-061",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "O que faz a última linha deste excerto?",
+    "codigo": "DROP DATABASE IF EXISTS biblioteca;\nCREATE DATABASE biblioteca CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\nUSE biblioteca;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Escolhe a base de dados onde correm as instruções seguintes.",
+      "Dá permissões a um utilizador chamado biblioteca.",
+      "Importa o ficheiro biblioteca.sql.",
+      "Cria a base de dados biblioteca."
+    ],
+    "correta": 0,
+    "explicacao": "Quem cria é o CREATE DATABASE; o USE escolhe a base de dados onde vão ser criadas as tabelas e inseridos os dados.",
+    "manual": "3.5"
+  },
+  {
+    "id": "sql-062",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Porque é que no base_dados.sql a tabela `autores` é criada antes da tabela `livros`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Porque as tabelas têm de ser criadas por ordem alfabética.",
+      "Porque o AUTO_INCREMENT só funciona na primeira tabela do ficheiro.",
+      "Porque autores tem menos colunas do que livros.",
+      "Porque a FK de livros aponta para autores, que tem de existir."
+    ],
+    "correta": 3,
+    "explicacao": "A FOREIGN KEY de livros diz REFERENCES autores (id_autor); essa tabela tem de existir antes. Cria-se primeiro o lado 1 e depois o lado N.",
+    "manual": "3.5"
+  },
+  {
+    "id": "sql-063",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Este excerto de um base_dados.sql, com as tabelas vazias, dá erro. Porquê?",
+    "codigo": "INSERT INTO livros (id_autor, titulo) VALUES (1, 'Os Maias');\nINSERT INTO autores (nome) VALUES ('Eça de Queirós');",
+    "linguagem": "sql",
+    "alternativas": [
+      "O primeiro INSERT falha: falta o id_livro.",
+      "O primeiro INSERT falha: ainda não existe o autor 1.",
+      "O segundo INSERT falha: falta a nacionalidade.",
+      "O segundo INSERT falha: o autor tem de ter o id 1 escrito."
+    ],
+    "correta": 1,
+    "explicacao": "A FK exige que o id_autor do livro exista em autores. Os autores têm de ser inseridos antes dos livros. A nacionalidade é NULL e os ids são AUTO_INCREMENT.",
+    "manual": "3.3, 3.5"
+  },
+  {
+    "id": "sql-064",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "No INSERT do utilizador de teste, o que é o texto que começa por `$2y$12$`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A password Demo1234 encriptada com a função md5().",
+      "O identificador da sessão do utilizador de teste no browser.",
+      "O hash da password Demo1234, calculado com password_hash().",
+      "A password Demo1234 codificada em base64."
+    ],
+    "correta": 2,
+    "explicacao": "Nunca se guarda a password: guarda-se o hash. O texto começado por $2 é o resultado de password_hash(), que depois é confirmado com password_verify().",
+    "manual": "3.5"
+  },
+  {
+    "id": "sql-065",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Porque é que o base_dados.sql inclui um utilizador de teste?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Para servir de chave estrangeira aos livros.",
+      "Para o phpMyAdmin conseguir importar o ficheiro.",
+      "Para quem importa o ficheiro poder logo entrar na aplicação.",
+      "Porque o MySQL exige pelo menos uma linha em cada tabela."
+    ],
+    "correta": 2,
+    "explicacao": "Com demo@biblioteca.pt / Demo1234, o formador entra logo depois de importar. Nenhuma tabela precisa de ter linhas.",
+    "manual": "3.5, 18.1"
+  },
+  {
+    "id": "sql-066",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Como importas o base_dados.sql no phpMyAdmin?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "No separador Importar, escolhes o ficheiro e carregas em Importar.",
+      "Copias o ficheiro para a pasta C:\\xampp\\htdocs e recarregas a página.",
+      "No separador SQL, escreves o nome do ficheiro e carregas em Executar.",
+      "Abres o ficheiro no browser, com duplo clique."
+    ],
+    "correta": 0,
+    "explicacao": "Abres http://localhost/phpmyadmin, separador Importar, escolhes o ficheiro e carregas em Importar; à esquerda aparece a base de dados com as tabelas.",
+    "manual": "3.6"
+  },
+  {
+    "id": "sql-067",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Antes de entregar, que teste deves fazer ao teu base_dados.sql?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Abrir o ficheiro no browser para ver se aparece sem erros.",
+      "Correr só os INSERT, para não apagar o que já tens.",
+      "Exportar a base de dados e comparar o tamanho dos ficheiros.",
+      "Apagar a base de dados no phpMyAdmin e importar o ficheiro de raiz."
+    ],
+    "correta": 3,
+    "explicacao": "Se a importação de raiz falhar no teu computador, também falha no do formador. O ficheiro tem de criar tudo: base de dados, tabelas, chaves e dados de exemplo.",
+    "manual": "18.1"
+  },
+  {
+    "id": "sql-068",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "No `CREATE DATABASE biblioteca CHARACTER SET utf8mb4 ...`, para que serve o utf8mb4?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Limitar cada coluna de texto a 4 caracteres.",
+      "Guardar texto com acentos sem os estragar.",
+      "Ordenar os livros pela data de criação.",
+      "Encriptar os dados guardados nas tabelas."
+    ],
+    "correta": 1,
+    "explicacao": "utf8mb4 é a codificação do texto: guarda bem \"José\" ou \"Eça\". Tem de bater certo com o SET NAMES do .sql e o charset=utf8mb4 da ligação.",
+    "manual": "3.5, 17.2"
+  },
+  {
+    "id": "sql-069",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "O teu base_dados.sql tem de criar tudo de raiz. O que deve conter?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Uma cópia dos ficheiros PHP, para a aplicação funcionar.",
+      "Só os INSERT, porque o formador já tem as tabelas criadas.",
+      "A base de dados, as tabelas, as chaves e dados de exemplo.",
+      "Só os CREATE TABLE: os dados são inseridos pelo formador à mão."
+    ],
+    "correta": 2,
+    "explicacao": "O manual pede um ficheiro que crie a base de dados, as tabelas, as chaves e alguns dados de exemplo, incluindo um utilizador de teste.",
+    "manual": "18.1, 3.5"
+  },
+  {
+    "id": "sql-070",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Que instrução SQL lê dados de uma tabela?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "INSERT",
+      "SELECT",
+      "UPDATE",
+      "READ FROM"
+    ],
+    "correta": 1,
+    "explicacao": "SELECT lê; INSERT acrescenta e UPDATE altera. READ é o R de CRUD, mas não é uma instrução SQL.",
+    "manual": "3.7"
+  },
+  {
+    "id": "sql-071",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Com os dados de exemplo, que títulos devolve esta consulta?",
+    "codigo": "SELECT titulo FROM livros\nWHERE titulo LIKE '%mar%';",
+    "linguagem": "sql",
+    "alternativas": [
+      "A Menina do Mar e O Cavaleiro da Dinamarca",
+      "Nenhum, porque \"Mar\" tem maiúscula",
+      "Só A Menina do Mar",
+      "A Menina do Mar e Memorial do Convento"
+    ],
+    "correta": 0,
+    "explicacao": "%mar% encontra \"mar\" em qualquer posição: \"Mar\" e \"Dinamarca\". O collation utf8mb4_unicode_ci não distingue maiúsculas. \"Memorial\" tem \"mor\", não \"mar\".",
+    "manual": "12.2, 3.5"
+  },
+  {
+    "id": "sql-072",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "O que encontra `titulo LIKE '%texto%'`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Só os títulos que acabam em \"texto\".",
+      "Só os títulos exatamente iguais a \"texto\".",
+      "Só os títulos que começam por \"texto\".",
+      "Os títulos que contêm \"texto\" em qualquer posição."
+    ],
+    "correta": 3,
+    "explicacao": "O % substitui qualquer sequência de caracteres (incluindo nenhuma). Com % antes e depois, o texto pode estar em qualquer posição.",
+    "manual": "12.2"
+  },
+  {
+    "id": "sql-073",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Que padrão encontra os títulos que começam por \"O\"?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "LIKE '%O'",
+      "LIKE 'O%'",
+      "LIKE '%O%'",
+      "LIKE 'O'"
+    ],
+    "correta": 1,
+    "explicacao": "'O%' = começa por O e depois qualquer coisa. '%O' é \"acaba em O\", '%O%' é \"contém O\" e 'O' sem % só encontra o título igual a \"O\".",
+    "manual": "12.2"
+  },
+  {
+    "id": "sql-074",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Com os dados de exemplo, quantos títulos começam pela letra indicada?",
+    "codigo": "SELECT titulo FROM livros\nWHERE titulo LIKE 'o%';",
+    "linguagem": "sql",
+    "alternativas": [
+      "Nenhuma",
+      "1",
+      "2",
+      "3"
+    ],
+    "correta": 2,
+    "explicacao": "Começam por \"o\" (sem distinguir maiúsculas, por causa do _ci): \"O Cavaleiro da Dinamarca\" e \"Os Maias\".",
+    "manual": "12.2, 3.5"
+  },
+  {
+    "id": "sql-075",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Pesquisas \"do\" na lista de livros. Quantos cartões aparecem?",
+    "codigo": "SELECT titulo FROM livros\nWHERE titulo LIKE '%do%';",
+    "linguagem": "sql",
+    "alternativas": [
+      "Nenhuma",
+      "1",
+      "2",
+      "3"
+    ],
+    "correta": 3,
+    "explicacao": "Contêm \"do\": \"Memorial do Convento\", \"A Menina do Mar\" e \"Dom Casmurro\" (o \"Do\" de \"Dom\" conta, porque o _ci não distingue maiúsculas). \"da Dinamarca\" tem \"da\", não \"do\".",
+    "manual": "12.2, 3.5"
+  },
+  {
+    "id": "sql-076",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Pesquisas \"ca\" na lista de livros. Que títulos aparecem?",
+    "codigo": "SELECT titulo FROM livros\nWHERE titulo LIKE '%ca%';",
+    "linguagem": "sql",
+    "alternativas": [
+      "O Cavaleiro da Dinamarca e Dom Casmurro",
+      "Só O Cavaleiro da Dinamarca",
+      "Ensaio sobre a Cegueira e Dom Casmurro",
+      "Nenhum, porque nenhum título começa por \"ca\""
+    ],
+    "correta": 0,
+    "explicacao": "\"Cavaleiro\" e \"Dinamarca\" estão no mesmo título; \"Casmurro\" também tem \"ca\". \"Cegueira\" tem \"ce\". Com % dos dois lados, não interessa onde está.",
+    "manual": "12.2, 3.5"
+  },
+  {
+    "id": "sql-077",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Pesquisas \"MAR\" em vez de \"mar\", e o valor passado ao `LIKE ?` fica '%MAR%'. Comparado com a pesquisa \"mar\", o resultado é…",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O mesmo: o collation utf8mb4_unicode_ci não distingue maiúsculas.",
+      "Vazio: nenhum título tem MAR em maiúsculas.",
+      "Um erro, porque o LIKE só aceita letras minúsculas.",
+      "Só \"A Menina do Mar\", porque é o único com M maiúsculo."
+    ],
+    "correta": 0,
+    "explicacao": "A base de dados foi criada com COLLATE utf8mb4_unicode_ci; o \"ci\" (case insensitive) faz com que \"MAR\", \"Mar\" e \"mar\" sejam iguais nas comparações.",
+    "manual": "12.2, 3.5"
+  },
+  {
+    "id": "sql-078",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "A caixa de pesquisa está vazia, por isso o valor passado ao `LIKE ?` fica '%%'. O que devolve a consulta?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Só os livros sem título",
+      "Todos os livros",
+      "Nenhum livro",
+      "Um erro de sintaxe"
+    ],
+    "correta": 1,
+    "explicacao": "Com o texto vazio, o padrão é \"qualquer coisa\": %% encontra tudo. É por isso que a lista mostra todos os livros antes de se pesquisar.",
+    "manual": "12.2"
+  },
+  {
+    "id": "sql-079",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "O que faz `ORDER BY titulo` numa consulta?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Junta numa só linha os livros com o mesmo título.",
+      "Ordena os resultados pelo título, de Z para A.",
+      "Mostra só os livros que têm título.",
+      "Ordena os resultados pelo título, por ordem crescente (A→Z)."
+    ],
+    "correta": 3,
+    "explicacao": "Sem mais nada, o ORDER BY ordena por ordem crescente. Para decrescente acrescenta-se DESC; filtrar é o WHERE e agrupar é o GROUP BY.",
+    "manual": "3.7"
+  },
+  {
+    "id": "sql-080",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Queres mostrar os livros do mais recente para o mais antigo. O que escreves?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "ORDER BY ano_edicao",
+      "ORDER BY ano_edicao DESCENDING",
+      "ORDER BY ano_edicao DESC",
+      "ORDER BY DESC ano_edicao"
+    ],
+    "correta": 2,
+    "explicacao": "DESC vem depois da coluna e inverte a ordem (maior ano primeiro). Sem DESC, a ordem é crescente: do mais antigo para o mais recente.",
+    "manual": "3.7"
+  },
+  {
+    "id": "sql-081",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Com os dados de exemplo, qual é o primeiro título que aparece?",
+    "codigo": "SELECT titulo FROM livros\nORDER BY ano_edicao;",
+    "linguagem": "sql",
+    "alternativas": [
+      "A Menina do Mar",
+      "Memorial do Convento",
+      "Os Maias",
+      "Dom Casmurro"
+    ],
+    "correta": 2,
+    "explicacao": "Ordem crescente do ano: Os Maias (1888) vem antes de Dom Casmurro (1899). \"A Menina do Mar\" seria a primeira por título e \"Memorial do Convento\" a primeira inserida.",
+    "manual": "3.7, 3.5"
+  },
+  {
+    "id": "sql-082",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "A lista de livros usa `ORDER BY l.titulo`. Com os dados de exemplo, qual é o primeiro cartão?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Os Maias",
+      "A Menina do Mar",
+      "Dom Casmurro",
+      "Memorial do Convento"
+    ],
+    "correta": 1,
+    "explicacao": "Por ordem alfabética do título, \"A Menina do Mar\" vem primeiro. \"Memorial do Convento\" é o primeiro inserido (id 1), mas o ORDER BY não segue o id.",
+    "manual": "12.2, 3.5"
+  },
+  {
+    "id": "sql-083",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Com os dados de exemplo, que título aparece em último lugar?",
+    "codigo": "SELECT titulo, ano_edicao FROM livros\nWHERE ano_edicao > 1950\nORDER BY ano_edicao DESC;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Os Maias",
+      "Ensaio sobre a Cegueira",
+      "O Cavaleiro da Dinamarca",
+      "A Menina do Mar"
+    ],
+    "correta": 3,
+    "explicacao": "O WHERE deixa 1958, 1964, 1982 e 1995. Com DESC, o mais recente (Ensaio, 1995) vem primeiro e o mais antigo, A Menina do Mar (1958), fica em último. Os Maias (1888) nem passa no WHERE.",
+    "manual": "3.7, 3.5"
+  },
+  {
+    "id": "sql-084",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Qual é a ordem correta das cláusulas de um SELECT?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "SELECT … FROM … WHERE … ORDER BY …",
+      "SELECT … WHERE … FROM … ORDER BY …",
+      "FROM … SELECT … WHERE … ORDER BY …",
+      "SELECT … FROM … ORDER BY … WHERE …"
+    ],
+    "correta": 0,
+    "explicacao": "Primeiro o que se quer (SELECT), de onde (FROM), o filtro (WHERE) e, no fim, a ordenação (ORDER BY).",
+    "manual": "3.7, 12.2"
+  },
+  {
+    "id": "sql-085",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Esta consulta dá erro de sintaxe. Qual é o problema?",
+    "codigo": "SELECT id_livro, titulo FROM livros\nORDER BY titulo\nWHERE titulo LIKE ?;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Falta o JOIN com a tabela autores.",
+      "O LIKE não aceita um ? no lugar do valor.",
+      "O WHERE tem de vir antes do ORDER BY.",
+      "O ORDER BY só funciona com colunas numéricas."
+    ],
+    "correta": 2,
+    "explicacao": "A ordem é SELECT … FROM … WHERE … ORDER BY. O LIKE ? é exatamente o que a Biblioteca usa, e ordenar por texto é normal.",
+    "manual": "3.7, 17.2"
+  },
+  {
+    "id": "sql-086",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Esta consulta verifica se o autor escolhido existe. Que valor devolve com os dados de exemplo, se o ? for 9?",
+    "codigo": "SELECT COUNT(*) FROM autores WHERE id_autor = ?;",
+    "linguagem": "sql",
+    "alternativas": [
+      "0",
+      "1",
+      "9",
+      "NULL"
+    ],
+    "correta": 0,
+    "explicacao": "Não há nenhum autor com id 9 (só 1 a 4), por isso o COUNT dá 0 e a validação mostra \"Escolhe um autor da lista\". Com um id existente daria 1.",
+    "manual": "12.4"
+  },
+  {
+    "id": "sql-087",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Em `FROM livros l JOIN autores a`, o que são `l` e `a`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Os nomes das chaves primárias das duas tabelas.",
+      "Alias: nomes curtos das tabelas, usados como l.titulo e a.nome.",
+      "Letras obrigatórias: livros tem de ser l e autores tem de ser a.",
+      "Variáveis PHP onde fica guardado o resultado."
+    ],
+    "correta": 1,
+    "explicacao": "Um alias de tabela é um nome curto para escrever menos e para dizer de que tabela é cada coluna (l.id_autor, a.id_autor). As letras escolhem-se à vontade.",
+    "manual": "3.7, 12.2"
+  },
+  {
+    "id": "sql-088",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "O que faz `AS autor` em `SELECT l.titulo, a.nome AS autor`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Filtra os nomes que contêm a palavra autor.",
+      "Cria uma coluna autor na tabela autores.",
+      "Muda o nome da tabela autores para autor.",
+      "Dá à coluna a.nome o nome autor no resultado."
+    ],
+    "correta": 3,
+    "explicacao": "AS dá um nome à coluna no resultado (no PHP lê-se $livro['autor']). Não altera a tabela.",
+    "manual": "12.2"
+  },
+  {
+    "id": "sql-089",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Quantos nomes devolve esta consulta com os dados de exemplo?",
+    "codigo": "SELECT nome FROM autores\nWHERE nacionalidade = 'portuguesa';",
+    "linguagem": "sql",
+    "alternativas": [
+      "Nenhum",
+      "1",
+      "3",
+      "4"
+    ],
+    "correta": 2,
+    "explicacao": "Saramago, Sophia e Eça têm \"Portuguesa\". O collation _ci não distingue maiúsculas, por isso 'portuguesa' encontra-os. Machado de Assis é \"Brasileira\".",
+    "manual": "3.5, 3.7"
+  },
+  {
+    "id": "sql-090",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Com os dados de exemplo, que títulos devolve esta consulta?",
+    "codigo": "SELECT titulo FROM livros\nWHERE ano_edicao < 1900;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Nenhum: < não se usa com anos",
+      "Os Maias e Dom Casmurro",
+      "Os Maias, Dom Casmurro e A Menina do Mar",
+      "Só Os Maias"
+    ],
+    "correta": 1,
+    "explicacao": "Os Maias (1888) e Dom Casmurro (1899) são anteriores a 1900. A Menina do Mar é de 1958.",
+    "manual": "3.7, 3.5"
+  },
+  {
+    "id": "sql-091",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "O que devolve esta consulta se não existir nenhum livro com id 99?",
+    "codigo": "SELECT * FROM livros WHERE id_livro = 99;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Nenhuma linha: o resultado vem vazio.",
+      "Um erro, porque o id não existe.",
+      "Uma linha com todas as colunas a NULL.",
+      "O último livro da tabela."
+    ],
+    "correta": 0,
+    "explicacao": "Um WHERE que não encontra nada não é um erro: devolve zero linhas. Na Biblioteca, o fetch() dá false e a página responde com 404.",
+    "manual": "12.3"
+  },
+  {
+    "id": "sql-092",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Na consulta da página de detalhe, o que significa `l.*`?",
+    "codigo": "SELECT l.*, a.nome AS autor, a.nacionalidade\nFROM livros l\nJOIN autores a ON l.id_autor = a.id_autor\nWHERE l.id_livro = ?",
+    "linguagem": "sql",
+    "alternativas": [
+      "Só a chave primária da tabela livros.",
+      "Todas as colunas das duas tabelas.",
+      "Todas as linhas de livros, sem filtro.",
+      "Todas as colunas da tabela livros."
+    ],
+    "correta": 3,
+    "explicacao": "O * quer dizer \"todas as colunas\" e o l. limita-o à tabela com alias l (livros). Do autor só vêm nome e nacionalidade; as linhas continuam filtradas pelo WHERE.",
+    "manual": "8.2, 12.3"
+  },
+  {
+    "id": "sql-093",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve o JOIN?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Juntar duas colunas de texto numa só coluna.",
+      "Juntar numa consulta as linhas relacionadas de duas tabelas.",
+      "Copiar as linhas de uma tabela para outra, de vez.",
+      "Juntar dois ficheiros .sql num só."
+    ],
+    "correta": 1,
+    "explicacao": "O JOIN junta, por exemplo, a cada livro o nome do seu autor, numa só consulta. Não altera as tabelas.",
+    "manual": "3.7, Anexo B"
+  },
+  {
+    "id": "sql-094",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Esta consulta junta a cada livro o seu autor. Quantas linhas tem o resultado, com os dados de exemplo?",
+    "codigo": "SELECT l.titulo, a.nome\nFROM livros l\nJOIN autores a ON l.id_autor = a.id_autor;",
+    "linguagem": "sql",
+    "alternativas": [
+      "4",
+      "6",
+      "10",
+      "24"
+    ],
+    "correta": 1,
+    "explicacao": "Uma linha por livro que tenha autor correspondente: os 6 livros, cada um com o nome do seu autor. Não é 4 + 6 nem 4 × 6.",
+    "manual": "3.7, 3.5"
+  },
+  {
+    "id": "sql-095",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Num JOIN, o que indica `ON l.id_autor = a.id_autor`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Que a coluna id_autor passa a ser UNIQUE.",
+      "A ordem pela qual as linhas aparecem.",
+      "Que só aparecem livros cujo id_livro é igual ao id do autor.",
+      "Como se juntam as linhas: FK do livro = PK do autor."
+    ],
+    "correta": 3,
+    "explicacao": "O ON diz que linha de autores corresponde a cada livro: aquela cujo id_autor é igual ao id_autor guardado no livro.",
+    "manual": "3.7"
+  },
+  {
+    "id": "sql-096",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Qual é a diferença entre JOIN e LEFT JOIN?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O LEFT JOIN mantém todas as linhas da tabela da esquerda.",
+      "O LEFT JOIN junta da direita para a esquerda, com o mesmo resultado.",
+      "O LEFT JOIN mostra só as linhas que não têm correspondência.",
+      "O JOIN mostra todas as linhas das duas tabelas, com ou sem correspondência."
+    ],
+    "correta": 0,
+    "explicacao": "O JOIN só devolve linhas com correspondência; o LEFT JOIN devolve todas as da esquerda e põe NULL nas colunas da direita quando não há correspondência.",
+    "manual": "3.7"
+  },
+  {
+    "id": "sql-097",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Inseriste a autora Ana, sem livros. Com os 6 livros de exemplo, quantas linhas devolve esta consulta?",
+    "codigo": "SELECT a.nome, l.titulo\nFROM autores a\nJOIN livros l ON l.id_autor = a.id_autor;",
+    "linguagem": "sql",
+    "alternativas": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "correta": 2,
+    "explicacao": "O JOIN só devolve linhas com correspondência: os 6 livros com o seu autor. A Ana não tem livros, por isso não aparece.",
+    "manual": "3.7"
+  },
+  {
+    "id": "sql-098",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Inseriste a autora Ana, sem livros. O que devolve esta consulta para ela?",
+    "codigo": "SELECT a.nome, l.titulo\nFROM autores a\nLEFT JOIN livros l ON l.id_autor = a.id_autor;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Uma linha com o nome Ana e titulo vazio ('').",
+      "Seis linhas com Ana, uma por cada livro.",
+      "Uma linha com o nome Ana e titulo a NULL.",
+      "Nada: a Ana não aparece, porque não tem livros."
+    ],
+    "correta": 2,
+    "explicacao": "O LEFT JOIN mantém todos os autores (a tabela da esquerda). Quando não há livro correspondente, as colunas de livros vêm a NULL.",
+    "manual": "3.7"
+  },
+  {
+    "id": "sql-099",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Com os dados de exemplo, que resultado dá esta consulta?",
+    "codigo": "SELECT a.nome, COUNT(l.id_livro) AS total_livros\nFROM autores a\nLEFT JOIN livros l ON l.id_autor = a.id_autor\nGROUP BY a.id_autor, a.nome;",
+    "linguagem": "sql",
+    "alternativas": [
+      "4 linhas, todas com o total 6",
+      "6 linhas, uma por livro, todas com total 1",
+      "1 linha com o total 6",
+      "4 linhas: Saramago 2, Sophia 2, Eça 1, Machado 1"
+    ],
+    "correta": 3,
+    "explicacao": "O GROUP BY faz uma linha por autor e o COUNT conta os livros de cada um: dois do Saramago, dois da Sophia, um do Eça e um do Machado.",
+    "manual": "13.1, 3.5"
+  },
+  {
+    "id": "sql-100",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Na lista de autores, para que serve o `GROUP BY a.id_autor, a.nome`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Fazer uma linha por autor, para o COUNT contar os livros de cada um.",
+      "Juntar numa linha os autores com o mesmo nome e a mesma nacionalidade.",
+      "Ordenar os autores pelo nome, de A a Z.",
+      "Apagar os autores que aparecem repetidos."
+    ],
+    "correta": 0,
+    "explicacao": "Sem GROUP BY, o COUNT contaria tudo numa só linha. A ordenação é feita pelo ORDER BY a.nome.",
+    "manual": "13.1"
+  },
+  {
+    "id": "sql-101",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Porque é que a lista de autores conta com `COUNT(l.id_livro)` e não com `COUNT(*)`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Com COUNT(*), os autores sem livros desapareciam da lista.",
+      "Com COUNT(*), um autor sem livros aparecia com 1 em vez de 0.",
+      "COUNT(*) contaria os livros de todos os autores juntos.",
+      "COUNT(*) não pode ser usado depois de um LEFT JOIN."
+    ],
+    "correta": 1,
+    "explicacao": "No LEFT JOIN, o autor sem livros tem uma linha com as colunas de livros a NULL. COUNT(*) conta essa linha (1); COUNT(l.id_livro) não conta NULL e dá 0.",
+    "manual": "13.1"
+  },
+  {
+    "id": "sql-102",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Que FROM usas para mostrar todos os autores, incluindo os que ainda não têm livros?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "FROM autores a LEFT JOIN livros l ON l.id_autor = a.id_autor",
+      "FROM autores a JOIN livros l ON l.id_autor = a.id_autor",
+      "FROM livros l LEFT JOIN autores a ON l.id_autor = a.id_autor",
+      "FROM autores a JOIN livros l ON l.id_livro = a.id_autor"
+    ],
+    "correta": 0,
+    "explicacao": "O LEFT JOIN guarda todas as linhas da tabela da esquerda, por isso autores tem de estar à esquerda. Com livros à esquerda, ficariam todos os livros, não todos os autores.",
+    "manual": "3.7, 13.1"
+  },
+  {
+    "id": "sql-103",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Quantos livros de autores portugueses lista esta consulta?",
+    "codigo": "SELECT l.titulo, a.nome\nFROM livros l\nJOIN autores a ON l.id_autor = a.id_autor\nWHERE a.nacionalidade = 'Portuguesa';",
+    "linguagem": "sql",
+    "alternativas": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "correta": 2,
+    "explicacao": "Os autores portugueses são Saramago (2 livros), Sophia (2) e Eça (1): 5 livros. Só o Dom Casmurro, de Machado de Assis, fica de fora. Conta-se livros, não autores.",
+    "manual": "3.7, 3.5"
+  },
+  {
+    "id": "sql-104",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Com os dados de exemplo, que título devolve esta consulta?",
+    "codigo": "SELECT l.titulo\nFROM livros l\nJOIN autores a ON l.id_autor = a.id_autor\nWHERE a.nome LIKE '%Assis%';",
+    "linguagem": "sql",
+    "alternativas": [
+      "Os Maias",
+      "Memorial do Convento",
+      "Nenhum, porque titulo não contém Assis",
+      "Dom Casmurro"
+    ],
+    "correta": 3,
+    "explicacao": "O WHERE filtra pela coluna do autor (a.nome), que só está disponível graças ao JOIN. Machado de Assis tem um livro: Dom Casmurro.",
+    "manual": "3.7, 3.5"
+  },
+  {
+    "id": "sql-105",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Porque é que a consulta da página de detalhe de um livro faz JOIN com `autores`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Para verificar se o utilizador tem sessão iniciada.",
+      "Para mostrar o nome e a nacionalidade do autor.",
+      "Para proteger a consulta contra SQL injection.",
+      "Para contar quantos livros tem o autor."
+    ],
+    "correta": 1,
+    "explicacao": "A tabela livros só tem o id_autor; o nome e a nacionalidade estão em autores. Quem protege da injeção são os parâmetros ?, não o JOIN.",
+    "manual": "12.3"
+  },
+  {
+    "id": "sql-106",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Qual é a ordem correta das cláusulas numa consulta com LEFT JOIN e contagem?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "FROM … LEFT JOIN … ON … GROUP BY … ORDER BY …",
+      "FROM … GROUP BY … LEFT JOIN … ON … ORDER BY …",
+      "FROM … LEFT JOIN … ON … ORDER BY … GROUP BY …",
+      "FROM … ON … LEFT JOIN … GROUP BY … ORDER BY …"
+    ],
+    "correta": 0,
+    "explicacao": "Na lista de autores: FROM autores a LEFT JOIN livros l ON … GROUP BY … ORDER BY a.nome. O ORDER BY é sempre o último; o ON vem logo a seguir ao JOIN.",
+    "manual": "13.1"
+  },
+  {
+    "id": "sql-107",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Com os dados de exemplo, qual é a primeira linha desta consulta?",
+    "codigo": "SELECT a.nome, COUNT(l.id_livro) AS total_livros\nFROM autores a\nLEFT JOIN livros l ON l.id_autor = a.id_autor\nGROUP BY a.id_autor, a.nome\nORDER BY a.nome;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Sophia de Mello Breyner Andresen, 2",
+      "José Saramago, 2",
+      "Eça de Queirós, 1",
+      "Machado de Assis, 1"
+    ],
+    "correta": 2,
+    "explicacao": "ORDER BY a.nome ordena alfabeticamente: Eça vem antes de José, Machado e Sophia. O José Saramago seria o primeiro só se a ordem fosse pelo id.",
+    "manual": "13.1, 3.5"
+  },
+  {
+    "id": "sql-108",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Que instrução acrescenta uma linha nova a uma tabela?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "UPDATE … SET …",
+      "ADD INTO … VALUES …",
+      "CREATE ROW … VALUES …",
+      "INSERT INTO … VALUES …"
+    ],
+    "correta": 3,
+    "explicacao": "INSERT INTO tabela (colunas) VALUES (valores) acrescenta uma linha. UPDATE altera linhas que já existem.",
+    "manual": "3.7, Anexo B"
+  },
+  {
+    "id": "sql-109",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Qual destes INSERT está escrito corretamente?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "INSERT INTO autores VALUES (nome = 'Ana', nacionalidade = 'Portuguesa')",
+      "INSERT INTO autores (nome, nacionalidade) VALUES ('Ana', 'Portuguesa')",
+      "INSERT INTO autores (nome, nacionalidade) ('Ana', 'Portuguesa')",
+      "INSERT INTO autores SET (nome, nacionalidade) VALUES ('Ana', 'Portuguesa')"
+    ],
+    "correta": 1,
+    "explicacao": "A forma é INSERT INTO tabela (colunas) VALUES (valores). Falta o VALUES na segunda, e o \"coluna = valor\" é do UPDATE … SET.",
+    "manual": "3.7"
+  },
+  {
+    "id": "sql-110",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Com os dados de exemplo, o que acontece a este INSERT?",
+    "codigo": "INSERT INTO livros (titulo, id_autor, isbn)\nVALUES ('Os Maias', 3, '9789722036597');",
+    "linguagem": "sql",
+    "alternativas": [
+      "Substitui o \"Os Maias\" que já estava na tabela.",
+      "Fica um segundo \"Os Maias\", com o mesmo ISBN.",
+      "É recusado (Duplicate entry): o ISBN é UNIQUE.",
+      "É recusado porque já existe um livro com esse título."
+    ],
+    "correta": 2,
+    "explicacao": "O ISBN 9789722036597 já pertence a \"Os Maias\" e a coluna é UNIQUE: erro 23000 / 1062. O título não é UNIQUE, por isso não seria ele a causa.",
+    "manual": "3.4, 8.5, 17.2"
+  },
+  {
+    "id": "sql-111",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Com os dados de exemplo, o que acontece a este INSERT?",
+    "codigo": "INSERT INTO livros (titulo, id_autor)\nVALUES ('Os Maias', 3);",
+    "linguagem": "sql",
+    "alternativas": [
+      "É recusado: já existe um livro com esse título.",
+      "Substitui o livro \"Os Maias\" que já existe.",
+      "É recusado: falta o ISBN, que é UNIQUE.",
+      "É aceite: o título não é UNIQUE e o ISBN fica NULL."
+    ],
+    "correta": 3,
+    "explicacao": "Só o ISBN é UNIQUE, e é opcional (NULL). Por isso pode haver dois livros com o mesmo título; fica um novo livro com o id seguinte.",
+    "manual": "3.4, 3.5"
+  },
+  {
+    "id": "sql-112",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Num INSERT, por que ordem têm de aparecer os valores do VALUES?",
+    "codigo": "INSERT INTO livros (titulo, id_autor, isbn, ano_edicao, sinopse)\nVALUES (?, ?, ?, ?, ?)",
+    "linguagem": "sql",
+    "alternativas": [
+      "Pela ordem das colunas escritas entre parênteses a seguir à tabela.",
+      "Por ordem alfabética do nome das colunas.",
+      "Por qualquer ordem: o MySQL descobre pelo tipo de dados.",
+      "Pela ordem do CREATE TABLE, seja qual for a lista de colunas."
+    ],
+    "correta": 0,
+    "explicacao": "O primeiro valor vai para a primeira coluna da lista, o segundo para a segunda, e assim por diante. Com ?, os valores do execute() seguem a mesma ordem.",
+    "manual": "3.7, 8.2"
+  },
+  {
+    "id": "sql-113",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Que instrução altera os dados de uma linha que já existe?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "ALTER … SET … WHERE …",
+      "UPDATE … SET … WHERE …",
+      "INSERT INTO … WHERE …",
+      "CHANGE … VALUES … WHERE …"
+    ],
+    "correta": 1,
+    "explicacao": "UPDATE tabela SET coluna = valor WHERE condição altera as linhas escolhidas pelo WHERE.",
+    "manual": "3.7, Anexo B"
+  },
+  {
+    "id": "sql-114",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Com os dados de exemplo, o que faz esta instrução?",
+    "codigo": "UPDATE livros SET ano_edicao = 1990;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Altera os 6 livros: todos ficam com 1990.",
+      "Altera só os livros sem ano de edição.",
+      "Não altera nada: o MySQL exige WHERE.",
+      "Altera só o primeiro livro da tabela."
+    ],
+    "correta": 0,
+    "explicacao": "Um UPDATE sem WHERE altera todas as linhas da tabela, sem pedir confirmação. Por isso o manual diz para escrever sempre o WHERE primeiro.",
+    "manual": "3.7"
+  },
+  {
+    "id": "sql-115",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Qual destes UPDATE muda a nacionalidade do autor com id 4?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "UPDATE autores WHERE id_autor = 4 SET nacionalidade = 'Brasileira'",
+      "UPDATE autores SET nacionalidade = 'Brasileira' AND id_autor = 4",
+      "UPDATE autores SET nacionalidade = 'Brasileira' WHERE id_autor = 4",
+      "UPDATE TABLE autores SET nacionalidade = 'Brasileira' WHERE id_autor = 4"
+    ],
+    "correta": 2,
+    "explicacao": "A ordem é UPDATE tabela SET coluna = valor WHERE condição. Não se escreve TABLE depois de UPDATE; o WHERE vem sempre no fim; e um \"AND id_autor = 4\" no SET não é um filtro.",
+    "manual": "3.7"
+  },
+  {
+    "id": "sql-116",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Com os dados de exemplo, depois desta instrução, quantos livros tem a Sophia de Mello Breyner (autor 2)?",
+    "codigo": "UPDATE livros SET id_autor = 2\nWHERE id_autor = 1;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Nenhum",
+      "2",
+      "4",
+      "6"
+    ],
+    "correta": 2,
+    "explicacao": "Os 2 livros do Saramago (id_autor = 1) passam a ter id_autor = 2 e juntam-se aos 2 da Sophia: 4. O UPDATE não apaga nem cria livros.",
+    "manual": "3.3, 3.5"
+  },
+  {
+    "id": "sql-117",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Em livro_editar.php, porque é que o `WHERE id_livro = ?` do UPDATE é indispensável?",
+    "codigo": "UPDATE livros\nSET titulo = ?, id_autor = ?, isbn = ?, ano_edicao = ?, sinopse = ?\nWHERE id_livro = ?",
+    "linguagem": "sql",
+    "alternativas": [
+      "Sem ele, a chave estrangeira recusava a alteração do livro.",
+      "Sem ele, só o primeiro livro da tabela era alterado.",
+      "Sem ele, o UPDATE criava um livro novo.",
+      "Sem ele, todos os livros ficavam iguais ao formulário."
+    ],
+    "correta": 3,
+    "explicacao": "O WHERE escolhe a linha a alterar. Sem WHERE, o UPDATE aplica-se a todas as linhas; nunca cria linhas novas, isso é o INSERT.",
+    "manual": "12.5"
+  },
+  {
+    "id": "sql-118",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Quantos valores leva esta instrução, e por que ordem?",
+    "codigo": "UPDATE autores SET nome = ?, nacionalidade = ?\nWHERE id_autor = ?",
+    "linguagem": "sql",
+    "alternativas": [
+      "Três: o nome, a nacionalidade e o id_autor, pela ordem dos ?.",
+      "Três, por qualquer ordem: cada ? sabe a que coluna pertence.",
+      "Dois: o id_autor do WHERE não conta como valor.",
+      "Três, começando pelo id_autor, porque é a chave primária."
+    ],
+    "correta": 0,
+    "explicacao": "Os ? são os lugares dos valores e são preenchidos pela ordem em que aparecem: primeiro os do SET, por último o do WHERE.",
+    "manual": "3.7, 8.2"
+  },
+  {
+    "id": "sql-119",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Com os dados de exemplo, quantas linhas altera esta instrução?",
+    "codigo": "UPDATE livros SET sinopse = NULL\nWHERE id_autor = 1;",
+    "linguagem": "sql",
+    "alternativas": [
+      "1",
+      "2",
+      "4",
+      "6"
+    ],
+    "correta": 1,
+    "explicacao": "O WHERE escolhe os livros do autor 1 (José Saramago): Memorial do Convento e Ensaio sobre a Cegueira. A sinopse pode ficar NULL porque é opcional.",
+    "manual": "3.7, 3.5"
+  },
+  {
+    "id": "sql-120",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Com os dados de exemplo, o que acontece a esta instrução?",
+    "codigo": "UPDATE livros SET isbn = '9789722036597'\nWHERE id_livro = 6;",
+    "linguagem": "sql",
+    "alternativas": [
+      "É recusada porque o ISBN não se pode alterar depois de criado.",
+      "É aceite: o UNIQUE só é verificado no INSERT.",
+      "É aceite e o outro livro fica com o ISBN a NULL.",
+      "É recusada: esse ISBN já existe e a coluna é UNIQUE."
+    ],
+    "correta": 3,
+    "explicacao": "O UNIQUE vale também no UPDATE: o ISBN de \"Os Maias\" não pode ficar repetido no livro 6. É por isso que livro_editar.php também apanha o erro 23000.",
+    "manual": "3.4, 12.5"
+  },
+  {
+    "id": "sql-121",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Qual destas instruções apaga um livro?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "DROP livros WHERE id_livro = ?",
+      "REMOVE FROM livros WHERE id_livro = ?",
+      "DELETE FROM livros WHERE id_livro = ?",
+      "DELETE * FROM livros WHERE id_livro = ?"
+    ],
+    "correta": 2,
+    "explicacao": "Apaga-se com DELETE FROM tabela WHERE condição. O WHERE com a chave primária garante que só sai aquele livro.",
+    "manual": "3.7, Anexo B"
+  },
+  {
+    "id": "sql-122",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "O que faz esta instrução?",
+    "codigo": "DELETE FROM livros;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Dá erro, porque falta o WHERE.",
+      "Apaga a tabela livros, incluindo a sua estrutura.",
+      "Apaga só o livro com o id mais alto.",
+      "Apaga todos os livros, sem pedir confirmação."
+    ],
+    "correta": 3,
+    "explicacao": "Sem WHERE, o DELETE apaga todas as linhas, mas a tabela continua a existir (vazia). Apagar a própria tabela ou base de dados é o DROP.",
+    "manual": "3.7"
+  },
+  {
+    "id": "sql-123",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Com os dados de exemplo, o que acontece a esta instrução?",
+    "codigo": "DELETE FROM livros WHERE id_autor = 1;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Apaga 2 livros; depois disso o Saramago já pode ser apagado.",
+      "É recusada pelo ON DELETE RESTRICT.",
+      "Apaga só o primeiro livro que encontrar com id_autor = 1 e para.",
+      "Apaga 2 livros e também o autor 1."
+    ],
+    "correta": 0,
+    "explicacao": "O RESTRICT impede apagar o \"pai\" (autor), não os \"filhos\" (livros). Saem os 2 livros do Saramago e o autor fica sem livros, por isso já pode ser apagado.",
+    "manual": "3.3, 3.7"
+  },
+  {
+    "id": "sql-124",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Executas `DELETE FROM livros WHERE id_livro = 3;` duas vezes seguidas. O que acontece na segunda vez?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Dá erro, porque o livro 3 já não existe.",
+      "Não apaga nada (0 linhas afetadas) e não dá erro.",
+      "Apaga o livro 4, que passou a ter o id 3.",
+      "Volta a criar o livro 3 e apaga-o de novo."
+    ],
+    "correta": 1,
+    "explicacao": "Um WHERE que não encontra linhas não é erro: afeta 0 linhas. Os ids não mudam quando se apaga. É assim que livro_apagar.php sabe que \"O livro já não existia\".",
+    "manual": "12.6"
+  },
+  {
+    "id": "sql-125",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Com os dados de exemplo, corres este DELETE. Depois, quantos autores aparecem com 0 livros na lista de autores (LEFT JOIN + COUNT)?",
+    "codigo": "DELETE FROM livros WHERE ano_edicao < 1900;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Nenhum",
+      "1",
+      "2",
+      "4"
+    ],
+    "correta": 2,
+    "explicacao": "Saem Os Maias (1888) e Dom Casmurro (1899), os únicos livros de Eça e de Machado. Esses dois autores continuam na tabela e aparecem com 0 graças ao LEFT JOIN.",
+    "manual": "13.1, 3.5"
+  },
+  {
+    "id": "sql-126",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Com os dados de exemplo, quantos livros apaga esta instrução?",
+    "codigo": "DELETE FROM livros WHERE titulo LIKE '%a%';",
+    "linguagem": "sql",
+    "alternativas": [
+      "Nenhum",
+      "1",
+      "2",
+      "6"
+    ],
+    "correta": 3,
+    "explicacao": "Todos os 6 títulos têm pelo menos um \"a\" (sem distinguir maiúsculas). Um WHERE com LIKE pode apanhar muito mais do que parece; para apagar um livro usa-se o id.",
+    "manual": "3.7, 12.2"
+  },
+  {
+    "id": "sql-127",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Inseriste a autora Ana, que não tem livros. O que acontece a `DELETE FROM autores WHERE id_autor = 5;`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A Ana é apagada: o RESTRICT só impede apagar autores com livros.",
+      "É recusado: o RESTRICT impede apagar qualquer autor.",
+      "É recusado: é preciso apagar antes os livros de todos os autores.",
+      "A Ana é apagada e os livros dos outros autores ficam com NULL."
+    ],
+    "correta": 0,
+    "explicacao": "O ON DELETE RESTRICT só atua quando há livros a apontar para aquele autor. Sem livros, nada o impede.",
+    "manual": "3.3, 13.3"
+  },
+  {
+    "id": "sql-128",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Tentas registar um email que já existe numa coluna UNIQUE. Que erro aparece?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "1049 Unknown database",
+      "1062 Duplicate entry",
+      "2002 Connection refused",
+      "1451 Cannot delete or update a parent row"
+    ],
+    "correta": 1,
+    "explicacao": "Duplicate entry (1062, SQLSTATE 23000) = valor repetido num campo UNIQUE. O 1451 aparece quando a chave estrangeira impede apagar.",
+    "manual": "17.2"
+  },
+  {
+    "id": "sql-129",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Ao apagar um autor aparece \"SQLSTATE[23000] … 1451 Cannot delete or update a parent row\". O que quer dizer?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A FK impede apagar o \"pai\", que ainda tem livros.",
+      "O MySQL está desligado no XAMPP Control Panel.",
+      "O DELETE não tem WHERE e ia apagar todos os autores.",
+      "O autor já tinha sido apagado noutro separador."
+    ],
+    "correta": 0,
+    "explicacao": "O \"parent row\" é o autor; os livros são os \"filhos\". Com ON DELETE RESTRICT, a base de dados recusa e o código apanha o erro com try/catch.",
+    "manual": "17.2, 13.3"
+  },
+  {
+    "id": "sql-130",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "O que significa o código de erro 23000?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Ligação recusada, porque o MySQL está desligado.",
+      "Erro de sintaxe no SQL, como uma cláusula fora de ordem.",
+      "Página não encontrada no servidor.",
+      "Violação de uma regra: UNIQUE ou chave estrangeira."
+    ],
+    "correta": 3,
+    "explicacao": "23000 junta os casos em que uma regra da base de dados é violada: valor repetido num UNIQUE (1062) ou FK que impede a operação (1451).",
+    "manual": "8.5, 17.2"
+  },
+  {
+    "id": "sql-131",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Esta consulta dá \"SQLSTATE[42S22] … Unknown column\". Qual é a causa provável?",
+    "codigo": "SELECT id_livro, titlo FROM livros\nORDER BY titlo;",
+    "linguagem": "sql",
+    "alternativas": [
+      "O MySQL está desligado.",
+      "O nome de uma coluna está mal escrito no SQL.",
+      "O valor do título tem acentos.",
+      "A tabela livros ainda não tem nenhuma linha."
+    ],
+    "correta": 1,
+    "explicacao": "\"titlo\" não existe: é \"titulo\" mal escrito. A solução é comparar o SQL com o base_dados.sql.",
+    "manual": "17.2"
+  },
+  {
+    "id": "sql-132",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Aparece \"SQLSTATE[HY000] [1049] Unknown database 'biblioteca'\". O que fazes?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Ligas o MySQL no XAMPP Control Panel e recarregas a página.",
+      "Tiras a password do root no db.php.",
+      "Importas o base_dados.sql ou corriges o nome no db.php.",
+      "Corriges o nome da coluna no SELECT."
+    ],
+    "correta": 2,
+    "explicacao": "Unknown database = a base de dados não existe (não foi importada) ou o nome está errado. MySQL desligado é o 2002; utilizador ou password errados é o 1045.",
+    "manual": "17.2"
+  },
+  {
+    "id": "sql-133",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Na aplicação, \"José\" aparece como \"JosÃ©\". O que corrige o problema?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Trocar a coluna nome de VARCHAR(120) para TEXT.",
+      "Usar utf8mb4 em todo o percurso, do .sql à ligação.",
+      "Acrescentar ORDER BY nome ao SELECT dos autores.",
+      "Aplicar htmlspecialchars() ao nome antes de o gravar na base."
+    ],
+    "correta": 1,
+    "explicacao": "Acentos estragados vêm de gravar ou ler com a codificação errada. A solução é utf8mb4 em todo o percurso.",
+    "manual": "17.2, 3.5"
+  },
+  {
+    "id": "sql-134",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Aparece \"SQLSTATE[HY093]: Invalid parameter number\". Qual é a causa provável?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Um nome de coluna está mal escrito no SELECT ou no INSERT.",
+      "O MySQL está desligado.",
+      "O número de ? não bate certo com o número de valores.",
+      "Um valor repetido numa coluna UNIQUE."
+    ],
+    "correta": 2,
+    "explicacao": "Cada ? precisa de um valor, pela mesma ordem. A solução do manual é contar os dois.",
+    "manual": "17.2, 8.2"
+  },
+  {
+    "id": "sql-135",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Esta consulta deveria pesquisar livros pelo texto passado no lugar do ?. Qual é o problema?",
+    "codigo": "SELECT titulo FROM livros\nWHERE titulo LIKE '%?%';",
+    "linguagem": "sql",
+    "alternativas": [
+      "Entre plicas, o ? é texto normal; o SQL devia ser LIKE ?.",
+      "O LIKE não pode ser usado com % dos dois lados da palavra.",
+      "Falta ORDER BY, obrigatório numa pesquisa com LIKE.",
+      "O ? tem de ser escrito como :titulo."
+    ],
+    "correta": 0,
+    "explicacao": "Entre plicas, ? é um carácter normal. O SQL certo é LIKE ? e o valor passado é '%' . $q . '%', como em livros.php.",
+    "manual": "12.2, 8.4"
+  },
+  {
+    "id": "sql-136",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Qual destes erros indica que o MySQL está desligado no XAMPP?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "SQLSTATE[42S22] … Unknown column",
+      "SQLSTATE[23000] … 1062 Duplicate entry",
+      "SQLSTATE[HY000] [1049] Unknown database",
+      "SQLSTATE[HY000] [2002] … connection refused"
+    ],
+    "correta": 3,
+    "explicacao": "Connection refused (2002) = não há MySQL a responder: carrega em Start no MySQL do XAMPP Control Panel.",
+    "manual": "17.2"
+  },
+  {
+    "id": "sql-137",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "No SQL da Biblioteca aparecem `?`, como em `VALUES (?, ?)`. O que são?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Os lugares onde o programa põe os valores.",
+      "Colunas cujo nome ainda não se sabe.",
+      "Caracteres especiais do LIKE, como o %.",
+      "Valores opcionais que podem ficar vazios."
+    ],
+    "correta": 0,
+    "explicacao": "Os ? marcam onde entram os valores, que são enviados à parte. É isso que protege contra a injeção de SQL.",
+    "manual": "3.7"
+  },
+  {
+    "id": "sql-138",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Em livro_editar.php, que SQL corre no pedido GET, antes de se mostrar o formulário?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "INSERT INTO livros … VALUES (…)",
+      "DELETE FROM livros WHERE id_livro = ?",
+      "UPDATE livros SET … WHERE id_livro = ?",
+      "SELECT * FROM livros WHERE id_livro = ?"
+    ],
+    "correta": 3,
+    "explicacao": "No GET, a página lê o livro para preencher o formulário. O UPDATE só corre no POST, quando se gravam as alterações.",
+    "manual": "12.1, 12.5"
+  },
+  {
+    "id": "sql-139",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Que instruções SQL alteram dados e, por isso, só devem correr depois de um pedido POST?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "SELECT, INSERT, UPDATE e DELETE",
+      "INSERT, UPDATE e DELETE",
+      "SELECT, UPDATE e DELETE",
+      "SELECT, INSERT e UPDATE"
+    ],
+    "correta": 1,
+    "explicacao": "No mapa das páginas, gravar, alterar e apagar são todos POST. O SELECT só lê dados, por isso funciona com GET (lista, pesquisa, detalhe).",
+    "manual": "12.1, 4.4"
+  },
+  {
+    "id": "sql-140",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "CRUD são as quatro operações sobre uma tabela. Que instruções SQL lhes correspondem?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "CREATE DATABASE, SELECT, SET e DELETE",
+      "INSERT, SELECT, ALTER e DROP",
+      "INSERT, SELECT, UPDATE e DELETE",
+      "CREATE TABLE, SELECT, UPDATE e DROP"
+    ],
+    "correta": 2,
+    "explicacao": "Create = INSERT, Read = SELECT, Update = UPDATE, Delete = DELETE. CREATE TABLE e DROP mexem na estrutura, não nos dados.",
+    "manual": "12"
+  }
+]

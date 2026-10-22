@@ -60,11 +60,65 @@
             titulo: 'Bloco 3', subtitulo: BLOCOS.php.nome, total: 15, minutos: 20, minimo: 8, quotas: quotas('php'),
             descricao: 'PHP, include, PDO, redirecionar, passwords, sessões e controlo de acesso.'
         },
+        fracos: {
+            titulo: 'Pontos fracos', subtitulo: 'Treino adaptado a ti', total: 15, minutos: 20, minimo: 8, quotas: null,
+            descricao: 'Mais perguntas dos temas onde erras mais, calculado a partir das tuas respostas.'
+        },
         erradas: {
             titulo: 'Rever erradas', subtitulo: 'As que falhaste da última vez', total: 15, minutos: 20, minimo: 8, quotas: null,
             descricao: '15 perguntas que erraste da última vez que te saíram, de todos os temas.'
         }
     };
+
+    const MIN_RESPOSTAS_FRACOS = 10;
+    const MAX_POR_TEMA_FRACOS = 5;
+
+    // Taxa de erro por tema (suavizada, para um tema com poucas respostas não pesar demais)
+    function dificuldadePorTema(banco, estado) {
+        const t = {};
+        TEMAS.forEach(x => { t[x.nome] = { respondidas: 0, certas: 0, disponiveis: 0 }; });
+        banco.forEach(p => {
+            const s = t[p.tema];
+            if (!s) return;
+            s.disponiveis++;
+            const e = estado(p.id);
+            if (e) { s.respondidas += e.v; s.certas += e.c; }
+        });
+        Object.values(t).forEach(s => {
+            s.erro = (s.respondidas - s.certas + 1) / (s.respondidas + 2);
+        });
+        return t;
+    }
+
+    // Distribui as 15 perguntas pelos temas, em proporção ao quadrado da taxa de erro
+    function quotasFracos(banco, estado, total) {
+        const dif = dificuldadePorTema(banco, estado);
+        const temas = Object.keys(dif).filter(n => dif[n].disponiveis > 0);
+        const pesos = temas.map(n => dif[n].erro ** 2);
+        const soma = pesos.reduce((a, b) => a + b, 0) || 1;
+        const quotas = {};
+        let atribuidas = 0;
+        const restos = temas.map((n, i) => {
+            const exato = (pesos[i] / soma) * total;
+            quotas[n] = Math.min(Math.floor(exato), MAX_POR_TEMA_FRACOS, dif[n].disponiveis);
+            atribuidas += quotas[n];
+            return { n, resto: exato - Math.floor(exato), peso: pesos[i] };
+        }).sort((a, b) => b.resto - a.resto || b.peso - a.peso);
+        // Completa até ao total pelos temas mais fracos que ainda têm espaço
+        const porPeso = restos.slice().sort((a, b) => b.peso - a.peso);
+        for (const lista of [restos, porPeso, porPeso, porPeso, porPeso, porPeso]) {
+            for (const { n } of lista) {
+                if (atribuidas >= total) break;
+                if (quotas[n] < MAX_POR_TEMA_FRACOS && quotas[n] < dif[n].disponiveis) { quotas[n]++; atribuidas++; }
+            }
+        }
+        Object.keys(quotas).forEach(n => { if (!quotas[n]) delete quotas[n]; });
+        return quotas;
+    }
+
+    function totalRespondidas(banco, estado) {
+        return banco.reduce((s, p) => { const e = estado(p.id); return s + (e ? e.v : 0); }, 0);
+    }
 
     const ORDEM_DIFICULDADE = { facil: 0, media: 1, dificil: 2 };
 
@@ -102,7 +156,8 @@
                 .sort((a, b) => estado(a.id).t - estado(b.id).t);
             escolhidas = baralhar(erradas.slice(0, def.total));
         } else {
-            Object.entries(def.quotas).forEach(([tema, n]) => {
+            const quotas = tipo === 'fracos' ? quotasFracos(banco, estado, def.total) : def.quotas;
+            Object.entries(quotas).forEach(([tema, n]) => {
                 escolhidas = escolhidas.concat(escolher(banco.filter(p => p.tema === tema), n, estado));
             });
         }
@@ -123,5 +178,8 @@
         return banco.filter(p => { const e = estado(p.id); return e && e.u === false; }).length;
     }
 
-    window.Sorteio = { BLOCOS, TEMAS, TIPOS, sortear, contarErradas, baralhar };
+    window.Sorteio = {
+        BLOCOS, TEMAS, TIPOS, MIN_RESPOSTAS_FRACOS,
+        sortear, contarErradas, baralhar, dificuldadePorTema, quotasFracos, totalRespondidas
+    };
 })();

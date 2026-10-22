@@ -207,6 +207,7 @@ code, pre, kbd { font-family: var(--mono); }
 
 /* 4. Estrutura */
 main { flex: 1; width: 100%; max-width: var(--largura); margin: 0 auto; padding: 28px 20px 56px; outline: none; }
+main:focus, main:focus-visible { outline: none; }
 .rodape {
     border-top: 1px solid var(--linha); color: var(--texto-3); font-size: .88rem;
     text-align: center; padding: 22px 20px 28px;
@@ -342,8 +343,8 @@ kbd {
     background: var(--primaria); color: var(--primaria-texto); flex-shrink: 0;
 }
 .teste-ir svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-.teste.erradas { grid-column: span 12; flex-direction: row; align-items: center; }
-.teste.erradas .teste-corpo { flex: 1; }
+.teste.erradas, .teste.fracos { grid-column: span 6; }
+.teste.fracos .teste-icone { background: var(--aviso-fundo); color: var(--aviso); font-size: 1.3rem; }
 
 .continuar {
     display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
@@ -513,10 +514,10 @@ kbd {
 .lista-temas .barra { grid-column: 1 / -1; height: 8px; }
 .lista-temas .valor { font-weight: 700; font-variant-numeric: tabular-nums; font-size: .9rem; }
 .lista-temas .nome { font-weight: 600; font-size: .92rem; }
-.fracos { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
-.fracos li { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border-radius: 12px; background: var(--superficie-2); border: 1px solid var(--linha); }
-.fracos .n { width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; background: var(--errado-fundo); color: var(--errado); font-weight: 800; flex-shrink: 0; }
-.fracos p { margin: 0; font-size: .88rem; color: var(--texto-3); }
+.lista-fracos { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.lista-fracos li { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border-radius: 12px; background: var(--superficie-2); border: 1px solid var(--linha); }
+.lista-fracos .n { width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; background: var(--errado-fundo); color: var(--errado); font-weight: 800; flex-shrink: 0; }
+.lista-fracos p { margin: 0; font-size: .88rem; color: var(--texto-3); }
 
 .revisao { margin-top: 18px; }
 .filtros { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
@@ -590,11 +591,11 @@ dialog textarea {
     background: var(--superficie-2); color: var(--texto); font-family: var(--mono); font-size: .8rem;
 }
 .toast {
-    position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 140%); z-index: 50;
+    position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 200%); z-index: 50; visibility: hidden;
     background: var(--texto); color: var(--fundo); padding: 12px 20px; border-radius: 12px; font-weight: 650;
-    box-shadow: var(--sombra-forte); transition: transform .3s ease; max-width: calc(100% - 32px);
+    box-shadow: var(--sombra-forte); transition: transform .3s ease, visibility .3s; max-width: calc(100% - 32px);
 }
-.toast.visivel { transform: translate(-50%, 0); }
+.toast.visivel { transform: translate(-50%, 0); visibility: visible; }
 
 .confetes { position: fixed; inset: 0; pointer-events: none; z-index: 60; overflow: hidden; }
 .confetes i { position: absolute; top: -12px; width: 9px; height: 14px; border-radius: 2px; animation: cair linear forwards; }
@@ -617,7 +618,7 @@ dialog textarea {
     .teste, .teste.principal { grid-column: span 12; }
     .teste.principal { flex-direction: column; align-items: flex-start; }
     .teste.principal .teste-ir { display: none; }
-    .teste.erradas { flex-direction: column; align-items: flex-start; }
+    .teste.erradas, .teste.fracos { grid-column: span 12; }
     .pergunta-cartao { padding: 20px 16px; }
     .pergunta-texto { font-size: 1.06rem; }
     .resultado-topo { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: 24px 16px; }
