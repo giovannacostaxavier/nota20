@@ -1444,14 +1444,14 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "facil",
-    "pergunta": "Na Biblioteca, onde está o <script src=\"js/validacao.js\"> e porque chega a todos os formulários?",
-    "codigo": "",
-    "linguagem": "",
+    "pergunta": "Este é o includes/rodape.php da Biblioteca. Porque é que o validacao.js chega a todos os formulários?",
+    "codigo": "</main>\n<footer class=\"rodape\">\n    Biblioteca · Projeto UC00615 ·\n    <a href=\"privacidade.php\">Política de privacidade</a>\n</footer>\n<script src=\"js/validacao.js\"></script>\n</body>\n</html>",
+    "linguagem": "html",
     "alternativas": [
-      "No rodapé, que todas as páginas incluem.",
-      "No <head> do db.php, que todas as páginas usam.",
-      "Repetido dentro de cada <form> da aplicação.",
-      "No estilo.css, que o carrega com @import."
+      "Porque o rodapé, onde está o <script>, é incluído por todas as páginas.",
+      "Porque o db.php, incluído por todas as páginas, também o carrega.",
+      "Porque o browser repete o <script> dentro de cada <form>.",
+      "Porque o estilo.css o carrega com @import."
     ],
     "correta": 0,
     "explicacao": "O rodapé (rodape.php) é incluído por todas as páginas e carrega o script. O mesmo ficheiro serve todos os formulários.",

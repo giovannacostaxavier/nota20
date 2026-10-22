@@ -401,7 +401,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
     "pergunta": "Sabendo que a Sophia de Mello Breyner Andresen foi a segunda autora inserida, que títulos devolve esta consulta com os dados de exemplo?",
-    "codigo": "SELECT titulo FROM livros WHERE id_autor = 2;",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- autores\n-- id_autor | nome                             | nacionalidade\n-- 1        | José Saramago                    | Portuguesa\n-- 2        | Sophia de Mello Breyner Andresen | Portuguesa\n-- 3        | Eça de Queirós                   | Portuguesa\n-- 4        | Machado de Assis                 | Brasileira\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nSELECT titulo FROM livros WHERE id_autor = 2;",
     "linguagem": "sql",
     "alternativas": [
       "A Menina do Mar e O Cavaleiro da Dinamarca",
@@ -437,8 +437,8 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
     "pergunta": "Onde está guardada a informação de que \"Os Maias\" é de Eça de Queirós?",
-    "codigo": "",
-    "linguagem": "",
+    "codigo": "Dados de exemplo (base_dados.sql)\n\nautores\nid_autor | nome                             | nacionalidade\n1        | José Saramago                    | Portuguesa\n2        | Sophia de Mello Breyner Andresen | Portuguesa\n3        | Eça de Queirós                   | Portuguesa\n4        | Machado de Assis                 | Brasileira\n\nlivros\nid_livro | id_autor | titulo                   | isbn          | ano_edicao\n1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n5        | 3        | Os Maias                 | 9789722036597 | 1888\n6        | 4        | Dom Casmurro             | 9788535910681 | 1899",
+    "linguagem": "tabela",
     "alternativas": [
       "Na coluna id_autor da linha de \"Os Maias\", que vale 3.",
       "No id_livro de \"Os Maias\", que é igual ao id do autor.",
@@ -472,9 +472,9 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "facil",
-    "pergunta": "Na Biblioteca, o que acontece quando se tenta apagar um autor que ainda tem livros?",
-    "codigo": "",
-    "linguagem": "",
+    "pergunta": "Com a tabela livros criada assim, o que acontece quando se tenta apagar um autor que ainda tem livros?",
+    "codigo": "CREATE TABLE livros (\n    id_livro   INT AUTO_INCREMENT PRIMARY KEY,\n    id_autor   INT          NOT NULL,\n    titulo     VARCHAR(200) NOT NULL,\n    isbn       VARCHAR(13)  NULL UNIQUE,\n    ano_edicao SMALLINT     NULL,\n    sinopse    TEXT         NULL,\n    CONSTRAINT fk_livros_autores\n        FOREIGN KEY (id_autor) REFERENCES autores (id_autor)\n        ON DELETE RESTRICT\n);",
+    "linguagem": "sql",
     "alternativas": [
       "Apaga o autor e todos os livros dele.",
       "Apaga o autor e os livros ficam com id_autor a NULL.",
@@ -545,7 +545,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, o que acontece a esta instrução?",
-    "codigo": "DELETE FROM autores WHERE id_autor = 1;",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- autores\n-- id_autor | nome                             | nacionalidade\n-- 1        | José Saramago                    | Portuguesa\n-- 2        | Sophia de Mello Breyner Andresen | Portuguesa\n-- 3        | Eça de Queirós                   | Portuguesa\n-- 4        | Machado de Assis                 | Brasileira\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nDELETE FROM autores WHERE id_autor = 1;",
     "linguagem": "sql",
     "alternativas": [
       "Apaga o José Saramago e os livros dele ficam sem autor.",
@@ -563,7 +563,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Se a chave estrangeira fosse ON DELETE CASCADE, quantos livros ficavam depois desta instrução, com os dados de exemplo?",
-    "codigo": "DELETE FROM autores WHERE id_autor = 2;",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- autores\n-- id_autor | nome                             | nacionalidade\n-- 1        | José Saramago                    | Portuguesa\n-- 2        | Sophia de Mello Breyner Andresen | Portuguesa\n-- 3        | Eça de Queirós                   | Portuguesa\n-- 4        | Machado de Assis                 | Brasileira\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nDELETE FROM autores WHERE id_autor = 2;",
     "linguagem": "sql",
     "alternativas": [
       "Nenhum",
@@ -580,9 +580,9 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "Em autor_apagar.php, quem impede que se apague um autor que tem livros?",
-    "codigo": "",
-    "linguagem": "",
+    "pergunta": "Este é o fim do autor_apagar.php. Quem impede que se apague um autor que tem livros?",
+    "codigo": "try {\n    $stmt = $pdo->prepare('DELETE FROM autores WHERE id_autor = ?');\n    $stmt->execute([(int) ($_POST['id_autor'] ?? 0)]);\n    mensagem('sucesso', 'Autor apagado.');\n} catch (PDOException $e) {\n    mensagem('erro', 'Não é possível apagar este autor, porque tem livros registados.');\n}\nheader('Location: autores.php');\nexit;",
+    "linguagem": "php",
     "alternativas": [
       "A base de dados (ON DELETE RESTRICT); o PHP só apanha o erro.",
       "O JavaScript, com o confirm() do botão Apagar.",
@@ -689,7 +689,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, porque é que este INSERT falha?",
-    "codigo": "INSERT INTO livros (id_autor, titulo)\nVALUES (9, 'Livro de teste');",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nINSERT INTO livros (id_autor, titulo)\nVALUES (9, 'Livro de teste');",
     "linguagem": "sql",
     "alternativas": [
       "Não existe nenhum autor com id_autor = 9.",
@@ -707,7 +707,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo e a FK com ON DELETE RESTRICT, o que acontece a esta instrução?",
-    "codigo": "DELETE FROM autores;",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- autores\n-- id_autor | nome                             | nacionalidade\n-- 1        | José Saramago                    | Portuguesa\n-- 2        | Sophia de Mello Breyner Andresen | Portuguesa\n-- 3        | Eça de Queirós                   | Portuguesa\n-- 4        | Machado de Assis                 | Brasileira\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nDELETE FROM autores;",
     "linguagem": "sql",
     "alternativas": [
       "Apaga os 4 autores e deixa os livros sem autor.",
@@ -1265,7 +1265,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, que títulos devolve esta consulta?",
-    "codigo": "SELECT titulo FROM livros\nWHERE titulo LIKE '%mar%';",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nSELECT titulo FROM livros\nWHERE titulo LIKE '%mar%';",
     "linguagem": "sql",
     "alternativas": [
       "A Menina do Mar e O Cavaleiro da Dinamarca",
@@ -1319,7 +1319,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, quantos títulos começam pela letra indicada?",
-    "codigo": "SELECT titulo FROM livros\nWHERE titulo LIKE 'o%';",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- autores\n-- id_autor | nome                             | nacionalidade\n-- 1        | José Saramago                    | Portuguesa\n-- 2        | Sophia de Mello Breyner Andresen | Portuguesa\n-- 3        | Eça de Queirós                   | Portuguesa\n-- 4        | Machado de Assis                 | Brasileira\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nSELECT titulo FROM livros\nWHERE titulo LIKE 'o%';",
     "linguagem": "sql",
     "alternativas": [
       "Nenhuma",
@@ -1445,7 +1445,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, qual é o primeiro título que aparece?",
-    "codigo": "SELECT titulo FROM livros\nORDER BY ano_edicao;",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nSELECT titulo FROM livros\nORDER BY ano_edicao;",
     "linguagem": "sql",
     "alternativas": [
       "A Menina do Mar",
@@ -1463,8 +1463,8 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
     "pergunta": "A lista de livros usa `ORDER BY l.titulo`. Com os dados de exemplo, qual é o primeiro cartão?",
-    "codigo": "",
-    "linguagem": "",
+    "codigo": "Dados de exemplo (base_dados.sql)\n\nlivros\nid_livro | id_autor | titulo                   | isbn          | ano_edicao\n1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n5        | 3        | Os Maias                 | 9789722036597 | 1888\n6        | 4        | Dom Casmurro             | 9788535910681 | 1899",
+    "linguagem": "tabela",
     "alternativas": [
       "Os Maias",
       "A Menina do Mar",
@@ -1481,7 +1481,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, que título aparece em último lugar?",
-    "codigo": "SELECT titulo, ano_edicao FROM livros\nWHERE ano_edicao > 1950\nORDER BY ano_edicao DESC;",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nSELECT titulo, ano_edicao FROM livros\nWHERE ano_edicao > 1950\nORDER BY ano_edicao DESC;",
     "linguagem": "sql",
     "alternativas": [
       "Os Maias",
@@ -1535,7 +1535,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
     "pergunta": "Esta consulta verifica se o autor escolhido existe. Que valor devolve com os dados de exemplo, se o ? for 9?",
-    "codigo": "SELECT COUNT(*) FROM autores WHERE id_autor = ?;",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- autores\n-- id_autor | nome                             | nacionalidade\n-- 1        | José Saramago                    | Portuguesa\n-- 2        | Sophia de Mello Breyner Andresen | Portuguesa\n-- 3        | Eça de Queirós                   | Portuguesa\n-- 4        | Machado de Assis                 | Brasileira\n\nSELECT COUNT(*) FROM autores WHERE id_autor = ?;",
     "linguagem": "sql",
     "alternativas": [
       "0",
@@ -1589,7 +1589,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Quantos nomes devolve esta consulta com os dados de exemplo?",
-    "codigo": "SELECT nome FROM autores\nWHERE nacionalidade = 'portuguesa';",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- autores\n-- id_autor | nome                             | nacionalidade\n-- 1        | José Saramago                    | Portuguesa\n-- 2        | Sophia de Mello Breyner Andresen | Portuguesa\n-- 3        | Eça de Queirós                   | Portuguesa\n-- 4        | Machado de Assis                 | Brasileira\n\nSELECT nome FROM autores\nWHERE nacionalidade = 'portuguesa';",
     "linguagem": "sql",
     "alternativas": [
       "Nenhum",
@@ -1607,7 +1607,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
     "pergunta": "Com os dados de exemplo, que títulos devolve esta consulta?",
-    "codigo": "SELECT titulo FROM livros\nWHERE ano_edicao < 1900;",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nSELECT titulo FROM livros\nWHERE ano_edicao < 1900;",
     "linguagem": "sql",
     "alternativas": [
       "Nenhum: < não se usa com anos",
@@ -1679,7 +1679,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
     "pergunta": "Esta consulta junta a cada livro o seu autor. Quantas linhas tem o resultado, com os dados de exemplo?",
-    "codigo": "SELECT l.titulo, a.nome\nFROM livros l\nJOIN autores a ON l.id_autor = a.id_autor;",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- autores\n-- id_autor | nome                             | nacionalidade\n-- 1        | José Saramago                    | Portuguesa\n-- 2        | Sophia de Mello Breyner Andresen | Portuguesa\n-- 3        | Eça de Queirós                   | Portuguesa\n-- 4        | Machado de Assis                 | Brasileira\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nSELECT l.titulo, a.nome\nFROM livros l\nJOIN autores a ON l.id_autor = a.id_autor;",
     "linguagem": "sql",
     "alternativas": [
       "4",
@@ -1733,7 +1733,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Inseriste a autora Ana, sem livros. Com os 6 livros de exemplo, quantas linhas devolve esta consulta?",
-    "codigo": "SELECT a.nome, l.titulo\nFROM autores a\nJOIN livros l ON l.id_autor = a.id_autor;",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- autores\n-- id_autor | nome                             | nacionalidade\n-- 1        | José Saramago                    | Portuguesa\n-- 2        | Sophia de Mello Breyner Andresen | Portuguesa\n-- 3        | Eça de Queirós                   | Portuguesa\n-- 4        | Machado de Assis                 | Brasileira\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nSELECT a.nome, l.titulo\nFROM autores a\nJOIN livros l ON l.id_autor = a.id_autor;",
     "linguagem": "sql",
     "alternativas": [
       "4",
@@ -1769,7 +1769,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, que resultado dá esta consulta?",
-    "codigo": "SELECT a.nome, COUNT(l.id_livro) AS total_livros\nFROM autores a\nLEFT JOIN livros l ON l.id_autor = a.id_autor\nGROUP BY a.id_autor, a.nome;",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- autores\n-- id_autor | nome                             | nacionalidade\n-- 1        | José Saramago                    | Portuguesa\n-- 2        | Sophia de Mello Breyner Andresen | Portuguesa\n-- 3        | Eça de Queirós                   | Portuguesa\n-- 4        | Machado de Assis                 | Brasileira\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nSELECT a.nome, COUNT(l.id_livro) AS total_livros\nFROM autores a\nLEFT JOIN livros l ON l.id_autor = a.id_autor\nGROUP BY a.id_autor, a.nome;",
     "linguagem": "sql",
     "alternativas": [
       "4 linhas, todas com o total 6",
@@ -1859,7 +1859,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
     "pergunta": "Com os dados de exemplo, que título devolve esta consulta?",
-    "codigo": "SELECT l.titulo\nFROM livros l\nJOIN autores a ON l.id_autor = a.id_autor\nWHERE a.nome LIKE '%Assis%';",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- autores\n-- id_autor | nome                             | nacionalidade\n-- 1        | José Saramago                    | Portuguesa\n-- 2        | Sophia de Mello Breyner Andresen | Portuguesa\n-- 3        | Eça de Queirós                   | Portuguesa\n-- 4        | Machado de Assis                 | Brasileira\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nSELECT l.titulo\nFROM livros l\nJOIN autores a ON l.id_autor = a.id_autor\nWHERE a.nome LIKE '%Assis%';",
     "linguagem": "sql",
     "alternativas": [
       "Os Maias",
@@ -1913,7 +1913,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, qual é a primeira linha desta consulta?",
-    "codigo": "SELECT a.nome, COUNT(l.id_livro) AS total_livros\nFROM autores a\nLEFT JOIN livros l ON l.id_autor = a.id_autor\nGROUP BY a.id_autor, a.nome\nORDER BY a.nome;",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- autores\n-- id_autor | nome                             | nacionalidade\n-- 1        | José Saramago                    | Portuguesa\n-- 2        | Sophia de Mello Breyner Andresen | Portuguesa\n-- 3        | Eça de Queirós                   | Portuguesa\n-- 4        | Machado de Assis                 | Brasileira\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nSELECT a.nome, COUNT(l.id_livro) AS total_livros\nFROM autores a\nLEFT JOIN livros l ON l.id_autor = a.id_autor\nGROUP BY a.id_autor, a.nome\nORDER BY a.nome;",
     "linguagem": "sql",
     "alternativas": [
       "Sophia de Mello Breyner Andresen, 2",
@@ -1967,7 +1967,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, o que acontece a este INSERT?",
-    "codigo": "INSERT INTO livros (titulo, id_autor, isbn)\nVALUES ('Os Maias', 3, '9789722036597');",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nINSERT INTO livros (titulo, id_autor, isbn)\nVALUES ('Os Maias', 3, '9789722036597');",
     "linguagem": "sql",
     "alternativas": [
       "Substitui o \"Os Maias\" que já estava na tabela.",
@@ -1985,7 +1985,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, o que acontece a este INSERT?",
-    "codigo": "INSERT INTO livros (titulo, id_autor)\nVALUES ('Os Maias', 3);",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nINSERT INTO livros (titulo, id_autor)\nVALUES ('Os Maias', 3);",
     "linguagem": "sql",
     "alternativas": [
       "É recusado: já existe um livro com esse título.",
@@ -2039,7 +2039,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, o que faz esta instrução?",
-    "codigo": "UPDATE livros SET ano_edicao = 1990;",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nUPDATE livros SET ano_edicao = 1990;",
     "linguagem": "sql",
     "alternativas": [
       "Altera os 6 livros: todos ficam com 1990.",
@@ -2075,7 +2075,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, depois desta instrução, quantos livros tem a Sophia de Mello Breyner (autor 2)?",
-    "codigo": "UPDATE livros SET id_autor = 2\nWHERE id_autor = 1;",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- autores\n-- id_autor | nome                             | nacionalidade\n-- 1        | José Saramago                    | Portuguesa\n-- 2        | Sophia de Mello Breyner Andresen | Portuguesa\n-- 3        | Eça de Queirós                   | Portuguesa\n-- 4        | Machado de Assis                 | Brasileira\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nUPDATE livros SET id_autor = 2\nWHERE id_autor = 1;",
     "linguagem": "sql",
     "alternativas": [
       "Nenhum",
@@ -2129,7 +2129,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
     "pergunta": "Com os dados de exemplo, quantas linhas altera esta instrução?",
-    "codigo": "UPDATE livros SET sinopse = NULL\nWHERE id_autor = 1;",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nUPDATE livros SET sinopse = NULL\nWHERE id_autor = 1;",
     "linguagem": "sql",
     "alternativas": [
       "1",
@@ -2147,7 +2147,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, o que acontece a esta instrução?",
-    "codigo": "UPDATE livros SET isbn = '9789722036597'\nWHERE id_livro = 6;",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nUPDATE livros SET isbn = '9789722036597'\nWHERE id_livro = 6;",
     "linguagem": "sql",
     "alternativas": [
       "É recusada porque o ISBN não se pode alterar depois de criado.",
@@ -2201,7 +2201,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, o que acontece a esta instrução?",
-    "codigo": "DELETE FROM livros WHERE id_autor = 1;",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nDELETE FROM livros WHERE id_autor = 1;",
     "linguagem": "sql",
     "alternativas": [
       "Apaga 2 livros; depois disso o Saramago já pode ser apagado.",
@@ -2237,7 +2237,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, corres este DELETE. Depois, quantos autores aparecem com 0 livros na lista de autores (LEFT JOIN + COUNT)?",
-    "codigo": "DELETE FROM livros WHERE ano_edicao < 1900;",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- autores\n-- id_autor | nome                             | nacionalidade\n-- 1        | José Saramago                    | Portuguesa\n-- 2        | Sophia de Mello Breyner Andresen | Portuguesa\n-- 3        | Eça de Queirós                   | Portuguesa\n-- 4        | Machado de Assis                 | Brasileira\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nDELETE FROM livros WHERE ano_edicao < 1900;",
     "linguagem": "sql",
     "alternativas": [
       "Nenhum",
@@ -2255,7 +2255,7 @@
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
     "pergunta": "Com os dados de exemplo, quantos livros apaga esta instrução?",
-    "codigo": "DELETE FROM livros WHERE titulo LIKE '%a%';",
+    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nDELETE FROM livros WHERE titulo LIKE '%a%';",
     "linguagem": "sql",
     "alternativas": [
       "Nenhum",
