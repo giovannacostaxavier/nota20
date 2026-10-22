@@ -184,6 +184,7 @@ code, pre, kbd { font-family: var(--mono); }
 .logo-texto b { color: var(--primaria); }
 .menu { display: flex; gap: 4px; margin-left: auto; }
 .menu a {
+    white-space: nowrap;
     color: var(--texto-2); text-decoration: none; font-weight: 600; font-size: .95rem;
     padding: 8px 12px; border-radius: 10px;
 }
@@ -368,6 +369,9 @@ kbd {
 .barra.php span { background: var(--php); }
 
 /* 7. Simulado */
+.so-estreito { display: none; }
+.relogio-mini { display: none; font-variant-numeric: tabular-nums; font-weight: 750; }
+.relogio-mini.alerta { background: var(--errado-fundo); color: var(--errado); }
 .simulado { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 22px; align-items: start; }
 .simulado-topo {
     grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
@@ -604,7 +608,8 @@ dialog textarea {
 /* 12. Ecrãs médios e pequenos */
 @media (max-width: 960px) {
     .simulado { grid-template-columns: 1fr; }
-    .lateral { position: static; order: -1; flex-direction: row; flex-wrap: wrap; }
+    .lateral { position: static; flex-direction: row; flex-wrap: wrap; }
+    .relogio-mini { display: inline-flex; }
     .lateral > .cartao { flex: 1 1 260px; padding: 16px; }
     .teste { grid-column: span 6; }
 }
@@ -614,6 +619,11 @@ dialog textarea {
     .topo-dentro { padding: 10px 16px; gap: 10px; }
     .menu a { padding: 8px 9px; font-size: .88rem; }
     .logo-texto { display: none; }
+    .so-largo { display: none; }
+    .so-estreito { display: inline; }
+    .simulado-topo { gap: 8px; }
+    .simulado-topo h1 { font-size: 1.1rem; width: 100%; }
+    .simulado-topo [data-acao="sair"] { order: 5; }
     .hero { grid-template-columns: 1fr; }
     .teste, .teste.principal { grid-column: span 12; }
     .teste.principal { flex-direction: column; align-items: flex-start; }

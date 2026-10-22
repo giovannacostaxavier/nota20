@@ -326,6 +326,11 @@
         const restante = tentativa.limite ? tentativa.limite - tentativa.gasto : null;
         el.querySelector('.relogio-valor').textContent = tempo(restante ?? tentativa.gasto);
         el.classList.toggle('alerta', restante !== null && restante <= 300);
+        const mini = document.getElementById('relogio-mini');
+        if (mini) {
+            mini.textContent = (restante !== null ? '⏱ ' : '') + tempo(restante ?? tentativa.gasto);
+            mini.classList.toggle('alerta', restante !== null && restante <= 300);
+        }
     }
 
     function ecraSimulado() {
@@ -344,6 +349,7 @@
                     <h1>${esc(def.titulo)}</h1>
                     <span class="pilula">${esc(def.subtitulo)}</span>
                     <span class="pilula">${exame ? '⏱️ Modo exame' : '📖 Modo estudo'}</span>
+                    <span class="pilula relogio-mini" id="relogio-mini" aria-hidden="true">00:00</span>
                     <button class="botao pequeno fantasma" data-acao="sair" style="margin-left:auto">Sair</button>
                 </div>
                 <div class="progresso-linha" aria-hidden="true"><span id="barra-progresso"></span></div>
