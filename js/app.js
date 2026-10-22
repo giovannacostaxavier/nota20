@@ -65,7 +65,7 @@
 
     function realcar(raiz) {
         if (!window.hljs) return;
-        raiz.querySelectorAll('pre code[data-lang]').forEach(el => {
+        raiz.querySelectorAll('pre code[data-lang]:not([data-lang="tabela"])').forEach(el => {
             const lang = el.dataset.lang === 'html' ? 'xml' : el.dataset.lang;
             try {
                 el.innerHTML = window.hljs.highlight(el.textContent, { language: lang, ignoreIllegals: true }).value;
@@ -75,7 +75,7 @@
 
     function blocoCodigo(p) {
         if (!p.codigo) return '';
-        const nomes = { html: 'HTML', css: 'CSS', javascript: 'JavaScript', sql: 'SQL', php: 'PHP' };
+        const nomes = { html: 'HTML', css: 'CSS', javascript: 'JavaScript', sql: 'SQL', php: 'PHP', tabela: 'Tabela' };
         return `<div class="bloco-codigo">
             <div class="bloco-codigo-cabeca"><i></i><i></i><i></i>${nomes[p.linguagem] || 'Código'}</div>
             <pre><code data-lang="${esc(p.linguagem)}">${esc(p.codigo)}</code></pre>

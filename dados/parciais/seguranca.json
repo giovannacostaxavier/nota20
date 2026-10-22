@@ -148,9 +148,9 @@
     "bloco": "dados",
     "tema": "Segurança",
     "dificuldade": "media",
-    "pergunta": "Na tabela das seis medidas, onde está a validação no servidor?",
-    "codigo": "",
-    "linguagem": "",
+    "pergunta": "Na tabela das seis medidas do manual (em baixo), onde está a validação no servidor?",
+    "codigo": "Medida                   | Onde está na Biblioteca\n-------------------------+---------------------------------------------\nPasswords com hash       | password_hash() no registo, password_verify() no login\nConsultas preparadas     | Todas as consultas: prepare() + execute([...])\nValidação no servidor    | registo.php, validar_livro(), autor_form.php\nControlo de acesso       | includes/auth.php\nConsentimento no registo | Caixa desmarcada, verificada no servidor; data em consentimento_em\nPolítica de privacidade  | privacidade.php, com link no rodapé e no registo",
+    "linguagem": "tabela",
     "alternativas": [
       "No validacao.js, ligado no rodapé de todas as páginas.",
       "Nos atributos required e maxlength dos campos do formulário.",

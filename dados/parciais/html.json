@@ -220,9 +220,9 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "dificil",
-    "pergunta": "O cabeçalho da Biblioteca abre <html>, <body> e <main>. Uma página inclui o cabeçalho mas esquece-se de incluir o rodapé. O que fica a faltar no HTML enviado?",
-    "codigo": "",
-    "linguagem": "",
+    "pergunta": "O cabeçalho da Biblioteca abre <html>, <body> e <main>; o rodapé é o ficheiro em baixo. Uma página inclui o cabeçalho mas esquece-se de incluir o rodapé. O que fica a faltar no HTML enviado?",
+    "codigo": "</main>\n<footer class=\"rodape\">\n    Biblioteca · Projeto UC00615 ·\n    <a href=\"privacidade.php\">Política de privacidade</a>\n</footer>\n<script src=\"js/validacao.js\"></script>\n</body>\n</html>",
+    "linguagem": "html",
     "alternativas": [
       "Nada, porque o cabeçalho já fecha a página toda.",
       "Só o </html>; tudo o resto já vem do cabeçalho.",

@@ -26,7 +26,7 @@ export const TEMAS = {
 const PROIBIDAS = [/carjack/i, /\bcarros?\b/i, /\bmarcas?\b/i, /alugue/i, /\breservas?\b/i, /\bstand\b/i, /check-in/i];
 const OPCOES_PROIBIDAS = [/todas as (anteriores|opções)/i, /nenhuma das (anteriores|opções)/i];
 const DIFICULDADES = ['facil', 'media', 'dificil'];
-const LINGUAGENS = ['', 'html', 'css', 'javascript', 'sql', 'php'];
+const LINGUAGENS = ['', 'html', 'css', 'javascript', 'sql', 'php', 'tabela'];
 
 function palavras(texto) {
     return new Set(
