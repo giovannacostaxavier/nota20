@@ -1,0 +1,254 @@
+[
+  {
+    "id": "css-220",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Porque é que a regra .btn.secundario muda também a cor do texto, e não só o fundo?",
+    "codigo": ".btn {\n    background: #00713c;\n    color: #ffffff;\n}\n\n.btn.secundario {\n    background: #d5dbdf;\n    color: #1f2a30;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Porque um background sem color não chega a ser aplicado pelo browser.",
+      "Senão ficava o texto branco do .btn sobre o fundo cinzento claro, mal legível.",
+      "Porque os links com a classe secundario perdem a cor herdada do body.",
+      "Porque a cor #1f2a30 é a única que o browser consegue usar sobre fundos claros."
+    ],
+    "correta": 1,
+    "explicacao": "O .btn.secundario recebe tudo o que o .btn define, incluindo o texto branco. Como o fundo passa a cinzento claro, a regra troca também a cor do texto para escuro, para se conseguir ler.",
+    "manual": "5.2, Anexo A"
+  },
+  {
+    "id": "css-221",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Na página de detalhe, o <form> do botão Apagar é um elemento de bloco, mas aparece na mesma linha que os links Editar e Voltar. Porquê?",
+    "codigo": "/* CSS */\n.acoes {\n    display: flex;\n    gap: 10px;\n    align-items: center;\n}\n\n<!-- HTML -->\n<div class=\"acoes\">\n    <a href=\"livro_editar.php?id=3\" class=\"btn\">Editar</a>\n    <form method=\"post\" action=\"livro_apagar.php\"> ... </form>\n    <a href=\"livros.php\" class=\"btn secundario\">Voltar</a>\n</div>",
+    "linguagem": "css",
+    "alternativas": [
+      "Porque o <button> dentro do form tem display: inline-block.",
+      "Porque um <form> com method=\"post\" fica sempre na mesma linha do texto à volta.",
+      "Porque o gap: 10px obriga os elementos a ficarem lado a lado.",
+      "Porque o form é um filho da caixa .acoes, que tem display: flex."
+    ],
+    "correta": 3,
+    "explicacao": "Com display: flex, todos os filhos diretos de .acoes, incluindo o <form>, ficam lado a lado. O inline-block do botão não chegava, porque o form à volta dele continuaria a ocupar uma linha inteira.",
+    "manual": "5.4, 4.4, Anexo A"
+  },
+  {
+    "id": "css-222",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "No formulário do livro, que espaço fica entre a caixa da sinopse e o botão Guardar?",
+    "codigo": ".formulario {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n}\n\n.formulario button {\n    margin-top: 16px;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "16px, porque a margem do botão substitui o gap.",
+      "6px, porque o gap ganha à margem do botão.",
+      "22px, porque o gap e a margem do botão somam-se.",
+      "10px, porque o browser subtrai o gap à margem."
+    ],
+    "correta": 2,
+    "explicacao": "Num contentor flex, o gap é o espaço entre os filhos e a margem do botão acrescenta-se a esse espaço: 6px + 16px = 22px. É por isso que o botão fica mais afastado do que os campos entre si.",
+    "manual": "5.4, Anexo A"
+  },
+  {
+    "id": "css-223",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve a regra .tabela .acoes, que aparece no estilo.css depois da regra .acoes?",
+    "codigo": ".acoes {\n    display: flex;\n    gap: 10px;\n    align-items: center;\n    margin-top: 16px;\n}\n\n.tabela .acoes {\n    margin-top: 0;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Tira a margem de cima às ações da tabela e mantém-na no detalhe.",
+      "Tira a margem de cima a todas as caixas .acoes, em qualquer página.",
+      "Põe as ações da tabela uma por baixo da outra, em vez de lado a lado.",
+      "Esconde as ações da tabela, que só aparecem na página de detalhe."
+    ],
+    "correta": 0,
+    "explicacao": "O seletor .tabela .acoes só apanha as caixas .acoes que estão dentro de uma .tabela, e só muda o margin-top. Na página de detalhe, fora da tabela, os botões continuam com os 16px de margem e com o flex.",
+    "manual": "5.2, 5.3, Anexo A"
+  },
+  {
+    "id": "css-224",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "No telemóvel, os links do menu ficam com a letra um pouco mais pequena, mas nenhuma regra da media query fala em a. Porquê?",
+    "codigo": ".topo nav a {\n    color: #d5dbdf;\n    text-decoration: none;\n    white-space: nowrap;\n}\n\n@media (max-width: 600px) {\n    .topo nav {\n        gap: 12px;\n        font-size: 0.95rem;\n    }\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Porque o gap: 12px encolhe também o texto dos filhos.",
+      "Os links herdam o tamanho de letra do <nav>, que a media query muda.",
+      "Porque o white-space: nowrap reduz a letra quando falta espaço.",
+      "Porque o browser encolhe sozinho todos os links quando o ecrã é pequeno."
+    ],
+    "correta": 1,
+    "explicacao": "O tamanho de letra é herdado: como a regra .topo nav a não define font-size, os links ficam com o do <nav>, que no telemóvel passa a 0.95rem. O gap só muda o espaço entre os links.",
+    "manual": "5.5, Anexo A"
+  },
+  {
+    "id": "html-219",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "No menu do cabeçalho, o \"Olá, nome\" está dentro de um <span class=\"ola\">. Para que serve aqui o <span>?",
+    "codigo": "<nav>\n    <a href=\"livros.php\">Livros</a>\n    <a href=\"autores.php\">Autores</a>\n    <a href=\"conta.php\">A minha conta</a>\n    <span class=\"ola\">Olá, <?= htmlspecialchars($_SESSION['nome']) ?></span>\n    <a href=\"logout.php\">Sair</a>\n</nav>",
+    "linguagem": "php",
+    "alternativas": [
+      "Transforma o texto num link para a página da conta.",
+      "Põe o texto em negrito, como um título pequeno.",
+      "Envolve um pedaço de texto para lhe dar uma classe, sem criar um bloco.",
+      "Esconde o texto aos leitores de ecrã, porque é só uma decoração do menu."
+    ],
+    "correta": 2,
+    "explicacao": "O <span> não tem aspeto nem significado próprios: serve só para agrupar um pedaço de texto, na mesma linha, e dar-lhe uma classe. O estilo.css usa essa classe para lhe mudar a cor e o esconder no telemóvel.",
+    "manual": "9.2, 5.5"
+  },
+  {
+    "id": "html-222",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Um colega escreveu o botão do formulário sem o atributo type. O que acontece quando carregas nele?",
+    "codigo": "<form method=\"post\" action=\"livro_novo.php\" class=\"formulario\">\n    <label for=\"titulo\">Título</label>\n    <input type=\"text\" id=\"titulo\" name=\"titulo\">\n    <button>Guardar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "Nada acontece: sem type, o botão só reage a código JavaScript.",
+      "É enviado: dentro de um form, um botão sem type é submit.",
+      "A página é recarregada com GET, sem enviar o título.",
+      "O browser mostra um erro, porque o type é obrigatório."
+    ],
+    "correta": 1,
+    "explicacao": "Um <button> dentro de um <form> é do tipo submit quando não se indica outro, por isso envia o formulário. A Biblioteca escreve type=\"submit\" na mesma, para ficar claro o que o botão faz.",
+    "manual": "4.2"
+  },
+  {
+    "id": "php-213",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "facil",
+    "pergunta": "O que acontece quando o PHP executa este código?",
+    "codigo": "<?php\n$titulo = 'Os Maias';\necho $Titulo;",
+    "linguagem": "php",
+    "alternativas": [
+      "Aparece um aviso de variável indefinida: $Titulo e $titulo são diferentes.",
+      "Aparece Os Maias, porque o PHP ignora as maiúsculas nos nomes das variáveis.",
+      "Aparece o texto $Titulo, porque a variável não existe.",
+      "Aparece Os Maias, mas só se o ficheiro estiver gravado em UTF-8."
+    ],
+    "correta": 0,
+    "explicacao": "Nos nomes das variáveis, o PHP distingue maiúsculas de minúsculas: $Titulo nunca recebeu valor. O echo não escreve nada e aparece o aviso Undefined variable $Titulo.",
+    "manual": "7.2"
+  },
+  {
+    "id": "php-214",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "dificil",
+    "pergunta": "Este livro não tem ISBN, por isso a coluna veio NULL da base de dados. O que mostra este código?",
+    "codigo": "<?php\n$livro = ['titulo' => 'Os Maias', 'isbn' => null];\n\necho isset($livro['isbn']) ? 'tem ISBN' : 'sem ISBN';",
+    "linguagem": "php",
+    "alternativas": [
+      "tem ISBN, porque a chave isbn existe no array",
+      "Um aviso, porque o isset() não aceita valores NULL",
+      "sem ISBN, porque o isset() dá false quando o valor é NULL",
+      "Nada, porque o echo não escreve resultados de isset()"
+    ],
+    "correta": 2,
+    "explicacao": "O isset() só dá true se a variável existir e não for NULL. Aqui a chave isbn existe, mas vale NULL, por isso o resultado é false e aparece sem ISBN.",
+    "manual": "7.4, 7.2"
+  },
+  {
+    "id": "php-215",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "dificil",
+    "pergunta": "Esta linha está no cabecalho.php. O ?> do fim também fica dentro do comentário?",
+    "codigo": "<?php unset($_SESSION['msg']); // mostra-se uma vez e apaga-se ?>",
+    "linguagem": "php",
+    "alternativas": [
+      "Sim: o // comenta a linha toda, por isso o bloco PHP continua aberto.",
+      "Sim, e por isso o unset() também deixa de ser executado.",
+      "Não, mas o texto do comentário é enviado para o browser.",
+      "Não: o comentário // acaba no ?>, que fecha o bloco PHP normalmente."
+    ],
+    "correta": 3,
+    "explicacao": "Um comentário de uma linha termina no fim da linha ou no ?>, o que vier primeiro. O unset() corre, o comentário é ignorado e o ?> fecha o bloco, tal como se não houvesse comentário.",
+    "manual": "7.1, 9.2"
+  },
+  {
+    "id": "php-216",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "No livro_form.php, porque é que o título se escreve só com htmlspecialchars(), mas o ISBN leva também ?? ''?",
+    "codigo": "<input type=\"text\" id=\"titulo\" name=\"titulo\" maxlength=\"200\" required\n       value=\"<?= htmlspecialchars($livro['titulo']) ?>\">\n\n<input type=\"text\" id=\"isbn\" name=\"isbn\" maxlength=\"13\"\n       value=\"<?= htmlspecialchars($livro['isbn'] ?? '') ?>\">",
+    "linguagem": "php",
+    "alternativas": [
+      "Porque o ?? '' apaga os espaços que o utilizador pôs no ISBN.",
+      "Ao editar, o ISBN pode vir NULL da base de dados, e o título nunca.",
+      "Porque o htmlspecialchars() só aceita algarismos com o ?? ''.",
+      "Porque o ISBN tem maxlength e o ?? '' corta o que passar dos 13."
+    ],
+    "correta": 1,
+    "explicacao": "O ISBN é opcional e fica NULL quando não foi preenchido; ao editar, o $livro vem da base de dados com esse NULL. O ?? '' troca o NULL por um texto vazio antes do htmlspecialchars(). O título é obrigatório e nunca é NULL.",
+    "manual": "12.4, 12.5, 7.5"
+  },
+  {
+    "id": "pdo-205",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "dificil",
+    "pergunta": "O autor 99 não existe. Chega a este autor_apagar.php um pedido POST com id_autor=99. Que mensagem aparece na lista de autores?",
+    "codigo": "try {\n    $stmt = $pdo->prepare('DELETE FROM autores WHERE id_autor = ?');\n    $stmt->execute([(int) ($_POST['id_autor'] ?? 0)]);\n    mensagem('sucesso', 'Autor apagado.');\n} catch (PDOException $e) {\n    mensagem('erro', 'Não é possível apagar este autor, porque tem livros registados.');\n}\nheader('Location: autores.php');\nexit;",
+    "linguagem": "php",
+    "alternativas": [
+      "\"Não é possível apagar este autor...\", porque o DELETE falha.",
+      "\"O autor já não existia.\", porque o rowCount() dá 0.",
+      "\"Autor apagado.\", porque o DELETE não dá erro e o rowCount() não é visto.",
+      "Nenhuma, porque o execute() devolve false e a mensagem não é guardada."
+    ],
+    "correta": 2,
+    "explicacao": "Um DELETE que não encontra nenhuma linha não é um erro: apaga 0 linhas e não lança exceção. Como este ficheiro, ao contrário do livro_apagar.php, não verifica o rowCount(), mostra sempre \"Autor apagado.\".",
+    "manual": "13.3, 12.6, 8.2"
+  },
+  {
+    "id": "pdo-207",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "A tabela autores aceita a nacionalidade a NULL. Quantos autores novos ficam gravados depois deste código?",
+    "codigo": "$stmt = $pdo->prepare('INSERT INTO autores (nome) VALUES (?)');\n$stmt->execute(['Florbela Espanca']);\n$stmt->execute(['Miguel Torga']);",
+    "linguagem": "php",
+    "alternativas": [
+      "Dois: a mesma consulta preparada pode ser executada com outros valores.",
+      "Um só: o segundo execute() substitui o autor que o primeiro tinha gravado.",
+      "Um: o segundo execute() falha, porque o $stmt já foi usado.",
+      "Nenhum: falta o fetch() para o INSERT ficar gravado."
+    ],
+    "correta": 0,
+    "explicacao": "O prepare() prepara o SQL uma vez; cada execute() corre-o com os valores que recebe. Aqui são dois INSERT, um por execute().",
+    "manual": "8.2"
+  },
+  {
+    "id": "pdo-208",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Um colega escreveu esta consulta, com $id = 3. Qual é o problema?",
+    "codigo": "$stmt = $pdo->prepare('SELECT * FROM livros WHERE id_livro = ?');\n$stmt->execute($id);",
+    "linguagem": "php",
+    "alternativas": [
+      "O ? devia estar entre plicas, porque o id é um número.",
+      "Dá erro: o execute() recebe os valores dentro de um array, [$id].",
+      "Nenhum: com um só ?, o execute() aceita o valor sozinho.",
+      "Falta o (int): o execute() só aceita valores já convertidos."
+    ],
+    "correta": 1,
+    "explicacao": "O execute() recebe sempre um array com os valores pela ordem dos ?, mesmo que haja só um: execute([$id]). Com um número sozinho, o PHP dá erro.",
+    "manual": "8.2"
+  }
+]

@@ -1782,6 +1782,42 @@
     "manual": "4.3"
   },
   {
+    "id": "html-219",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "No menu do cabeçalho, o \"Olá, nome\" está dentro de um <span class=\"ola\">. Para que serve aqui o <span>?",
+    "codigo": "<nav>\n    <a href=\"livros.php\">Livros</a>\n    <a href=\"autores.php\">Autores</a>\n    <a href=\"conta.php\">A minha conta</a>\n    <span class=\"ola\">Olá, <?= htmlspecialchars($_SESSION['nome']) ?></span>\n    <a href=\"logout.php\">Sair</a>\n</nav>",
+    "linguagem": "php",
+    "alternativas": [
+      "Transforma o texto num link para a página da conta.",
+      "Põe o texto em negrito, como um título pequeno.",
+      "Envolve um pedaço de texto para lhe dar uma classe, sem criar um bloco.",
+      "Esconde o texto aos leitores de ecrã, porque é só uma decoração do menu."
+    ],
+    "correta": 2,
+    "explicacao": "O <span> não tem aspeto nem significado próprios: serve só para agrupar um pedaço de texto, na mesma linha, e dar-lhe uma classe. O estilo.css usa essa classe para lhe mudar a cor e o esconder no telemóvel.",
+    "manual": "9.2, 5.5"
+  },
+  {
+    "id": "html-222",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "Um colega escreveu o botão do formulário sem o atributo type. O que acontece quando carregas nele?",
+    "codigo": "<form method=\"post\" action=\"livro_novo.php\" class=\"formulario\">\n    <label for=\"titulo\">Título</label>\n    <input type=\"text\" id=\"titulo\" name=\"titulo\">\n    <button>Guardar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "Nada acontece: sem type, o botão só reage a código JavaScript.",
+      "É enviado: dentro de um form, um botão sem type é submit.",
+      "A página é recarregada com GET, sem enviar o título.",
+      "O browser mostra um erro, porque o type é obrigatório."
+    ],
+    "correta": 1,
+    "explicacao": "Um <button> dentro de um <form> é do tipo submit quando não se indica outro, por isso envia o formulário. A Biblioteca escreve type=\"submit\" na mesma, para ficar claro o que o botão faz.",
+    "manual": "4.2"
+  },
+  {
     "id": "amostra-002",
     "bloco": "web",
     "tema": "CSS",
@@ -3654,6 +3690,96 @@
     "manual": "5.4, Anexo A"
   },
   {
+    "id": "css-220",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Porque é que a regra .btn.secundario muda também a cor do texto, e não só o fundo?",
+    "codigo": ".btn {\n    background: #00713c;\n    color: #ffffff;\n}\n\n.btn.secundario {\n    background: #d5dbdf;\n    color: #1f2a30;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Porque um background sem color não chega a ser aplicado pelo browser.",
+      "Senão ficava o texto branco do .btn sobre o fundo cinzento claro, mal legível.",
+      "Porque os links com a classe secundario perdem a cor herdada do body.",
+      "Porque a cor #1f2a30 é a única que o browser consegue usar sobre fundos claros."
+    ],
+    "correta": 1,
+    "explicacao": "O .btn.secundario recebe tudo o que o .btn define, incluindo o texto branco. Como o fundo passa a cinzento claro, a regra troca também a cor do texto para escuro, para se conseguir ler.",
+    "manual": "5.2, Anexo A"
+  },
+  {
+    "id": "css-221",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "Na página de detalhe, o <form> do botão Apagar é um elemento de bloco, mas aparece na mesma linha que os links Editar e Voltar. Porquê?",
+    "codigo": "/* CSS */\n.acoes {\n    display: flex;\n    gap: 10px;\n    align-items: center;\n}\n\n<!-- HTML -->\n<div class=\"acoes\">\n    <a href=\"livro_editar.php?id=3\" class=\"btn\">Editar</a>\n    <form method=\"post\" action=\"livro_apagar.php\"> ... </form>\n    <a href=\"livros.php\" class=\"btn secundario\">Voltar</a>\n</div>",
+    "linguagem": "css",
+    "alternativas": [
+      "Porque o <button> dentro do form tem display: inline-block.",
+      "Porque um <form> com method=\"post\" fica sempre na mesma linha do texto à volta.",
+      "Porque o gap: 10px obriga os elementos a ficarem lado a lado.",
+      "Porque o form é um filho da caixa .acoes, que tem display: flex."
+    ],
+    "correta": 3,
+    "explicacao": "Com display: flex, todos os filhos diretos de .acoes, incluindo o <form>, ficam lado a lado. O inline-block do botão não chegava, porque o form à volta dele continuaria a ocupar uma linha inteira.",
+    "manual": "5.4, 4.4, Anexo A"
+  },
+  {
+    "id": "css-222",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "dificil",
+    "pergunta": "No formulário do livro, que espaço fica entre a caixa da sinopse e o botão Guardar?",
+    "codigo": ".formulario {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n}\n\n.formulario button {\n    margin-top: 16px;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "16px, porque a margem do botão substitui o gap.",
+      "6px, porque o gap ganha à margem do botão.",
+      "22px, porque o gap e a margem do botão somam-se.",
+      "10px, porque o browser subtrai o gap à margem."
+    ],
+    "correta": 2,
+    "explicacao": "Num contentor flex, o gap é o espaço entre os filhos e a margem do botão acrescenta-se a esse espaço: 6px + 16px = 22px. É por isso que o botão fica mais afastado do que os campos entre si.",
+    "manual": "5.4, Anexo A"
+  },
+  {
+    "id": "css-223",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve a regra .tabela .acoes, que aparece no estilo.css depois da regra .acoes?",
+    "codigo": ".acoes {\n    display: flex;\n    gap: 10px;\n    align-items: center;\n    margin-top: 16px;\n}\n\n.tabela .acoes {\n    margin-top: 0;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Tira a margem de cima às ações da tabela e mantém-na no detalhe.",
+      "Tira a margem de cima a todas as caixas .acoes, em qualquer página.",
+      "Põe as ações da tabela uma por baixo da outra, em vez de lado a lado.",
+      "Esconde as ações da tabela, que só aparecem na página de detalhe."
+    ],
+    "correta": 0,
+    "explicacao": "O seletor .tabela .acoes só apanha as caixas .acoes que estão dentro de uma .tabela, e só muda o margin-top. Na página de detalhe, fora da tabela, os botões continuam com os 16px de margem e com o flex.",
+    "manual": "5.2, 5.3, Anexo A"
+  },
+  {
+    "id": "css-224",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "No telemóvel, os links do menu ficam com a letra um pouco mais pequena, mas nenhuma regra da media query fala em a. Porquê?",
+    "codigo": ".topo nav a {\n    color: #d5dbdf;\n    text-decoration: none;\n    white-space: nowrap;\n}\n\n@media (max-width: 600px) {\n    .topo nav {\n        gap: 12px;\n        font-size: 0.95rem;\n    }\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Porque o gap: 12px encolhe também o texto dos filhos.",
+      "Os links herdam o tamanho de letra do <nav>, que a media query muda.",
+      "Porque o white-space: nowrap reduz a letra quando falta espaço.",
+      "Porque o browser encolhe sozinho todos os links quando o ecrã é pequeno."
+    ],
+    "correta": 1,
+    "explicacao": "O tamanho de letra é herdado: como a regra .topo nav a não define font-size, os links ficam com o do <nav>, que no telemóvel passa a 0.95rem. O gap só muda o espaço entre os links.",
+    "manual": "5.5, Anexo A"
+  },
+  {
     "id": "amostra-003",
     "bloco": "web",
     "tema": "JavaScript",
@@ -5452,6 +5578,114 @@
     "correta": 1,
     "explicacao": "Com preventDefault() o pedido não chega a sair e a página não recarrega, por isso os campos mantêm tudo. É quando o erro vem do servidor que a password aparece vazia, porque o registo não a volta a escrever no value.",
     "manual": "6.3, 4.2"
+  },
+  {
+    "id": "js-219",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "facil",
+    "pergunta": "Com o JavaScript desligado no browser, carregas no botão Apagar da página de um livro. O que acontece?",
+    "codigo": "<form method=\"post\" action=\"livro_apagar.php\"\n      onsubmit=\"return confirm('Apagar este livro?');\">\n    <input type=\"hidden\" name=\"id_livro\" value=\"3\">\n    <button type=\"submit\" class=\"perigo\">Apagar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "Aparece a janela na mesma, porque o confirm está no HTML.",
+      "Não aparece janela: o formulário é enviado e o livro é apagado.",
+      "O formulário não é enviado, porque o confirm não respondeu.",
+      "O servidor recusa o pedido, porque não veio confirmação."
+    ],
+    "correta": 1,
+    "explicacao": "O onsubmit é código JavaScript; desligado, o browser envia o formulário sem perguntar nada. A confirmação é só conforto, e o servidor não sabe se ela apareceu.",
+    "manual": "6.4, 6.1"
+  },
+  {
+    "id": "js-220",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "media",
+    "pergunta": "No formulário de um livro novo, preenches o título, escolhes o autor e escreves abc no ISBN. Com o JavaScript ligado, carregas em Guardar. O que acontece?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O validacao.js mostra \"O ISBN tem de ter 10 ou 13 algarismos.\"",
+      "O validacao.js mostra \"Preenche o campo \"ISBN (opcional)\".\"",
+      "O browser recusa o campo, porque o ISBN tem maxlength=\"13\".",
+      "Segue para o servidor, que mostra o erro do ISBN."
+    ],
+    "correta": 3,
+    "explicacao": "O validacao.js só tem regras para os campos required, o email, a password e o ano; não verifica o ISBN. É o validar_livro(), no servidor, que encontra o erro.",
+    "manual": "6.3, 12.4"
+  },
+  {
+    "id": "js-221",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "media",
+    "pergunta": "Na livro_editar.php, apagas o título do livro e carregas em Guardar, com o JavaScript ligado. O que acontece?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O pedido segue: o validacao.js só atua na criação de livros.",
+      "O pedido segue, e o título antigo fica guardado como estava.",
+      "O validacao.js mostra \"Preenche o campo \"Título\".\" e nada é enviado.",
+      "O validacao.js não atua, porque o título já tinha um valor."
+    ],
+    "correta": 2,
+    "explicacao": "A edição usa o mesmo livro_form.php da criação, com id=\"form-principal\" e o título com required. Por isso o validacao.js valida o formulário de edição tal como o de criação.",
+    "manual": "6.3, 12.5"
+  },
+  {
+    "id": "js-222",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "dificil",
+    "pergunta": "O servidor devolveu o formulário com \"Corrige o seguinte: Já existe um livro com esse ISBN.\". Agora apagas o título e carregas em Guardar, com o JavaScript ligado. O que vês?",
+    "codigo": "<?php if (!empty($erros)): ?>\n    <div class=\"msg erro\">\n        Corrige o seguinte:\n        <ul>...</ul>\n    </div>\n<?php endif; ?>\n<ul id=\"erros-js\" class=\"msg erro\"></ul>",
+    "linguagem": "php",
+    "alternativas": [
+      "As duas caixas: a do ISBN, do servidor, e a nova do título.",
+      "Só a caixa nova do título: a do servidor é apagada.",
+      "Só a caixa do ISBN, porque o servidor já tinha erros.",
+      "Nenhuma caixa: a página volta ao servidor e recarrega."
+    ],
+    "correta": 0,
+    "explicacao": "O caixa.innerHTML = '' só esvazia a lista #erros-js. A caixa do servidor é outro elemento, escrito pelo PHP, e fica lá até a página recarregar.",
+    "manual": "6.3, 9.4"
+  },
+  {
+    "id": "js-224",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "media",
+    "pergunta": "O validacao.js mostrou erros. Corriges tudo e carregas em Guardar. A caixa de erros desaparece, mas o código nunca faz caixa.style.display = 'none'. Porquê?",
+    "codigo": "if (erros.length > 0) {\n    event.preventDefault();\n    caixa.innerHTML = '';\n    // ... um <li> por erro ...\n    caixa.style.display = 'block';\n}",
+    "linguagem": "javascript",
+    "alternativas": [
+      "Porque o innerHTML = '' também esconde a caixa.",
+      "O browser carrega uma página nova, onde o CSS a esconde.",
+      "Porque a caixa vazia fica sempre invisível no ecrã.",
+      "Porque o preventDefault() esconde a caixa ao enviar."
+    ],
+    "correta": 1,
+    "explicacao": "Sem erros, o formulário é enviado e chega uma página nova. Nessa página a caixa #erros-js volta a começar com o display: none do CSS.",
+    "manual": "6.3, 9.4"
+  },
+  {
+    "id": "js-225",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "dificil",
+    "pergunta": "No teu projeto, a etiqueta do título ficou escrita em três linhas. O campo fica vazio. Para que serve o nome.trim() da última linha do excerto?",
+    "codigo": "<!-- a etiqueta: -->\n<label for=\"titulo\">\n    Título\n</label>\n\n// no validacao.js:\nconst nome = label ? label.textContent : campo.name;\nerros.push('Preenche o campo \"' + nome.trim() + '\".');",
+    "linguagem": "javascript",
+    "alternativas": [
+      "Para tirar os espaços do que o utilizador escreveu no campo.",
+      "Para o campo só com espaços contar como vazio.",
+      "Para a mensagem ficar Preenche o campo \"Título\", sem quebras.",
+      "Para converter o nome da etiqueta em minúsculas."
+    ],
+    "correta": 2,
+    "explicacao": "O textContent da etiqueta inclui as mudanças de linha e os espaços à volta de Título. O trim() tira-os, e a mensagem fica certa seja qual for a forma como a etiqueta foi escrita.",
+    "manual": "6.3"
   },
   {
     "id": "amostra-004",
@@ -9216,6 +9450,204 @@
     "manual": "3.7, 12.2"
   },
   {
+    "id": "sql-213",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Imagina que o livro_novo.php gravava o ISBN vazio como texto vazio ('') e não como NULL. Já existe um livro gravado assim, sem ISBN. Crias outro livro sem ISBN. O que acontece?",
+    "codigo": "-- Na tabela livros (base_dados.sql):\n--   isbn VARCHAR(13) NULL UNIQUE\n\nINSERT INTO livros (titulo, id_autor, isbn, ano_edicao, sinopse)\nVALUES ('Contos Exemplares', 2, '', NULL, NULL);",
+    "linguagem": "sql",
+    "alternativas": [
+      "É aceite, porque o ISBN é uma coluna opcional.",
+      "É recusado, porque a coluna isbn é NOT NULL.",
+      "É recusado: '' é um valor e o UNIQUE não o deixa repetir.",
+      "É aceite, e o MySQL troca o '' por NULL sozinho."
+    ],
+    "correta": 2,
+    "explicacao": "O UNIQUE deixa haver vários NULL, mas um texto vazio é um valor como outro qualquer, e o segundo '' é um valor repetido. É também por isso que o código grava os campos vazios como NULL (?: null).",
+    "manual": "3.4, 12.4"
+  },
+  {
+    "id": "sql-214",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Com os 6 livros de exemplo, apagas o livro 3 e depois crias um livro novo, sem indicar o id_livro. Que id_livro recebe o livro novo?",
+    "codigo": "DELETE FROM livros WHERE id_livro = 3;\n\nINSERT INTO livros (id_autor, titulo)\nVALUES (2, 'Contos Exemplares');",
+    "linguagem": "sql",
+    "alternativas": [
+      "7",
+      "3",
+      "6",
+      "0"
+    ],
+    "correta": 0,
+    "explicacao": "O AUTO_INCREMENT continua a seguir ao maior número já usado (6). O número de uma linha apagada não volta a ser dado, por isso o 3 fica sem livro.",
+    "manual": "3.2"
+  },
+  {
+    "id": "sql-215",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Em conta.php, a conta é apagada com DELETE FROM utilizadores WHERE id_utilizador = ?. A base de dados pode recusar este DELETE, como recusa apagar um autor com livros?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Sim, se o utilizador tiver criado livros na aplicação.",
+      "Não: nenhuma tabela tem uma chave estrangeira para utilizadores.",
+      "Sim, porque o ON DELETE RESTRICT vale para todas as tabelas.",
+      "Não, porque o DELETE de utilizadores não leva WHERE."
+    ],
+    "correta": 1,
+    "explicacao": "O RESTRICT está na chave estrangeira livros.id_autor e só protege os autores. Nenhuma tabela guarda o id de um utilizador (os livros nem registam quem os criou), por isso nada impede apagar a conta.",
+    "manual": "3.1, 3.3, 15.4"
+  },
+  {
+    "id": "sql-216",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Editas o livro 1 e só mudas a sinopse. O UPDATE da livro_editar.php volta a enviar todos os campos, incluindo o mesmo ISBN. O que acontece?",
+    "codigo": "-- Dados de exemplo (base_dados.sql), só as colunas usadas\n--\n-- id_livro | isbn\n-- 1        | 9789720046710\n-- 2        | 9789720046727\n\n-- isbn VARCHAR(13) NULL UNIQUE\n\nUPDATE livros\nSET sinopse = 'Nova sinopse.', isbn = '9789720046710'\nWHERE id_livro = 1;",
+    "linguagem": "sql",
+    "alternativas": [
+      "É recusado (Duplicate entry), porque esse ISBN já está na tabela.",
+      "É recusado, porque o ISBN não pode ser enviado num UPDATE.",
+      "É aceite, mas o ISBN do livro 1 passa a ficar NULL.",
+      "É aceite: o UNIQUE só compara com as outras linhas."
+    ],
+    "correta": 3,
+    "explicacao": "O ISBN repetido seria o de outro livro; aqui é o do próprio livro 1, que continua a ser o único com esse valor. Por isso editar um livro sem mexer no ISBN funciona.",
+    "manual": "3.4, 12.5"
+  },
+  {
+    "id": "sql-217",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Na lista de livros, escreves \"Saramago\" na caixa de pesquisa. Com os dados de exemplo, quantos cartões aparecem?",
+    "codigo": "SELECT l.id_livro, l.titulo, l.ano_edicao, a.nome AS autor\nFROM livros l\nJOIN autores a ON l.id_autor = a.id_autor\nWHERE l.titulo LIKE ?\nORDER BY l.titulo",
+    "linguagem": "sql",
+    "alternativas": [
+      "Dois: os dois livros do José Saramago.",
+      "Seis: com o JOIN, aparecem todos os livros.",
+      "Nenhum: a pesquisa só procura no título do livro.",
+      "Um: o primeiro livro do autor, por ordem do título."
+    ],
+    "correta": 2,
+    "explicacao": "O WHERE só aplica o LIKE a l.titulo. O nome do autor vem no resultado, mas não é pesquisado, e nenhum título tem a palavra Saramago.",
+    "manual": "12.2"
+  },
+  {
+    "id": "sql-218",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Com os dados de exemplo, alguém escreve este INSERT no phpMyAdmin, indicando o id_livro à mão. O que acontece?",
+    "codigo": "INSERT INTO livros (id_livro, id_autor, titulo)\nVALUES (1, 3, 'A Cidade e as Serras');",
+    "linguagem": "sql",
+    "alternativas": [
+      "É recusado: já existe um livro com a chave primária 1.",
+      "É aceite, e o Memorial do Convento passa a ser o livro 7.",
+      "É aceite, e o AUTO_INCREMENT troca o 1 pelo 7.",
+      "Substitui o Memorial do Convento pelo livro novo."
+    ],
+    "correta": 0,
+    "explicacao": "A chave primária não se pode repetir, e o id 1 já é do Memorial do Convento: o INSERT dá Duplicate entry. Por isso o id nunca se envia; deixa-se o AUTO_INCREMENT escolhê-lo.",
+    "manual": "3.2"
+  },
+  {
+    "id": "sql-220",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Há duas autoras diferentes com o nome Ana (ids 5 e 6), cada uma com um livro. Nesta consulta, alguém tirou o a.id_autor do GROUP BY. O que aparece para Ana?",
+    "codigo": "-- autores                 livros\n-- id_autor | nome         id_livro | id_autor\n-- 5        | Ana          7        | 5\n-- 6        | Ana          8        | 6\n\nSELECT a.nome, COUNT(l.id_livro) AS total_livros\nFROM autores a\nLEFT JOIN livros l ON l.id_autor = a.id_autor\nGROUP BY a.nome;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Duas linhas: Ana 1 e Ana 1.",
+      "Uma linha, Ana 1, só com a primeira autora.",
+      "Dá erro, porque há dois autores com o mesmo nome.",
+      "Uma só linha: Ana 2, com as duas autoras juntas."
+    ],
+    "correta": 3,
+    "explicacao": "O GROUP BY faz uma linha por cada valor diferente das colunas indicadas; só com o nome, as duas Anas caem no mesmo grupo. A coluna nome não é UNIQUE, e é por isso que se agrupa também pelo id_autor.",
+    "manual": "13.1, 3.4"
+  },
+  {
+    "id": "sql-221",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Importaste o base_dados.sql na segunda-feira e voltas a importá-lo na sexta. Que valor fica depois no consentimento_em do utilizador de teste?",
+    "codigo": "INSERT INTO utilizadores (nome, email, password_hash, consentimento_em) VALUES\n    ('Utilizador de teste', 'demo@biblioteca.pt', '$2y$12$...', NOW());",
+    "linguagem": "sql",
+    "alternativas": [
+      "A data e hora de segunda, que já estava guardada.",
+      "NULL, porque o utilizador não marcou nenhuma caixa.",
+      "A data e hora de sexta, quando o INSERT voltou a correr.",
+      "Uma data fixa, escrita dentro do próprio ficheiro."
+    ],
+    "correta": 2,
+    "explicacao": "O DROP DATABASE apaga tudo e o INSERT corre outra vez; o NOW() dá a data e hora do momento em que corre, ou seja, a da importação de sexta.",
+    "manual": "3.5"
+  },
+  {
+    "id": "sql-222",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Corriges o nome do autor 3 com esta instrução. Que nome aparece depois no cartão de \"Os Maias\", na lista de livros?",
+    "codigo": "UPDATE autores SET nome = 'Eça de Queiroz'\nWHERE id_autor = 3;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Eça de Queiroz: o livro guarda o id e o JOIN lê o nome atual.",
+      "Eça de Queirós, até alguém editar e voltar a gravar o livro.",
+      "Nenhum: o livro fica sem autor depois da alteração.",
+      "Nenhum: o RESTRICT recusa alterar um autor com livros."
+    ],
+    "correta": 0,
+    "explicacao": "A linha de \"Os Maias\" só tem id_autor = 3; o nome é lido da tabela autores em cada consulta. O ON DELETE RESTRICT trata de apagar autores, não de mudar o nome.",
+    "manual": "3.3, 3.7, 12.2"
+  },
+  {
+    "id": "sql-223",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Criaste alguns livros sem ISBN, que ficaram com o isbn a NULL. Que consulta os encontra?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "SELECT titulo FROM livros WHERE isbn = NULL;",
+      "SELECT titulo FROM livros WHERE isbn = '';",
+      "SELECT titulo FROM livros WHERE isbn IS NULL;",
+      "SELECT titulo FROM livros WHERE isbn = 0;"
+    ],
+    "correta": 2,
+    "explicacao": "NULL quer dizer \"sem valor\" e não é igual a nada, nem a si próprio: isbn = NULL nunca é verdade. Para o encontrar usa-se IS NULL. O '' e o 0 são valores, e os livros sem ISBN não os têm.",
+    "manual": "3.4"
+  },
+  {
+    "id": "sql-224",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "O execute() do PDO envia os valores como texto. Com os dados de exemplo, o que devolve esta consulta, com o ano entre plicas?",
+    "codigo": "SELECT titulo FROM livros\nWHERE ano_edicao = '1888';",
+    "linguagem": "sql",
+    "alternativas": [
+      "Os Maias: o MySQL converte o '1888' em número para comparar.",
+      "Nenhuma linha, porque o texto '1888' não é igual ao número 1888.",
+      "Dá erro, porque ano_edicao é numérico e recebeu um texto.",
+      "Todos os livros, porque o texto entre plicas não é comparado."
+    ],
+    "correta": 0,
+    "explicacao": "Ao comparar uma coluna numérica com um texto, o MySQL converte o texto em número. Por isso '1888' encontra Os Maias, e os valores do execute() funcionam nas colunas numéricas.",
+    "manual": "3.4, 8.2"
+  },
+  {
     "id": "amostra-007",
     "bloco": "dados",
     "tema": "Segurança",
@@ -12654,6 +13086,150 @@
     "manual": "7.3, 12.4"
   },
   {
+    "id": "php-213",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "facil",
+    "pergunta": "O que acontece quando o PHP executa este código?",
+    "codigo": "<?php\n$titulo = 'Os Maias';\necho $Titulo;",
+    "linguagem": "php",
+    "alternativas": [
+      "Aparece um aviso de variável indefinida: $Titulo e $titulo são diferentes.",
+      "Aparece Os Maias, porque o PHP ignora as maiúsculas nos nomes das variáveis.",
+      "Aparece o texto $Titulo, porque a variável não existe.",
+      "Aparece Os Maias, mas só se o ficheiro estiver gravado em UTF-8."
+    ],
+    "correta": 0,
+    "explicacao": "Nos nomes das variáveis, o PHP distingue maiúsculas de minúsculas: $Titulo nunca recebeu valor. O echo não escreve nada e aparece o aviso Undefined variable $Titulo.",
+    "manual": "7.2"
+  },
+  {
+    "id": "php-214",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "dificil",
+    "pergunta": "Este livro não tem ISBN, por isso a coluna veio NULL da base de dados. O que mostra este código?",
+    "codigo": "<?php\n$livro = ['titulo' => 'Os Maias', 'isbn' => null];\n\necho isset($livro['isbn']) ? 'tem ISBN' : 'sem ISBN';",
+    "linguagem": "php",
+    "alternativas": [
+      "tem ISBN, porque a chave isbn existe no array",
+      "Um aviso, porque o isset() não aceita valores NULL",
+      "sem ISBN, porque o isset() dá false quando o valor é NULL",
+      "Nada, porque o echo não escreve resultados de isset()"
+    ],
+    "correta": 2,
+    "explicacao": "O isset() só dá true se a variável existir e não for NULL. Aqui a chave isbn existe, mas vale NULL, por isso o resultado é false e aparece sem ISBN.",
+    "manual": "7.4, 7.2"
+  },
+  {
+    "id": "php-215",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "dificil",
+    "pergunta": "Esta linha está no cabecalho.php. O ?> do fim também fica dentro do comentário?",
+    "codigo": "<?php unset($_SESSION['msg']); // mostra-se uma vez e apaga-se ?>",
+    "linguagem": "php",
+    "alternativas": [
+      "Sim: o // comenta a linha toda, por isso o bloco PHP continua aberto.",
+      "Sim, e por isso o unset() também deixa de ser executado.",
+      "Não, mas o texto do comentário é enviado para o browser.",
+      "Não: o comentário // acaba no ?>, que fecha o bloco PHP normalmente."
+    ],
+    "correta": 3,
+    "explicacao": "Um comentário de uma linha termina no fim da linha ou no ?>, o que vier primeiro. O unset() corre, o comentário é ignorado e o ?> fecha o bloco, tal como se não houvesse comentário.",
+    "manual": "7.1, 9.2"
+  },
+  {
+    "id": "php-216",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "No livro_form.php, porque é que o título se escreve só com htmlspecialchars(), mas o ISBN leva também ?? ''?",
+    "codigo": "<input type=\"text\" id=\"titulo\" name=\"titulo\" maxlength=\"200\" required\n       value=\"<?= htmlspecialchars($livro['titulo']) ?>\">\n\n<input type=\"text\" id=\"isbn\" name=\"isbn\" maxlength=\"13\"\n       value=\"<?= htmlspecialchars($livro['isbn'] ?? '') ?>\">",
+    "linguagem": "php",
+    "alternativas": [
+      "Porque o ?? '' apaga os espaços que o utilizador pôs no ISBN.",
+      "Ao editar, o ISBN pode vir NULL da base de dados, e o título nunca.",
+      "Porque o htmlspecialchars() só aceita algarismos com o ?? ''.",
+      "Porque o ISBN tem maxlength e o ?? '' corta o que passar dos 13."
+    ],
+    "correta": 1,
+    "explicacao": "O ISBN é opcional e fica NULL quando não foi preenchido; ao editar, o $livro vem da base de dados com esse NULL. O ?? '' troca o NULL por um texto vazio antes do htmlspecialchars(). O título é obrigatório e nunca é NULL.",
+    "manual": "12.4, 12.5, 7.5"
+  },
+  {
+    "id": "php-218",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "dificil",
+    "pergunta": "O utilizador escreve o ISBN com hífenes, 978-9722036597. O que faz esta verificação de validar_livro()?",
+    "codigo": "if ($livro['isbn'] !== '' && !preg_match('/^[0-9]{10}([0-9]{3})?$/', $livro['isbn'])) {\n    $erros[] = 'O ISBN tem de ter 10 ou 13 algarismos.';\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Aceita-o: os hífenes são ignorados na contagem.",
+      "Junta o erro: o padrão só aceita algarismos.",
+      "Aceita-o, porque tem 13 algarismos no total.",
+      "Tira os hífenes e grava 9789722036597."
+    ],
+    "correta": 1,
+    "explicacao": "O padrão vai do ^ ao $ e só admite [0-9]: qualquer outro carácter, como o hífen, faz o preg_match() falhar e o erro é acrescentado. O código não tira nada ao texto.",
+    "manual": "12.4"
+  },
+  {
+    "id": "php-219",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "Com a mesma verificação do ISBN, o utilizador escreve 12 algarismos seguidos. Que acontece?",
+    "codigo": "preg_match('/^[0-9]{10}([0-9]{3})?$/', $livro['isbn'])",
+    "linguagem": "php",
+    "alternativas": [
+      "Passa, porque tem mais de 10 algarismos.",
+      "Passa, porque o grupo dos 3 últimos é opcional.",
+      "Junta o erro: só servem 10 ou 13 algarismos.",
+      "Junta o erro só se o ISBN já existir na base."
+    ],
+    "correta": 2,
+    "explicacao": "O padrão pede exatamente 10 algarismos e, opcionalmente, mais um grupo de exatamente 3. Com 12 sobram 2, que não formam o grupo de 3, e o $ obriga o texto a acabar ali.",
+    "manual": "12.4"
+  },
+  {
+    "id": "php-220",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "Um título tem exatamente 200 caracteres. Esta verificação junta o erro?",
+    "codigo": "if ($livro['titulo'] === '' || mb_strlen($livro['titulo']) > 200) {\n    $erros[] = 'O título é obrigatório e não pode ter mais de 200 caracteres.';\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Sim: 200 já passa do limite da coluna.",
+      "Sim, porque o mb_strlen() conta também o fim do texto.",
+      "Não, mas a base de dados corta o último carácter.",
+      "Não: 200 > 200 é falso e o título é aceite."
+    ],
+    "correta": 3,
+    "explicacao": "O limite é \"mais de 200\". Com 200 caracteres, mb_strlen() dá 200 e 200 > 200 é falso; como o título não está vazio, nenhuma das partes do || é verdadeira. Cabe à justa no VARCHAR(200).",
+    "manual": "7.4, 12.4"
+  },
+  {
+    "id": "php-221",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "facil",
+    "pergunta": "Na verificação do ISBN, o preg_match() compara o texto com um padrão. O que devolve quando o texto bate com o padrão?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "1, e por isso o !preg_match(...) fica falso.",
+      "O texto do ISBN já corrigido.",
+      "0, porque não encontrou nenhum erro.",
+      "A posição onde o padrão começa no texto."
+    ],
+    "correta": 0,
+    "explicacao": "O preg_match() devolve 1 quando encontra o padrão e 0 quando não encontra. Por isso a validação usa !preg_match(...): o erro só entra quando o ISBN não bate com o padrão.",
+    "manual": "12.4"
+  },
+  {
     "id": "amostra-010",
     "bloco": "php",
     "tema": "include e require",
@@ -14469,6 +15045,60 @@
     ],
     "correta": 0,
     "explicacao": "Cada fetch() dá a próxima linha do resultado. Por ordem alfabética, o primeiro é Eça de Queirós e o segundo, que fica em $segundo, é José Saramago.",
+    "manual": "8.2"
+  },
+  {
+    "id": "pdo-205",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "dificil",
+    "pergunta": "O autor 99 não existe. Chega a este autor_apagar.php um pedido POST com id_autor=99. Que mensagem aparece na lista de autores?",
+    "codigo": "try {\n    $stmt = $pdo->prepare('DELETE FROM autores WHERE id_autor = ?');\n    $stmt->execute([(int) ($_POST['id_autor'] ?? 0)]);\n    mensagem('sucesso', 'Autor apagado.');\n} catch (PDOException $e) {\n    mensagem('erro', 'Não é possível apagar este autor, porque tem livros registados.');\n}\nheader('Location: autores.php');\nexit;",
+    "linguagem": "php",
+    "alternativas": [
+      "\"Não é possível apagar este autor...\", porque o DELETE falha.",
+      "\"O autor já não existia.\", porque o rowCount() dá 0.",
+      "\"Autor apagado.\", porque o DELETE não dá erro e o rowCount() não é visto.",
+      "Nenhuma, porque o execute() devolve false e a mensagem não é guardada."
+    ],
+    "correta": 2,
+    "explicacao": "Um DELETE que não encontra nenhuma linha não é um erro: apaga 0 linhas e não lança exceção. Como este ficheiro, ao contrário do livro_apagar.php, não verifica o rowCount(), mostra sempre \"Autor apagado.\".",
+    "manual": "13.3, 12.6, 8.2"
+  },
+  {
+    "id": "pdo-207",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "A tabela autores aceita a nacionalidade a NULL. Quantos autores novos ficam gravados depois deste código?",
+    "codigo": "$stmt = $pdo->prepare('INSERT INTO autores (nome) VALUES (?)');\n$stmt->execute(['Florbela Espanca']);\n$stmt->execute(['Miguel Torga']);",
+    "linguagem": "php",
+    "alternativas": [
+      "Dois: a mesma consulta preparada pode ser executada com outros valores.",
+      "Um só: o segundo execute() substitui o autor que o primeiro tinha gravado.",
+      "Um: o segundo execute() falha, porque o $stmt já foi usado.",
+      "Nenhum: falta o fetch() para o INSERT ficar gravado."
+    ],
+    "correta": 0,
+    "explicacao": "O prepare() prepara o SQL uma vez; cada execute() corre-o com os valores que recebe. Aqui são dois INSERT, um por execute().",
+    "manual": "8.2"
+  },
+  {
+    "id": "pdo-208",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Um colega escreveu esta consulta, com $id = 3. Qual é o problema?",
+    "codigo": "$stmt = $pdo->prepare('SELECT * FROM livros WHERE id_livro = ?');\n$stmt->execute($id);",
+    "linguagem": "php",
+    "alternativas": [
+      "O ? devia estar entre plicas, porque o id é um número.",
+      "Dá erro: o execute() recebe os valores dentro de um array, [$id].",
+      "Nenhum: com um só ?, o execute() aceita o valor sozinho.",
+      "Falta o (int): o execute() só aceita valores já convertidos."
+    ],
+    "correta": 1,
+    "explicacao": "O execute() recebe sempre um array com os valores pela ordem dos ?, mesmo que haja só um: execute([$id]). Com um número sozinho, o PHP dá erro.",
     "manual": "8.2"
   },
   {
