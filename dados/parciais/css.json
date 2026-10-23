@@ -1,59 +1,5 @@
 [
   {
-    "id": "css-001",
-    "bloco": "web",
-    "tema": "CSS",
-    "dificuldade": "facil",
-    "pergunta": "Que linha liga uma folha de estilos externa à página?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "<link rel=\"stylesheet\" href=\"css/estilo.css\">",
-      "<style src=\"css/estilo.css\"></style>",
-      "<script href=\"css/estilo.css\"></script>",
-      "<css rel=\"stylesheet\" src=\"css/estilo.css\">"
-    ],
-    "correta": 0,
-    "explicacao": "Uma folha externa liga-se com <link rel=\"stylesheet\" href=\"...\">. O <style> não tem atributo src e o <script> serve para JavaScript.",
-    "manual": "5.1"
-  },
-  {
-    "id": "css-002",
-    "bloco": "web",
-    "tema": "CSS",
-    "dificuldade": "facil",
-    "pergunta": "Em que parte da página se põe o <link> da folha de estilos?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "No fim do <body>, junto ao <script>.",
-      "Dentro do <footer>, no rodapé.",
-      "Dentro do <head>, antes do <body>.",
-      "Depois de </html>, no fim do ficheiro."
-    ],
-    "correta": 2,
-    "explicacao": "O <link> vai no <head>: na Biblioteca está no cabecalho.php, a seguir ao <title>. Quem fica no fim do <body> é o <script> do JavaScript.",
-    "manual": "4.1, 5.1"
-  },
-  {
-    "id": "css-003",
-    "bloco": "web",
-    "tema": "CSS",
-    "dificuldade": "media",
-    "pergunta": "Queres mudar a cor de todos os botões da Biblioteca, em todas as páginas. O que tens de alterar?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "O atributo style de cada botão, página a página.",
-      "O cabecalho.php e o rodape.php, onde estão os botões.",
-      "Um bloco <style> no topo de cada ficheiro .php.",
-      "Só a regra dos botões no css/estilo.css."
-    ],
-    "correta": 3,
-    "explicacao": "Todas as páginas ligam o mesmo ficheiro externo, por isso o aspeto do site inteiro muda num só sítio. É uma das duas vantagens de ter o CSS fora das páginas.",
-    "manual": "5.1"
-  },
-  {
     "id": "css-004",
     "bloco": "web",
     "tema": "CSS",
@@ -160,24 +106,6 @@
     "correta": 3,
     "explicacao": "Com os estilos espalhados pelas páginas perde-se a grande vantagem do ficheiro externo: mudar o aspeto num só sítio (e o browser guardá-lo em cache).",
     "manual": "5.1"
-  },
-  {
-    "id": "css-010",
-    "bloco": "web",
-    "tema": "CSS",
-    "dificuldade": "media",
-    "pergunta": "Que linha do <head> faz a página adaptar-se à largura do telemóvel?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "<meta charset=\"UTF-8\">",
-      "<meta name=\"viewport\" ...>",
-      "<link rel=\"stylesheet\" media=\"mobile\">",
-      "<html lang=\"pt\">"
-    ],
-    "correta": 1,
-    "explicacao": "A meta viewport faz a página usar a largura real do ecrã do telemóvel. O charset trata dos acentos e o lang indica a língua.",
-    "manual": "4.1, 5.5"
   },
   {
     "id": "css-011",
@@ -576,24 +504,6 @@
     "manual": "5.2"
   },
   {
-    "id": "css-033",
-    "bloco": "web",
-    "tema": "CSS",
-    "dificuldade": "media",
-    "pergunta": "Que regras se aplicam a <div class=\"msg sucesso\">?",
-    "codigo": ".msg { padding: 12px 16px; border-left: 5px solid; }\n.msg.sucesso { background: #e6f4ec; }\n.msg.erro { background: #fdecea; }",
-    "linguagem": "css",
-    "alternativas": [
-      "Só .msg.sucesso.",
-      ".msg e .msg.sucesso.",
-      "Só .msg, a primeira classe do atributo.",
-      "As três, porque todas começam por .msg."
-    ],
-    "correta": 1,
-    "explicacao": "O elemento tem as classes msg e sucesso, por isso recebe a regra .msg e a .msg.sucesso. A .msg.erro exige a classe erro, que ele não tem.",
-    "manual": "5.2, 9.3"
-  },
-  {
     "id": "css-034",
     "bloco": "web",
     "tema": "CSS",
@@ -610,24 +520,6 @@
     "correta": 1,
     "explicacao": "O PHP escreve class=\"msg erro\" no HTML e o browser aplica-lhe as duas regras: .msg dá o espaçamento e a borda, .msg.erro dá o fundo vermelho. Ser mais específica só decide as propriedades em conflito, não apaga as outras.",
     "manual": "9.3, Anexo A"
-  },
-  {
-    "id": "css-035",
-    "bloco": "web",
-    "tema": "CSS",
-    "dificuldade": "facil",
-    "pergunta": "Quando se aplica a regra .btn:hover?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Depois de o utilizador clicar no elemento.",
-      "Quando a página acaba de carregar.",
-      "Quando o link já foi visitado.",
-      "Enquanto o rato está por cima do elemento."
-    ],
-    "correta": 3,
-    "explicacao": ":hover é uma pseudo-classe que só vale enquanto o rato está por cima. Na Biblioteca serve para o botão escurecer.",
-    "manual": "5.2"
   },
   {
     "id": "css-036",
@@ -700,42 +592,6 @@
     "correta": 2,
     "explicacao": "O asterisco é o seletor universal: escolhe todos os elementos. Por isso o box-sizing vale para a página inteira.",
     "manual": "Anexo A"
-  },
-  {
-    "id": "css-040",
-    "bloco": "web",
-    "tema": "CSS",
-    "dificuldade": "facil",
-    "pergunta": "Duas regras dão cores diferentes ao mesmo elemento. Qual é a ordem de força dos seletores, do mais forte para o mais fraco?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "classe, id, elemento.",
-      "id, classe, elemento.",
-      "elemento, classe, id.",
-      "id, elemento, classe."
-    ],
-    "correta": 1,
-    "explicacao": "Ganha a regra mais específica: o id ganha à classe e a classe ganha ao elemento.",
-    "manual": "5.3"
-  },
-  {
-    "id": "css-041",
-    "bloco": "web",
-    "tema": "CSS",
-    "dificuldade": "facil",
-    "pergunta": "Duas regras igualmente específicas dão valores diferentes à mesma propriedade. Qual ganha?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "A que aparece mais acima no ficheiro.",
-      "A que tem mais propriedades no bloco.",
-      "A que aparece mais abaixo no ficheiro.",
-      "Nenhuma: o browser usa o valor por omissão."
-    ],
-    "correta": 2,
-    "explicacao": "Em caso de empate na especificidade, ganha a última, a que está mais abaixo no ficheiro.",
-    "manual": "5.3"
   },
   {
     "id": "css-042",
@@ -844,24 +700,6 @@
     "correta": 1,
     "explicacao": "As regras somam-se: a caixa recebe o padding, a borda e o fundo das classes, e o display: none do id. Como nenhuma outra regra mexe no display, fica escondida até o JavaScript a mostrar.",
     "manual": "5.3, 6.2, Anexo A"
-  },
-  {
-    "id": "css-048",
-    "bloco": "web",
-    "tema": "CSS",
-    "dificuldade": "media",
-    "pergunta": "Duas regras com o mesmo seletor dão cores diferentes ao texto de .vazio. O que decide qual ganha?",
-    "codigo": ".vazio { color: #6b7780; }\n/* ... muitas linhas ... */\n.vazio { color: black; }",
-    "linguagem": "css",
-    "alternativas": [
-      "A posição: ganha a que está mais abaixo.",
-      "A cor mais escura ganha sempre.",
-      "A primeira, porque foi definida antes.",
-      "O browser mistura as duas cores."
-    ],
-    "correta": 0,
-    "explicacao": "Os seletores são iguais, por isso têm a mesma especificidade. Nesse caso ganha a regra que aparece mais abaixo no ficheiro.",
-    "manual": "5.3"
   },
   {
     "id": "css-049",
@@ -1296,24 +1134,6 @@
     "manual": "5.4"
   },
   {
-    "id": "css-073",
-    "bloco": "web",
-    "tema": "CSS",
-    "dificuldade": "facil",
-    "pergunta": "Queres os cartões dos livros lado a lado. Em que elemento pões display: flex?",
-    "codigo": "<div class=\"cartoes\">\n    <article class=\"cartao\">...</article>\n    <article class=\"cartao\">...</article>\n    <article class=\"cartao\">...</article>\n</div>",
-    "linguagem": "html",
-    "alternativas": [
-      "No contentor .cartoes.",
-      "Em cada .cartao.",
-      "No <body>.",
-      "No <h2> de cada cartão."
-    ],
-    "correta": 0,
-    "explicacao": "O flexbox aplica-se ao elemento que contém os outros: são os filhos dele que ficam lado a lado.",
-    "manual": "5.4"
-  },
-  {
     "id": "css-074",
     "bloco": "web",
     "tema": "CSS",
@@ -1419,24 +1239,6 @@
     ],
     "correta": 2,
     "explicacao": "Por omissão o flex põe os filhos em linha. Com flex-direction: column ficam em coluna, e o gap passa a ser o espaço vertical entre eles.",
-    "manual": "5.4"
-  },
-  {
-    "id": "css-080",
-    "bloco": "web",
-    "tema": "CSS",
-    "dificuldade": "media",
-    "pergunta": "Em flex: 1 1 260px, o que é o 260px?",
-    "codigo": ".cartao {\n    flex: 1 1 260px;\n}",
-    "linguagem": "css",
-    "alternativas": [
-      "O tamanho com que cada cartão começa.",
-      "A largura máxima de cada cartão.",
-      "O espaço entre os cartões.",
-      "A largura do ecrã a partir da qual há cartões."
-    ],
-    "correta": 0,
-    "explicacao": "O terceiro valor é o tamanho de partida: cada cartão começa com 260px e depois cresce para ocupar o espaço livre.",
     "manual": "5.4"
   },
   {
@@ -1779,24 +1581,6 @@
     ],
     "correta": 2,
     "explicacao": "Ctrl + Shift + M nas ferramentas de programador (F12) ativa o modo de dispositivo, onde escolhes um telemóvel. Ctrl + Shift + N abre uma janela anónima.",
-    "manual": "5.5"
-  },
-  {
-    "id": "css-100",
-    "bloco": "web",
-    "tema": "CSS",
-    "dificuldade": "media",
-    "pergunta": "No modo de dispositivo do browser escolhes um ecrã com 375px de largura. Que regras se aplicam?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "As de fora e também as da @media (max-width: 600px).",
-      "Só as regras dentro de @media (max-width: 600px).",
-      "Só as regras de fora da media query.",
-      "Nenhuma, até recarregares a página no telemóvel verdadeiro."
-    ],
-    "correta": 0,
-    "explicacao": "As regras de fora valem sempre; num ecrã até 600px juntam-se as da media query, que mudam só o que lá está escrito.",
     "manual": "5.5"
   }
 ]

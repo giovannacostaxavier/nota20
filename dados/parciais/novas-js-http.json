@@ -1,0 +1,452 @@
+[
+  {
+    "id": "js-201",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "facil",
+    "pergunta": "No fim do validacao.js, depois de mostrar os erros, o que faz a segunda linha deste excerto?",
+    "codigo": "caixa.style.display = 'block';\ncaixa.scrollIntoView({ behavior: 'smooth' });",
+    "linguagem": "javascript",
+    "alternativas": [
+      "Põe o cursor no primeiro campo que tem erro.",
+      "Recarrega a página e volta ao topo do formulário.",
+      "Desliza a página, suavemente, até a caixa ficar à vista.",
+      "Faz a caixa dos erros aparecer aos poucos, com uma animação."
+    ],
+    "correta": 2,
+    "explicacao": "scrollIntoView desloca a página até o elemento ficar visível; com behavior: 'smooth' o movimento é suave. Assim o utilizador vê os erros mesmo que a caixa esteja fora do ecrã.",
+    "manual": "6.3"
+  },
+  {
+    "id": "js-202",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "dificil",
+    "pergunta": "No registo, escreves Nome: Ana, Email: ana, Password: Demo1234 e não assinalas o consentimento. Qual é a primeira mensagem da lista de erros?",
+    "codigo": "form.querySelectorAll('[required]').forEach(function (campo) {\n    if (campo.type === 'checkbox') {\n        if (!campo.checked) {\n            erros.push('Tens de aceitar a política de privacidade.');\n        }\n    } else if (campo.value.trim() === '') {\n        // ... erros.push('Preenche o campo \"...\".');\n    }\n});\n\nconst email = document.getElementById('email');\nif (email && email.value !== '' && !email.value.includes('@')) {\n    erros.push('O email não parece válido.');\n}",
+    "linguagem": "javascript",
+    "alternativas": [
+      "Tens de aceitar a política de privacidade.",
+      "O email não parece válido.",
+      "Preenche o campo \"Email\".",
+      "A password tem de ter pelo menos 8 caracteres."
+    ],
+    "correta": 0,
+    "explicacao": "O ciclo dos campos required corre primeiro e apanha a caixa por assinalar; a regra do email só corre depois do ciclo. Por isso a mensagem do email vem em segundo lugar, apesar de o campo estar mais acima no formulário.",
+    "manual": "6.3"
+  },
+  {
+    "id": "js-203",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "dificil",
+    "pergunta": "No registo, preenches bem o nome e o email, assinalas o consentimento e na password escreves só cinco espaços. Quantas mensagens mostra o validacao.js?",
+    "codigo": "// o campo: <label for=\"password\">Password (mínimo 8 caracteres)</label>\n//           <input type=\"password\" id=\"password\" name=\"password\" required data-minimo=\"8\">\n} else if (campo.value.trim() === '') {\n    // ... erros.push('Preenche o campo \"' + nome.trim() + '\".');\n}\n// ...\nif (password && password.dataset.minimo && password.value !== '' && password.value.length < 8) {\n    erros.push('A password tem de ter pelo menos 8 caracteres.');\n}",
+    "linguagem": "javascript",
+    "alternativas": [
+      "Nenhuma: os espaços contam como caracteres.",
+      "Uma: Preenche o campo \"Password (mínimo 8 caracteres)\".",
+      "Uma: A password tem de ter pelo menos 8 caracteres.",
+      "Duas: a do campo por preencher e a dos 8 caracteres."
+    ],
+    "correta": 3,
+    "explicacao": "Com trim() os cinco espaços ficam vazios, por isso o ciclo dos required dá erro. A regra da password não usa trim(): o valor não é '' e tem 5 caracteres, menos de 8, por isso junta a segunda mensagem.",
+    "manual": "6.3"
+  },
+  {
+    "id": "js-204",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "media",
+    "pergunta": "A caixa do consentimento não tem atributo value. Se o validacao.js a tratasse como os outros campos, com campo.value.trim() === '', o que acontecia com ela por assinalar?",
+    "codigo": "<input type=\"checkbox\" id=\"consentimento\" name=\"consentimento\" required>",
+    "linguagem": "html",
+    "alternativas": [
+      "Dava sempre erro, mesmo depois de a assinalar.",
+      "Nunca dava erro: o value da caixa não fica vazio.",
+      "Dava erro, porque uma caixa por assinalar tem value ''.",
+      "O código parava com um erro, porque a caixa não tem value."
+    ],
+    "correta": 1,
+    "explicacao": "O value de uma checkbox não depende de estar assinalada (sem atributo value, vale 'on'). Por isso o validacao.js testa campo.checked para a caixa do consentimento.",
+    "manual": "6.3, 4.2"
+  },
+  {
+    "id": "js-205",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "facil",
+    "pergunta": "Segundo o manual, como desligas o JavaScript no browser para testar a validação no servidor?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "F12, Ctrl + Shift + P, escreves Disable JavaScript e Enter.",
+      "Ctrl + Shift + N, para abrir uma janela anónima sem JavaScript.",
+      "F12, separador Rede, e assinalas a opção Disable cache.",
+      "Ctrl + F5, que recarrega a página sem correr o JavaScript."
+    ],
+    "correta": 0,
+    "explicacao": "O manual manda abrir as ferramentas (F12), abrir a lista de comandos com Ctrl + Shift + P e escolher Disable JavaScript. A janela anónima só serve para testar sem sessão.",
+    "manual": "6.3"
+  },
+  {
+    "id": "js-206",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "media",
+    "pergunta": "O comentário no topo do validacao.js diz \"igual nas duas stacks\". Porque é que o mesmo ficheiro serve na Stack A (PHP) e na Stack B (Node.js)?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Porque o PHP e o Node.js sabem ambos executar ficheiros .js.",
+      "Porque o Apache converte o JavaScript para a linguagem do servidor.",
+      "Porque corre no browser e só mexe no HTML que lá chega.",
+      "Porque as duas stacks usam a mesma base de dados MySQL."
+    ],
+    "correta": 2,
+    "explicacao": "O validacao.js corre no browser, sobre a página recebida. Ao browser só chega HTML, CSS e JavaScript, seja qual for a linguagem que gerou a página no servidor.",
+    "manual": "6.3, 1.4"
+  },
+  {
+    "id": "js-207",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "facil",
+    "pergunta": "Em que ficheiro da Biblioteca está a caixa <ul id=\"erros-js\">, onde o validacao.js escreve os erros?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "No includes/rodape.php, ao lado do <script>.",
+      "No includes/erros.php, incluído por todos os formulários.",
+      "Em nenhum: é criada pelo validacao.js quando há erros.",
+      "No includes/cabecalho.php, logo a seguir ao menu."
+    ],
+    "correta": 1,
+    "explicacao": "A última linha do includes/erros.php é <ul id=\"erros-js\" class=\"msg erro\"></ul>. Como todos os formulários incluem esse ficheiro, a caixa existe em todas as páginas com formulário.",
+    "manual": "9.4, 6.3"
+  },
+  {
+    "id": "js-208",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "media",
+    "pergunta": "No teu projeto acrescentas este campo obrigatório ao formulário principal. O que tens de mudar no validacao.js para dar erro quando fica vazio?",
+    "codigo": "<label for=\"editora\">Editora</label>\n<input type=\"text\" id=\"editora\" name=\"editora\" required>",
+    "linguagem": "html",
+    "alternativas": [
+      "Uma regra nova com getElementById('editora').",
+      "Acrescentar 'editora' a uma lista de campos obrigatórios.",
+      "Um addEventListener próprio para o campo novo.",
+      "Nada: o ciclo dos [required] já o verifica."
+    ],
+    "correta": 3,
+    "explicacao": "O validacao.js percorre todos os campos com required do formulário, por isso o campo novo entra sozinho, com a mensagem Preenche o campo \"Editora\". Só as regras específicas (email, password, ano) precisam de código próprio.",
+    "manual": "6.3"
+  },
+  {
+    "id": "js-210",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "dificil",
+    "pergunta": "O computador do utilizador tem a data errada: acha que está em 2024, mas já estamos em 2026. Ele escreve 2025 no ano de edição. O que faz esta regra?",
+    "codigo": "const ano = document.getElementById('ano_edicao');\nconst anoAtual = new Date().getFullYear();\nif (ano && ano.value !== '' && (ano.value < 1450 || ano.value > anoAtual)) {\n    erros.push('O ano tem de estar entre 1450 e ' + anoAtual + '.');\n}",
+    "linguagem": "javascript",
+    "alternativas": [
+      "Aceita: o ano atual vem do servidor, que tem a data certa.",
+      "Recusa: \"O ano tem de estar entre 1450 e 2024.\"",
+      "Recusa: \"O ano tem de estar entre 1450 e 2026.\"",
+      "Aceita: getFullYear() lê o ano da internet, não do computador."
+    ],
+    "correta": 1,
+    "explicacao": "new Date() corre no browser e usa o relógio do computador do utilizador, por isso anoAtual fica 2024 e 2025 é maior. O servidor, com date('Y'), aceitaria o ano.",
+    "manual": "6.3, 1.4"
+  },
+  {
+    "id": "js-211",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "facil",
+    "pergunta": "Em form.addEventListener('submit', function (event) { ... }), o que é event?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Um objeto sobre o evento, que o browser passa à função.",
+      "O nome do evento, ou seja, o texto 'submit'.",
+      "O formulário com id=\"form-principal\".",
+      "A lista dos erros encontrados na validação."
+    ],
+    "correta": 0,
+    "explicacao": "Quando o evento acontece, o browser chama a função e passa-lhe um objeto com os dados do evento. É através dele que se chama event.preventDefault().",
+    "manual": "6.2"
+  },
+  {
+    "id": "js-212",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "media",
+    "pergunta": "O formulário de login tem id=\"form-principal\" e este campo. Escreves ana.gmail.com e uma password. O validacao.js mostra \"O email não parece válido.\"?",
+    "codigo": "<label for=\"email\">Email</label>\n<input type=\"email\" id=\"email\" name=\"email\" required>",
+    "linguagem": "html",
+    "alternativas": [
+      "Não: essa regra é só para o formulário de registo.",
+      "Não: no login só se verificam os campos vazios.",
+      "Não: o login é validado só pelo servidor.",
+      "Sim: a regra atua em qualquer página com id=\"email\"."
+    ],
+    "correta": 3,
+    "explicacao": "O mesmo validacao.js serve todos os formulários, e a regra do email só depende de existir um campo com id=\"email\". Como o texto não tem @, a mensagem aparece também no login.",
+    "manual": "6.3"
+  },
+  {
+    "id": "js-213",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "facil",
+    "pergunta": "Neste ciclo do validacao.js, o que é campo?",
+    "codigo": "form.querySelectorAll('[required]').forEach(function (campo) {\n    // ...\n});",
+    "linguagem": "javascript",
+    "alternativas": [
+      "A lista inteira dos campos com required.",
+      "Cada campo com required, um de cada vez.",
+      "O nome (name) do campo que está a ser lido.",
+      "O primeiro campo com required do formulário."
+    ],
+    "correta": 1,
+    "explicacao": "O forEach chama a função uma vez por cada elemento da lista e passa-lhe esse elemento em campo. Por isso campo.type e campo.value referem-se ao campo da volta atual.",
+    "manual": "6.3"
+  },
+  {
+    "id": "js-214",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "media",
+    "pergunta": "O que acontece quando se clica neste link?",
+    "codigo": "// na página: <a href=\"livros.php\" id=\"ir\">Ver livros</a>\ndocument.getElementById('ir').addEventListener('click', function (event) {\n    event.preventDefault();\n});",
+    "linguagem": "javascript",
+    "alternativas": [
+      "Abre livros.php: o preventDefault só atua em formulários.",
+      "Abre livros.php e depois volta à página onde estava.",
+      "Dá erro, porque um link não tem o evento click.",
+      "Nada: o browser não segue o link."
+    ],
+    "correta": 3,
+    "explicacao": "preventDefault() cancela o comportamento normal de qualquer evento; no clique de um link, o normal é abrir o endereço. No validacao.js é o mesmo, aplicado ao envio do formulário.",
+    "manual": "6.2"
+  },
+  {
+    "id": "js-215",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "media",
+    "pergunta": "Qual destas instruções obtém o mesmo elemento que document.getElementById('erros-js')?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "document.querySelector('#erros-js')",
+      "document.querySelector('erros-js')",
+      "document.getElementById('#erros-js')",
+      "document.querySelectorAll('#erros-js')"
+    ],
+    "correta": 0,
+    "explicacao": "querySelector recebe um seletor CSS e devolve o primeiro elemento que corresponde; para um id, o seletor leva #. No getElementById passa-se só o id, sem #, e o querySelectorAll devolve uma lista, não o elemento.",
+    "manual": "6.2, 5.2"
+  },
+  {
+    "id": "js-216",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "dificil",
+    "pergunta": "No teu projeto mudas o campo para data-minimo=\"10\" e não mexes no validacao.js. Qual é a password mais curta que o browser aceita?",
+    "codigo": "// o campo: <input type=\"password\" id=\"password\" name=\"password\" required data-minimo=\"10\">\nif (password && password.dataset.minimo && password.value !== '' && password.value.length < 8) {\n    erros.push('A password tem de ter pelo menos 8 caracteres.');\n}",
+    "linguagem": "javascript",
+    "alternativas": [
+      "Uma com 10 caracteres, o valor do data-minimo.",
+      "Uma com 11 caracteres, porque a regra usa <.",
+      "Uma com 8 caracteres: o 8 está fixo na regra.",
+      "Nenhuma: com 10, a regra dá sempre erro."
+    ],
+    "correta": 2,
+    "explicacao": "A regra só verifica se o data-minimo existe; o mínimo comparado é o 8 escrito no código. Para exigir 10 era preciso mudar também o número na regra.",
+    "manual": "6.3"
+  },
+  {
+    "id": "js-217",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "facil",
+    "pergunta": "Que três funções de JavaScript tem o projeto de usar para validar no browser, segundo o dossier e o resumo do manual?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "querySelectorAll, innerHTML e alert().",
+      "getElementById, appendChild e confirm().",
+      "createElement, textContent e submit().",
+      "getElementById, addEventListener e preventDefault()."
+    ],
+    "correta": 3,
+    "explicacao": "A matéria obrigatória pede JavaScript para validar no browser com getElementById, addEventListener e preventDefault(), as mesmas que o manual resume no Anexo B.",
+    "manual": "6.2, Anexo B"
+  },
+  {
+    "id": "js-218",
+    "bloco": "web",
+    "tema": "JavaScript",
+    "dificuldade": "media",
+    "pergunta": "No registo, escreves o nome, o email e a password, mas não assinalas o consentimento. O validacao.js mostra o erro. O que acontece ao que escreveste?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Ficam o nome e o email; a password tem de ser escrita de novo.",
+      "Fica tudo, password incluída: a página não recarrega.",
+      "Os campos ficam vazios, porque a página é mostrada de novo.",
+      "Fica só o que o servidor devolve no atributo value."
+    ],
+    "correta": 1,
+    "explicacao": "Com preventDefault() o pedido não chega a sair e a página não recarrega, por isso os campos mantêm tudo. É quando o erro vem do servidor que a password aparece vazia, porque o registo não a volta a escrever no value.",
+    "manual": "6.3, 4.2"
+  },
+  {
+    "id": "http-202",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "Abres livros.php com o separador Rede (F12) aberto. Que pedidos aparecem?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Um só: o HTML já leva o CSS e o JavaScript dentro.",
+      "Um POST para livros.php e um GET para cada ficheiro.",
+      "Um GET para a página e um para cada ficheiro ligado (CSS, JS).",
+      "Um GET para livros.php e outro para o MySQL."
+    ],
+    "correta": 2,
+    "explicacao": "O HTML só diz onde estão o css/estilo.css e o js/validacao.js; o browser faz depois um pedido GET para cada um. O MySQL nunca recebe pedidos do browser.",
+    "manual": "1.3, 9.2"
+  },
+  {
+    "id": "http-203",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "No separador Rede vês livros.php → 200 e css/estilo.css → 404. O que aparece no ecrã?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A página de erro Not Found, em vez da lista.",
+      "A lista de livros, mas sem as cores e o layout.",
+      "Uma página em branco, porque um dos pedidos falhou.",
+      "A lista com estilos, porque o CSS já estava no HTML."
+    ],
+    "correta": 1,
+    "explicacao": "Cada ficheiro tem o seu pedido e o seu código de estado. A página chegou bem (200); só a folha de estilos não foi encontrada (404), por isso o conteúdo aparece sem estilos.",
+    "manual": "1.3, 5.1"
+  },
+  {
+    "id": "http-206",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Envias o registo com erros, a página volta com eles e o endereço é registo.php. Guardas nos favoritos e, mais tarde, abres o favorito. O que vês?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O formulário vazio: o favorito faz um GET, sem os dados.",
+      "O formulário com os mesmos erros e os valores escritos.",
+      "O aviso \"Confirmar reenvio do formulário\" antes de abrir.",
+      "A conta criada, porque o favorito repete o envio."
+    ],
+    "correta": 0,
+    "explicacao": "Um favorito guarda só o endereço, e abri-lo é um pedido GET. Os dados iam no corpo do POST, por isso não ficam guardados e o registo.php mostra o formulário vazio.",
+    "manual": "1.2, 10.2"
+  },
+  {
+    "id": "http-208",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Com o separador Rede aberto, carregas no link Sair (<a href=\"logout.php\">). Quais são os dois primeiros pedidos?",
+    "codigo": "// fim do logout.php\nmensagem('sucesso', 'Sessão terminada.');\nheader('Location: index.php');\nexit;",
+    "linguagem": "php",
+    "alternativas": [
+      "POST logout.php → 302; depois GET index.php → 200",
+      "GET logout.php → 302; depois GET index.php → 200",
+      "GET logout.php → 200; depois GET index.php → 302",
+      "GET logout.php → 200, e a página inicial vem nele"
+    ],
+    "correta": 1,
+    "explicacao": "Sair é um link, por isso é um GET. O logout.php termina com header('Location: index.php'), que dá a resposta 302, e o browser pede a seguir a página inicial, que responde 200.",
+    "manual": "10.5, 1.3"
+  },
+  {
+    "id": "http-209",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "facil",
+    "pergunta": "Quem decide o código de estado (200, 302, 404...) que aparece no separador Rede?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O browser, conforme consegue ou não mostrar a página.",
+      "O servidor, que o envia junto com a resposta.",
+      "O MySQL, conforme encontra ou não as linhas pedidas.",
+      "O utilizador, ao escolher o método GET ou POST."
+    ],
+    "correta": 1,
+    "explicacao": "O código de estado faz parte da resposta do servidor. Na Biblioteca, o PHP às vezes escolhe-o, como em http_response_code(404) no livro_ver.php.",
+    "manual": "1.3, 12.3"
+  },
+  {
+    "id": "http-211",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "dificil",
+    "pergunta": "Abres livro.php (o ficheiro não existe) e livro_ver.php?id=999 (o livro não existe). Ambos dão 404. Quem produz cada um?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O 1.º, o Apache; o 2.º, o PHP, com http_response_code(404).",
+      "Os dois o Apache, que não encontra o que foi pedido.",
+      "Os dois o PHP, com http_response_code(404).",
+      "O 1.º, o PHP; o 2.º, o MySQL, que não acha a linha."
+    ],
+    "correta": 0,
+    "explicacao": "Se o ficheiro não existe, o Apache nem chega a chamar o PHP e responde Not Found. O livro_ver.php existe e corre: é o seu código que, sem livro, faz http_response_code(404).",
+    "manual": "1.3, 12.3, 17.1"
+  },
+  {
+    "id": "http-212",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "media",
+    "pergunta": "Se a Biblioteca estivesse num servidor noutro país, de onde vinha a hora que o ola.php mostra?",
+    "codigo": "<?php\n$hora = date('H:i');\n?>\n<p>No servidor são <?= $hora ?>.</p>",
+    "linguagem": "php",
+    "alternativas": [
+      "Do relógio do computador do utilizador que abriu a página.",
+      "Do MySQL, que guarda a hora de cada pedido.",
+      "Do relógio do servidor, onde o PHP corre.",
+      "Do browser, que troca o <?= $hora ?> pela hora local."
+    ],
+    "correta": 2,
+    "explicacao": "O date() corre no servidor, antes de o HTML ser enviado; o browser só recebe o texto com a hora já escrita.",
+    "manual": "2.4, 1.4"
+  },
+  {
+    "id": "http-213",
+    "bloco": "dados",
+    "tema": "HTTP",
+    "dificuldade": "dificil",
+    "pergunta": "O livro 7 existe. Alguém abre livro_ver.php?id=7abc. O que recebe?",
+    "codigo": "$id = (int) ($_GET['id'] ?? 0);\n// ... SELECT ... WHERE l.id_livro = ?\nif (!$livro) {\n    http_response_code(404);\n    // ...\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "404, porque 7abc não é um número.",
+      "500, porque o (int) não consegue converter 7abc.",
+      "302, de volta para a lista de livros.",
+      "200, com a ficha do livro 7."
+    ],
+    "correta": 3,
+    "explicacao": "O (int) aproveita os algarismos do início: (int) '7abc' dá 7. O SELECT encontra o livro 7 e a página aparece normalmente, com 200; só um valor como abc, que dá 0, levaria ao 404.",
+    "manual": "12.3, 7.5"
+  }
+]

@@ -1,23 +1,5 @@
 [
   {
-    "id": "pdo-001",
-    "bloco": "php",
-    "tema": "PDO",
-    "dificuldade": "facil",
-    "pergunta": "Porque é que a Biblioteca põe a ligação à base de dados num único ficheiro, config/db.php, incluído pelas páginas?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Se as credenciais mudarem, muda-se só num sítio.",
-      "Porque o PDO só funciona dentro da pasta config.",
-      "Para a password do MySQL ficar cifrada.",
-      "Porque cada página só pode abrir uma ligação."
-    ],
-    "correta": 0,
-    "explicacao": "O db.php é o único ficheiro com as credenciais: todas as páginas o incluem e usam o $pdo que ele cria. Se a password mudar, altera-se só ali.",
-    "manual": "8.1, 14.2"
-  },
-  {
     "id": "pdo-002",
     "bloco": "php",
     "tema": "PDO",
@@ -160,24 +142,6 @@
     "correta": 0,
     "explicacao": "Sem ERRMODE_EXCEPTION, uma consulta errada falhava em silêncio. Com ele, o PDO lança uma exceção e vês logo o erro (por exemplo, 42S22 Unknown column). Desde o PHP 8 este já é o modo por omissão, mas o db.php escreve-o na mesma, para ficar explícito.",
     "manual": "8.1"
-  },
-  {
-    "id": "pdo-010",
-    "bloco": "php",
-    "tema": "PDO",
-    "dificuldade": "media",
-    "pergunta": "A página livros.php usa `$pdo` sem nunca escrever `new PDO`. Porque é que funciona?",
-    "codigo": "<?php\nrequire 'includes/inicio.php';\nrequire 'includes/auth.php';\n\n$stmt = $pdo->prepare('SELECT titulo FROM livros');",
-    "linguagem": "php",
-    "alternativas": [
-      "O $pdo é uma variável especial que o PHP cria em todas as páginas.",
-      "O inicio.php faz require do db.php, que cria a variável $pdo.",
-      "O auth.php abre a ligação quando confirma a sessão.",
-      "O XAMPP cria o $pdo quando o MySQL arranca."
-    ],
-    "correta": 1,
-    "explicacao": "O require insere o código do ficheiro naquele ponto. O inicio.php inclui o config/db.php, que guarda a ligação em $pdo, e essa variável fica disponível na página.",
-    "manual": "8.1, 9.1"
   },
   {
     "id": "pdo-011",
@@ -648,24 +612,6 @@
     "manual": "8.2, 3.5"
   },
   {
-    "id": "pdo-037",
-    "bloco": "php",
-    "tema": "PDO",
-    "dificuldade": "media",
-    "pergunta": "Porque é que livro_novo.php chama lastInsertId() logo a seguir ao INSERT?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Para confirmar que o ISBN não está repetido.",
-      "Para saber o id do livro novo e abrir a sua página de detalhe.",
-      "Para saber quantos livros tem agora a tabela.",
-      "Para guardar o id do livro na sessão do utilizador."
-    ],
-    "correta": 1,
-    "explicacao": "Depois de gravar, a Biblioteca redireciona para livro_ver.php?id= do livro novo, e esse id só se conhece com lastInsertId().",
-    "manual": "12.4"
-  },
-  {
     "id": "pdo-038",
     "bloco": "php",
     "tema": "PDO",
@@ -792,24 +738,6 @@
     "manual": "12.3"
   },
   {
-    "id": "pdo-045",
-    "bloco": "php",
-    "tema": "PDO",
-    "dificuldade": "facil",
-    "pergunta": "O que significa o erro `SQLSTATE[HY093]: Invalid parameter number`?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Há um valor repetido num campo UNIQUE.",
-      "O número de ? é diferente do número de valores no execute().",
-      "Um nome de coluna está mal escrito no SQL.",
-      "O id passado no execute() não existe na tabela."
-    ],
-    "correta": 1,
-    "explicacao": "HY093 aparece quando os ? e os valores do array não batem certo. A solução do manual: contar os dois.",
-    "manual": "17.2"
-  },
-  {
     "id": "pdo-046",
     "bloco": "php",
     "tema": "PDO",
@@ -826,24 +754,6 @@
     "correta": 2,
     "explicacao": "Há dois ? e só um valor no execute(). Se a nacionalidade é opcional, passa-se $nacionalidade ?: null, mas o número de valores tem de ser sempre igual ao de ?.",
     "manual": "17.2, 8.2"
-  },
-  {
-    "id": "pdo-047",
-    "bloco": "php",
-    "tema": "PDO",
-    "dificuldade": "dificil",
-    "pergunta": "O que acontece quando esta edição é gravada?",
-    "codigo": "$stmt = $pdo->prepare(\n    'UPDATE livros\n     SET titulo = ?, id_autor = ?, isbn = ?, ano_edicao = ?, sinopse = ?\n     WHERE id_livro = ?'\n);\n$stmt->execute([$titulo, $idAutor, $isbn, $ano, $sinopse]);",
-    "linguagem": "php",
-    "alternativas": [
-      "Altera todos os livros, porque falta o id.",
-      "Altera o livro com id 0.",
-      "Não faz nada e rowCount() dá 0.",
-      "Dá HY093: há seis ? e só cinco valores."
-    ],
-    "correta": 3,
-    "explicacao": "Faltou o $id no fim do array. O PDO não completa valores em falta nem ignora o WHERE: recusa a consulta com HY093.",
-    "manual": "17.2, 12.5"
   },
   {
     "id": "pdo-048",
@@ -864,24 +774,6 @@
     "manual": "8.4, 12.2"
   },
   {
-    "id": "pdo-049",
-    "bloco": "php",
-    "tema": "PDO",
-    "dificuldade": "media",
-    "pergunta": "Numa pesquisa com `LIKE ?`, onde se acrescentam os `%`?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "No SQL, à volta do ?: LIKE '%?%'.",
-      "No atributo value da caixa de pesquisa.",
-      "Em lado nenhum: o LIKE já procura em todo o texto.",
-      "Ao valor passado no execute()."
-    ],
-    "correta": 3,
-    "explicacao": "O manual chama a atenção: os % são acrescentados ao valor, não ao SQL. Sem %, o LIKE só encontra títulos exatamente iguais ao texto.",
-    "manual": "12.2"
-  },
-  {
     "id": "pdo-050",
     "bloco": "php",
     "tema": "PDO",
@@ -898,24 +790,6 @@
     "correta": 1,
     "explicacao": "Com $q vazio, o valor é %%, que corresponde a qualquer título. Um valor vazio continua a ser um valor, por isso não há HY093.",
     "manual": "12.2"
-  },
-  {
-    "id": "pdo-051",
-    "bloco": "php",
-    "tema": "PDO",
-    "dificuldade": "facil",
-    "pergunta": "Em PHP, que operador junta os `%` ao texto pesquisado em `'%' __ $q __ '%'`?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "+",
-      "&",
-      ",",
-      "."
-    ],
-    "correta": 3,
-    "explicacao": "Em PHP, os textos juntam-se com o ponto: '%' . $q . '%'. O + é a soma de números (e é o que se usa em JavaScript para juntar textos).",
-    "manual": "8.4, 12.2"
   },
   {
     "id": "pdo-052",
@@ -1113,24 +987,6 @@
     ],
     "correta": 2,
     "explicacao": "Só o 23000 corresponde a um caso previsto. Qualquer outro erro (coluna mal escrita, MySQL desligado) é relançado, para não ser disfarçado de \"ISBN repetido\".",
-    "manual": "8.5"
-  },
-  {
-    "id": "pdo-064",
-    "bloco": "php",
-    "tema": "PDO",
-    "dificuldade": "dificil",
-    "pergunta": "Qual é o problema deste catch num INSERT de livros?",
-    "codigo": "} catch (PDOException $e) {\n    $erros[] = 'Já existe um livro com esse ISBN.';\n}",
-    "linguagem": "php",
-    "alternativas": [
-      "Falta um exit depois de acrescentar o erro.",
-      "Uma PDOException só se pode apanhar dentro de um if com getCode().",
-      "Qualquer erro seria mostrado como ISBN repetido.",
-      "O $erros[] não funciona dentro de um catch."
-    ],
-    "correta": 2,
-    "explicacao": "Sem testar getCode() == 23000, um erro de programação ou o MySQL desligado também dariam \"Já existe um livro com esse ISBN.\", e ficavas sem saber o que se passou.",
     "manual": "8.5"
   },
   {
@@ -1548,42 +1404,6 @@
     "manual": "1.3, 7.7"
   },
   {
-    "id": "prg-003",
-    "bloco": "php",
-    "tema": "Redirecionar e PRG",
-    "dificuldade": "media",
-    "pergunta": "Porque é que o `exit;` a seguir ao header() é obrigatório?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Sem ele, o browser não chega a seguir o redirecionamento 302.",
-      "Fecha a sessão antes de mudar de página.",
-      "Sem ele, o PHP continuaria a executar o resto da página.",
-      "É ele que envia o código 302 ao browser."
-    ],
-    "correta": 2,
-    "explicacao": "O header() não para o script: só acrescenta o cabeçalho à resposta. O exit garante que nada do que vem a seguir é executado.",
-    "manual": "7.7"
-  },
-  {
-    "id": "prg-004",
-    "bloco": "php",
-    "tema": "Redirecionar e PRG",
-    "dificuldade": "dificil",
-    "pergunta": "Qual é o problema deste auth.php?",
-    "codigo": "<?php\nif (!isset($_SESSION['id_utilizador'])) {\n    mensagem('erro', 'Tens de iniciar sessão para ver essa página.');\n    header('Location: login.php');\n}",
-    "linguagem": "php",
-    "alternativas": [
-      "Falta um session_destroy() antes do header().",
-      "O header() devia vir depois do HTML da página.",
-      "Devia redirecionar com um echo do endereço e não com header().",
-      "Sem exit, o resto da página restrita continua a ser executado."
-    ],
-    "correta": 3,
-    "explicacao": "O header() só pede ao browser para mudar de página. Sem exit, o PHP continua e corre o resto da página restrita (consultas, apagar, etc.) para quem não tem sessão.",
-    "manual": "7.7, 11.2"
-  },
-  {
     "id": "prg-005",
     "bloco": "php",
     "tema": "Redirecionar e PRG",
@@ -1638,24 +1458,6 @@
     "manual": "17.1, 7.7"
   },
   {
-    "id": "prg-008",
-    "bloco": "php",
-    "tema": "Redirecionar e PRG",
-    "dificuldade": "dificil",
-    "pergunta": "Ao gravar um autor aparece \"headers already sent\". Porquê?",
-    "codigo": "<?php\nrequire 'includes/inicio.php';\nrequire 'includes/auth.php';\n$titulo = 'Novo autor';\nrequire 'includes/cabecalho.php';\nif ($_SERVER['REQUEST_METHOD'] === 'POST') {\n    // ... gravar\n    header('Location: autores.php');\n    exit;\n}",
-    "linguagem": "php",
-    "alternativas": [
-      "O cabeçalho já escreveu HTML antes do header().",
-      "Falta o require do db.php antes do auth.php.",
-      "O exit devia vir antes do header().",
-      "O $titulo só pode ser definido depois do bloco do POST."
-    ],
-    "correta": 0,
-    "explicacao": "O cabecalho.php envia o <!DOCTYPE html> e o resto do topo. O POST tem de ser tratado antes desse require: primeiro processa-se, depois mostra-se.",
-    "manual": "7.8, 17.1"
-  },
-  {
     "id": "prg-009",
     "bloco": "php",
     "tema": "Redirecionar e PRG",
@@ -1672,60 +1474,6 @@
     "correta": 0,
     "explicacao": "O tratamento do POST, com o seu header(), tem de acontecer antes de qualquer HTML. O manual indica também tirar o ?> do fim dos ficheiros só de PHP.",
     "manual": "17.1"
-  },
-  {
-    "id": "prg-010",
-    "bloco": "php",
-    "tema": "Redirecionar e PRG",
-    "dificuldade": "media",
-    "pergunta": "Porque é que o manual manda tirar o `?>` do fim dos ficheiros que só têm PHP, como o db.php?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Um espaço depois do ?> seria enviado e impedia o header().",
-      "Com o ?> no fim, o PHP deixa de ler os ficheiros incluídos.",
-      "Sem o ?>, o ficheiro é lido mais depressa pelo servidor.",
-      "O ?> no fim apaga as variáveis definidas no ficheiro."
-    ],
-    "correta": 0,
-    "explicacao": "Tudo o que está fora de <?php ... ?> é enviado ao browser, mesmo uma linha em branco. Isso basta para dar \"headers already sent\" num redirecionamento seguinte.",
-    "manual": "17.1"
-  },
-  {
-    "id": "prg-011",
-    "bloco": "php",
-    "tema": "Redirecionar e PRG",
-    "dificuldade": "facil",
-    "pergunta": "Em que momento da página tem de ser chamado o header() de um redirecionamento?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Depois do require do rodapé.",
-      "Antes de qualquer HTML ser enviado.",
-      "Em qualquer ponto, desde que haja exit.",
-      "Logo a seguir à tag <body>."
-    ],
-    "correta": 1,
-    "explicacao": "O header() tem de acontecer antes de qualquer HTML. Por isso as páginas tratam o POST antes de incluir o cabeçalho.",
-    "manual": "7.7"
-  },
-  {
-    "id": "prg-012",
-    "bloco": "php",
-    "tema": "Redirecionar e PRG",
-    "dificuldade": "media",
-    "pergunta": "Qual é a ordem do padrão das páginas com formulário?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "inicio → mostrar HTML → auth → tratar o POST → preparar dados",
-      "inicio → auth → tratar o POST → preparar dados → mostrar HTML",
-      "auth → inicio → preparar dados → mostrar HTML → tratar o POST",
-      "inicio → auth → mostrar HTML → tratar o POST → preparar os dados"
-    ],
-    "correta": 1,
-    "explicacao": "Preparar (sessão e ligação), proteger, tratar o POST (ler, validar, gravar, redirecionar), preparar os dados e só no fim mostrar o HTML.",
-    "manual": "7.8"
   },
   {
     "id": "prg-013",
@@ -1890,24 +1638,6 @@
     "manual": "9.5"
   },
   {
-    "id": "prg-022",
-    "bloco": "php",
-    "tema": "Redirecionar e PRG",
-    "dificuldade": "media",
-    "pergunta": "Com o Post/Redirect/Get, porque é que o F5 depois de gravar já não faz mal?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "O último pedido foi um GET, e repetir um GET não altera dados.",
-      "O servidor apaga o $_POST logo depois de gravar.",
-      "O exit impede o browser de atualizar a página.",
-      "A sessão guarda o formulário e bloqueia-o."
-    ],
-    "correta": 0,
-    "explicacao": "Depois do 302, o browser pediu a página com GET. Atualizar repete esse GET, que só lê dados.",
-    "manual": "9.5, 1.2"
-  },
-  {
     "id": "prg-023",
     "bloco": "php",
     "tema": "Redirecionar e PRG",
@@ -2050,24 +1780,6 @@
     "correta": 3,
     "explicacao": "Mostra-se uma vez e apaga-se. Só a chave msg é removida: a sessão e o id do utilizador continuam.",
     "manual": "9.2, 9.3"
-  },
-  {
-    "id": "prg-031",
-    "bloco": "php",
-    "tema": "Redirecionar e PRG",
-    "dificuldade": "dificil",
-    "pergunta": "Depois de criar um livro, vês \"Livro criado.\" e carregas em F5. O que aparece?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "A página do livro, com a mensagem outra vez.",
-      "O aviso \"Confirmar reenvio do formulário\".",
-      "Um segundo livro igual, com a mensagem.",
-      "A página do livro, sem a mensagem."
-    ],
-    "correta": 3,
-    "explicacao": "O F5 repete o GET a livro_ver.php, que só lê. A mensagem já foi mostrada e apagada da sessão, por isso não volta a aparecer.",
-    "manual": "9.3, 9.5"
   },
   {
     "id": "prg-032",

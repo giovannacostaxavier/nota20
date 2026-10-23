@@ -396,6 +396,7 @@
         const t = tentativa;
         const item = t.itens[t.atual];
         const p = POR_ID.get(item.id);
+        A.marcarVista(item.id, t);
         const exame = t.modo === 'exame';
         const escolha = t.respostas[t.atual];
         const corrigida = !exame && t.confirmadas[t.atual];
@@ -908,7 +909,7 @@
             <div class="passos">
                 <div class="cartao passo"><div class="n">1</div><h3>Escolhe o simulado</h3><p>O teste geral tem sempre 45 perguntas (30 da parte comum e 15 da Stack A). Os blocos têm 15, com a mesma proporção do teste.</p></div>
                 <div class="cartao passo"><div class="n">2</div><h3>Estudo ou exame</h3><p>No estudo vês logo a correção e a explicação. No exame tens cronómetro, podes saltar e marcar perguntas, e só vês a nota no fim.</p></div>
-                <div class="cartao passo"><div class="n">3</div><h3>Nada se repete cedo</h3><p>Primeiro saem as perguntas que nunca viste. Depois as que erraste e, por fim, as que viste há mais tempo.</p></div>
+                <div class="cartao passo"><div class="n">3</div><h3>Nada se repete antes do tempo</h3><p>Só saem perguntas que ainda não viste, até as de cada tema se esgotarem (conta mesmo um simulado que deixaste a meio). Depois começa uma volta nova, pelas que erraste mais vezes.</p></div>
             </div>
             <div class="grelha-2">
                 <section class="cartao">

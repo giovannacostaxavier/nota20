@@ -126,24 +126,6 @@
     "manual": "3.2"
   },
   {
-    "id": "sql-008",
-    "bloco": "dados",
-    "tema": "SQL e Base de dados",
-    "dificuldade": "media",
-    "pergunta": "Porque é que este INSERT não indica a coluna `id_autor`?",
-    "codigo": "INSERT INTO autores (nome, nacionalidade)\nVALUES (?, ?);",
-    "linguagem": "sql",
-    "alternativas": [
-      "Porque id_autor é AUTO_INCREMENT: a base de dados gera-o.",
-      "Porque o PHP calcula o id com COUNT(*) + 1 e junta-o sozinho.",
-      "Porque o id_autor é preenchido depois, com um UPDATE.",
-      "Porque a chave primária pode ficar NULL até haver livros."
-    ],
-    "correta": 0,
-    "explicacao": "A chave primária com AUTO_INCREMENT é escolhida pela base de dados, por isso nunca a envias no INSERT. Calcular o id à mão daria problemas quando se apagam linhas.",
-    "manual": "3.2, 3.7"
-  },
-  {
     "id": "sql-009",
     "bloco": "dados",
     "tema": "SQL e Base de dados",
@@ -342,24 +324,6 @@
     "manual": "3.3"
   },
   {
-    "id": "sql-020",
-    "bloco": "dados",
-    "tema": "SQL e Base de dados",
-    "dificuldade": "dificil",
-    "pergunta": "Um tutor pode ter vários animais e cada animal tem um só tutor. O que está errado neste desenho?",
-    "codigo": "CREATE TABLE tutores (\n    id_tutor  INT AUTO_INCREMENT PRIMARY KEY,\n    nome      VARCHAR(100) NOT NULL,\n    id_animal INT NOT NULL\n);",
-    "linguagem": "sql",
-    "alternativas": [
-      "id_tutor devia ser VARCHAR, porque identifica uma pessoa.",
-      "Nada: a chave estrangeira pode ficar em qualquer das duas tabelas.",
-      "Falta UNIQUE em id_animal, para o tutor não repetir animais.",
-      "A FK está do lado 1: devia ser id_tutor na tabela animais."
-    ],
-    "correta": 3,
-    "explicacao": "Com id_animal em tutores, cada tutor só poderia ter um animal. A FK fica do lado N: animais.id_tutor.",
-    "manual": "3.3"
-  },
-  {
     "id": "sql-021",
     "bloco": "dados",
     "tema": "SQL e Base de dados",
@@ -466,24 +430,6 @@
     "correta": 3,
     "explicacao": "O lado 1 (tutores) faz o papel dos autores; com ON DELETE RESTRICT, não se apaga o \"pai\" enquanto tiver \"filhos\" (animais).",
     "manual": "13.4"
-  },
-  {
-    "id": "sql-027",
-    "bloco": "dados",
-    "tema": "SQL e Base de dados",
-    "dificuldade": "facil",
-    "pergunta": "Com a tabela livros criada assim, o que acontece quando se tenta apagar um autor que ainda tem livros?",
-    "codigo": "CREATE TABLE livros (\n    id_livro   INT AUTO_INCREMENT PRIMARY KEY,\n    id_autor   INT          NOT NULL,\n    titulo     VARCHAR(200) NOT NULL,\n    isbn       VARCHAR(13)  NULL UNIQUE,\n    ano_edicao SMALLINT     NULL,\n    sinopse    TEXT         NULL,\n    CONSTRAINT fk_livros_autores\n        FOREIGN KEY (id_autor) REFERENCES autores (id_autor)\n        ON DELETE RESTRICT\n);",
-    "linguagem": "sql",
-    "alternativas": [
-      "Apaga o autor e todos os livros dele.",
-      "Apaga o autor e os livros ficam com id_autor a NULL.",
-      "A base de dados recusa, por causa do ON DELETE RESTRICT.",
-      "Apaga o autor e os livros ficam com id_autor = 0."
-    ],
-    "correta": 2,
-    "explicacao": "A FK fk_livros_autores tem ON DELETE RESTRICT: enquanto o autor tiver livros, o DELETE é recusado. Apagar também os livros seria o CASCADE.",
-    "manual": "3.3, 13.3"
   },
   {
     "id": "sql-028",
@@ -702,24 +648,6 @@
     "manual": "3.3, 8.5"
   },
   {
-    "id": "sql-040",
-    "bloco": "dados",
-    "tema": "SQL e Base de dados",
-    "dificuldade": "dificil",
-    "pergunta": "Com os dados de exemplo e a FK com ON DELETE RESTRICT, o que acontece a esta instrução?",
-    "codigo": "-- Dados de exemplo (base_dados.sql)\n--\n-- autores\n-- id_autor | nome                             | nacionalidade\n-- 1        | José Saramago                    | Portuguesa\n-- 2        | Sophia de Mello Breyner Andresen | Portuguesa\n-- 3        | Eça de Queirós                   | Portuguesa\n-- 4        | Machado de Assis                 | Brasileira\n--\n-- livros\n-- id_livro | id_autor | titulo                   | isbn          | ano_edicao\n-- 1        | 1        | Memorial do Convento     | 9789720046710 | 1982\n-- 2        | 1        | Ensaio sobre a Cegueira  | 9789720046727 | 1995\n-- 3        | 2        | A Menina do Mar          | 9789720726421 | 1958\n-- 4        | 2        | O Cavaleiro da Dinamarca | 9789720726438 | 1964\n-- 5        | 3        | Os Maias                 | 9789722036597 | 1888\n-- 6        | 4        | Dom Casmurro             | 9788535910681 | 1899\n\nDELETE FROM autores;",
-    "linguagem": "sql",
-    "alternativas": [
-      "Apaga os 4 autores e deixa os livros sem autor.",
-      "Dá erro e nada é apagado: todos têm livros.",
-      "Apaga os 4 autores e, com eles, os 6 livros.",
-      "Pede confirmação e depois apaga os 4 autores."
-    ],
-    "correta": 1,
-    "explicacao": "Sem WHERE, o DELETE tentaria apagar todos os autores, mas todos têm livros e o RESTRICT recusa. A base de dados nunca pede confirmação: isso só existe se a aplicação a puser.",
-    "manual": "3.3, 3.7"
-  },
-  {
     "id": "sql-041",
     "bloco": "dados",
     "tema": "SQL e Base de dados",
@@ -826,24 +754,6 @@
     "correta": 1,
     "explicacao": "A FK guarda o id do autor, que é um INT; por isso também é INT. O nome do autor fica só na tabela autores.",
     "manual": "3.4, 3.5"
-  },
-  {
-    "id": "sql-047",
-    "bloco": "dados",
-    "tema": "SQL e Base de dados",
-    "dificuldade": "media",
-    "pergunta": "Segundo a tabela de tipos do manual (em baixo), qual destes pares coluna → tipo está correto?",
-    "codigo": "Tipo        | Guarda\n------------+------------------------------\nINT         | Números inteiros\nSMALLINT    | Inteiros pequenos (até 32 767)\nVARCHAR(n)  | Texto curto, até n caracteres\nTEXT        | Texto longo\nDATETIME    | Data e hora",
-    "linguagem": "tabela",
-    "alternativas": [
-      "criado_em → SMALLINT",
-      "ano_edicao → DATETIME",
-      "id_livro → VARCHAR(13)",
-      "sinopse → TEXT"
-    ],
-    "correta": 3,
-    "explicacao": "A sinopse é texto longo (TEXT). O ano é SMALLINT, criado_em é DATETIME e id_livro é INT.",
-    "manual": "3.4"
   },
   {
     "id": "sql-048",
@@ -1024,24 +934,6 @@
     "correta": 1,
     "explicacao": "titulo é NOT NULL e não tem DEFAULT, por isso é obrigatório no INSERT. O autor 1 existe e o ISBN é novo, por isso essas partes estavam bem.",
     "manual": "3.4"
-  },
-  {
-    "id": "sql-058",
-    "bloco": "dados",
-    "tema": "SQL e Base de dados",
-    "dificuldade": "facil",
-    "pergunta": "Para que serve `SET NAMES utf8mb4;` no início do base_dados.sql?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Cria uma base de dados chamada utf8mb4.",
-      "Define a password do utilizador root do MySQL.",
-      "Faz com que os acentos sejam lidos corretamente.",
-      "Converte todas as tabelas existentes para letras minúsculas."
-    ],
-    "correta": 2,
-    "explicacao": "Sem SET NAMES utf8mb4, \"José\" pode aparecer como \"JosÃ©\". É uma das soluções do erro de acentos estragados.",
-    "manual": "3.5, 17.2"
   },
   {
     "id": "sql-059",
@@ -1510,24 +1402,6 @@
     "correta": 0,
     "explicacao": "Primeiro o que se quer (SELECT), de onde (FROM), o filtro (WHERE) e, no fim, a ordenação (ORDER BY).",
     "manual": "3.7, 12.2"
-  },
-  {
-    "id": "sql-085",
-    "bloco": "dados",
-    "tema": "SQL e Base de dados",
-    "dificuldade": "media",
-    "pergunta": "Esta consulta dá erro de sintaxe. Qual é o problema?",
-    "codigo": "SELECT id_livro, titulo FROM livros\nORDER BY titulo\nWHERE titulo LIKE ?;",
-    "linguagem": "sql",
-    "alternativas": [
-      "Falta o JOIN com a tabela autores.",
-      "O LIKE não aceita um ? no lugar do valor.",
-      "O WHERE tem de vir antes do ORDER BY.",
-      "O ORDER BY só funciona com colunas numéricas."
-    ],
-    "correta": 2,
-    "explicacao": "A ordem é SELECT … FROM … WHERE … ORDER BY. O LIKE ? é exatamente o que a Biblioteca usa, e ordenar por texto é normal.",
-    "manual": "3.7, 17.2"
   },
   {
     "id": "sql-086",
@@ -2086,24 +1960,6 @@
     "correta": 2,
     "explicacao": "Os 2 livros do Saramago (id_autor = 1) passam a ter id_autor = 2 e juntam-se aos 2 da Sophia: 4. O UPDATE não apaga nem cria livros.",
     "manual": "3.3, 3.5"
-  },
-  {
-    "id": "sql-117",
-    "bloco": "dados",
-    "tema": "SQL e Base de dados",
-    "dificuldade": "media",
-    "pergunta": "Em livro_editar.php, porque é que o `WHERE id_livro = ?` do UPDATE é indispensável?",
-    "codigo": "UPDATE livros\nSET titulo = ?, id_autor = ?, isbn = ?, ano_edicao = ?, sinopse = ?\nWHERE id_livro = ?",
-    "linguagem": "sql",
-    "alternativas": [
-      "Sem ele, a chave estrangeira recusava a alteração do livro.",
-      "Sem ele, só o primeiro livro da tabela era alterado.",
-      "Sem ele, o UPDATE criava um livro novo.",
-      "Sem ele, todos os livros ficavam iguais ao formulário."
-    ],
-    "correta": 3,
-    "explicacao": "O WHERE escolhe a linha a alterar. Sem WHERE, o UPDATE aplica-se a todas as linhas; nunca cria linhas novas, isso é o INSERT.",
-    "manual": "12.5"
   },
   {
     "id": "sql-118",

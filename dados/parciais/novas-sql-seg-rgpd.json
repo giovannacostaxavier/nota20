@@ -1,0 +1,290 @@
+[
+  {
+    "id": "sql-201",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Além do separador Importar do phpMyAdmin, de que outra forma se pode importar o base_dados.sql, segundo o próprio ficheiro?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Abrindo-o no browser, em localhost/biblioteca/base_dados.sql.",
+      "Incluindo-o no topo do index.php com require 'base_dados.sql';",
+      "Na linha de comandos, com mysql -u root -p < base_dados.sql",
+      "Copiando-o para a pasta C:\\xampp\\mysql e reiniciando o MySQL."
+    ],
+    "correta": 2,
+    "explicacao": "O cabeçalho do base_dados.sql indica as duas formas: o separador Importar do phpMyAdmin ou a linha de comandos, com mysql -u root -p < base_dados.sql. Nem o browser nem o require executam SQL.",
+    "manual": "3.5"
+  },
+  {
+    "id": "sql-202",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "No início do base_dados.sql aparecem estas linhas. Para que serve a primeira?",
+    "codigo": "SET NAMES utf8mb4;\n\nDROP DATABASE IF EXISTS biblioteca;\nCREATE DATABASE biblioteca CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\nUSE biblioteca;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Faz com que os acentos do próprio ficheiro sejam bem lidos por quem o importa.",
+      "Define a codificação da base de dados biblioteca, que é criada a seguir.",
+      "Substitui o charset=utf8mb4 da ligação que está no config/db.php.",
+      "Escolhe a base de dados onde vão correr as instruções seguintes."
+    ],
+    "correta": 0,
+    "explicacao": "SET NAMES utf8mb4 diz como ler o texto do próprio ficheiro, seja qual for o programa que o importa, para \"José\" não ficar \"JosÃ©\". A codificação da base de dados vem do CHARACTER SET do CREATE DATABASE, e quem a escolhe é o USE.",
+    "manual": "3.5, 17.2"
+  },
+  {
+    "id": "sql-203",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Quantas linhas acrescenta à tabela autores esta instrução do base_dados.sql?",
+    "codigo": "INSERT INTO autores (nome, nacionalidade) VALUES\n    ('José Saramago', 'Portuguesa'),\n    ('Sophia de Mello Breyner Andresen', 'Portuguesa'),\n    ('Eça de Queirós', 'Portuguesa'),\n    ('Machado de Assis', 'Brasileira');",
+    "linguagem": "sql",
+    "alternativas": [
+      "Uma, com os quatro nomes juntos na coluna nome.",
+      "Quatro: cada grupo entre parênteses é uma linha.",
+      "Nenhuma: falta repetir INSERT INTO em cada grupo.",
+      "Só a primeira; as outras três são ignoradas."
+    ],
+    "correta": 1,
+    "explicacao": "Um só INSERT pode acrescentar várias linhas: os grupos de valores, entre parênteses, separam-se por vírgulas e cada grupo é uma linha nova.",
+    "manual": "3.5, 3.7"
+  },
+  {
+    "id": "sql-204",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Foste alterando as tabelas no phpMyAdmin e o teu base_dados.sql ficou desatualizado. Como o voltas a gerar a partir da base de dados, segundo o manual?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Separador Importar, com a opção de gerar o ficheiro a partir da base de dados.",
+      "Copias a pasta C:\\xampp\\mysql\\data\\biblioteca para dentro da pasta codigo.",
+      "Separador SQL: corres SELECT * em cada tabela e gravas os resultados.",
+      "Separador Exportar, método Personalizado, com a declaração CREATE DATABASE / USE."
+    ],
+    "correta": 3,
+    "explicacao": "O manual manda selecionar a base de dados, abrir o separador Exportar, escolher o método Personalizado e marcar \"Adicionar declaração CREATE DATABASE / USE\". Assim o ficheiro volta a criar tudo de raiz.",
+    "manual": "18.1"
+  },
+  {
+    "id": "sql-205",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "No phpMyAdmin, queres experimentar à mão um SELECT com JOIN sobre os dados da Biblioteca. Onde o escreves?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Escolhes a base de dados biblioteca e abres o separador SQL.",
+      "No separador Importar, na caixa onde se escolhe o ficheiro.",
+      "Na barra de endereço, logo a seguir a localhost/phpmyadmin/?",
+      "Abres a tabela livros e escreves na primeira linha dos dados."
+    ],
+    "correta": 0,
+    "explicacao": "O separador SQL, com a base de dados biblioteca escolhida, corre as instruções que lá escreves, como no EXPERIMENTA do manual. O separador Importar serve para carregar um ficheiro .sql.",
+    "manual": "3.7, 3.6"
+  },
+  {
+    "id": "sql-206",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Carregaste em Importar com o base_dados.sql da Biblioteca. Como confirmas no phpMyAdmin que correu bem?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Aparece uma janela a pedir o email e a password do utilizador de teste.",
+      "A página localhost/biblioteca abre sozinha, já com a lista dos livros.",
+      "À esquerda aparece a biblioteca com as três tabelas, e livros tem dados.",
+      "Aparece um ficheiro biblioteca.sql novo dentro da pasta htdocs."
+    ],
+    "correta": 2,
+    "explicacao": "Depois de importar, a base de dados biblioteca aparece à esquerda com as três tabelas; clicando em livros vês os dados de exemplo. O phpMyAdmin não abre a aplicação nem cria ficheiros no htdocs.",
+    "manual": "3.6"
+  },
+  {
+    "id": "seg-203",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "facil",
+    "pergunta": "Na secção 6.1 do dossier, há uma linha para cada uma das seis medidas de segurança. O que escreves em cada linha?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Onde está no código e como foi feita, numa frase.",
+      "O nome de quem a fez e quantas horas demorou.",
+      "O código completo da medida, copiado do projeto.",
+      "A nota que o grupo espera ter nessa medida."
+    ],
+    "correta": 0,
+    "explicacao": "O dossier pede, para cada medida, onde está no código e como foi feita, numa frase (por exemplo, \"includes/auth.php: sem sessão, redireciona para o login\"). Quem fez o quê vai na secção 8.",
+    "manual": "14, 18.4"
+  },
+  {
+    "id": "seg-204",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "Ao criar um livro, o erro \"Já existe um livro com esse ISBN.\" só pode vir do servidor, nunca do validacao.js. Porquê?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Porque o JavaScript não consegue contar os 13 algarismos do ISBN.",
+      "Porque o campo ISBN não tem required e o validacao.js ignora-o.",
+      "Só o servidor consulta a base de dados, onde estão os ISBN gravados.",
+      "Porque o browser tira o ISBN do pedido antes de o enviar."
+    ],
+    "correta": 2,
+    "explicacao": "O browser nunca fala com a base de dados, por isso não sabe que ISBN já existem. É o servidor que tenta o INSERT, e a coluna UNIQUE recusa o repetido: o manual chama-lhe um erro que só o servidor pode detetar.",
+    "manual": "12.4, 1.1"
+  },
+  {
+    "id": "seg-205",
+    "bloco": "dados",
+    "tema": "Segurança",
+    "dificuldade": "media",
+    "pergunta": "A regra do manual é \"nenhuma variável dentro do texto do SQL\". A linha do header() deste excerto do livro_novo.php desrespeita essa regra?",
+    "codigo": "$novoId = $pdo->lastInsertId();\n\nmensagem('sucesso', 'Livro criado.');\nheader(\"Location: livro_ver.php?id=$novoId\");\nexit;",
+    "linguagem": "php",
+    "alternativas": [
+      "Sim: qualquer $ dentro de aspas duplas permite a injeção de SQL.",
+      "Não: aquele texto é um endereço de redirecionamento, não é SQL.",
+      "Sim: devia ser header('Location: livro_ver.php?id=?') com execute().",
+      "Não, mas só porque o $novoId foi convertido antes com (int)."
+    ],
+    "correta": 1,
+    "explicacao": "A regra aplica-se ao texto passado a prepare() ou a query(). Aqui a variável entra num endereço para o browser, com o id que a própria base de dados gerou; a livro_ver.php volta depois a usar uma consulta preparada.",
+    "manual": "8.4, 12.4"
+  },
+  {
+    "id": "rgpd-201",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "A Maria apaga a conta em \"A minha conta\". O que acontece à data em que ela deu o consentimento?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Fica guardada, para provar mais tarde que ela aceitou a política.",
+      "Passa a NULL, e o resto da linha fica para o email não se repetir.",
+      "Fica guardada até a Maria pedir também que a apaguem.",
+      "É apagada com o resto da linha: só se guarda enquanto a conta existir."
+    ],
+    "correta": 3,
+    "explicacao": "O DELETE de conta.php apaga a linha inteira da Maria na tabela utilizadores, incluindo consentimento_em. É o prazo declarado na tabela de dados pessoais: a data do consentimento fica guardada enquanto a conta existir.",
+    "manual": "15.1, 15.4"
+  },
+  {
+    "id": "rgpd-202",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "No dossier de exemplo (clínica veterinária), a tabela 6.2 tem estas duas linhas. Porque é que o prazo do telefone do tutor não é \"Até a conta ser apagada\"?",
+    "codigo": "Dado                       | Para que serve                 | Quanto tempo fica guardado\n---------------------------+--------------------------------+---------------------------------------\nNome e email do utilizador | Identificar quem usa a         | Até a conta ser apagada\n                           | aplicação e fazer o login      |\nNome e telefone do tutor   | Contactar o dono do animal     | Enquanto for cliente; apagado a pedido",
+    "linguagem": "tabela",
+    "alternativas": [
+      "O tutor não tem conta na aplicação, por isso o prazo não pode depender dela.",
+      "O telefone é mais sensível do que o email e tem de ser apagado mais cedo.",
+      "Os dados dos tutores não são dados pessoais, por isso não precisam de prazo.",
+      "O telefone é obrigatório na tabela tutores e por isso nunca pode ser apagado."
+    ],
+    "correta": 0,
+    "explicacao": "Quem tem conta são os utilizadores da receção; os tutores só estão registados como clientes. Por isso o prazo dos dados deles é outro: enquanto forem clientes, e apagados se o pedirem.",
+    "manual": "15.1, 15.4"
+  },
+  {
+    "id": "rgpd-203",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "dificil",
+    "pergunta": "Um colega tirou do registo.php a verificação do consentimento, porque a caixa já tem required. Com o JavaScript desligado, alguém regista-se sem assinalar a caixa. O que acontece?",
+    "codigo": "<form method=\"post\" action=\"registo.php\" id=\"form-principal\" novalidate>\n    ...\n    <input type=\"checkbox\" id=\"consentimento\" name=\"consentimento\" required>\n\n// registo.php (versão do colega): já não tem if (!isset($_POST['consentimento']))\nif (!$erros) {\n    $hash = password_hash($password, PASSWORD_DEFAULT);\n    $stmt = $pdo->prepare(\n        'INSERT INTO utilizadores (nome, email, password_hash, consentimento_em)\n         VALUES (?, ?, ?, NOW())'\n    );\n    $stmt->execute([$nome, $email, $hash]);\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "O registo é recusado, porque o servidor também verifica o required.",
+      "O INSERT falha, porque consentimento_em é NOT NULL e a caixa não veio.",
+      "A conta é criada e consentimento_em fica com uma data, sem consentimento.",
+      "O browser não envia o formulário, mesmo com o JavaScript desligado."
+    ],
+    "correta": 2,
+    "explicacao": "Com novalidate e sem JavaScript, nada no browser trava o envio, e o servidor já não verifica a caixa. O INSERT grava NOW() em consentimento_em, por isso fica registada a prova de um consentimento que nunca foi dado.",
+    "manual": "15.2, 10.2, 14"
+  },
+  {
+    "id": "rgpd-204",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "Porque é que a data do consentimento é calculada com NOW() no INSERT do registo, e não enviada num campo do formulário?",
+    "codigo": "INSERT INTO utilizadores (nome, email, password_hash, consentimento_em)\nVALUES (?, ?, ?, NOW())",
+    "linguagem": "sql",
+    "alternativas": [
+      "Porque os formulários HTML não têm nenhum campo para datas.",
+      "Um valor do formulário pode ser alterado; o NOW() é a hora da base de dados.",
+      "Porque o NOW() guarda também se a caixa do consentimento foi assinalada.",
+      "Porque uma coluna DATETIME só aceita valores criados pela base de dados."
+    ],
+    "correta": 1,
+    "explicacao": "Tudo o que vem do browser pode ser alterado por quem envia o pedido, por isso uma data vinda do formulário não provava nada. O NOW() regista o momento em que a conta foi gravada, depois de o servidor confirmar a caixa.",
+    "manual": "15.2, 10.2, 12.4"
+  },
+  {
+    "id": "rgpd-205",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "dificil",
+    "pergunta": "A Maria criou três livros na Biblioteca e depois apagou a conta. Sabendo como é a tabela livros, o que acontece a esses livros?",
+    "codigo": "CREATE TABLE livros (\n    id_livro   INT AUTO_INCREMENT PRIMARY KEY,\n    id_autor   INT          NOT NULL,\n    titulo     VARCHAR(200) NOT NULL,\n    isbn       VARCHAR(13)  NULL UNIQUE,\n    ano_edicao SMALLINT     NULL,\n    sinopse    TEXT         NULL,\n    CONSTRAINT fk_livros_autores\n        FOREIGN KEY (id_autor) REFERENCES autores (id_autor)\n        ON DELETE RESTRICT\n);",
+    "linguagem": "sql",
+    "alternativas": [
+      "São apagados com a conta, porque o DELETE apaga tudo o que ela criou.",
+      "O DELETE da conta falha, porque a Maria ainda tem livros registados.",
+      "Ficam, mas o id_autor passa a NULL, por causa da chave estrangeira.",
+      "Ficam: a tabela livros não guarda quem os criou, nada os liga a ela."
+    ],
+    "correta": 3,
+    "explicacao": "A tabela livros só se liga a autores; não tem nenhuma coluna com o utilizador. O DELETE de conta.php apaga apenas a linha da Maria em utilizadores, onde estão os dados pessoais dela.",
+    "manual": "15.4, 3.5"
+  },
+  {
+    "id": "rgpd-206",
+    "bloco": "dados",
+    "tema": "RGPD",
+    "dificuldade": "media",
+    "pergunta": "A Maria apagou a conta e, uma semana depois, volta a registar-se com o mesmo email. O registo é aceite?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Sim: a linha antiga foi apagada, por isso o email já não está repetido.",
+      "Não: o email fica reservado por ser UNIQUE, mesmo depois de apagado.",
+      "Não: o consentimento dado da primeira vez impede um segundo registo.",
+      "Sim, mas volta a conta antiga, com a data do primeiro consentimento."
+    ],
+    "correta": 0,
+    "explicacao": "O direito ao apagamento elimina mesmo a linha da tabela utilizadores. Como o UNIQUE só compara com as linhas que existem, o email volta a poder ser usado, e a conta nova tem um consentimento novo.",
+    "manual": "15.4, 10.2, 3.4"
+  },
+  {
+    "id": "acesso-201",
+    "bloco": "php",
+    "tema": "Controlo de acesso e XSS",
+    "dificuldade": "dificil",
+    "pergunta": "Alguém se registou com o nome <b>Ana</b>. Depois do login, como aparece a mensagem de boas-vindas no ecrã?",
+    "codigo": "// login.php\nmensagem('sucesso', 'Sessão iniciada. Bem-vindo, ' . $utilizador['nome'] . '!');\n\n// includes/cabecalho.php, na página seguinte\n<div class=\"msg <?= $_SESSION['msg']['tipo'] ?>\">\n    <?= htmlspecialchars($_SESSION['msg']['texto']) ?>\n</div>",
+    "linguagem": "php",
+    "alternativas": [
+      "Sessão iniciada. Bem-vindo, Ana! — com o nome Ana a negrito.",
+      "Sessão iniciada. Bem-vindo, <b>Ana</b>! — com as etiquetas à vista.",
+      "Sessão iniciada. Bem-vindo, &lt;b&gt;Ana&lt;/b&gt;! — com os códigos à vista.",
+      "Sessão iniciada. Bem-vindo, ! — o nome e as etiquetas desaparecem."
+    ],
+    "correta": 1,
+    "explicacao": "O nome entra na mensagem tal como foi escrito, mas o cabeçalho escreve o texto com htmlspecialchars(): o browser recebe &lt;b&gt; e mostra <b> como texto. Os códigos &lt; só ficariam à vista se o texto fosse escapado duas vezes.",
+    "manual": "14.1, 9.3, 10.4"
+  }
+]

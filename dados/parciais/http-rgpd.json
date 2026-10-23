@@ -162,24 +162,6 @@
     "manual": "1.2"
   },
   {
-    "id": "http-010",
-    "bloco": "dados",
-    "tema": "HTTP",
-    "dificuldade": "media",
-    "pergunta": "Fazes login com este formulário e, no endereço, não aparecem nem o email nem a password. Porquê?",
-    "codigo": "<form method=\"post\" action=\"login.php\">\n    <input type=\"email\" id=\"email\" name=\"email\">\n    <input type=\"password\" id=\"password\" name=\"password\">\n    <button type=\"submit\">Entrar</button>\n</form>",
-    "linguagem": "html",
-    "alternativas": [
-      "O campo é type=\"password\", e o browser nunca envia esse tipo de campo.",
-      "O formulário usa POST, que envia os dados no corpo do pedido.",
-      "O PHP limpa o endereço depois de ler os dados.",
-      "O action aponta para a própria página login.php."
-    ],
-    "correta": 1,
-    "explicacao": "Com method=\"post\" os dados viajam no corpo do pedido. O type=\"password\" só mostra pontos no ecrã; o valor é enviado na mesma.",
-    "manual": "1.2, 4.2"
-  },
-  {
     "id": "http-011",
     "bloco": "dados",
     "tema": "HTTP",
@@ -414,24 +396,6 @@
     "manual": "12.1"
   },
   {
-    "id": "http-024",
-    "bloco": "dados",
-    "tema": "HTTP",
-    "dificuldade": "media",
-    "pergunta": "Qual destas linhas do mapa de páginas está ERRADA?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Ver o detalhe → GET livro_ver.php?id=7",
-      "Listar e pesquisar → GET livros.php?q=...",
-      "Apagar → GET livro_apagar.php?id=7",
-      "Gravar o livro novo → POST livro_novo.php"
-    ],
-    "correta": 2,
-    "explicacao": "Apagar altera dados e tem de ser POST, com o id num campo escondido. Ver, listar e pesquisar só leem, por isso são GET.",
-    "manual": "12.1"
-  },
-  {
     "id": "http-025",
     "bloco": "dados",
     "tema": "HTTP",
@@ -447,24 +411,6 @@
     ],
     "correta": 2,
     "explicacao": "200 é OK: correu bem. 302 é redirecionamento, 404 é não encontrado e 500 é erro no servidor.",
-    "manual": "1.3"
-  },
-  {
-    "id": "http-026",
-    "bloco": "dados",
-    "tema": "HTTP",
-    "dificuldade": "facil",
-    "pergunta": "Quando aparece o código 500?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Quando o utilizador não tem sessão iniciada.",
-      "Quando se pede um livro que não existe.",
-      "Quando o servidor manda o browser ir a outra página depois de gravar.",
-      "Quando o código rebenta ou a base de dados está desligada."
-    ],
-    "correta": 3,
-    "explicacao": "500 é erro no servidor: um erro de programação ou a base de dados desligada. Livro inexistente é 404 e redirecionar é 302.",
     "manual": "1.3"
   },
   {
@@ -630,24 +576,6 @@
     "manual": "1.4"
   },
   {
-    "id": "http-036",
-    "bloco": "dados",
-    "tema": "HTTP",
-    "dificuldade": "facil",
-    "pergunta": "Onde corre o validacao.js?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "No servidor Apache, antes do PHP.",
-      "No browser.",
-      "No MySQL, ao gravar os dados.",
-      "No servidor, ao receber o POST."
-    ],
-    "correta": 1,
-    "explicacao": "O JavaScript (tal como o HTML e o CSS) corre no browser. Serve para validar os formulários antes de os enviar.",
-    "manual": "1.4"
-  },
-  {
     "id": "http-037",
     "bloco": "dados",
     "tema": "HTTP",
@@ -718,42 +646,6 @@
     "correta": 2,
     "explicacao": "O JavaScript mostra logo os erros, sem esperar pelo servidor. Mas pode ser desligado ou contornado, por isso a segurança tem de estar no servidor.",
     "manual": "6.1, 1.4"
-  },
-  {
-    "id": "http-041",
-    "bloco": "dados",
-    "tema": "HTTP",
-    "dificuldade": "media",
-    "pergunta": "Se o validacao.js já verifica os campos, porque é que o servidor valida tudo outra vez?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "O JavaScript pode ser desligado, ou o pedido enviado sem o formulário.",
-      "O JavaScript só consegue validar os formulários que usam method=\"get\".",
-      "O browser apaga os valores que o JavaScript já validou.",
-      "O validacao.js só corre depois de os dados chegarem ao servidor."
-    ],
-    "correta": 0,
-    "explicacao": "A validação no browser pode ser contornada. Só o que é verificado no servidor é garantido.",
-    "manual": "6.1"
-  },
-  {
-    "id": "http-042",
-    "bloco": "dados",
-    "tema": "HTTP",
-    "dificuldade": "dificil",
-    "pergunta": "Desligas o JavaScript e envias o formulário de registo em branco. O que tem de acontecer?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "A conta é criada com os campos vazios.",
-      "Os erros aparecem sem a página recarregar.",
-      "Aparecem os erros, agora vindos do servidor.",
-      "Aparece um erro 500, por faltar o JavaScript."
-    ],
-    "correta": 2,
-    "explicacao": "Sem JavaScript, o formulário chega ao servidor, que valida e mostra os erros. Os erros sem recarregar só existem com o JavaScript ligado.",
-    "manual": "16, 6.1"
   },
   {
     "id": "http-043",
@@ -1134,24 +1026,6 @@
     "manual": "15.1"
   },
   {
-    "id": "rgpd-004",
-    "bloco": "dados",
-    "tema": "RGPD",
-    "dificuldade": "media",
-    "pergunta": "Antes de acrescentar uma coluna com um dado pessoal, que perguntas tens de saber responder?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Que tipo de dados usar e quantos caracteres pode ter.",
-      "Para que serve o dado e quanto tempo fica guardado.",
-      "Se a coluna fica NULL ou NOT NULL na tabela.",
-      "Em que página aparece e com que classe CSS."
-    ],
-    "correta": 1,
-    "explicacao": "Cada dado pessoal tem de ter uma finalidade e um prazo de conservação: é o que vai para a tabela da secção 6.2 do dossier.",
-    "manual": "15.1"
-  },
-  {
     "id": "rgpd-005",
     "bloco": "dados",
     "tema": "RGPD",
@@ -1260,24 +1134,6 @@
     "manual": "15.1"
   },
   {
-    "id": "rgpd-011",
-    "bloco": "dados",
-    "tema": "RGPD",
-    "dificuldade": "facil",
-    "pergunta": "Uma caixa de consentimento que já vem assinalada é válida?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Sim, desde que o utilizador a possa desmarcar depois.",
-      "Sim, desde que tenha um link para a política.",
-      "Não: o utilizador tem de a assinalar ele próprio.",
-      "Não, porque o consentimento tem de ser um botão."
-    ],
-    "correta": 2,
-    "explicacao": "O consentimento pede-se com uma caixa desmarcada por omissão. Uma caixa já assinalada não é consentimento.",
-    "manual": "15.2"
-  },
-  {
     "id": "rgpd-012",
     "bloco": "dados",
     "tema": "RGPD",
@@ -1314,60 +1170,6 @@
     "manual": "15.2"
   },
   {
-    "id": "rgpd-014",
-    "bloco": "dados",
-    "tema": "RGPD",
-    "dificuldade": "dificil",
-    "pergunta": "A caixa do consentimento já tem required. Porque é que o registo.php faz também esta verificação?",
-    "codigo": "if (!isset($_POST['consentimento'])) {\n    $erros[] = 'Tens de aceitar a política de privacidade.';\n}",
-    "linguagem": "php",
-    "alternativas": [
-      "O required não funciona em caixas de verificação.",
-      "Sem isto, a coluna consentimento_em ficava a NULL na base de dados.",
-      "O required e o JavaScript podem ser desligados ou contornados.",
-      "O isset() é que faz aparecer a caixa no browser."
-    ],
-    "correta": 2,
-    "explicacao": "O consentimento tem de ser verificado no servidor, não só no browser. Quem desligar o JavaScript ou enviar o pedido diretamente passa por cima do required.",
-    "manual": "15.2, 10.2"
-  },
-  {
-    "id": "rgpd-015",
-    "bloco": "dados",
-    "tema": "RGPD",
-    "dificuldade": "facil",
-    "pergunta": "Onde fica guardado o momento em que o utilizador deu o consentimento?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Na sessão, em $_SESSION['consentimento'].",
-      "Na coluna consentimento_em da tabela utilizadores.",
-      "Num cookie guardado no browser do utilizador.",
-      "No ficheiro privacidade.php, numa lista de quem aceitou."
-    ],
-    "correta": 1,
-    "explicacao": "A data fica na base de dados, em consentimento_em, junto da conta. A sessão e os cookies desaparecem; a prova tem de ficar guardada.",
-    "manual": "15.2"
-  },
-  {
-    "id": "rgpd-016",
-    "bloco": "dados",
-    "tema": "RGPD",
-    "dificuldade": "dificil",
-    "pergunta": "Que valor fica em consentimento_em quando este registo é gravado?",
-    "codigo": "$stmt = $pdo->prepare(\n    'INSERT INTO utilizadores (nome, email, password_hash, consentimento_em)\n     VALUES (?, ?, ?, NOW())'\n);\n$stmt->execute([$nome, $email, $hash]);",
-    "linguagem": "php",
-    "alternativas": [
-      "NULL, porque não está no execute().",
-      "A data em que a política foi aberta no outro separador.",
-      "A data e a hora do momento do registo.",
-      "A data e a hora do último login."
-    ],
-    "correta": 2,
-    "explicacao": "NOW() é escrito no próprio SQL e dá a data e a hora do momento em que o INSERT corre. Só os três ? recebem valores do execute().",
-    "manual": "10.2, 15.2"
-  },
-  {
     "id": "rgpd-017",
     "bloco": "dados",
     "tema": "RGPD",
@@ -1384,24 +1186,6 @@
     "correta": 3,
     "explicacao": "NOT NULL torna a coluna obrigatória: não se cria nenhuma conta sem a data do consentimento. Quem preenche a data sozinho é o DEFAULT CURRENT_TIMESTAMP, e só o criado_em o tem.",
     "manual": "3.4, 15.2"
-  },
-  {
-    "id": "rgpd-018",
-    "bloco": "dados",
-    "tema": "RGPD",
-    "dificuldade": "media",
-    "pergunta": "Como se testa a medida \"consentimento no registo\"?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Registar sem assinalar a caixa, com o JavaScript desligado.",
-      "Procurar a caixa do consentimento no rodapé de todas as páginas.",
-      "Ver no phpMyAdmin se a coluna começa por $2.",
-      "Abrir o registo numa janela anónima do browser."
-    ],
-    "correta": 0,
-    "explicacao": "Com o JavaScript desligado, só o servidor pode recusar. Se o registo for aceite sem a caixa assinalada, a verificação no servidor falta.",
-    "manual": "14, 16"
   },
   {
     "id": "rgpd-019",

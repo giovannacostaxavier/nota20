@@ -72,24 +72,6 @@
     "manual": "1.1"
   },
   {
-    "id": "php-006",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "facil",
-    "pergunta": "Num ficheiro .php, o que acontece ao texto que está fora de <?php ... ?>?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "É ignorado e não chega ao browser.",
-      "Dá erro de sintaxe, porque não é PHP.",
-      "É executado como PHP na mesma.",
-      "É enviado para o browser tal como está."
-    ],
-    "correta": 3,
-    "explicacao": "Um .php pode misturar HTML e PHP: só o que está entre <?php e ?> é executado; o resto segue tal e qual para o browser.",
-    "manual": "7.1"
-  },
-  {
     "id": "php-007",
     "bloco": "php",
     "tema": "PHP essencial",
@@ -180,24 +162,6 @@
     "manual": "7.1, 12.2"
   },
   {
-    "id": "php-012",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "media",
-    "pergunta": "Sabendo que $_SESSION['msg']['tipo'] vale 'sucesso', como fica o atributo class no HTML enviado?",
-    "codigo": "<div class=\"msg <?= $_SESSION['msg']['tipo'] ?>\">",
-    "linguagem": "php",
-    "alternativas": [
-      "class=\"msg\"",
-      "class=\"msg tipo\"",
-      "class=\"sucesso\"",
-      "class=\"msg sucesso\""
-    ],
-    "correta": 3,
-    "explicacao": "O valor é escrito dentro do atributo, a seguir a \"msg \". É assim que o tipo da mensagem passa a ser uma classe CSS (verde ou vermelho).",
-    "manual": "7.1, 9.3"
-  },
-  {
     "id": "php-013",
     "bloco": "php",
     "tema": "PHP essencial",
@@ -286,24 +250,6 @@
     "correta": 2,
     "explicacao": "Num ficheiro só com PHP, um espaço ou linha em branco depois do ?> seria enviado ao browser, e a partir daí o header() já não funciona.",
     "manual": "7.1"
-  },
-  {
-    "id": "php-018",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "dificil",
-    "pergunta": "Ao gravar um livro aparece \"Cannot modify header information - headers already sent\". O config/db.php acaba assim, com uma linha em branco no fim. Qual é a solução indicada no manual?",
-    "codigo": "$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\n?>\n\n",
-    "linguagem": "php",
-    "alternativas": [
-      "Tirar o ?> do fim, porque o ficheiro só tem PHP.",
-      "Trocar o require do db.php por include.",
-      "Pôr o header() depois do require do cabeçalho.",
-      "Escrever exit; antes do ?> do db.php."
-    ],
-    "correta": 0,
-    "explicacao": "A linha em branco depois do ?> é enviada ao browser antes do header(). Sem o ?> no fim de um ficheiro só PHP, isso não pode acontecer.",
-    "manual": "7.1, 17.1"
   },
   {
     "id": "php-019",
@@ -430,24 +376,6 @@
     "correta": 2,
     "explicacao": "Com aspas duplas, o PHP substitui $autor pelo seu valor. Com aspas simples apareceria $autor literalmente.",
     "manual": "7.2"
-  },
-  {
-    "id": "php-026",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "dificil",
-    "pergunta": "A livro_novo.php redireciona assim, com $novoId a valer 12. Se a linha fosse escrita com aspas simples, para onde ia o browser?",
-    "codigo": "header(\"Location: livro_ver.php?id=$novoId\");\nexit;",
-    "linguagem": "php",
-    "alternativas": [
-      "Para livro_ver.php?id=12, exatamente igual.",
-      "Para livro_ver.php?id= sem nenhum número.",
-      "Para lado nenhum: o header() só aceita aspas simples.",
-      "Para livro_ver.php?id=$novoId, escrito tal e qual."
-    ],
-    "correta": 3,
-    "explicacao": "Nas aspas simples o texto é literal, por isso o $novoId não seria substituído. Esta linha precisa de aspas duplas (ou de concatenação).",
-    "manual": "7.2, 12.4"
   },
   {
     "id": "php-027",
@@ -682,24 +610,6 @@
     "correta": 2,
     "explicacao": "Num array associativo cada valor tem uma chave e lê-se com o nome da chave entre parênteses retos.",
     "manual": "7.2"
-  },
-  {
-    "id": "php-040",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "media",
-    "pergunta": "Com fetch(PDO::FETCH_ASSOC), em que forma chega ao PHP uma linha da tabela livros?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Um texto com os valores separados por vírgulas.",
-      "Um array indexado, só com as posições 0, 1, 2...",
-      "Uma variável separada para cada coluna ($titulo, $isbn...).",
-      "Um array associativo, com o nome de cada coluna como chave."
-    ],
-    "correta": 3,
-    "explicacao": "Por isso se escreve $livro['titulo'] ou $livro['id_livro']: a chave é o nome da coluna (ou o alias do AS).",
-    "manual": "7.2, 8.2"
   },
   {
     "id": "php-041",
@@ -990,24 +900,6 @@
     "manual": "7.4"
   },
   {
-    "id": "php-057",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "media",
-    "pergunta": "Esta é a função mensagem() do includes/inicio.php, e o bloco do cabeçalho que a mostra. O que faz a função?",
-    "codigo": "// includes/inicio.php\nfunction mensagem($tipo, $texto)\n{\n    $_SESSION['msg'] = ['tipo' => $tipo, 'texto' => $texto];\n}\n\n// includes/cabecalho.php (logo a seguir ao <main>)\n<?php if (isset($_SESSION['msg'])): ?>\n    <div class=\"msg <?= $_SESSION['msg']['tipo'] ?>\">\n        <?= htmlspecialchars($_SESSION['msg']['texto']) ?>\n    </div>\n    <?php unset($_SESSION['msg']); // mostra-se uma vez e apaga-se ?>\n<?php endif; ?>",
-    "linguagem": "php",
-    "alternativas": [
-      "Escreve logo a mensagem na página com echo.",
-      "Guarda-a na sessão para a página seguinte.",
-      "Grava a mensagem numa tabela da base de dados.",
-      "Mostra a mensagem num alert() do browser."
-    ],
-    "correta": 1,
-    "explicacao": "A função só guarda o tipo e o texto em $_SESSION['msg']. Depois do redirecionamento, o cabeçalho mostra-a e apaga-a.",
-    "manual": "7.4, 9.3"
-  },
-  {
     "id": "php-058",
     "bloco": "php",
     "tema": "PHP essencial",
@@ -1206,24 +1098,6 @@
     "manual": "7.4, 12.3"
   },
   {
-    "id": "php-070",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "media",
-    "pergunta": "Quando aparece a caixa de erros deste excerto?",
-    "codigo": "<?php if (!empty($erros)): ?>\n    <div class=\"msg erro\">...</div>\n<?php endif; ?>",
-    "linguagem": "php",
-    "alternativas": [
-      "Sempre, mesmo quando $erros está vazio.",
-      "Só quando $erros tem pelo menos um erro.",
-      "Só quando a variável $erros não existe.",
-      "Só quando há exatamente um erro."
-    ],
-    "correta": 1,
-    "explicacao": "empty() é verdadeiro para um array vazio; com o ! a condição só é verdadeira quando há erros.",
-    "manual": "7.4, 9.4"
-  },
-  {
     "id": "php-071",
     "bloco": "php",
     "tema": "PHP essencial",
@@ -1314,42 +1188,6 @@
     "manual": "7.5, 4.2"
   },
   {
-    "id": "php-076",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "media",
-    "pergunta": "Para que serve if ($_SERVER['REQUEST_METHOD'] === 'POST') { ... } numa página com formulário?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Para verificar se o utilizador tem sessão iniciada.",
-      "Para impedir que o formulário seja enviado duas vezes.",
-      "Para guardar na base de dados o método do formulário.",
-      "Para só ler e gravar o formulário quando ele foi enviado."
-    ],
-    "correta": 3,
-    "explicacao": "A mesma página serve para mostrar o formulário (GET) e para o receber (POST). O bloco só corre quando há dados enviados.",
-    "manual": "7.5, 7.8"
-  },
-  {
-    "id": "php-077",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "media",
-    "pergunta": "Abres livro_novo.php a partir de um link. O que acontece?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "O método é POST, o livro é validado e aparecem logo os erros.",
-      "O método é GET e o PHP grava um livro vazio.",
-      "O método é LINK e o formulário vem já preenchido.",
-      "É um GET: salta o bloco do POST e mostra o formulário vazio."
-    ],
-    "correta": 3,
-    "explicacao": "Seguir um link é sempre um GET. O if do REQUEST_METHOD só é verdadeiro quando o formulário é enviado com method=\"post\".",
-    "manual": "7.5, 12.4"
-  },
-  {
     "id": "php-078",
     "bloco": "php",
     "tema": "PHP essencial",
@@ -1384,24 +1222,6 @@
     "correta": 3,
     "explicacao": "Tudo o que vem do formulário é texto. O (int) garante um inteiro; se o valor faltar ou não for número, fica 0.",
     "manual": "7.5, 12.4"
-  },
-  {
-    "id": "php-080",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "facil",
-    "pergunta": "O que contém $_SESSION?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Os dados da sessão do utilizador, guardados no servidor.",
-      "Os campos do último formulário enviado.",
-      "Os cookies do browser, guardados no computador do utilizador.",
-      "Os valores do endereço, depois do ?."
-    ],
-    "correta": 0,
-    "explicacao": "$_SESSION guarda dados entre pedidos (como o id do utilizador). Os campos do formulário estão em $_POST e os do endereço em $_GET.",
-    "manual": "7.5, 10.3"
   },
   {
     "id": "php-081",
@@ -1494,24 +1314,6 @@
     "manual": "7.5, 12.3"
   },
   {
-    "id": "php-086",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "dificil",
-    "pergunta": "Alguém abre livro_ver.php?id=abc. Que valor fica em $id?",
-    "codigo": "$id = (int) ($_GET['id'] ?? 0);",
-    "linguagem": "php",
-    "alternativas": [
-      "0",
-      "'abc'",
-      "null",
-      "1"
-    ],
-    "correta": 0,
-    "explicacao": "O (int) converte o texto num inteiro; um texto sem algarismos dá 0, que não é o id de nenhum livro.",
-    "manual": "7.5, 12.3"
-  },
-  {
     "id": "php-087",
     "bloco": "php",
     "tema": "PHP essencial",
@@ -1548,42 +1350,6 @@
     "manual": "7.5, 12.3"
   },
   {
-    "id": "php-089",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "media",
-    "pergunta": "O ISBN foi deixado em branco, por isso $livro['isbn'] é ''. Que valor vai para o execute()?",
-    "codigo": "$livro['isbn'] ?: null",
-    "linguagem": "php",
-    "alternativas": [
-      "''",
-      "O texto 'null'",
-      "0",
-      "null"
-    ],
-    "correta": 3,
-    "explicacao": "O ?: usa o valor da direita quando o da esquerda é vazio (falso). Assim o campo opcional fica NULL na base de dados.",
-    "manual": "7.5, 12.4"
-  },
-  {
-    "id": "php-090",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "media",
-    "pergunta": "Porque é que a livro_novo.php grava $livro['sinopse'] ?: null e não só $livro['sinopse']?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Para os opcionais vazios ficarem NULL na tabela.",
-      "Para proteger a consulta contra a injeção de SQL.",
-      "Para tornar a sinopse um campo obrigatório.",
-      "Para converter a sinopse num número inteiro."
-    ],
-    "correta": 0,
-    "explicacao": "Um campo opcional em branco chega como ''. Com o ?: passa a null, e na tabela fica NULL (\"sem valor\").",
-    "manual": "7.5, 12.4"
-  },
-  {
     "id": "php-091",
     "bloco": "php",
     "tema": "PHP essencial",
@@ -1618,24 +1384,6 @@
     "correta": 0,
     "explicacao": "validar_livro() devolve um array vazio quando está tudo certo. Um array vazio é falso, por isso !$erros é verdadeiro e grava.",
     "manual": "7.3, 12.4"
-  },
-  {
-    "id": "php-093",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "dificil",
-    "pergunta": "O que mostra este código?",
-    "codigo": "$erros = [];\n$erros[] = 'O email não é válido.';\nif (!$erros) {\n    echo 'Gravado';\n} else {\n    echo count($erros) . ' erro(s)';\n}",
-    "linguagem": "php",
-    "alternativas": [
-      "Gravado",
-      "0 erro(s)",
-      "Gravado1 erro(s)",
-      "1 erro(s)"
-    ],
-    "correta": 3,
-    "explicacao": "O array tem um elemento, por isso é verdadeiro e !$erros é falso: corre o else, que mostra a contagem.",
-    "manual": "7.3, 7.4"
   },
   {
     "id": "php-094",
@@ -1728,24 +1476,6 @@
     "manual": "7.8, Anexo B"
   },
   {
-    "id": "inc-004",
-    "bloco": "php",
-    "tema": "include e require",
-    "dificuldade": "media",
-    "pergunta": "O ficheiro menu.php não existe. O que acontece quando se abre esta página?",
-    "codigo": "<?php\ninclude 'menu.php';\necho 'Fim da página';",
-    "linguagem": "php",
-    "alternativas": [
-      "Dá um erro fatal e \"Fim da página\" não aparece.",
-      "Aparece um aviso e depois \"Fim da página\".",
-      "Não aparece aviso nenhum e só se vê \"Fim da página\".",
-      "A resposta é um 404 e a página não é mostrada."
-    ],
-    "correta": 1,
-    "explicacao": "Quando o ficheiro falta, o include dá só um aviso e continua. Com require seria um erro fatal e a página parava ali.",
-    "manual": "7.6"
-  },
-  {
     "id": "inc-005",
     "bloco": "php",
     "tema": "include e require",
@@ -1762,24 +1492,6 @@
     "correta": 3,
     "explicacao": "Se faltar o inicio.php ou o auth.php, continuar seria pior (sem ligação ou sem proteção). O require gera um erro fatal e para.",
     "manual": "7.6"
-  },
-  {
-    "id": "inc-006",
-    "bloco": "php",
-    "tema": "include e require",
-    "dificuldade": "media",
-    "pergunta": "Uma página restrita faz require 'includes/auth.php';, mas alguém apagou esse ficheiro. O que acontece?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Erro fatal: a página para e não mostra nada da área restrita.",
-      "Aparece um aviso e a página abre para toda a gente.",
-      "O PHP salta a verificação e manda para o login.",
-      "A página abre normalmente, porque o auth.php é opcional."
-    ],
-    "correta": 0,
-    "explicacao": "Com require, a falta do ficheiro é um erro fatal. Com include, a página continuaria sem verificação e ficaria aberta a todos.",
-    "manual": "7.6, 11.2"
   },
   {
     "id": "inc-007",

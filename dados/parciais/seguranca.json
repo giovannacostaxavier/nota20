@@ -54,24 +54,6 @@
     "manual": "14, 10.1"
   },
   {
-    "id": "seg-004",
-    "bloco": "dados",
-    "tema": "Segurança",
-    "dificuldade": "facil",
-    "pergunta": "Como confirmas, no phpMyAdmin, que as passwords estão guardadas com hash?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Os valores da coluna aparecem escondidos com asteriscos.",
-      "Os valores da coluna password_hash começam por $2.",
-      "A coluna tem o tipo PASSWORD em vez de VARCHAR.",
-      "A coluna está vazia, porque o hash fica na sessão."
-    ],
-    "correta": 1,
-    "explicacao": "O password_hash() usa o bcrypt, que produz textos começados por $2y$. Se vires a password escrita tal como foi registada, a medida falha.",
-    "manual": "14, 16"
-  },
-  {
     "id": "seg-005",
     "bloco": "dados",
     "tema": "Segurança",
@@ -612,60 +594,6 @@
     "manual": "14.1"
   },
   {
-    "id": "seg-035",
-    "bloco": "dados",
-    "tema": "Segurança",
-    "dificuldade": "media",
-    "pergunta": "Gravas um registo com <script>alert(1)</script> num campo de texto. O que tem de acontecer numa aplicação protegida?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "O texto aparece tal e qual e não abre nenhuma janela.",
-      "Abre uma janela com 1, o que prova que foi gravado.",
-      "O registo é recusado com um erro de SQL.",
-      "O campo aparece vazio, porque o script foi apagado."
-    ],
-    "correta": 0,
-    "explicacao": "É o teste 20. Com htmlspecialchars(), os < e > são escritos como &lt; e &gt; e o browser mostra o texto em vez de o executar. Se abrir a janela, há XSS.",
-    "manual": "16, 14.1"
-  },
-  {
-    "id": "seg-036",
-    "bloco": "dados",
-    "tema": "Segurança",
-    "dificuldade": "facil",
-    "pergunta": "Porque é que não se guarda a password tal como foi escrita?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Porque o VARCHAR não aceita caracteres especiais nem letras acentuadas.",
-      "Porque a password ocupa mais espaço do que o seu hash.",
-      "Porque o login ficaria mais lento com a password em claro.",
-      "Se a base de dados for roubada, o atacante fica com as passwords."
-    ],
-    "correta": 3,
-    "explicacao": "E como muitas pessoas usam a mesma password em vários sites, o atacante ficaria também com o acesso ao email e ao banco delas. Por isso guarda-se só o hash.",
-    "manual": "10.1"
-  },
-  {
-    "id": "seg-037",
-    "bloco": "dados",
-    "tema": "Segurança",
-    "dificuldade": "facil",
-    "pergunta": "O que é o hash de uma password?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "A password cifrada, que se decifra com a chave guardada no db.php.",
-      "O resultado de uma função que não se pode reverter.",
-      "A password escrita noutra codificação, como o base64.",
-      "Uma cópia da password guardada na sessão do utilizador."
-    ],
-    "correta": 1,
-    "explicacao": "O hash é um texto de tamanho fixo calculado a partir da password, e a partir dele não há forma de chegar à password. Não há nenhuma chave para o \"decifrar\".",
-    "manual": "10.1"
-  },
-  {
     "id": "seg-038",
     "bloco": "dados",
     "tema": "Segurança",
@@ -681,60 +609,6 @@
     ],
     "correta": 0,
     "explicacao": "O base64 desfaz-se de imediato: é só outra representação do mesmo texto. Para passwords usa-se sempre password_hash().",
-    "manual": "10.1"
-  },
-  {
-    "id": "seg-039",
-    "bloco": "dados",
-    "tema": "Segurança",
-    "dificuldade": "media",
-    "pergunta": "Um colega guarda as passwords assim. Porque é que md5() e sha1() não servem para isto?",
-    "codigo": "$hash = md5($password);",
-    "linguagem": "php",
-    "alternativas": [
-      "São reversíveis: dá para decifrar o hash.",
-      "Geram textos maiores do que a coluna aceita.",
-      "Só funcionam com passwords até 8 caracteres.",
-      "São rápidos demais e, por isso, fáceis de atacar."
-    ],
-    "correta": 3,
-    "explicacao": "Um hash rápido deixa o atacante experimentar milhões de passwords. O bcrypt do password_hash() tem um custo que o torna lento de atacar.",
-    "manual": "10.1"
-  },
-  {
-    "id": "seg-040",
-    "bloco": "dados",
-    "tema": "Segurança",
-    "dificuldade": "media",
-    "pergunta": "Se o hash não é reversível, como se confirma a password no login?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Decifra-se o hash guardado e compara-se com o que foi escrito.",
-      "Compara-se o texto escrito diretamente com a coluna password_hash.",
-      "Calcula-se o hash da password escrita e compara-se com o guardado.",
-      "Lê-se a password original guardada na sessão no momento do registo."
-    ],
-    "correta": 2,
-    "explicacao": "No login compara-se, não se \"decifra\". O password_verify() calcula o hash da password escrita com o sal guardado e vê se dá o mesmo.",
-    "manual": "10.1"
-  },
-  {
-    "id": "seg-041",
-    "bloco": "dados",
-    "tema": "Segurança",
-    "dificuldade": "dificil",
-    "pergunta": "Registas duas contas com a mesma password. Como são os hashes guardados?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Iguais, porque a função de hash é sempre a mesma.",
-      "Iguais, e por isso o UNIQUE recusa a segunda conta.",
-      "Diferentes, porque cada hash inclui o email da conta.",
-      "Diferentes, por causa do sal aleatório de cada hash."
-    ],
-    "correta": 3,
-    "explicacao": "O password_hash() usa um sal, um valor aleatório que fica dentro do próprio hash. Com sais diferentes, a mesma password dá hashes diferentes.",
     "manual": "10.1"
   },
   {
@@ -754,24 +628,6 @@
     "correta": 2,
     "explicacao": "Tudo o que corre no browser está nas mãos do utilizador. Só o servidor garante que os dados são verificados.",
     "manual": "6.1, 14"
-  },
-  {
-    "id": "seg-043",
-    "bloco": "dados",
-    "tema": "Segurança",
-    "dificuldade": "facil",
-    "pergunta": "Este campo tem required. O que podes concluir?",
-    "codigo": "<input type=\"text\" id=\"titulo\" name=\"titulo\" required>",
-    "linguagem": "html",
-    "alternativas": [
-      "O browser pede o valor, mas o servidor tem de validar na mesma.",
-      "O campo nunca pode chegar vazio ao servidor, venha o pedido de onde vier.",
-      "A validação deste campo no servidor é dispensável.",
-      "O campo passa a ser verificado pela base de dados."
-    ],
-    "correta": 0,
-    "explicacao": "O required pode ser contornado: basta desligar a validação do browser ou enviar o pedido sem passar pelo formulário. A validação no servidor continua obrigatória.",
-    "manual": "14, 6.4"
   },
   {
     "id": "seg-044",
@@ -882,24 +738,6 @@
     "manual": "14, 12.4"
   },
   {
-    "id": "seg-050",
-    "bloco": "dados",
-    "tema": "Segurança",
-    "dificuldade": "facil",
-    "pergunta": "Esconder o link \"Livros\" do menu a quem não tem sessão é controlo de acesso?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Sim: sem o link, ninguém consegue chegar à página.",
-      "Sim, desde que o link fique escondido também no telemóvel.",
-      "Não: qualquer pessoa pode escrever o endereço no browser.",
-      "Não, porque o link devia ser escondido com JavaScript."
-    ],
-    "correta": 2,
-    "explicacao": "Esconder um link ou um botão não protege nada: a página continua a responder a quem a pedir diretamente.",
-    "manual": "11.1"
-  },
-  {
     "id": "seg-051",
     "bloco": "dados",
     "tema": "Segurança",
@@ -952,24 +790,6 @@
     "correta": 1,
     "explicacao": "Apagar altera dados, por isso só se aceita POST; um pedido GET volta para a lista sem apagar nada. Quem trata da sessão é o auth.php, incluído antes deste bloco.",
     "manual": "12.6, 14.2"
-  },
-  {
-    "id": "seg-054",
-    "bloco": "dados",
-    "tema": "Segurança",
-    "dificuldade": "dificil",
-    "pergunta": "Este login funciona. Que problema de segurança tem?",
-    "codigo": "if (!$utilizador) {\n    $erros[] = 'Esse email não está registado.';\n} elseif (!password_verify($password, $utilizador['password_hash'])) {\n    $erros[] = 'A password está errada.';\n}",
-    "linguagem": "php",
-    "alternativas": [
-      "Mostra a password em claro na mensagem de erro.",
-      "Permite a injeção de SQL pelo campo do email.",
-      "Guarda a password errada na sessão do utilizador.",
-      "Permite descobrir que emails têm conta na aplicação."
-    ],
-    "correta": 3,
-    "explicacao": "As duas mensagens dizem a um atacante se o email existe. A boa prática é uma só mensagem para os dois casos: \"Email ou password errados.\"",
-    "manual": "10.4, 14.2"
   },
   {
     "id": "seg-055",
@@ -1494,24 +1314,6 @@
     "manual": "11.2, 11.3, 7.8"
   },
   {
-    "id": "acesso-019",
-    "bloco": "php",
-    "tema": "Controlo de acesso e XSS",
-    "dificuldade": "media",
-    "pergunta": "Porque é que a conta.php apaga a conta com o id da sessão, e não com um id enviado pelo formulário?",
-    "codigo": "$stmt = $pdo->prepare('DELETE FROM utilizadores WHERE id_utilizador = ?');\n$stmt->execute([$_SESSION['id_utilizador']]);",
-    "linguagem": "php",
-    "alternativas": [
-      "Porque um formulário não consegue enviar números.",
-      "Porque o DELETE só aceita valores vindos da sessão.",
-      "Assim, cada utilizador só consegue apagar a própria conta.",
-      "Para o id não aparecer no endereço do browser."
-    ],
-    "correta": 2,
-    "explicacao": "Um id enviado pelo formulário podia ser trocado pelo de outra pessoa. O da sessão foi posto lá pelo servidor no login e o utilizador não o altera.",
-    "manual": "15.4, 10.3"
-  },
-  {
     "id": "acesso-020",
     "bloco": "php",
     "tema": "Controlo de acesso e XSS",
@@ -1780,23 +1582,5 @@
     "correta": 1,
     "explicacao": "O nl2br() acrescenta <br />, mas o htmlspecialchars() a seguir troca-o por &lt;br /&gt;, que o browser mostra como texto. A ordem certa é nl2br(htmlspecialchars(...)).",
     "manual": "12.3, 14.1"
-  },
-  {
-    "id": "acesso-035",
-    "bloco": "php",
-    "tema": "Controlo de acesso e XSS",
-    "dificuldade": "media",
-    "pergunta": "Um atacante grava <script>…</script> no nome de um autor. Onde atua a defesa da Biblioteca?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "No INSERT, onde o prepare() remove o script.",
-      "No validacao.js, que recusa os sinais < e >.",
-      "Na base de dados, que não aceita etiquetas HTML.",
-      "Nas páginas que mostram o nome, com htmlspecialchars()."
-    ],
-    "correta": 3,
-    "explicacao": "O nome é gravado tal como foi escrito; a defesa é escapá-lo sempre que é escrito na página. O prepare() protege o SQL, não o HTML.",
-    "manual": "14.1"
   }
 ]

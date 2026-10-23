@@ -108,24 +108,6 @@
     "manual": "4.1, 5.1, Anexo B"
   },
   {
-    "id": "html-007",
-    "bloco": "web",
-    "tema": "HTML e formulários",
-    "dificuldade": "media",
-    "pergunta": "Em que parte da página deve ficar o <link rel=\"stylesheet\">?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "No fim do <body>, depois do conteúdo.",
-      "Dentro do <footer>.",
-      "Antes da linha <!DOCTYPE html>.",
-      "Dentro do <head>."
-    ],
-    "correta": 3,
-    "explicacao": "O <link> do CSS vai no <head>, junto ao <title> e aos <meta>, para o browser já ter os estilos quando desenha o conteúdo.",
-    "manual": "4.1, 5.1"
-  },
-  {
     "id": "html-008",
     "bloco": "web",
     "tema": "HTML e formulários",
@@ -414,24 +396,6 @@
     "manual": "1.2, 4.4"
   },
   {
-    "id": "html-025",
-    "bloco": "web",
-    "tema": "HTML e formulários",
-    "dificuldade": "facil",
-    "pergunta": "Que atributo de um campo define a chave com que o valor chega ao servidor?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "id",
-      "name",
-      "for",
-      "value"
-    ],
-    "correta": 1,
-    "explicacao": "O name é a chave: name=\"email\" chega como $_POST['email']. Sem name, o campo não é enviado. O id serve para o <label for>, o CSS e o JavaScript.",
-    "manual": "4.2"
-  },
-  {
     "id": "html-026",
     "bloco": "web",
     "tema": "HTML e formulários",
@@ -466,24 +430,6 @@
     "correta": 3,
     "explicacao": "O servidor recebe o valor com a chave do name. O id é usado pelo <label for>, pelo CSS (#id) e pelo getElementById() no JavaScript.",
     "manual": "4.2, 6.2"
-  },
-  {
-    "id": "html-028",
-    "bloco": "web",
-    "tema": "HTML e formulários",
-    "dificuldade": "dificil",
-    "pergunta": "Num projeto, ao gravar um registo, aparece \"Warning: Undefined array key \"isbn\"\". O campo do formulário é este. Qual é a causa?",
-    "codigo": "<label for=\"isbn\">ISBN (opcional)</label>\n<input type=\"text\" id=\"isbn\" maxlength=\"13\">",
-    "linguagem": "html",
-    "alternativas": [
-      "O id devia ser diferente do for do <label>.",
-      "O campo não tem required, por isso chega vazio.",
-      "O campo não tem name, por isso não é enviado.",
-      "O maxlength cortou o valor antes de ser enviado."
-    ],
-    "correta": 2,
-    "explicacao": "Sem name, o browser não envia o campo e $_POST['isbn'] não existe. Um campo vazio chegava na mesma, como texto vazio.",
-    "manual": "17.1, 4.2"
   },
   {
     "id": "html-029",
@@ -537,42 +483,6 @@
     ],
     "correta": 2,
     "explicacao": "O for liga-se ao id, e aqui o id é \"mail\". O name (email) não conta para a etiqueta. O browser não dá erro: a etiqueta só fica sem efeito.",
-    "manual": "4.2"
-  },
-  {
-    "id": "html-032",
-    "bloco": "web",
-    "tema": "HTML e formulários",
-    "dificuldade": "media",
-    "pergunta": "No registo, a caixa do consentimento está dentro do próprio <label>. Que efeito tem isso?",
-    "codigo": "<label class=\"check\" for=\"consentimento\">\n    <input type=\"checkbox\" id=\"consentimento\" name=\"consentimento\" required>\n    <span>Li e aceito a política de privacidade.</span>\n</label>",
-    "linguagem": "html",
-    "alternativas": [
-      "O texto da etiqueta passa a ser enviado como valor da caixa.",
-      "Clicar no texto ativa ou desativa a caixa, como clicar na própria caixa.",
-      "A caixa deixa de ser enviada ao servidor, por estar dentro de outro elemento.",
-      "A caixa fica assinalada logo quando a página abre."
-    ],
-    "correta": 1,
-    "explicacao": "A etiqueta continua ligada à caixa, por isso clicar no texto muda o estado da caixa. Isso é conforto para o utilizador; o valor enviado não muda.",
-    "manual": "4.2"
-  },
-  {
-    "id": "html-033",
-    "bloco": "web",
-    "tema": "HTML e formulários",
-    "dificuldade": "media",
-    "pergunta": "Que valor deve ter o atributo for da etiqueta deste campo?",
-    "codigo": "<label for=\"______\">Ano de edição</label>\n<input type=\"number\" id=\"ano_edicao\" name=\"ano\">",
-    "linguagem": "html",
-    "alternativas": [
-      "Ano de edição",
-      "ano",
-      "ano_edicao",
-      "number"
-    ],
-    "correta": 2,
-    "explicacao": "O for tem de ser igual ao id do campo (ano_edicao). O name (ano) é só a chave com que o valor chega ao servidor.",
     "manual": "4.2"
   },
   {
@@ -826,24 +736,6 @@
     "correta": 0,
     "explicacao": "O validacao.js só verifica o tamanho quando o campo tem data-minimo; no login não tem. O required só exige que não esteja vazio.",
     "manual": "6.3"
-  },
-  {
-    "id": "html-048",
-    "bloco": "web",
-    "tema": "HTML e formulários",
-    "dificuldade": "facil",
-    "pergunta": "Como se cria um campo de password num formulário?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "<input type=\"text\" secret>",
-      "<input type=\"hidden\">",
-      "<password>",
-      "<input type=\"password\">"
-    ],
-    "correta": 3,
-    "explicacao": "O campo de password é <input type=\"password\">: o texto aparece como pontos. O hidden não aparece de todo.",
-    "manual": "4.2, Anexo B"
   },
   {
     "id": "html-049",
@@ -1294,24 +1186,6 @@
     "correta": 0,
     "explicacao": "Com GET, o pedido é livro_apagar.php?id_livro=3, e o livro_apagar.php começa por recusar tudo o que não seja POST. Um formulário GET é tão GET como um link.",
     "manual": "12.6, 4.4"
-  },
-  {
-    "id": "html-076",
-    "bloco": "web",
-    "tema": "HTML e formulários",
-    "dificuldade": "dificil",
-    "pergunta": "No apagar de um livro, o id vai num campo hidden; no editar, vai no action (livro_editar.php?id=7). Onde lê o servidor cada um?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Os dois em $_POST, porque os dois formulários são POST.",
-      "Apagar: $_GET['id_livro']; editar: $_POST['id'].",
-      "Os dois em $_GET, porque os ids vão sempre no endereço.",
-      "Apagar: $_POST['id_livro']; editar: $_GET['id']."
-    ],
-    "correta": 3,
-    "explicacao": "O hidden é um campo do formulário e vai no corpo do POST ($_POST). O que está no action depois do ? vai no endereço ($_GET).",
-    "manual": "12.5, 12.6, 7.5"
   },
   {
     "id": "html-077",

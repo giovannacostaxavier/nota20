@@ -22,7 +22,10 @@ Site de simulados para o teste da UC00615. As regras são as do teste do formado
   - acerto por tema e os 3 temas mais fracos, com as secções do manual a rever;
   - correção completa de cada pergunta.
 - **Progresso sem login**: fica guardado no browser (localStorage).
-  - Cada simulado dá prioridade às perguntas que nunca te saíram, depois às que erraste e, por fim, às mais antigas.
+  - Cada simulado só traz perguntas que ainda não te saíram, até as de cada tema se esgotarem.
+  - Uma pergunta conta como "já saiu" assim que aparece no ecrã, mesmo que descartes o simulado a meio.
+  - Quando um tema se esgota, começa uma volta nova: primeiro as que erraste mais vezes, depois as que erraste da última vez e, por fim, as que saíram há mais tempo. Dentro de cada volta nenhuma se repete.
+  - O "Rever erradas" repete de propósito e não conta para as voltas.
   - Dá para exportar e importar o progresso para outro dispositivo.
 - Tema claro e escuro, adaptado a telemóvel, com atalhos de teclado (A–D, Enter, ←/→, M).
 

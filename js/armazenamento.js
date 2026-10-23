@@ -1,7 +1,9 @@
 // ============================================================
 //  Progresso guardado no browser (localStorage), sem login.
-//  Por cada pergunta: quantas vezes saiu, quantas acertaste,
-//  se acertaste da última vez e quando foi.
+//  Por cada pergunta: quantas vezes respondeste (v), quantas
+//  acertaste (c), se acertaste da última vez (u), quando saiu
+//  pela última vez (t), quantas vezes saiu num simulado (n) e
+//  em que simulado foi contada pela última vez (r).
 // ============================================================
 (function () {
     'use strict';
@@ -40,16 +42,41 @@
         return escrever(CHAVE, progresso);
     }
 
+    function registo(id) {
+        const p = progresso.perguntas[id] || { v: 0, c: 0, u: null, t: 0 };
+        // Progresso antigo não tinha n: cada resposta conta como uma saída
+        if (typeof p.n !== 'number') p.n = p.v;
+        progresso.perguntas[id] = p;
+        return p;
+    }
+
+    // Conta a pergunta como "já saiu" (uma vez por simulado). O "Rever erradas"
+    // não conta, porque aí repetir é de propósito.
+    function contarSaida(p, tentativa) {
+        if (tentativa.tipo === 'erradas' || p.r === tentativa.id) return;
+        p.n += 1;
+        p.r = tentativa.id;
+    }
+
+    // A pergunta apareceu no ecrã: conta logo, mesmo que o simulado seja descartado
+    function marcarVista(id, tentativa) {
+        const p = registo(id);
+        if (p.r === tentativa.id) return;
+        contarSaida(p, tentativa);
+        p.t = Date.now();
+        guardar();
+    }
+
     // Regista as respostas de uma tentativa terminada
     function registarTentativa(tentativa) {
         const agora = Date.now();
         tentativa.respostas.forEach(r => {
-            const p = progresso.perguntas[r.id] || { v: 0, c: 0, u: null, t: 0 };
+            const p = registo(r.id);
+            contarSaida(p, tentativa);
             p.v += 1;
             if (r.certa) p.c += 1;
             p.u = r.certa;
             p.t = agora;
-            progresso.perguntas[r.id] = p;
         });
         progresso.tentativas.unshift({
             id: tentativa.id,
@@ -101,6 +128,7 @@
     window.Armazenamento = {
         get progresso() { return progresso; },
         estadoPergunta,
+        marcarVista,
         registarTentativa,
         exportar,
         importar,

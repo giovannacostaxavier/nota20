@@ -131,19 +131,32 @@
         return copia;
     }
 
-    // Prioridade: 1) nunca saiu; 2) erraste da última vez; 3) saiu há mais tempo
+    // Quantas vezes a pergunta já saiu num simulado (progresso antigo: as respostas)
+    function saidas(e) {
+        if (!e) return 0;
+        return typeof e.n === 'number' ? e.n : e.v;
+    }
+
+    // Das que erraste mais para as que erraste menos; em empate, as que erraste
+    // da última vez, depois a pior taxa de acerto e por fim a que saiu há mais tempo
+    function porMaisErradas(estado) {
+        return (a, b) => {
+            const ea = estado(a.id) || { v: 0, c: 0, u: null, t: 0 };
+            const eb = estado(b.id) || { v: 0, c: 0, u: null, t: 0 };
+            return (eb.v - eb.c) - (ea.v - ea.c) ||
+                (eb.u === false) - (ea.u === false) ||
+                (eb.v - eb.c) / (eb.v || 1) - (ea.v - ea.c) / (ea.v || 1) ||
+                (ea.t || 0) - (eb.t || 0);
+        };
+    }
+
+    // Vai em rondas: primeiro as que ainda não saíram nesta ronda (no início,
+    // as que nunca saíram). Só quando o tema se esgota é que começa outra ronda,
+    // e aí saem primeiro as que erraste mais vezes.
     function escolher(pool, quantidade, estado) {
-        const nunca = [], erradas = [], vistas = [];
-        pool.forEach(p => {
-            const e = estado(p.id);
-            if (!e) nunca.push(p);
-            else if (e.u === false) erradas.push({ p, t: e.t });
-            else vistas.push({ p, t: e.t });
-        });
-        const porAntiguidade = (a, b) => a.t - b.t;
-        const ordenada = baralhar(nunca)
-            .concat(erradas.sort(porAntiguidade).map(x => x.p))
-            .concat(vistas.sort(porAntiguidade).map(x => x.p));
+        const maisErradas = porMaisErradas(estado);
+        const ordenada = baralhar(pool).sort((a, b) =>
+            saidas(estado(a.id)) - saidas(estado(b.id)) || maisErradas(a, b));
         return ordenada.slice(0, quantidade);
     }
 
@@ -152,8 +165,8 @@
         let escolhidas = [];
 
         if (tipo === 'erradas') {
-            const erradas = banco.filter(p => { const e = estado(p.id); return e && e.u === false; })
-                .sort((a, b) => estado(a.id).t - estado(b.id).t);
+            const erradas = baralhar(banco.filter(p => { const e = estado(p.id); return e && e.u === false; }))
+                .sort(porMaisErradas(estado));
             escolhidas = baralhar(erradas.slice(0, def.total));
         } else {
             const quotas = tipo === 'fracos' ? quotasFracos(banco, estado, def.total) : def.quotas;

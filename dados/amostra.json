@@ -180,24 +180,6 @@
     "manual": "7.6"
   },
   {
-    "id": "amostra-011",
-    "bloco": "php",
-    "tema": "PDO",
-    "dificuldade": "media",
-    "pergunta": "Depois de inserir um livro novo, queres redirecionar para a página dele. Como obténs o id que o AUTO_INCREMENT gerou?",
-    "codigo": "$stmt = $pdo->prepare('INSERT INTO livros (titulo, id_autor) VALUES (?, ?)');\n$stmt->execute([$titulo, $idAutor]);\n$novoId = ________;",
-    "linguagem": "php",
-    "alternativas": [
-      "$stmt->rowCount()",
-      "$_POST['id_livro']",
-      "$pdo->lastInsertId()",
-      "$stmt->fetchColumn()"
-    ],
-    "correta": 2,
-    "explicacao": "lastInsertId() devolve o id gerado pelo último INSERT. rowCount() diz quantas linhas um UPDATE ou um DELETE afetou, e o formulário nunca envia o id de um livro novo.",
-    "manual": "8.2, 12.4"
-  },
-  {
     "id": "amostra-012",
     "bloco": "php",
     "tema": "Redirecionar e PRG",
@@ -214,42 +196,6 @@
     "correta": 0,
     "explicacao": "O header() só manda o browser ir para outra página; o PHP continua a correr. O exit logo a seguir é obrigatório, senão o código abaixo (aqui, o DELETE) é executado na mesma.",
     "manual": "7.7, 12.6"
-  },
-  {
-    "id": "amostra-013",
-    "bloco": "php",
-    "tema": "Passwords",
-    "dificuldade": "dificil",
-    "pergunta": "No login, porque não se encontra o utilizador comparando password_hash($password, PASSWORD_DEFAULT) com o hash guardado?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Porque o password_hash() é demasiado lento para o login.",
-      "Porque o hash é reversível e devia ser decifrado primeiro.",
-      "Porque falta o htmlspecialchars() na password.",
-      "Porque o sal é aleatório: o mesmo texto dá um hash diferente de cada vez."
-    ],
-    "correta": 3,
-    "explicacao": "Cada password_hash() gera um sal novo, por isso o hash nunca coincide. Procura-se o utilizador pelo email e compara-se com password_verify(), que usa o sal guardado no próprio hash.",
-    "manual": "10.1, 10.4"
-  },
-  {
-    "id": "amostra-014",
-    "bloco": "php",
-    "tema": "Sessões",
-    "dificuldade": "media",
-    "pergunta": "No logout.php, porque se volta a chamar session_start() logo depois de session_destroy()?",
-    "codigo": "$_SESSION = [];\nsession_destroy();\nsession_start();\nmensagem('sucesso', 'Sessão terminada.');\nheader('Location: index.php');\nexit;",
-    "linguagem": "php",
-    "alternativas": [
-      "Para voltar a iniciar sessão com o mesmo utilizador.",
-      "Para abrir uma sessão nova e vazia, só para levar a mensagem à página seguinte.",
-      "Porque o session_destroy() só funciona se houver um session_start() depois.",
-      "Para gerar um novo id de sessão contra a fixação de sessão."
-    ],
-    "correta": 1,
-    "explicacao": "A sessão antiga já foi apagada. A nova está vazia e só serve para a função mensagem() guardar \"Sessão terminada.\" até ao index.php. O novo id contra a fixação é o session_regenerate_id(), usado no login.",
-    "manual": "10.5"
   },
   {
     "id": "amostra-015",

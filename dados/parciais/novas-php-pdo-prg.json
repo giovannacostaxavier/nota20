@@ -1,0 +1,344 @@
+[
+  {
+    "id": "php-201",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "O utilizador deixou o ISBN vazio (é opcional). Esta verificação de validar_livro() junta o erro do ISBN?",
+    "codigo": "if ($livro['isbn'] !== '' && !preg_match('/^[0-9]{10}([0-9]{3})?$/', $livro['isbn'])) {\n    $erros[] = 'O ISBN tem de ter 10 ou 13 algarismos.';\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Sim: um texto vazio não tem 10 nem 13 algarismos.",
+      "Sim, mas só se o utilizador também não escolher nenhum autor da lista.",
+      "Não: a primeira parte do && é falsa e a condição fica falsa.",
+      "Não: o preg_match() aceita sempre um texto vazio."
+    ],
+    "correta": 2,
+    "explicacao": "Com o ISBN vazio, $livro['isbn'] !== '' é falso e, com &&, basta uma parte falsa para a condição toda ser falsa. É assim que o ISBN fica opcional: o formato só se verifica quando foi escrito.",
+    "manual": "7.3, 12.4"
+  },
+  {
+    "id": "php-203",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "facil",
+    "pergunta": "Abres autor_form.php?id=4. Que valor fica em $titulo?",
+    "codigo": "$id = (int) ($_GET['id'] ?? 0);\n// ...\n$titulo = $id > 0 ? 'Editar autor' : 'Novo autor';",
+    "linguagem": "php",
+    "alternativas": [
+      "'Novo autor'",
+      "'Editar autor'",
+      "true (o resultado de $id > 0)",
+      "4 (o valor de $id)"
+    ],
+    "correta": 1,
+    "explicacao": "condição ? a : b dá a quando a condição é verdadeira e b quando é falsa. Com ?id=4, $id > 0 é verdadeiro e $titulo fica 'Editar autor'.",
+    "manual": "7.3, 13.2"
+  },
+  {
+    "id": "php-204",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "dificil",
+    "pergunta": "Um colega escreveu assim o teste do livro_novo.php. Preenches tudo bem e carregas em Guardar. O que acontece?",
+    "codigo": "if ($_SERVER['REQUEST_METHOD'] === 'post') {\n    $livro = ler_livro();\n    $erros = validar_livro($pdo, $livro);\n    // ... gravar e redirecionar\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "O livro é gravado normalmente, porque o === não distingue maiúsculas.",
+      "Aparece um erro de sintaxe na linha do if.",
+      "O livro é gravado duas vezes, uma por cada pedido.",
+      "Nada é gravado: o valor é 'POST' e o formulário volta vazio."
+    ],
+    "correta": 3,
+    "explicacao": "$_SERVER['REQUEST_METHOD'] vale 'GET' ou 'POST', em maiúsculas, e === compara os textos exatamente. A condição nunca é verdadeira: o bloco é saltado e a página mostra outra vez o formulário vazio.",
+    "manual": "7.5, 7.8"
+  },
+  {
+    "id": "php-205",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "facil",
+    "pergunta": "O que mostra este código?",
+    "codigo": "$erros = [];\nforeach ($erros as $erro) {\n    echo 'erro;';\n}\necho 'fim';",
+    "linguagem": "php",
+    "alternativas": [
+      "erro;fim",
+      "Um aviso de array vazio",
+      "fim",
+      "Nada"
+    ],
+    "correta": 2,
+    "explicacao": "O foreach corre o bloco uma vez por elemento; com o array vazio corre zero vezes, sem dar erro. Só o echo 'fim' é executado.",
+    "manual": "7.3"
+  },
+  {
+    "id": "php-206",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "Um colega validou o ano com if ($ano > 2026). A Biblioteca usa $anoAtual = (int) date('Y'). Que vantagem tem a forma da Biblioteca?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Continua certa nos anos seguintes, sem mexer no código.",
+      "Aceita também os livros com ano de edição no futuro.",
+      "Funciona mesmo que o campo do ano venha vazio.",
+      "Evita que o ano seja gravado como texto na tabela."
+    ],
+    "correta": 0,
+    "explicacao": "date('Y') dá o ano atual em cada pedido, por isso o limite acompanha o calendário. Com 2026 escrito à mão, um livro de 2027 passaria a ser recusado quando esse ano chegasse.",
+    "manual": "7.4, 12.4"
+  },
+  {
+    "id": "php-207",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "facil",
+    "pergunta": "Qual destas funções foi escrita pela própria Biblioteca e não vem com o PHP?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "htmlspecialchars()",
+      "http_response_code()",
+      "mb_strlen()",
+      "mensagem()"
+    ],
+    "correta": 3,
+    "explicacao": "mensagem() está definida no includes/inicio.php com function mensagem($tipo, $texto). As outras três são funções do próprio PHP, que a Biblioteca só usa.",
+    "manual": "7.4, 9.1"
+  },
+  {
+    "id": "inc-201",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "media",
+    "pergunta": "O livro_novo.php não tem nenhum require 'includes/erros.php';. Como aparece, então, a lista de erros da validação?",
+    "codigo": "// livro_novo.php (fim)\n<h1>Novo livro</h1>\n<?php require 'includes/livro_form.php'; ?>\n\n// includes/livro_form.php (início)\n<?php require 'includes/erros.php'; ?>\n<form method=\"post\" action=\"<?= $acao ?>\" ...>",
+    "linguagem": "php",
+    "alternativas": [
+      "O cabeçalho mostra-a, tal como as mensagens da sessão.",
+      "Não aparece: falta o require do erros.php na página.",
+      "Vem do livro_form.php, que faz esse require.",
+      "O validacao.js copia os erros do servidor para a caixa."
+    ],
+    "correta": 2,
+    "explicacao": "O require insere o ficheiro como se lá estivesse escrito, e isso vale também dentro de um ficheiro incluído. A página inclui o livro_form.php, que por sua vez inclui o erros.php.",
+    "manual": "7.6, 9.4, 12.4"
+  },
+  {
+    "id": "inc-202",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "dificil",
+    "pergunta": "No livro_novo.php falta o require do livro_funcoes.php. Abres a página por um link (GET), sem enviar nada. O que acontece?",
+    "codigo": "<?php\nrequire 'includes/inicio.php';\nrequire 'includes/auth.php';\n// falta: require 'includes/livro_funcoes.php';\n\nif ($_SERVER['REQUEST_METHOD'] === 'POST') {\n    $livro = ler_livro();\n    // ...\n}\n\n$autores = lista_autores($pdo);",
+    "linguagem": "php",
+    "alternativas": [
+      "Erro fatal: lista_autores() não existe, mesmo sem POST.",
+      "Funciona: as funções só fazem falta quando se grava.",
+      "Mostra o formulário, mas a caixa do autor fica vazia.",
+      "Aparece só um aviso e a página continua normalmente."
+    ],
+    "correta": 0,
+    "explicacao": "O bloco do POST é saltado, mas lista_autores() é chamada em todos os pedidos, e essa função só está definida no livro_funcoes.php. Chamar uma função que não existe é um erro fatal.",
+    "manual": "7.6, 12.4"
+  },
+  {
+    "id": "inc-203",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "facil",
+    "pergunta": "Mudas a regra do ISBN dentro de validar_livro(), no includes/livro_funcoes.php. Que páginas passam a usar a regra nova?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Só a livro_novo.php; a de edição tem a sua própria cópia.",
+      "Nenhuma, até copiares a função para cada página.",
+      "Todas as páginas, porque o inicio.php inclui esse ficheiro.",
+      "A livro_novo.php e a livro_editar.php, que o incluem."
+    ],
+    "correta": 3,
+    "explicacao": "As duas páginas fazem require 'includes/livro_funcoes.php';, por isso usam a mesma função. A regra muda num só sítio e vale para criar e para editar.",
+    "manual": "7.6, 12.4, 12.5"
+  },
+  {
+    "id": "inc-204",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "facil",
+    "pergunta": "O includes/livro_funcoes.php só tem as definições de ler_livro(), validar_livro() e lista_autores(). O que acontece no momento do require desse ficheiro?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "As três funções correm logo, pela ordem em que estão.",
+      "As funções ficam definidas, mas só correm quando chamadas.",
+      "Só corre a lista_autores(), porque não precisa do POST.",
+      "O PHP escreve o código das três funções na página."
+    ],
+    "correta": 1,
+    "explicacao": "Incluir um ficheiro com function ... { } só define as funções. O código delas corre apenas quando a página as chama, como em $autores = lista_autores($pdo);.",
+    "manual": "7.4, 7.6"
+  },
+  {
+    "id": "pdo-201",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "No DSN do db.php, o que indica a parte mysql: no início?",
+    "codigo": "$pdo = new PDO(\"mysql:host=$host;dbname=$bd;charset=utf8mb4\", $user, $pass);",
+    "linguagem": "php",
+    "alternativas": [
+      "O nome do utilizador com que a aplicação se liga.",
+      "O tipo de base de dados a que o PDO se vai ligar.",
+      "O nome da base de dados onde estão as tabelas.",
+      "O programa do XAMPP que guarda as passwords."
+    ],
+    "correta": 1,
+    "explicacao": "O DSN começa pelo tipo de base de dados (mysql) e depois diz o servidor, o nome da base de dados e o charset. O utilizador e a password vão nos argumentos seguintes do new PDO(...).",
+    "manual": "8.1"
+  },
+  {
+    "id": "pdo-203",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "A tabela autores tem os quatro autores indicados no comentário. O que mostra este código?",
+    "codigo": "// Autores: José Saramago, Sophia de Mello Breyner Andresen,\n//          Eça de Queirós, Machado de Assis\n$stmt = $pdo->prepare('SELECT nome FROM autores ORDER BY nome');\n$stmt->execute();\n$primeiro = $stmt->fetch(PDO::FETCH_ASSOC);\n$segundo  = $stmt->fetch(PDO::FETCH_ASSOC);\necho $segundo['nome'];",
+    "linguagem": "php",
+    "alternativas": [
+      "José Saramago",
+      "Eça de Queirós",
+      "Sophia de Mello Breyner Andresen",
+      "Nada: o segundo fetch() devolve false"
+    ],
+    "correta": 0,
+    "explicacao": "Cada fetch() dá a próxima linha do resultado. Por ordem alfabética, o primeiro é Eça de Queirós e o segundo, que fica em $segundo, é José Saramago.",
+    "manual": "8.2"
+  },
+  {
+    "id": "prg-201",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "facil",
+    "pergunta": "Editas o livro 7, sem erros, e carregas em Guardar. Vendo o fim do bloco do POST da livro_editar.php, que página aparece a seguir?",
+    "codigo": "mensagem('sucesso', 'Alterações guardadas.');\nheader(\"Location: livro_ver.php?id=$id\");\nexit;",
+    "linguagem": "php",
+    "alternativas": [
+      "A lista livros.php, com \"Alterações guardadas.\"",
+      "O detalhe do livro 7, com \"Alterações guardadas.\"",
+      "O mesmo formulário, com \"Alterações guardadas.\"",
+      "O detalhe do livro 7, sem nenhuma mensagem."
+    ],
+    "correta": 1,
+    "explicacao": "Depois do UPDATE, a página guarda a mensagem na sessão e redireciona para o detalhe do próprio livro (livro_ver.php?id=7). O cabeçalho dessa página mostra \"Alterações guardadas.\".",
+    "manual": "12.5, 9.3"
+  },
+  {
+    "id": "prg-202",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "dificil",
+    "pergunta": "Antes de redirecionar, um colega chamou mensagem() duas vezes. O que aparece na página seguinte?",
+    "codigo": "function mensagem($tipo, $texto)\n{\n    $_SESSION['msg'] = ['tipo' => $tipo, 'texto' => $texto];\n}\n\nmensagem('sucesso', 'Livro criado.');\nmensagem('erro', 'Falta a sinopse.');\nheader('Location: livros.php');\nexit;",
+    "linguagem": "php",
+    "alternativas": [
+      "As duas mensagens, uma verde e outra vermelha.",
+      "Só \"Livro criado.\", porque foi guardada primeiro.",
+      "Nenhuma: duas mensagens seguidas anulam-se.",
+      "Só \"Falta a sinopse.\", a vermelho."
+    ],
+    "correta": 3,
+    "explicacao": "$_SESSION['msg'] só guarda uma mensagem: a segunda chamada substitui a primeira. O cabeçalho mostra então só a última, com a classe erro.",
+    "manual": "9.1, 9.3"
+  },
+  {
+    "id": "prg-203",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Depois de gravar, um colega redireciona para obrigado.html, uma página só com HTML, sem o cabeçalho da Biblioteca. Onde aparece a mensagem?",
+    "codigo": "mensagem('sucesso', 'Livro criado.');\nheader('Location: obrigado.html');\nexit;",
+    "linguagem": "php",
+    "alternativas": [
+      "Na próxima página que inclua o cabeçalho: fica na sessão.",
+      "No obrigado.html, porque o browser a recebe com o 302.",
+      "Em lado nenhum: é apagada logo no redirecionamento.",
+      "No obrigado.html, mas só depois de carregares em F5."
+    ],
+    "correta": 0,
+    "explicacao": "A mensagem fica em $_SESSION['msg'] até um pedido incluir o cabeçalho, que a mostra e a apaga. O obrigado.html não tem esse código, por isso ela só aparece mais tarde, noutra página da aplicação.",
+    "manual": "9.2, 9.3"
+  },
+  {
+    "id": "prg-204",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Enviaste um livro sem título e a página mostrou o formulário com o erro. Carregas em F5 e confirmas o reenvio. O que acontece?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O livro é gravado, porque o segundo envio do formulário já não é validado.",
+      "O browser pede o formulário vazio, com um GET.",
+      "O POST repete-se, é validado outra vez e volta o mesmo erro.",
+      "Aparece \"headers already sent\" e a página fica em branco."
+    ],
+    "correta": 2,
+    "explicacao": "Quando a validação falha não há redirecionamento, por isso a última coisa pedida foi o POST, e o F5 repete-o. Os dados são os mesmos, a validação volta a falhar e nada é gravado.",
+    "manual": "9.4, 9.5"
+  },
+  {
+    "id": "prg-206",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "dificil",
+    "pergunta": "Alguém tirou o ?id do action do formulário de edição. Abres livro_editar.php?id=7, mudas o título e gravas. O que acontece?",
+    "codigo": "// formulário: <form method=\"post\" action=\"livro_editar.php\">\n\n$id = (int) ($_GET['id'] ?? 0);\n// ... validação sem erros ...\n$stmt = $pdo->prepare('UPDATE livros SET titulo = ?, ... WHERE id_livro = ?');\n$stmt->execute([..., $id]);\nmensagem('sucesso', 'Alterações guardadas.');\nheader(\"Location: livro_ver.php?id=$id\");\nexit;",
+    "linguagem": "php",
+    "alternativas": [
+      "Nada é alterado e acabas em livro_ver.php?id=0, que dá 404.",
+      "O livro 7 é alterado, porque o browser se lembra do id do endereço.",
+      "Dá uma PDOException, porque o livro 0 não existe.",
+      "O UPDATE altera todos os livros, porque falta o id."
+    ],
+    "correta": 0,
+    "explicacao": "O POST vai para livro_editar.php sem ?id, por isso $id fica 0. O UPDATE ... WHERE id_livro = 0 não encontra nenhuma linha (sem dar erro) e o redirecionamento leva a livro_ver.php?id=0, a página \"Livro não encontrado\".",
+    "manual": "12.5, 7.5, 9.5"
+  },
+  {
+    "id": "prg-207",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Um colega pôs o unset antes do div, no cabeçalho. O que aparece depois de mensagem('sucesso', 'Livro criado.') e do redirecionamento?",
+    "codigo": "<?php if (isset($_SESSION['msg'])): ?>\n    <?php unset($_SESSION['msg']); ?>\n    <div class=\"msg <?= $_SESSION['msg']['tipo'] ?>\">\n        <?= htmlspecialchars($_SESSION['msg']['texto']) ?>\n    </div>\n<?php endif; ?>",
+    "linguagem": "php",
+    "alternativas": [
+      "A mensagem normal, porque o unset só atua no pedido seguinte.",
+      "Nada: o isset() passa a ser falso e o if é saltado.",
+      "A mensagem, repetida em todas as páginas seguintes.",
+      "Uma caixa sem a mensagem: quando o div a lê, ela já foi apagada."
+    ],
+    "correta": 3,
+    "explicacao": "O isset() é testado antes do unset, por isso entra no if; mas quando o div lê $_SESSION['msg'], a chave já não existe. A caixa sai sem o texto da mensagem (no XAMPP aparecem no lugar dele os avisos Undefined array key): a ordem das linhas conta.",
+    "manual": "9.2, 9.3"
+  },
+  {
+    "id": "prg-208",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "dificil",
+    "pergunta": "Um colega tirou o exit a seguir ao header() no livro_novo.php. Crias um livro sem erros. O que acontece?",
+    "codigo": "mensagem('sucesso', 'Livro criado.');\nheader(\"Location: livro_ver.php?id=$novoId\");\n// falta o exit\n// ...\n$autores = lista_autores($pdo);\n$titulo  = 'Novo livro';\nrequire 'includes/cabecalho.php';   // mostra e apaga $_SESSION['msg']",
+    "linguagem": "php",
+    "alternativas": [
+      "O livro não é gravado, porque o header() falha sem exit.",
+      "O browser fica no formulário, com \"Livro criado.\" no topo.",
+      "Vais para o detalhe do livro, mas sem \"Livro criado.\"",
+      "O livro é gravado duas vezes, uma por cada require."
+    ],
+    "correta": 2,
+    "explicacao": "Sem exit, o PHP continua e o cabeçalho mostra e apaga a mensagem nesta resposta, que o browser não mostra por ser um redirecionamento. O browser vai para o detalhe, mas a mensagem já não está na sessão.",
+    "manual": "7.7, 9.3"
+  }
+]

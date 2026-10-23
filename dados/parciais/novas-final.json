@@ -1,0 +1,236 @@
+[
+  {
+    "id": "sql-207",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Nenhum cartão da lista de livros mostra o id do livro. Porque é que esta consulta pede l.id_livro?",
+    "codigo": "SELECT l.id_livro, l.titulo, l.ano_edicao, a.nome AS autor\nFROM livros l\nJOIN autores a ON l.id_autor = a.id_autor\nWHERE l.titulo LIKE ?\nORDER BY l.titulo",
+    "linguagem": "sql",
+    "alternativas": [
+      "Para montar o link Ver detalhe, livro_ver.php?id=...",
+      "Porque o ORDER BY l.titulo precisa do id no SELECT.",
+      "Porque o JOIN só funciona com o id_livro no SELECT.",
+      "Para o LIKE ? saber em que linha do livro deve pesquisar."
+    ],
+    "correta": 0,
+    "explicacao": "Cada cartão tem um link para livro_ver.php?id=..., e esse número vem de $livro['id_livro']. Nem o JOIN nem o ORDER BY precisam de que o id esteja na lista de colunas.",
+    "manual": "12.2"
+  },
+  {
+    "id": "sql-208",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "A lista de livros usa JOIN e não LEFT JOIN. Pode algum livro ficar de fora da lista por causa disso?",
+    "codigo": "CREATE TABLE livros (\n    id_livro   INT AUTO_INCREMENT PRIMARY KEY,\n    id_autor   INT          NOT NULL,\n    ...\n    CONSTRAINT fk_livros_autores\n        FOREIGN KEY (id_autor) REFERENCES autores (id_autor)\n        ON DELETE RESTRICT\n);\n\nSELECT l.titulo, a.nome AS autor\nFROM livros l\nJOIN autores a ON l.id_autor = a.id_autor;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Sim: um livro com id_autor a NULL ficava fora da lista.",
+      "Não: id_autor é NOT NULL e a FK obriga a existir.",
+      "Sim: ficam de fora os autores que têm só um livro.",
+      "Não: o JOIN devolve todas as linhas das duas tabelas."
+    ],
+    "correta": 1,
+    "explicacao": "O JOIN só perde as linhas sem par, mas aqui cada livro tem sempre um autor que existe: a coluna é NOT NULL e a chave estrangeira não deixa apontar para um autor inexistente. O LEFT JOIN só faz falta do lado dos autores, que podem não ter livros.",
+    "manual": "3.7, 3.3, 3.4"
+  },
+  {
+    "id": "sql-209",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "media",
+    "pergunta": "Nesta consulta, porque é que o ON se escreve l.id_autor = a.id_autor e não só id_autor = id_autor?",
+    "codigo": "SELECT l.titulo, a.nome\nFROM livros l\nJOIN autores a ON l.id_autor = a.id_autor;",
+    "linguagem": "sql",
+    "alternativas": [
+      "O prefixo só torna a consulta mais rápida; pode omitir-se.",
+      "Sem prefixo, o MySQL comparava os nomes dos autores.",
+      "Ambas as tabelas têm id_autor; o prefixo diz qual é qual.",
+      "id_autor = id_autor só é aceite dentro de um WHERE."
+    ],
+    "correta": 2,
+    "explicacao": "As duas tabelas têm uma coluna com o mesmo nome, id_autor. O alias antes do ponto diz de que tabela vem cada uma; sem ele, a base de dados não sabe a qual das duas te referes.",
+    "manual": "3.7, 12.2"
+  },
+  {
+    "id": "sql-210",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "dificil",
+    "pergunta": "Com os dados de exemplo, que livros (id_livro) devolve esta consulta?",
+    "codigo": "-- Dados de exemplo (base_dados.sql), só as colunas usadas\n--\n-- id_livro | id_autor | ano_edicao\n-- 1        | 1        | 1982\n-- 2        | 1        | 1995\n-- 3        | 2        | 1958\n-- 4        | 2        | 1964\n-- 5        | 3        | 1888\n-- 6        | 4        | 1899\n\nSELECT id_livro FROM livros\nWHERE id_autor = 2 OR ano_edicao < 1900;",
+    "linguagem": "sql",
+    "alternativas": [
+      "Nenhum: nenhum cumpre as duas condições",
+      "Só o 3 e o 4",
+      "Só o 5 e o 6",
+      "O 3, o 4, o 5 e o 6"
+    ],
+    "correta": 3,
+    "explicacao": "Com OR basta uma das condições: o 3 e o 4 são do autor 2, e o 5 e o 6 são anteriores a 1900. Ninguém cumpre as duas ao mesmo tempo, mas isso só seria preciso com AND.",
+    "manual": "3.7, 3.5"
+  },
+  {
+    "id": "sql-211",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Na autores.php, cada linha da tabela mostra o número de livros do autor. O que completa o espaço em branco?",
+    "codigo": "$stmt = $pdo->prepare(\n    'SELECT a.id_autor, a.nome, a.nacionalidade, COUNT(l.id_livro) AS total_livros\n     FROM autores a\n     LEFT JOIN livros l ON l.id_autor = a.id_autor\n     GROUP BY a.id_autor, a.nome, a.nacionalidade\n     ORDER BY a.nome'\n);\n$stmt->execute();\n$autores = $stmt->fetchAll(PDO::FETCH_ASSOC);\n\n<?php foreach ($autores as $autor): ?>\n    <td><?= ________ ?></td>\n<?php endforeach; ?>",
+    "linguagem": "php",
+    "alternativas": [
+      "$autor['total_livros']",
+      "$autor['COUNT']",
+      "$autor['l.id_livro']",
+      "$autor['livros']"
+    ],
+    "correta": 0,
+    "explicacao": "O AS total_livros dá esse nome à coluna da contagem, e é esse nome que fica como chave em cada linha do array. Sem o AS, a chave seria o próprio texto da expressão, o que é incómodo de usar.",
+    "manual": "13.1, 12.2"
+  },
+  {
+    "id": "sql-212",
+    "bloco": "dados",
+    "tema": "SQL e Base de dados",
+    "dificuldade": "facil",
+    "pergunta": "Na tabela livros, o livro 5 chama-se \"Os Maias\" e nenhum outro título tem a palavra Maias. O que devolve esta consulta?",
+    "codigo": "SELECT titulo FROM livros\nWHERE titulo = 'Maias';",
+    "linguagem": "sql",
+    "alternativas": [
+      "Os Maias, que contém a palavra Maias",
+      "Nada: com = o título tem de ser igual",
+      "Dá erro: num texto usa-se sempre LIKE",
+      "Todos os títulos que começam pela letra M"
+    ],
+    "correta": 1,
+    "explicacao": "O = só encontra os títulos exatamente iguais a 'Maias', e o livro chama-se 'Os Maias'. Para encontrar uma parte do título usa-se LIKE '%Maias%', como na pesquisa da Biblioteca.",
+    "manual": "3.7, 12.2"
+  },
+  {
+    "id": "php-211",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "A função ler_livro() usa $_POST sem o receber, mas validar_livro() recebe o $pdo entre parênteses. Porquê?",
+    "codigo": "function ler_livro()\n{\n    return [\n        'titulo' => trim($_POST['titulo'] ?? ''),\n        // ...\n    ];\n}\n\nfunction validar_livro($pdo, $livro)\n{\n    // ...\n    $stmt = $pdo->prepare('SELECT COUNT(*) FROM autores WHERE id_autor = ?');\n    // ...\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "O $_POST vê-se dentro de qualquer função; o $pdo, não.",
+      "O $pdo só existe depois de um pedido POST.",
+      "As funções que leem o formulário não podem ter parâmetros.",
+      "O $_POST é passado sozinho, sem aparecer nos parênteses."
+    ],
+    "correta": 0,
+    "explicacao": "$_POST, $_GET e $_SESSION são superglobais: estão disponíveis em todo o lado. Uma variável normal da página, como o $pdo criado no db.php, não se vê dentro de uma função, por isso tem de lhe ser passada como parâmetro.",
+    "manual": "7.4, 7.5, 12.4"
+  },
+  {
+    "id": "php-212",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "O utilizador escreveu 1300 no ano. Depois do ler_livro(), $livro['ano_edicao'] é o texto '1300'. O que faz esta verificação?",
+    "codigo": "$anoAtual = (int) date('Y');\nif ($livro['ano_edicao'] !== '' && ($livro['ano_edicao'] < 1450 || $livro['ano_edicao'] > $anoAtual)) {\n    $erros[] = \"O ano tem de estar entre 1450 e $anoAtual.\";\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Não junta: um texto nunca é menor do que um número.",
+      "Junta o erro: o '1300' é comparado como número.",
+      "Dá erro fatal: não se compara um texto com um número.",
+      "Não junta: o !== '' faz a condição parar logo ali."
+    ],
+    "correta": 1,
+    "explicacao": "Quando um texto só tem algarismos, o PHP compara-o com o número como se fosse número: 1300 < 1450 é verdadeiro. O !== '' é verdadeiro, porque o campo não está vazio, por isso a condição continua.",
+    "manual": "7.3, 12.4"
+  },
+  {
+    "id": "css-216",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "facil",
+    "pergunta": "Nesta regra do estilo.css, porque é que Segoe UI está entre aspas e Arial não?",
+    "codigo": "body {\n    font-family: \"Segoe UI\", Arial, sans-serif;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "As aspas dão prioridade à letra preferida da lista.",
+      "Só as letras que vêm com o Windows levam aspas.",
+      "O nome tem um espaço; as aspas fazem dele um só nome.",
+      "As aspas mandam o browser descarregar essa letra da internet."
+    ],
+    "correta": 2,
+    "explicacao": "Um nome de letra com espaços escreve-se entre aspas, para ser lido como um só nome. A prioridade vem da ordem na lista, não das aspas.",
+    "manual": "Anexo A"
+  },
+  {
+    "id": "css-219",
+    "bloco": "web",
+    "tema": "CSS",
+    "dificuldade": "media",
+    "pergunta": "No telemóvel os cartões ficam um por linha. Que espaço fica entre um cartão e o de baixo?",
+    "codigo": ".cartoes {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 16px;\n}\n\n.cartao {\n    flex: 1 1 260px;\n    padding: 18px;\n    border-top: 4px solid #00713c;\n}",
+    "linguagem": "css",
+    "alternativas": [
+      "Nenhum: o gap só afasta os cartões lado a lado.",
+      "16px: o gap também separa as linhas.",
+      "18px, que é o padding de cada cartão.",
+      "4px, que é a borda do topo do cartão."
+    ],
+    "correta": 1,
+    "explicacao": "Num contentor flex com flex-wrap, o gap põe espaço entre os filhos na mesma linha e também entre uma linha e a seguinte. O padding fica dentro do cartão e não o afasta dos outros.",
+    "manual": "5.4, Anexo A"
+  },
+  {
+    "id": "html-216",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "facil",
+    "pergunta": "No formulário do livro, qual destes elementos se escreve sem etiqueta de fecho?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "<textarea>, a caixa da sinopse",
+      "<select>, a caixa de escolha do autor",
+      "<input>, como o campo do título",
+      "<label>, a etiqueta de um campo"
+    ],
+    "correta": 2,
+    "explicacao": "O <input> não tem conteúdo: o valor vai no atributo value, por isso não leva </input>. A <textarea>, o <select> e o <label> têm conteúdo e fecham-se.",
+    "manual": "4.2"
+  },
+  {
+    "id": "html-217",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "media",
+    "pergunta": "Se o <form> do registo não tivesse o atributo action, para onde iam os dados ao carregar em Criar conta?",
+    "codigo": "<form method=\"post\" id=\"form-principal\" class=\"formulario\" novalidate>\n    ...\n    <button type=\"submit\">Criar conta</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "Para o index.php, a página inicial do site.",
+      "Para lado nenhum: o botão deixava de enviar.",
+      "Para o ficheiro onde está o cabeçalho.",
+      "Para o endereço da própria página, o registo.php."
+    ],
+    "correta": 3,
+    "explicacao": "Sem action, o browser envia o formulário para o endereço da página onde ele está. No registo dava o mesmo, porque o action é o próprio registo.php.",
+    "manual": "4.2"
+  },
+  {
+    "id": "html-218",
+    "bloco": "web",
+    "tema": "HTML e formulários",
+    "dificuldade": "dificil",
+    "pergunta": "Um colega escreveu selected=\"false\" para não escolher o Eça. Que opção aparece escolhida quando a página abre?",
+    "codigo": "<select id=\"id_autor\" name=\"id_autor\">\n    <option value=\"\">— escolhe —</option>\n    <option value=\"1\">José Saramago</option>\n    <option value=\"3\" selected=\"false\">Eça de Queirós</option>\n</select>",
+    "linguagem": "html",
+    "alternativas": [
+      "Eça de Queirós: basta o selected existir.",
+      "— escolhe —, porque selected vale false.",
+      "José Saramago, a primeira com valor.",
+      "Nenhuma: a caixa de seleção aparece vazia."
+    ],
+    "correta": 0,
+    "explicacao": "O selected é um atributo booleano: conta só se existe ou não, e o valor escrito é ignorado. Para não escolher a opção, tira-se o atributo, como faz o livro_form.php ao escrever ''.",
+    "manual": "4.3"
+  }
+]

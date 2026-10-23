@@ -1,23 +1,5 @@
 [
   {
-    "id": "js-001",
-    "bloco": "web",
-    "tema": "JavaScript",
-    "dificuldade": "facil",
-    "pergunta": "Na Biblioteca, para que serve o JavaScript do validacao.js?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Mostrar logo os erros do formulário, antes de o enviar.",
-      "Proteger a base de dados contra SQL injection.",
-      "Garantir que nenhum pedido chega ao servidor com campos vazios.",
-      "Substituir a validação no servidor, que deixa de ser precisa."
-    ],
-    "correta": 0,
-    "explicacao": "É uma questão de conforto: o utilizador vê os erros sem esperar pelo servidor. Não protege nada, porque pode ser desligado ou contornado.",
-    "manual": "6.1"
-  },
-  {
     "id": "js-002",
     "bloco": "web",
     "tema": "JavaScript",
@@ -504,24 +486,6 @@
     "manual": "6.2"
   },
   {
-    "id": "js-029",
-    "bloco": "web",
-    "tema": "JavaScript",
-    "dificuldade": "facil",
-    "pergunta": "Dentro de um evento submit, o que faz event.preventDefault()?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Apaga os valores escritos em todos os campos.",
-      "Envia o formulário sem recarregar a página.",
-      "Volta a ligar as mensagens automáticas do browser.",
-      "Cancela o comportamento normal: o formulário não é enviado."
-    ],
-    "correta": 3,
-    "explicacao": "preventDefault() cancela o comportamento normal do evento. Num submit, o comportamento normal é enviar o formulário.",
-    "manual": "6.2"
-  },
-  {
     "id": "js-030",
     "bloco": "web",
     "tema": "JavaScript",
@@ -628,24 +592,6 @@
     "correta": 2,
     "explicacao": "caixa.innerHTML = '' só limpa os erros anteriores, sem escrever nada vindo de fora. Cada erro entra depois com textContent, nunca com innerHTML.",
     "manual": "6.3"
-  },
-  {
-    "id": "js-036",
-    "bloco": "web",
-    "tema": "JavaScript",
-    "dificuldade": "media",
-    "pergunta": "No browser, que cuidado tem o mesmo papel que o htmlspecialchars() tem no PHP?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Escrever o texto com textContent em vez de innerHTML.",
-      "Escrever o texto com innerHTML dentro de um if.",
-      "Passar o texto por value.trim() antes de o mostrar.",
-      "Mostrar o texto com style.display = 'block'."
-    ],
-    "correta": 0,
-    "explicacao": "htmlspecialchars() faz o browser mostrar o HTML como texto; textContent tem o mesmo efeito no JavaScript. Ambos impedem que HTML escrito por alguém seja executado.",
-    "manual": "6.2, 14.1"
   },
   {
     "id": "js-037",
