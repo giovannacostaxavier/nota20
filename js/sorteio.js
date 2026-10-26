@@ -153,11 +153,30 @@
     // Vai em rondas: primeiro as que ainda não saíram nesta ronda (no início,
     // as que nunca saíram). Só quando o tema se esgota é que começa outra ronda,
     // e aí saem primeiro as que erraste mais vezes.
-    function escolher(pool, quantidade, estado) {
+    function ordenar(pool, estado) {
         const maisErradas = porMaisErradas(estado);
-        const ordenada = baralhar(pool).sort((a, b) =>
+        return baralhar(pool).sort((a, b) =>
             saidas(estado(a.id)) - saidas(estado(b.id)) || maisErradas(a, b));
-        return ordenada.slice(0, quantidade);
+    }
+
+    // Como no teste do formador: no máximo 1/3 das perguntas com código.
+    // Troca as de código a mais pela próxima sem código do mesmo tema.
+    function limitarCodigo(porTema, total) {
+        const maximo = Math.round(total / 3);
+        const temCodigo = p => p.codigo !== '';
+        let comCodigo = porTema.reduce((s, t) => s + t.escolhidas.filter(temCodigo).length, 0);
+        while (comCodigo > maximo) {
+            const trocaveis = baralhar(porTema.filter(t =>
+                t.escolhidas.some(temCodigo) && t.resto.some(p => !temCodigo(p))))
+                .sort((a, b) => b.escolhidas.filter(temCodigo).length - a.escolhidas.filter(temCodigo).length);
+            if (!trocaveis.length) break;
+            const t = trocaveis[0];
+            const sai = t.escolhidas.map(temCodigo).lastIndexOf(true);
+            const entra = t.resto.findIndex(p => !temCodigo(p));
+            t.escolhidas[sai] = t.resto.splice(entra, 1)[0];
+            comCodigo--;
+        }
+        return porTema.flatMap(t => t.escolhidas);
     }
 
     function sortear(tipo, banco, estado) {
@@ -170,9 +189,11 @@
             escolhidas = baralhar(erradas.slice(0, def.total));
         } else {
             const quotas = tipo === 'fracos' ? quotasFracos(banco, estado, def.total) : def.quotas;
-            Object.entries(quotas).forEach(([tema, n]) => {
-                escolhidas = escolhidas.concat(escolher(banco.filter(p => p.tema === tema), n, estado));
+            const porTema = Object.entries(quotas).map(([tema, n]) => {
+                const ordenada = ordenar(banco.filter(p => p.tema === tema), estado);
+                return { escolhidas: ordenada.slice(0, n), resto: ordenada.slice(n) };
             });
+            escolhidas = limitarCodigo(porTema, def.total);
         }
 
         // Como no teste: parte comum primeiro e, dentro de cada parte, do mais fácil ao mais difícil

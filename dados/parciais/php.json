@@ -1,60 +1,60 @@
 [
   {
-    "id": "php-001",
+    "id": "base-001",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
-    "pergunta": "Onde é executado o código PHP de uma página da Biblioteca?",
+    "pergunta": "Onde é executado o código PHP de uma página?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "No browser, depois de a página ser descarregada do servidor.",
-      "No servidor (Apache), que envia ao browser o HTML gerado.",
-      "No MySQL, juntamente com as consultas SQL.",
-      "Parte no servidor e parte no browser, conforme o código."
+      "No browser do utilizador",
+      "Na base de dados",
+      "No editor de código",
+      "No servidor"
     ],
-    "correta": 1,
-    "explicacao": "O Apache entrega o ficheiro ao interpretador de PHP, que corre no servidor e gera HTML. O browser só recebe esse HTML.",
+    "correta": 3,
+    "explicacao": "O PHP corre no servidor (Apache) e envia ao browser só o HTML que produziu. Quem corre no browser é o JavaScript.",
     "manual": "1.1, 1.4"
   },
   {
-    "id": "php-002",
+    "id": "base-002",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
-    "pergunta": "Sabendo que $nome vale 'Maria', o que aparece no código-fonte da página (Ver código-fonte) no lugar desta linha?",
-    "codigo": "<h1>Olá, <?= $nome ?>!</h1>",
-    "linguagem": "php",
-    "alternativas": [
-      "<h1>Olá, <?= $nome ?>!</h1>",
-      "<h1>Olá, $nome!</h1>",
-      "<h1>Olá, !</h1>",
-      "<h1>Olá, Maria!</h1>"
-    ],
-    "correta": 3,
-    "explicacao": "O PHP corre no servidor e substitui o bloco pelo valor. O browser nunca vê o <?= ... ?>, só o HTML que resultou.",
-    "manual": "2.4"
-  },
-  {
-    "id": "php-004",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "media",
-    "pergunta": "No ola.php, $hora = date('H:i'). Porque é que a hora mostrada muda quando carregas em F5?",
+    "pergunta": "Escolhes \"Ver código-fonte\" numa página PHP. O que aparece no lugar dos blocos PHP?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Porque o PHP corre de novo no servidor a cada pedido.",
-      "Porque o browser atualiza a variável $hora sozinho.",
-      "Porque o JavaScript da página recalcula a hora.",
-      "Porque a hora fica na sessão e é somada a cada pedido."
+      "O código PHP tal como está",
+      "Uma linha vazia por bloco",
+      "O HTML que o PHP produziu",
+      "Uma mensagem de acesso negado"
     ],
-    "correta": 0,
-    "explicacao": "Cada F5 é um pedido novo: o servidor executa o ficheiro outra vez e gera HTML novo com a hora desse momento.",
-    "manual": "2.4"
+    "correta": 2,
+    "explicacao": "O browser só recebe o resultado da execução. O código PHP fica no servidor.",
+    "manual": "1.1, 2.4"
   },
   {
-    "id": "php-005",
+    "id": "base-003",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "Abres livro_ver.php sem ?id= no endereço. Que valor fica em $id = (int) ($_GET['id'] ?? 0);?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "0",
+      "null",
+      "'' (texto vazio)",
+      "O aviso Undefined array key"
+    ],
+    "correta": 0,
+    "explicacao": "Sem ?id=, $_GET['id'] não existe e o ?? usa o 0, sem aviso. O (int) mantém o 0, que não é o id de nenhum livro, e a página diz que o livro não existe.",
+    "manual": "7.5"
+  },
+  {
+    "id": "base-004",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
@@ -62,35 +62,17 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O Apache cifra automaticamente todas as variáveis com $.",
-      "O browser só recebe o HTML que o PHP produz, nunca o código.",
-      "O browser esconde as linhas de código que começam por $.",
-      "Os ficheiros da pasta config não podem ser pedidos por endereço."
+      "O PHP cifra todas as variáveis",
+      "O ficheiro de configuração não fecha com ?>",
+      "A password está num comentário",
+      "O browser só recebe o HTML produzido"
     ],
-    "correta": 1,
-    "explicacao": "O código PHP fica no servidor; ao browser só chega o resultado. É por isso que as credenciais podem estar no db.php.",
+    "correta": 3,
+    "explicacao": "O código PHP corre no servidor e nunca é enviado. Ao browser só chega o que o PHP escreve.",
     "manual": "1.1"
   },
   {
-    "id": "php-007",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "dificil",
-    "pergunta": "O que é enviado ao browser por este ficheiro?",
-    "codigo": "<p>Início</p>\n<?php\n$nome = 'Sophia';\n// echo 'Olá';\n?>\n<p><?= $nome ?></p>",
-    "linguagem": "php",
-    "alternativas": [
-      "<p>Início</p>, Olá e <p>Sophia</p>",
-      "<p>Início</p> e <p>Sophia</p>",
-      "Só <p>Sophia</p>",
-      "<p>Início</p> e <p>$nome</p>"
-    ],
-    "correta": 1,
-    "explicacao": "O HTML fora do bloco vai tal e qual, a linha com // é um comentário e não corre, e o <?= $nome ?> é substituído por Sophia.",
-    "manual": "7.1"
-  },
-  {
-    "id": "php-008",
+    "id": "base-005",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
@@ -99,16 +81,16 @@
     "linguagem": "",
     "alternativas": [
       "<php>",
+      "<script php>",
       "<?php",
-      "<script type=\"php\">",
-      "<!--php"
+      "<?=php"
     ],
-    "correta": 1,
-    "explicacao": "O código PHP fica entre <?php e ?>. As outras formas não são reconhecidas pelo interpretador.",
+    "correta": 2,
+    "explicacao": "Um bloco PHP abre com <?php e fecha com ?>. O que está fora do bloco é HTML enviado tal e qual.",
     "manual": "7.1, Anexo B"
   },
   {
-    "id": "php-009",
+    "id": "base-006",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
@@ -116,17 +98,53 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "<?php return $titulo; ?>",
-      "<?php $titulo = ''; ?>",
+      "<?php $titulo; ?>",
       "<?php echo $titulo; ?>",
-      "<?php isset($titulo); ?>"
+      "<?php return $titulo; ?>",
+      "<?php echo '$titulo'; ?>"
     ],
-    "correta": 2,
-    "explicacao": "O <?= ... ?> escreve um valor no meio do HTML: é o mesmo que um echo dentro de um bloco PHP.",
+    "correta": 1,
+    "explicacao": "<?= ... ?> escreve o valor, tal como <?php echo ...; ?>. Escrever só $titulo; não mostra nada.",
     "manual": "7.1"
   },
   {
-    "id": "php-010",
+    "id": "base-007",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "facil",
+    "pergunta": "Que instrução do PHP escreve texto na página?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "console.log",
+      "document.write",
+      "return",
+      "echo"
+    ],
+    "correta": 3,
+    "explicacao": "Em PHP escreve-se com echo (ou com o atalho <?= ?>). console.log e document.write são JavaScript.",
+    "manual": "7.1, Anexo B"
+  },
+  {
+    "id": "base-008",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "O que é enviado ao browser por este ficheiro?",
+    "codigo": "<p>Início</p>\n<?php\n$nome = 'Sophia';\n?>\n<p><?= $nome ?></p>",
+    "linguagem": "php",
+    "alternativas": [
+      "<p>Início</p> e <p>$nome</p>",
+      "<p>Início</p> e <p>Sophia</p>",
+      "Só <p>Início</p>",
+      "<p>Início</p> e <p><?= $nome ?></p>"
+    ],
+    "correta": 1,
+    "explicacao": "O HTML fora dos blocos vai tal e qual; o bloco PHP não envia nada e o <?= $nome ?> é trocado pelo valor.",
+    "manual": "7.1"
+  },
+  {
+    "id": "base-009",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
@@ -135,142 +153,106 @@
     "linguagem": "",
     "alternativas": [
       "<h1><?= $titulo ?></h1>",
-      "<h1><?php $titulo; ?></h1>",
       "<h1><?php echo $titulo; ?></h1>",
-      "<h1><?php echo \"$titulo\"; ?></h1>"
+      "<h1><?php $titulo; ?></h1>",
+      "<?php echo \"<h1>$titulo</h1>\"; ?>"
     ],
-    "correta": 1,
-    "explicacao": "Escrever só a variável não a envia para a página: falta o echo. O <?= faz o echo sozinho, e as aspas duplas substituem a variável.",
+    "correta": 2,
+    "explicacao": "Sem echo (ou <?=), a variável é avaliada mas nada é escrito. As outras três escrevem o título.",
     "manual": "7.1"
   },
   {
-    "id": "php-011",
+    "id": "base-010",
     "bloco": "php",
     "tema": "PHP essencial",
-    "dificuldade": "dificil",
-    "pergunta": "Numa linha da lista, $livro['id_livro'] vale 7. Que endereço fica no href que chega ao browser?",
-    "codigo": "<a href=\"livro_ver.php?id=<?= $livro['id_livro'] ?>\">Ver detalhe →</a>",
+    "dificuldade": "media",
+    "pergunta": "Sabendo que $livro['id_livro'] vale 7, que endereço chega ao browser?",
+    "codigo": "<a href=\"livro_ver.php?id=<?= $livro['id_livro'] ?>\">Ver</a>",
     "linguagem": "php",
     "alternativas": [
-      "livro_ver.php?id=<?= $livro['id_livro'] ?>",
-      "livro_ver.php?id=$livro['id_livro']",
       "livro_ver.php?id=7",
-      "livro_ver.php?id="
+      "livro_ver.php?id=<?= $livro['id_livro'] ?>",
+      "livro_ver.php?id=$livro",
+      "livro_ver.php?id=id_livro"
     ],
-    "correta": 2,
-    "explicacao": "O PHP corre antes de a página sair do servidor e o <?= ... ?> é trocado pelo valor. O browser recebe um link normal.",
+    "correta": 0,
+    "explicacao": "O PHP corre antes de enviar a página e troca o <?= ... ?> pelo valor. O browser recebe só livro_ver.php?id=7.",
     "manual": "7.1, 12.2"
   },
   {
-    "id": "php-013",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "facil",
-    "pergunta": "Em PHP, que instrução escreve texto na página?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "write('Olá');",
-      "document.write('Olá');",
-      "echo 'Olá';",
-      "console.log('Olá');"
-    ],
-    "correta": 2,
-    "explicacao": "echo escreve na página que vai para o browser. document.write e console.log são de JavaScript, que corre no browser.",
-    "manual": "7.1, Anexo B"
-  },
-  {
-    "id": "php-014",
+    "id": "base-011",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
-    "pergunta": "Este código dá \"Parse error: syntax error\". Qual é a causa?",
+    "pergunta": "Este código dá \"Parse error\". Qual é a causa?",
     "codigo": "<?php\n$titulo = 'Os Maias'\n$ano = 1888;\necho $titulo;",
     "linguagem": "php",
     "alternativas": [
-      "As variáveis têm de ser declaradas com var.",
-      "O texto tem de estar entre aspas duplas.",
-      "Falta o ; no fim da linha 2.",
-      "Falta o ?> no fim do ficheiro."
+      "Falta o ?> no fim",
+      "Falta o ; na linha 2",
+      "1888 devia ter aspas",
+      "O echo precisa de parênteses"
     ],
-    "correta": 2,
-    "explicacao": "Cada instrução termina com ;. Quando o erro aparece numa linha, convém ver também a anterior: é lá que costuma faltar o ;.",
+    "correta": 1,
+    "explicacao": "Cada instrução PHP acaba em ;. Num ficheiro só com PHP o ?> final não é preciso.",
     "manual": "7.1, 17.1"
   },
   {
-    "id": "php-015",
+    "id": "base-012",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
-    "pergunta": "O que faz esta linha num bloco PHP?",
+    "pergunta": "O que faz esta linha dentro de um bloco PHP?",
     "codigo": "// echo $titulo;",
     "linguagem": "php",
     "alternativas": [
-      "Escreve o título dentro de um comentário HTML.",
-      "Escreve o texto \"echo $titulo;\" na página.",
-      "Nada: é um comentário e não é executada.",
-      "Dá erro, porque em PHP os comentários usam <!-- -->."
+      "Nada: é um comentário",
+      "Escreve o título",
+      "Escreve \"echo $titulo;\"",
+      "Dá erro de sintaxe"
     ],
-    "correta": 2,
-    "explicacao": "O // começa um comentário de uma linha: serve para quem lê o código e não é executado.",
+    "correta": 0,
+    "explicacao": "O // começa um comentário de uma linha. O PHP ignora-o, por isso o echo não corre.",
     "manual": "7.1"
   },
   {
-    "id": "php-016",
+    "id": "base-013",
     "bloco": "php",
     "tema": "PHP essencial",
-    "dificuldade": "media",
-    "pergunta": "O que vê o utilizador quando o PHP executa esta linha?",
-    "codigo": "echo '<h1>Livro não encontrado</h1>';",
+    "dificuldade": "dificil",
+    "pergunta": "O que mostra este código?",
+    "codigo": "<?php\necho 'A';\n/* echo 'B';\necho 'C'; */\necho 'D';",
     "linguagem": "php",
     "alternativas": [
-      "O texto <h1>Livro não encontrado</h1>, com as etiquetas visíveis.",
-      "Nada, porque o echo não pode escrever HTML.",
-      "Um título h1 com o texto \"Livro não encontrado\".",
-      "Um erro, porque o HTML tem de estar fora do bloco PHP."
+      "ABCD",
+      "ACD",
+      "AB",
+      "AD"
     ],
-    "correta": 2,
-    "explicacao": "O echo envia o texto para a resposta e o browser interpreta-o como HTML. É assim que a livro_ver.php mostra a mensagem de livro não encontrado.",
-    "manual": "7.1, 12.3"
+    "correta": 3,
+    "explicacao": "O /* abre um comentário que só acaba no */, mesmo noutra linha. Os echo de B e C ficam comentados; o // só comentaria uma linha.",
+    "manual": "7.1, 9.2"
   },
   {
-    "id": "php-017",
+    "id": "base-014",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
-    "pergunta": "Porque é que o config/db.php começa por <?php mas não termina com ?>?",
+    "pergunta": "Porque é que o config/db.php, só com PHP, não fecha com ?>?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Porque o ?> só pode aparecer em ficheiros que tenham HTML.",
-      "Porque o PDO fecha o bloco PHP automaticamente no fim.",
-      "Para um espaço depois do ?> não ir para o browser.",
-      "Para o ficheiro não poder ser aberto diretamente no browser."
+      "Para nenhum espaço após o ?> ir para o browser",
+      "Porque o ?> só se pode usar em ficheiros com HTML",
+      "Para o ficheiro correr mais depressa",
+      "Porque o require não aceita o ?>"
     ],
-    "correta": 2,
-    "explicacao": "Num ficheiro só com PHP, um espaço ou linha em branco depois do ?> seria enviado ao browser, e a partir daí o header() já não funciona.",
+    "correta": 0,
+    "explicacao": "Um espaço ou linha depois do ?> seria enviado como saída e podia estragar um header() mais à frente.",
     "manual": "7.1"
   },
   {
-    "id": "php-019",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "media",
-    "pergunta": "Qual destes ficheiros, por ter só código PHP, não deve fechar com ?> no fim?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "includes/cabecalho.php, que é o topo HTML da página.",
-      "includes/auth.php, que só verifica a sessão.",
-      "includes/rodape.php, que fecha o HTML da página.",
-      "includes/livro_form.php, que tem o formulário."
-    ],
-    "correta": 1,
-    "explicacao": "O auth.php não tem HTML nenhum, tal como o db.php e o inicio.php. Os outros misturam HTML com PHP e usam ?> para voltar ao HTML.",
-    "manual": "7.1, 11.2"
-  },
-  {
-    "id": "php-020",
+    "id": "base-015",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
@@ -278,71 +260,89 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Por @, como em @titulo.",
-      "Pela palavra var, como em var titulo.",
-      "Por #, como em #titulo.",
-      "Por $, como em $titulo."
+      "Por $",
+      "Por @",
+      "Por var",
+      "Por #"
     ],
-    "correta": 3,
-    "explicacao": "Em PHP todas as variáveis começam por $: $titulo, $erros, $pdo, $_POST...",
+    "correta": 0,
+    "explicacao": "Todas as variáveis PHP começam por $, como $titulo ou $erros. Não se declara com var.",
     "manual": "7.2, Anexo B"
   },
   {
-    "id": "php-021",
+    "id": "base-016",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "O que acontece quando o PHP executa este código?",
+    "codigo": "$titulo = 'Os Maias';\necho $Titulo;",
+    "linguagem": "php",
+    "alternativas": [
+      "Aviso: $Titulo não está definida",
+      "Mostra Os Maias",
+      "Mostra $Titulo",
+      "Erro fatal e a página para"
+    ],
+    "correta": 0,
+    "explicacao": "Os nomes das variáveis distinguem maiúsculas de minúsculas. $Titulo é outra variável, que nunca recebeu valor.",
+    "manual": "7.2"
+  },
+  {
+    "id": "base-017",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
-    "pergunta": "Que tipo de valor fica em $ativo depois de $ativo = true; ?",
+    "pergunta": "Que tipo de valor fica em $ativo depois de $ativo = true;?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "string (texto)",
-      "int (número inteiro)",
-      "boolean (verdadeiro ou falso)",
-      "null (sem valor)"
+      "texto",
+      "booleano",
+      "inteiro",
+      "null"
+    ],
+    "correta": 1,
+    "explicacao": "true e false são os dois valores do tipo booleano. Sem aspas, true não é texto.",
+    "manual": "7.2"
+  },
+  {
+    "id": "base-018",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "O que significa $isbn = null;?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Fica com o texto 'null'",
+      "A variável fica sem valor",
+      "Fica com o número 0",
+      "Fica com um texto vazio ''"
+    ],
+    "correta": 1,
+    "explicacao": "null quer dizer \"sem valor\". É diferente do texto vazio '' e do número 0, que são valores.",
+    "manual": "7.2"
+  },
+  {
+    "id": "base-019",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "Uma variável PHP pode guardar um número e mais tarde um texto?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Não: o tipo fica fixo",
+      "Só se for declarada com var",
+      "Sim: o tipo é dinâmico",
+      "Só depois de um unset()"
     ],
     "correta": 2,
-    "explicacao": "true e false são os dois valores do tipo boolean. Sem aspas, true não é texto.",
+    "explicacao": "Em PHP o tipo depende do valor que lá está em cada momento. Não se declara o tipo da variável.",
     "manual": "7.2"
   },
   {
-    "id": "php-022",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "media",
-    "pergunta": "O que guarda $isbn depois de $isbn = null; ?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "O texto 'null', com quatro letras.",
-      "O número 0.",
-      "Um texto vazio, igual a ''.",
-      "Nada: null é \"sem valor\"."
-    ],
-    "correta": 3,
-    "explicacao": "null é o valor especial \"sem valor\". Na base de dados corresponde ao NULL, que a Biblioteca usa nos campos opcionais vazios.",
-    "manual": "7.2"
-  },
-  {
-    "id": "php-023",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "media",
-    "pergunta": "Abres livro_ver.php?id=3. Que valor tem $_GET['id']?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "O número inteiro 3.",
-      "O valor true.",
-      "O texto 'id=3'.",
-      "O texto '3'."
-    ],
-    "correta": 3,
-    "explicacao": "Tudo o que vem do endereço ou de um formulário chega como texto. Por isso a Biblioteca faz (int) quando precisa de um número.",
-    "manual": "7.5"
-  },
-  {
-    "id": "php-024",
+    "id": "base-020",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
@@ -350,71 +350,71 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Nas simples as variáveis são substituídas; nas duplas o texto é literal.",
-      "Nenhuma: as duas substituem as variáveis da mesma forma.",
-      "As duplas servem só para escrever HTML e as simples só para escrever SQL.",
-      "Nas duplas as variáveis são substituídas; nas simples o texto é literal."
+      "Nas duplas, as variáveis são substituídas",
+      "Nas simples, as variáveis são substituídas",
+      "Não há diferença nenhuma",
+      "As duplas só servem para HTML"
     ],
-    "correta": 3,
-    "explicacao": "echo \"Livro: $titulo\" mostra o valor; echo 'Livro: $titulo' mostra $titulo tal e qual.",
+    "correta": 0,
+    "explicacao": "Em \"Autor: $a\" o PHP põe o valor de $a. Em 'Autor: $a' o texto fica literal.",
     "manual": "7.2"
   },
   {
-    "id": "php-025",
+    "id": "base-021",
     "bloco": "php",
     "tema": "PHP essencial",
-    "dificuldade": "media",
+    "dificuldade": "facil",
     "pergunta": "O que mostra este código?",
-    "codigo": "<?php\n$autor = 'Eça de Queirós';\necho \"Autor: $autor\";",
+    "codigo": "$titulo = 'Os Maias';\necho 'Livro: $titulo';",
     "linguagem": "php",
     "alternativas": [
-      "Autor: $autor",
-      "Autor: ",
-      "Autor: Eça de Queirós",
-      "Autor: autor"
+      "Livro: Os Maias",
+      "Livro:",
+      "Erro de sintaxe",
+      "Livro: $titulo"
     ],
-    "correta": 2,
-    "explicacao": "Com aspas duplas, o PHP substitui $autor pelo seu valor. Com aspas simples apareceria $autor literalmente.",
+    "correta": 3,
+    "explicacao": "Com aspas simples o texto é literal: o $titulo não é substituído pelo valor.",
     "manual": "7.2"
   },
   {
-    "id": "php-027",
+    "id": "base-022",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "dificil",
-    "pergunta": "Qual destas linhas produz exatamente o mesmo texto que esta?",
-    "codigo": "$msg = \"O ano tem de estar entre 1450 e $anoAtual.\";",
+    "pergunta": "Qual destas linhas guarda exatamente o mesmo texto que esta?",
+    "codigo": "$msg = \"Ano máximo: $anoAtual.\";",
     "linguagem": "php",
     "alternativas": [
-      "$msg = 'O ano tem de estar entre 1450 e $anoAtual.';",
-      "$msg = 'O ano tem de estar entre 1450 e ' . $anoAtual . '.';",
-      "$msg = 'O ano tem de estar entre 1450 e ' + $anoAtual + '.';",
-      "$msg = \"O ano tem de estar entre 1450 e \" $anoAtual \".\";"
+      "$msg = 'Ano máximo: $anoAtual.';",
+      "$msg = 'Ano máximo: ' . $anoAtual . '.';",
+      "$msg = 'Ano máximo: ' + $anoAtual + '.';",
+      "$msg = \"Ano máximo: \" $anoAtual \".\";"
     ],
     "correta": 1,
-    "explicacao": "Com aspas simples o valor tem de ser juntado com o ponto. O + não junta textos e duas partes lado a lado sem operador dão erro.",
+    "explicacao": "Com aspas simples, a variável tem de ficar fora do texto e juntar-se com o ponto. O + não junta textos.",
     "manual": "7.2, 12.4"
   },
   {
-    "id": "php-028",
+    "id": "base-023",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
     "pergunta": "Porque é que este echo usa aspas simples por fora?",
-    "codigo": "echo '<a href=\"livros.php\">Voltar à lista</a>';",
+    "codigo": "echo '<a href=\"livros.php\">Voltar</a>';",
     "linguagem": "php",
     "alternativas": [
-      "Porque o echo só aceita textos com aspas simples por fora.",
-      "Para o link abrir num separador novo.",
-      "Porque as aspas duplas tornariam o link inseguro.",
-      "Para as aspas duplas do href não fecharem o texto."
+      "Porque o echo só aceita aspas simples",
+      "Para as aspas do href não fecharem o texto",
+      "Para o link abrir noutra janela",
+      "Porque o HTML não aceita aspas duplas dentro do echo"
     ],
-    "correta": 3,
-    "explicacao": "O texto tem aspas duplas lá dentro (no atributo href). Delimitá-lo com aspas simples evita que essas aspas terminem o texto antes do tempo.",
+    "correta": 1,
+    "explicacao": "O texto tem aspas duplas lá dentro. Com aspas simples por fora, elas fazem parte do texto.",
     "manual": "7.2, 12.3"
   },
   {
-    "id": "php-029",
+    "id": "base-024",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
@@ -422,17 +422,17 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O ponto: 'Olá, ' . $nome",
-      "O mais: 'Olá, ' + $nome",
-      "O e comercial: 'Olá, ' & $nome",
-      "A função concat('Olá, ', $nome)"
+      "O mais +",
+      "O &&",
+      "O =>",
+      "O ponto ."
     ],
-    "correta": 0,
-    "explicacao": "Em PHP a concatenação faz-se com o ponto. O + é só para somar números (em JavaScript é que o + junta textos).",
+    "correta": 3,
+    "explicacao": "Em PHP junta-se texto com o ponto: 'Olá, ' . $nome. O + é só para somar números.",
     "manual": "7.2"
   },
   {
-    "id": "php-030",
+    "id": "base-025",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
@@ -442,213 +442,141 @@
     "alternativas": [
       "%$q%",
       "%mar%",
-      "%q%",
-      "mar"
+      "mar",
+      "% mar %"
     ],
     "correta": 1,
-    "explicacao": "O ponto junta os três pedaços: o %, o valor de $q e outro %. É este texto que vai para o LIKE ?.",
+    "explicacao": "O ponto junta os três textos sem espaços. É assim que se prepara o padrão para o LIKE.",
     "manual": "7.2, 12.2"
   },
   {
-    "id": "php-031",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "dificil",
-    "pergunta": "No login, o nome do utilizador é Maria. Que texto fica guardado na mensagem?",
-    "codigo": "mensagem('sucesso', 'Sessão iniciada. Bem-vindo, ' . $utilizador['nome'] . '!');",
-    "linguagem": "php",
-    "alternativas": [
-      "Sessão iniciada. Bem-vindo, $utilizador['nome']!",
-      "Sessão iniciada. Bem-vindo, . Maria . !",
-      "Sessão iniciada. Bem-vindo, nome!",
-      "Sessão iniciada. Bem-vindo, Maria!"
-    ],
-    "correta": 3,
-    "explicacao": "O ponto junta o texto fixo, o valor de $utilizador['nome'] e o ponto de exclamação. Os pontos do operador não fazem parte do resultado.",
-    "manual": "7.2, 10.4"
-  },
-  {
-    "id": "php-032",
+    "id": "base-026",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
-    "pergunta": "O que acontece com esta linha?",
+    "pergunta": "O que acontece com esta linha em PHP 8?",
     "codigo": "echo 'Os ' + 'Maias';",
     "linguagem": "php",
     "alternativas": [
-      "Mostra Os Maias, como em JavaScript.",
-      "Mostra OsMaias, sem o espaço.",
-      "Dá erro: o + não junta textos.",
-      "Mostra Os + Maias."
-    ],
-    "correta": 2,
-    "explicacao": "Em PHP o + é só aritmético. Para juntar textos usa-se o ponto: 'Os ' . 'Maias'.",
-    "manual": "7.2"
-  },
-  {
-    "id": "php-033",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "facil",
-    "pergunta": "O que mostra este código?",
-    "codigo": "$ano = 1888;\necho 'Edição de ' . $ano;",
-    "linguagem": "php",
-    "alternativas": [
-      "Edição de $ano",
-      "Edição de 1888",
-      "Dá erro: não se junta texto com número.",
-      "1888"
+      "Mostra Os Maias",
+      "Dá erro: o + não junta textos",
+      "Mostra Os + Maias",
+      "Mostra 0"
     ],
     "correta": 1,
-    "explicacao": "O ponto junta o texto com o número, que é convertido em texto. A variável não está dentro das aspas, por isso é o valor que aparece.",
+    "explicacao": "O + é aritmético e falha com textos que não são números. Para juntar usa-se o ponto.",
     "manual": "7.2"
   },
   {
-    "id": "php-034",
+    "id": "base-027",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "Que valor fica em $html no fim?",
+    "codigo": "$html = '<ul>';\n$html .= '<li>Os Maias</li>';\n$html .= '</ul>';",
+    "linguagem": "php",
+    "alternativas": [
+      "</ul>",
+      "<ul>",
+      "<ul><li>Os Maias</li></ul>",
+      "<li>Os Maias</li></ul>"
+    ],
+    "correta": 2,
+    "explicacao": "O .= acrescenta texto ao fim do que a variável já tem. O = substituiria.",
+    "manual": "7.2"
+  },
+  {
+    "id": "base-028",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
-    "pergunta": "O que faz a instrução $erros[] = 'O título é obrigatório.'; ?",
+    "pergunta": "O que faz $erros[] = 'O título é obrigatório.';?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Substitui o array inteiro por esse texto.",
-      "Cria uma variável nova chamada erros[].",
-      "Apaga o último elemento do array $erros.",
-      "Acrescenta esse texto no fim do array $erros."
+      "Substitui o array por esse texto",
+      "Acrescenta o texto no fim do array",
+      "Apaga o array $erros",
+      "Cria uma nova variável chamada erros[]"
     ],
-    "correta": 3,
-    "explicacao": "Os [] vazios acrescentam um elemento no fim. É assim que a validação junta todos os erros numa lista.",
+    "correta": 1,
+    "explicacao": "Os [] vazios acrescentam um elemento no fim do array, sem apagar os que já lá estão.",
     "manual": "7.2"
   },
   {
-    "id": "php-035",
+    "id": "base-029",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
     "pergunta": "O que mostra este código?",
-    "codigo": "$erros = [];\n$erros[] = 'O título é obrigatório.';\n$erros[] = 'Escolhe um autor da lista.';\necho count($erros);",
+    "codigo": "$erros = [];\n$erros[] = 'O título é obrigatório.';\n$erros[] = 'Escolhe um autor.';\necho count($erros);",
     "linguagem": "php",
     "alternativas": [
       "1",
-      "2",
       "0",
-      "Escolhe um autor da lista."
+      "3",
+      "2"
     ],
-    "correta": 1,
-    "explicacao": "O array começa vazio e recebe dois elementos. count() devolve quantos elementos tem.",
+    "correta": 3,
+    "explicacao": "Começa vazio e cada $erros[] = ... acrescenta um elemento. count() devolve quantos são: 2.",
     "manual": "7.2, 7.4"
   },
   {
-    "id": "php-036",
+    "id": "base-030",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "dificil",
     "pergunta": "O que mostra este código?",
-    "codigo": "$erros = [];\n$erros[] = 'O nome é obrigatório.';\n$erros[] = 'O email não é válido.';\necho $erros[1];",
+    "codigo": "$erros = ['O nome é obrigatório.', 'O email não é válido.'];\necho $erros[1];",
     "linguagem": "php",
     "alternativas": [
-      "O email não é válido.",
       "O nome é obrigatório.",
-      "Nada, porque a posição 1 não existe.",
-      "2"
+      "Aviso: o índice 1 não existe",
+      "2",
+      "O email não é válido."
     ],
-    "correta": 0,
-    "explicacao": "Num array indexado as posições começam em 0: o primeiro erro está em $erros[0] e o segundo em $erros[1].",
+    "correta": 3,
+    "explicacao": "Os índices começam em 0. O primeiro é $erros[0] e o segundo é $erros[1].",
     "manual": "7.2"
   },
   {
-    "id": "php-037",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "facil",
-    "pergunta": "O que devolve count($erros)?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Quantos elementos tem o array.",
-      "O último elemento do array.",
-      "O maior valor do array.",
-      "A posição do primeiro elemento."
-    ],
-    "correta": 0,
-    "explicacao": "count() conta os elementos de um array. Com um array vazio dá 0.",
-    "manual": "7.4"
-  },
-  {
-    "id": "php-038",
+    "id": "base-031",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
-    "pergunta": "Porque é que o registo.php começa com $erros = []; antes de validar?",
+    "pergunta": "Porque é que a validação começa com $erros = []; antes de testar os campos?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Para apagar as mensagens guardadas na sessão.",
-      "Para começar com uma lista de erros vazia.",
-      "Para desligar a validação no browser.",
-      "Para criar uma tabela de erros na base de dados."
+      "Para apagar os dados do formulário",
+      "Para mostrar já os erros na página",
+      "Para criar a tabela de erros",
+      "Para começar com uma lista vazia"
     ],
-    "correta": 1,
-    "explicacao": "Cada validação que falha faz $erros[] = ...; no fim, se o array continuar vazio, não houve erros. Começar com [] garante também que a variável existe.",
+    "correta": 3,
+    "explicacao": "Cada regra que falha acrescenta um texto. Se no fim o array continuar vazio, não houve erros.",
     "manual": "7.2, 10.2"
   },
   {
-    "id": "php-039",
+    "id": "base-032",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
-    "pergunta": "Com $livro = ['titulo' => 'Os Maias', 'ano_edicao' => 1888];, como obténs o 1888?",
+    "pergunta": "Com $livro = ['titulo' => 'Os Maias', 'ano' => 1888];, como obténs o 1888?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "$livro[1888]",
-      "$livro.ano_edicao",
-      "$livro['ano_edicao']",
-      "$livro('ano_edicao')"
+      "$livro[1]",
+      "$livro->ano",
+      "$livro.ano",
+      "$livro['ano']"
     ],
-    "correta": 2,
-    "explicacao": "Num array associativo cada valor tem uma chave e lê-se com o nome da chave entre parênteses retos.",
+    "correta": 3,
+    "explicacao": "Num array associativo lê-se o valor pela chave entre parênteses retos. A seta -> é para objetos.",
     "manual": "7.2"
   },
   {
-    "id": "php-041",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "dificil",
-    "pergunta": "O que mostra este código?",
-    "codigo": "$livro = ['titulo' => 'Os Maias', 'ano_edicao' => 1888];\necho count($livro);",
-    "linguagem": "php",
-    "alternativas": [
-      "4",
-      "1",
-      "1888",
-      "2"
-    ],
-    "correta": 3,
-    "explicacao": "O array tem dois elementos (dois pares chave => valor). count() conta os elementos, não as chaves e os valores em separado.",
-    "manual": "7.2, 7.4"
-  },
-  {
-    "id": "php-042",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "dificil",
-    "pergunta": "Depois de mensagem('erro', 'Esse livro não existe.');, que valor tem $_SESSION['msg']['texto']?",
-    "codigo": "function mensagem($tipo, $texto)\n{\n    $_SESSION['msg'] = ['tipo' => $tipo, 'texto' => $texto];\n}",
-    "linguagem": "php",
-    "alternativas": [
-      "erro",
-      "Esse livro não existe.",
-      "texto",
-      "A palavra msg"
-    ],
-    "correta": 1,
-    "explicacao": "$_SESSION['msg'] é um array associativo com duas chaves. A chave 'texto' recebe o segundo argumento da função.",
-    "manual": "7.2, 7.4"
-  },
-  {
-    "id": "php-043",
+    "id": "base-033",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "dificil",
@@ -656,35 +584,53 @@
     "codigo": "$livros = [\n    ['titulo' => 'Os Maias'],\n    ['titulo' => 'O Primo Basílio'],\n];\necho $livros[1]['titulo'];",
     "linguagem": "php",
     "alternativas": [
-      "Os Maias",
       "O Primo Basílio",
+      "Os Maias",
       "titulo",
-      "Dá erro: não se usam dois [] seguidos."
+      "Aviso: índice 1 inexistente"
     ],
-    "correta": 1,
-    "explicacao": "É um array de linhas, como o que o fetchAll() devolve. [1] escolhe a segunda linha e ['titulo'] a coluna dessa linha.",
+    "correta": 0,
+    "explicacao": "$livros[1] é o segundo livro (o índice começa em 0) e ['titulo'] lê a chave desse livro. As listas da base de dados vêm assim.",
     "manual": "7.2, 8.2"
   },
   {
-    "id": "php-044",
+    "id": "base-034",
     "bloco": "php",
     "tema": "PHP essencial",
-    "dificuldade": "dificil",
-    "pergunta": "Que valor fica em $erros depois deste código?",
-    "codigo": "$ano = 1300;\n$erros = [];\nif ($ano < 1450) {\n    $erros[] = 'Ano inválido.';\n} elseif ($ano > 2026) {\n    $erros[] = 'O ano está no futuro.';\n} else {\n    echo 'Ano aceite.';\n}",
+    "dificuldade": "facil",
+    "pergunta": "Em ['titulo' => 'Os Maias'], o que faz o =>?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Compara os dois valores",
+      "Chama um método",
+      "Junta os dois textos",
+      "Liga a chave ao valor"
+    ],
+    "correta": 3,
+    "explicacao": "O => associa a chave 'titulo' ao valor 'Os Maias' dentro de um array.",
+    "manual": "7.2"
+  },
+  {
+    "id": "base-035",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "O que mostra este código?",
+    "codigo": "$ano = 1300;\nif ($ano < 1450) {\n    echo 'antigo';\n} elseif ($ano > 2026) {\n    echo 'futuro';\n} else {\n    echo 'aceite';\n}",
     "linguagem": "php",
     "alternativas": [
-      "['Ano inválido.']",
-      "['Ano inválido.', 'O ano está no futuro.']",
-      "[] e aparece \"Ano aceite.\"",
-      "['O ano está no futuro.']"
+      "aceite",
+      "antigo",
+      "antigoaceite",
+      "futuro"
     ],
-    "correta": 0,
-    "explicacao": "1300 < 1450, por isso entra no primeiro bloco. Quando uma condição é verdadeira, o elseif e o else já não são testados.",
+    "correta": 1,
+    "explicacao": "A primeira condição verdadeira corre e as outras são saltadas. 1300 < 1450, por isso só aparece antigo.",
     "manual": "7.3"
   },
   {
-    "id": "php-045",
+    "id": "base-036",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
@@ -692,35 +638,143 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Repetir o bloco enquanto a condição for verdadeira.",
-      "Executar sempre um bloco no fim do if.",
-      "Testar outra condição quando a anterior foi falsa.",
-      "Testar a mesma condição uma segunda vez."
+      "Repetir o bloco enquanto a condição for verdadeira",
+      "Correr sempre no fim do if",
+      "Testar outra condição se a anterior falhou",
+      "Fechar o bloco do if"
     ],
     "correta": 2,
-    "explicacao": "if / elseif / else escolhe um só caminho: o elseif só é avaliado se o if anterior for falso.",
+    "explicacao": "O elseif só é testado quando as condições anteriores foram falsas. Repetir é trabalho de um ciclo.",
     "manual": "7.3"
   },
   {
-    "id": "php-046",
+    "id": "base-037",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
     "pergunta": "Em que caso esta condição acrescenta o erro?",
-    "codigo": "if ($nome === '' || mb_strlen($nome) > 100) {\n    $erros[] = 'O nome é obrigatório e não pode ter mais de 100 caracteres.';\n}",
+    "codigo": "if ($nome === '' || mb_strlen($nome) > 100) {\n    $erros[] = 'Nome inválido.';\n}",
     "linguagem": "php",
     "alternativas": [
-      "Só quando o nome está vazio e tem mais de 100 caracteres.",
-      "Quando o nome está vazio ou tem mais de 100 caracteres.",
-      "Quando o nome tem 100 caracteres ou menos.",
-      "Só quando o campo nome não veio no pedido."
+      "Só se estiver vazio e passar de 100",
+      "Só se passar de 100 caracteres",
+      "Só se tiver 100 caracteres",
+      "Se estiver vazio ou passar de 100"
     ],
-    "correta": 1,
-    "explicacao": "O || quer dizer \"ou\": basta uma das duas condições ser verdadeira para o erro ser acrescentado.",
+    "correta": 3,
+    "explicacao": "O || basta que uma das condições seja verdadeira. Com && teriam de ser as duas.",
     "manual": "7.3, 10.2"
   },
   {
-    "id": "php-047",
+    "id": "base-038",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "facil",
+    "pergunta": "Quando é verdadeira a condição $a && $b?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Quando pelo menos uma é verdadeira",
+      "Quando as duas são falsas",
+      "Quando $a é igual a $b",
+      "Quando $a e $b são verdadeiras"
+    ],
+    "correta": 3,
+    "explicacao": "O && (e) exige as duas verdadeiras. O || (ou) basta uma.",
+    "manual": "7.3"
+  },
+  {
+    "id": "base-039",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "facil",
+    "pergunta": "O que faz o ! em if (!isset($_POST['aceito']))?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Inverte a condição",
+      "Torna o campo obrigatório",
+      "Compara valor e tipo",
+      "Mostra um aviso"
+    ],
+    "correta": 0,
+    "explicacao": "O ! troca verdadeiro por falso. Aqui, a condição é verdadeira quando o campo não veio.",
+    "manual": "7.3"
+  },
+  {
+    "id": "base-040",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "dificil",
+    "pergunta": "O $isbn está vazio. Este código acrescenta o erro?",
+    "codigo": "$isbn = '';\nif ($isbn !== '' && strlen($isbn) !== 13) {\n    $erros[] = 'ISBN inválido.';\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Sim: '' não tem 13 caracteres",
+      "Não: a 1.ª parte do && é falsa",
+      "Sim: no && basta uma parte",
+      "Dá erro: strlen('') falha"
+    ],
+    "correta": 1,
+    "explicacao": "Com &&, se a primeira parte é falsa, a condição toda é falsa. Assim um campo opcional vazio não dá erro.",
+    "manual": "7.3, 12.4"
+  },
+  {
+    "id": "base-041",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "dificil",
+    "pergunta": "O que mostra este código?",
+    "codigo": "$total = 0;\nif ($total = 5) {\n    echo 'cinco';\n} else {\n    echo 'zero';\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "cinco",
+      "zero",
+      "Erro de sintaxe",
+      "Nada"
+    ],
+    "correta": 0,
+    "explicacao": "Um só = atribui: $total passa a 5 e a condição vale 5, que conta como verdadeiro. Para comparar usa-se == ou ===.",
+    "manual": "7.3, 7.5"
+  },
+  {
+    "id": "base-042",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "Quando é executado o bloco que grava?",
+    "codigo": "$erros = validar_livro($pdo, $livro);\nif (!$erros) {\n    // INSERT ...\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Quando $erros tem algum erro",
+      "Sempre, depois da validação",
+      "Quando $erros fica vazio",
+      "Nunca, porque falta o count()"
+    ],
+    "correta": 2,
+    "explicacao": "Um array vazio conta como falso, por isso !$erros é verdadeiro só quando não há erros.",
+    "manual": "7.3, 12.4"
+  },
+  {
+    "id": "base-043",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "Abres autor_form.php?id=4. Que valor fica em $titulo?",
+    "codigo": "$id = (int) ($_GET['id'] ?? 0);\n$titulo = $id > 0 ? 'Editar autor' : 'Novo autor';",
+    "linguagem": "php",
+    "alternativas": [
+      "'Novo autor'",
+      "4",
+      "true",
+      "'Editar autor'"
+    ],
+    "correta": 3,
+    "explicacao": "O ? : escolhe o primeiro valor se a condição for verdadeira e o segundo se for falsa. 4 > 0, por isso é Editar autor.",
+    "manual": "7.3, 13.2"
+  },
+  {
+    "id": "base-044",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
@@ -728,35 +782,53 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Conta quantos elementos tem o array $livros.",
-      "Corre o bloco uma vez por elemento.",
-      "Procura no array o livro com um certo título.",
-      "Repete o bloco enquanto $livro for verdadeiro."
+      "Corre o bloco só para o primeiro livro da lista",
+      "Cria o array $livros",
+      "Corre o bloco uma vez por cada livro",
+      "Conta quantos livros há"
     ],
-    "correta": 1,
-    "explicacao": "O foreach corre o bloco uma vez por elemento. É assim que a lista mostra todas as linhas que vieram da base de dados.",
+    "correta": 2,
+    "explicacao": "Em cada volta, $livro é o elemento seguinte do array $livros.",
     "manual": "7.3"
   },
   {
-    "id": "php-048",
+    "id": "base-045",
     "bloco": "php",
     "tema": "PHP essencial",
-    "dificuldade": "dificil",
+    "dificuldade": "media",
     "pergunta": "O que mostra este código?",
     "codigo": "$autores = ['Saramago', 'Sophia', 'Eça'];\nforeach ($autores as $autor) {\n    echo $autor . ';';\n}",
     "linguagem": "php",
     "alternativas": [
       "Saramago;Sophia;Eça",
-      "Saramago;Sophia;Eça;",
       "Eça;",
-      "Saramago;"
+      "Array;",
+      "Saramago;Sophia;Eça;"
     ],
-    "correta": 1,
-    "explicacao": "O bloco corre três vezes, uma por elemento, e cada vez escreve o nome seguido de ;. Também há ; depois do último.",
+    "correta": 3,
+    "explicacao": "O echo corre uma vez por autor e cada volta põe o ; depois do nome, também na última.",
     "manual": "7.3"
   },
   {
-    "id": "php-049",
+    "id": "base-046",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "O que mostra este código?",
+    "codigo": "$erros = [];\nforeach ($erros as $erro) {\n    echo 'erro;';\n}\necho 'fim';",
+    "linguagem": "php",
+    "alternativas": [
+      "erro;fim",
+      "fim",
+      "Nada",
+      "Aviso: array vazio"
+    ],
+    "correta": 1,
+    "explicacao": "Com um array vazio, o foreach não dá nenhuma volta. Depois corre o echo 'fim'.",
+    "manual": "7.3"
+  },
+  {
+    "id": "base-047",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
@@ -764,107 +836,89 @@
     "codigo": "<ul>\n<?php foreach ($erros as $erro): ?>\n    <li><?= htmlspecialchars($erro) ?></li>\n<?php endforeach; ?>\n</ul>",
     "linguagem": "php",
     "alternativas": [
-      "Uma lista com três <li>, um por erro.",
-      "Uma lista com um só <li> com os três erros.",
-      "Uma lista vazia, porque falta o echo.",
-      "Três listas <ul>, cada uma com um <li>."
+      "Um só <li> com as três mensagens",
+      "Só o <li> da última mensagem",
+      "Um <ul> vazio",
+      "Uma lista com três <li>"
     ],
-    "correta": 0,
-    "explicacao": "Só o que está entre o foreach e o endforeach se repete: o <li> aparece uma vez por erro. O <?= já faz o echo.",
+    "correta": 3,
+    "explicacao": "O <li> está dentro do foreach, por isso é escrito uma vez por mensagem.",
     "manual": "7.3, 9.4"
   },
   {
-    "id": "php-050",
+    "id": "base-048",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
-    "pergunta": "Dentro de foreach ($livros as $livro), como se escreve o título do livro da volta atual?",
+    "pergunta": "Dentro de foreach ($livros as $livro), como escreves o título da volta atual?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "<?= htmlspecialchars($livro['titulo']) ?>",
       "<?= htmlspecialchars($livros['titulo']) ?>",
       "<?= htmlspecialchars($titulo) ?>",
-      "<?= htmlspecialchars($livros->titulo) ?>"
+      "<?= $livro.titulo ?>",
+      "<?= htmlspecialchars($livro['titulo']) ?>"
     ],
-    "correta": 0,
-    "explicacao": "Em cada volta, $livro é uma linha (array associativo). $livros é a lista inteira e não tem a chave 'titulo'.",
+    "correta": 3,
+    "explicacao": "Em cada volta, $livro é um array associativo com as colunas. $livros é a lista toda.",
     "manual": "7.3"
   },
   {
-    "id": "php-051",
+    "id": "base-049",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "dificil",
+    "pergunta": "O que mostra este código?",
+    "codigo": "$precos = [10, 5, 3];\n$total = 0;\nforeach ($precos as $p) {\n    $total = $total + $p;\n}\necho $total;",
+    "linguagem": "php",
+    "alternativas": [
+      "3",
+      "1053",
+      "18",
+      "0"
+    ],
+    "correta": 2,
+    "explicacao": "Cada volta soma um preço ao total: 0 + 10 + 5 + 3 = 18. O + soma números; não junta texto.",
+    "manual": "7.3"
+  },
+  {
+    "id": "base-050",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
-    "pergunta": "Na sintaxe com dois pontos, if (...): ... , como se fecha o if?",
+    "pergunta": "Na sintaxe com dois pontos, if (...): ..., que palavra fecha o if?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "<?php end if; ?>",
-      "<?php endif; ?>",
-      "<?php fi; ?>",
-      "<?php close; ?>"
+      "endforeach;",
+      "end if;",
+      "endif;",
+      "fi;"
     ],
-    "correta": 1,
-    "explicacao": "A sintaxe alternativa usa : no início e endif; (ou endforeach;) no fim, em vez das chavetas.",
+    "correta": 2,
+    "explicacao": "if (...): fecha com endif; e foreach (...): fecha com endforeach;.",
     "manual": "7.3"
   },
   {
-    "id": "php-052",
+    "id": "base-051",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
-    "pergunta": "Porque é que a Biblioteca usa if (...): ... endif; no meio do HTML?",
+    "pergunta": "Porque se usa if (...): ... endif; no meio do HTML?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "É igual às chavetas, mas lê-se melhor no HTML.",
-      "Porque as chavetas dão erro quando há HTML no meio.",
-      "Porque é executada mais depressa do que as chavetas.",
-      "Porque só esta forma permite usar o else."
+      "É mais rápido que as chavetas",
+      "É obrigatório em ficheiros HTML",
+      "Faz o mesmo, mas lê-se melhor",
+      "Protege a página contra XSS"
     ],
-    "correta": 0,
-    "explicacao": "As duas formas são equivalentes. Com HTML pelo meio, um endif; ou endforeach; diz logo o que está a fechar, o que uma } sozinha não diz.",
+    "correta": 2,
+    "explicacao": "É a mesma lógica que as chavetas. Entre muitos blocos <?php ?>, um endif; é mais fácil de seguir do que um }.",
     "manual": "7.3"
   },
   {
-    "id": "php-053",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "dificil",
-    "pergunta": "A pesquisa não encontrou nada: $livros é um array vazio. O que aparece nesta parte da página?",
-    "codigo": "<?php if (count($livros) === 0): ?>\n    <p class=\"vazio\">Não foi encontrado nenhum livro.</p>\n<?php else: ?>\n    <?php foreach ($livros as $livro): ?>\n        <h2><?= htmlspecialchars($livro['titulo']) ?></h2>\n    <?php endforeach; ?>\n<?php endif; ?>",
-    "linguagem": "php",
-    "alternativas": [
-      "Um <h2> vazio, porque o foreach corre uma vez.",
-      "Nada, porque o if e o else se anulam.",
-      "Só o parágrafo \"Não foi encontrado nenhum livro.\"",
-      "O parágrafo e a seguir um erro do foreach."
-    ],
-    "correta": 2,
-    "explicacao": "count([]) é 0, por isso entra no if e mostra a mensagem. O else, com o foreach, nem chega a ser executado.",
-    "manual": "7.3, 12.2"
-  },
-  {
-    "id": "php-054",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "dificil",
-    "pergunta": "Para um livro com ano_edicao a NULL, o que escreve esta linha depois do nome do autor?",
-    "codigo": "<?php if ($livro['ano_edicao']): ?> · <?= $livro['ano_edicao'] ?><?php endif; ?>",
-    "linguagem": "php",
-    "alternativas": [
-      "Só o ponto ·, sem o ano.",
-      "· null",
-      "Nada: nem o ponto · nem o ano.",
-      "· 0"
-    ],
-    "correta": 2,
-    "explicacao": "NULL conta como falso, por isso tudo o que está entre o if e o endif (incluindo o HTML do ·) é saltado.",
-    "manual": "7.3, 12.2"
-  },
-  {
-    "id": "php-055",
+    "id": "base-052",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
@@ -872,17 +926,35 @@
     "codigo": "<?php foreach ($autores as $autor): ?>\n    <li><?= htmlspecialchars($autor['nome']) ?></li>\n<?php endif; ?>",
     "linguagem": "php",
     "alternativas": [
-      "Falta um ; logo a seguir a foreach (...).",
-      "Os dois pontos têm de ser trocados por uma chaveta {.",
-      "O foreach fecha com endforeach, não endif.",
-      "O <li> tem de ficar dentro de um echo."
+      "O foreach fecha com endforeach",
+      "Falta o ; depois do foreach",
+      "O <li> devia estar num echo",
+      "O htmlspecialchars() não é permitido"
     ],
-    "correta": 2,
-    "explicacao": "Na sintaxe alternativa cada abertura tem o seu fecho: if: ... endif; e foreach: ... endforeach;.",
+    "correta": 0,
+    "explicacao": "Cada bloco fecha com a palavra certa: foreach com endforeach; e if com endif;.",
     "manual": "7.3"
   },
   {
-    "id": "php-056",
+    "id": "base-053",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "dificil",
+    "pergunta": "$livros é um array vazio. O que aparece nesta parte da página?",
+    "codigo": "<?php if (count($livros) === 0): ?>\n    <p>Nenhum livro encontrado.</p>\n<?php else: ?>\n    <?php foreach ($livros as $livro): ?>\n        <h2><?= htmlspecialchars($livro['titulo']) ?></h2>\n    <?php endforeach; ?>\n<?php endif; ?>",
+    "linguagem": "php",
+    "alternativas": [
+      "O parágrafo e um <h2> vazio",
+      "Nada, porque não há livros",
+      "Só \"Nenhum livro encontrado.\"",
+      "Um aviso de array vazio"
+    ],
+    "correta": 2,
+    "explicacao": "count($livros) é 0, por isso corre o ramo do if e o else é saltado por inteiro.",
+    "manual": "7.3, 12.2"
+  },
+  {
+    "id": "base-054",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
@@ -891,52 +963,52 @@
     "linguagem": "",
     "alternativas": [
       "def mensagem($tipo, $texto): ...",
+      "func mensagem($tipo, $texto) { ... }",
       "function mensagem($tipo, $texto) { ... }",
-      "new function mensagem($tipo, $texto) { ... }",
-      "mensagem = function[$tipo, $texto] { ... }"
+      "new function mensagem($tipo, $texto) { ... }"
     ],
-    "correta": 1,
-    "explicacao": "Define-se com a palavra function, o nome, os parâmetros entre parênteses e o corpo entre chavetas, como a mensagem() do inicio.php.",
+    "correta": 2,
+    "explicacao": "Em PHP cria-se uma função com a palavra function, o nome, os parâmetros entre parênteses e o corpo entre chavetas.",
     "manual": "7.4"
   },
   {
-    "id": "php-058",
+    "id": "base-055",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
-    "pergunta": "Para que serve o return $erros; no fim de validar_livro()?",
+    "pergunta": "Uma função de validação acaba com return $erros;. Para que serve esse return?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Volta à página anterior, como o botão Voltar.",
-      "Termina a página inteira, como o exit.",
-      "Escreve a lista de erros na página.",
-      "Devolve a lista de erros a quem chamou a função."
+      "Devolve a lista a quem chamou",
+      "Mostra os erros na página, numa lista",
+      "Guarda os erros na sessão",
+      "Volta ao início da função"
     ],
-    "correta": 3,
-    "explicacao": "O return entrega um valor a quem chamou: em $erros = validar_livro($pdo, $livro); o array devolvido fica em $erros.",
+    "correta": 0,
+    "explicacao": "O return entrega um valor a quem chamou, como em $erros = validar_livro($pdo, $livro);.",
     "manual": "7.4, 12.4"
   },
   {
-    "id": "php-059",
+    "id": "base-056",
     "bloco": "php",
     "tema": "PHP essencial",
-    "dificuldade": "dificil",
+    "dificuldade": "media",
     "pergunta": "O que mostra este código?",
-    "codigo": "function resumo($erros)\n{\n    return count($erros) . ' erro(s)';\n}\necho resumo(['O título é obrigatório.', 'O email não é válido.']);",
+    "codigo": "function dobro($n)\n{\n    return $n * 2;\n}\necho dobro(4);",
     "linguagem": "php",
     "alternativas": [
-      "count($erros) erro(s)",
-      "1 erro(s)",
-      "2 erro(s)",
-      "Nada, porque a função não tem echo."
+      "4",
+      "8",
+      "dobro(4)",
+      "4 * 2"
     ],
-    "correta": 2,
-    "explicacao": "A função devolve o texto \"2 erro(s)\" e é o echo de fora que o escreve. O return entrega o valor, não o mostra.",
+    "correta": 1,
+    "explicacao": "A função recebe 4 em $n e devolve 4 * 2. O echo escreve o valor devolvido.",
     "manual": "7.4"
   },
   {
-    "id": "php-060",
+    "id": "base-057",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "dificil",
@@ -944,17 +1016,53 @@
     "codigo": "function mensagem($tipo, $texto)\n{\n    $_SESSION['msg'] = ['tipo' => $tipo, 'texto' => $texto];\n}",
     "linguagem": "php",
     "alternativas": [
-      "Livro criado.",
-      "sucesso",
-      "Livro criado. sucesso",
-      "Fica vazio, porque os argumentos estão trocados."
+      "'Livro criado.'",
+      "'sucesso'",
+      "null",
+      "'tipo'"
     ],
     "correta": 1,
-    "explicacao": "Os argumentos passam pela ordem: o primeiro vai para $tipo e o segundo para $texto. Os nomes não contam, só a posição.",
+    "explicacao": "Os argumentos entram pela ordem dos parâmetros: o 1.º vai para $tipo e o 2.º para $texto. Aqui estão trocados.",
     "manual": "7.4"
   },
   {
-    "id": "php-061",
+    "id": "base-058",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "dificil",
+    "pergunta": "Uma função lê $_POST sem o receber como parâmetro, mas para usar o $pdo tem de o receber. Porquê?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O $_POST vê-se em qualquer função; o $pdo, não",
+      "Uma função só pode usar uma variável de fora",
+      "O $_POST só existe dentro de funções",
+      "É só um hábito, porque as duas formas funcionam bem"
+    ],
+    "correta": 0,
+    "explicacao": "As superglobais ($_POST, $_GET, $_SESSION) existem em todo o lado. Uma variável normal como $pdo tem de entrar como parâmetro.",
+    "manual": "7.4, 7.5, 12.4"
+  },
+  {
+    "id": "base-059",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "facil",
+    "pergunta": "Qual destas funções foi escrita pela Biblioteca e não vem com o PHP?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "mensagem()",
+      "trim()",
+      "count()",
+      "htmlspecialchars()"
+    ],
+    "correta": 0,
+    "explicacao": "mensagem() está definida no includes/inicio.php. As outras são funções nativas do PHP.",
+    "manual": "7.4, 9.1"
+  },
+  {
+    "id": "base-060",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
@@ -962,17 +1070,17 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Tira todos os espaços, também os do meio.",
-      "Passa o texto para minúsculas.",
-      "Corta o texto aos 100 caracteres.",
-      "Tira os espaços do início e do fim."
+      "Tira os espaços do início e do fim",
+      "Tira todos os espaços, incluindo os do meio",
+      "Passa o texto para minúsculas",
+      "Conta os caracteres do texto"
     ],
-    "correta": 3,
-    "explicacao": "trim('  Os Maias  ') dá 'Os Maias': o espaço do meio fica. Assim, um campo só com espaços passa a '' e é apanhado como vazio.",
+    "correta": 0,
+    "explicacao": "trim() limpa só as pontas. O espaço entre Os e Maias fica.",
     "manual": "7.4"
   },
   {
-    "id": "php-062",
+    "id": "base-061",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
@@ -980,143 +1088,35 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Porque mb_strlen() tira os espaços antes de contar.",
-      "Porque strlen() só funciona com números.",
-      "Porque mb_strlen() conta bem as letras acentuadas.",
-      "Porque mb_strlen() conta palavras e não letras."
+      "Tira os espaços antes de contar",
+      "Conta bem as letras acentuadas",
+      "Só aceita letras sem números",
+      "É mais rápida a contar"
     ],
-    "correta": 2,
-    "explicacao": "As duas dão o comprimento de um texto, mas só a versão mb_ conta bem os acentos (ç, ã, é). strlen() dá um valor maior com acentos.",
+    "correta": 1,
+    "explicacao": "strlen() conta bytes e um ç ou um é ocupam 2. mb_strlen() conta caracteres.",
     "manual": "7.4"
   },
   {
-    "id": "php-063",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "dificil",
-    "pergunta": "No registo, o utilizador não assinalou a caixa do consentimento. O que acontece nesta verificação?",
-    "codigo": "if (!isset($_POST['consentimento'])) {\n    $erros[] = 'Tens de aceitar a política de privacidade.';\n}",
-    "linguagem": "php",
-    "alternativas": [
-      "isset() dá true, porque o campo existe no formulário, e passa.",
-      "Não vem no pedido: isset() dá false e junta o erro.",
-      "Aparece o aviso \"Undefined array key\" e a página para.",
-      "O campo chega com o valor 'off' e a verificação passa."
-    ],
-    "correta": 1,
-    "explicacao": "Uma caixa de seleção desmarcada não é enviada. isset() verifica se a chave existe, sem dar aviso quando não existe.",
-    "manual": "7.4, 7.5, 10.2"
-  },
-  {
-    "id": "php-065",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "dificil",
-    "pergunta": "A validação do ISBN usa esta expressão regular. Qual destes valores é aceite?",
-    "codigo": "preg_match('/^[0-9]{10}([0-9]{3})?$/', $isbn)",
-    "linguagem": "php",
-    "alternativas": [
-      "9789722036290",
-      "978-972-20-3629-0",
-      "978972203629",
-      "97897220362901"
-    ],
-    "correta": 0,
-    "explicacao": "A expressão aceita só algarismos, 10 ou 13 (10 mais 3 opcionais). Os hífenes não são algarismos e 12 ou 14 algarismos não servem.",
-    "manual": "7.4, 12.4"
-  },
-  {
-    "id": "php-066",
+    "id": "base-062",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
-    "pergunta": "O que devolve date('Y')?",
+    "pergunta": "O que verifica isset($x)?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O ano atual, por exemplo 2026.",
-      "A data completa de hoje.",
-      "O dia da semana de hoje.",
-      "O ano de edição do livro."
+      "Se existe e não é null",
+      "Se está vazia",
+      "Se é um número",
+      "Se veio por POST"
     ],
     "correta": 0,
-    "explicacao": "date('Y') dá o ano atual. A Biblioteca usa-o para não aceitar anos de edição no futuro.",
+    "explicacao": "isset() dá true quando a variável (ou chave) existe e não vale null. Para ver se está vazio usa-se empty().",
     "manual": "7.4"
   },
   {
-    "id": "php-067",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "dificil",
-    "pergunta": "Porque é que a sinopse se mostra com nl2br(htmlspecialchars(...)) e não com htmlspecialchars(nl2br(...))?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Ao contrário, as mudanças de linha eram apagadas do texto.",
-      "Ao contrário, os <br> seriam escapados e apareciam como texto.",
-      "É indiferente: a ordem das duas funções não muda nada.",
-      "O nl2br() dá erro se o texto não vier já escapado."
-    ],
-    "correta": 1,
-    "explicacao": "Primeiro escapa-se o texto do utilizador e só depois se acrescentam os <br>. Se fosse ao contrário, os <br> criados seriam escapados e viam-se como texto.",
-    "manual": "7.4, 12.3"
-  },
-  {
-    "id": "php-068",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "facil",
-    "pergunta": "O que faz nl2br($texto)?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Transforma as mudanças de linha em <br>.",
-      "Tira todas as mudanças de linha do texto.",
-      "Transforma as etiquetas <br> em mudanças de linha.",
-      "Divide o texto num array, uma linha por posição."
-    ],
-    "correta": 0,
-    "explicacao": "No HTML, uma mudança de linha normal não aparece. nl2br() acrescenta um <br> em cada uma, para a sinopse manter os parágrafos.",
-    "manual": "7.4"
-  },
-  {
-    "id": "php-069",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "media",
-    "pergunta": "Para que serve http_response_code(404) na livro_ver.php, quando o livro não existe?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Muda o código de estado da resposta para 404.",
-      "Redireciona o browser para uma página 404.php.",
-      "Termina a página, tal como o exit.",
-      "Escreve o número 404 no topo da página."
-    ],
-    "correta": 0,
-    "explicacao": "A página continua a mostrar a mensagem própria, mas a resposta passa a dizer \"não encontrado\" em vez de 200.",
-    "manual": "7.4, 12.3"
-  },
-  {
-    "id": "php-071",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "media",
-    "pergunta": "Porque é que a validação do ano faz $anoAtual = (int) date('Y');?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Para arredondar o ano para a década mais próxima.",
-      "Para tirar o mês e o dia da data devolvida.",
-      "Para o ano ficar sempre com quatro algarismos.",
-      "Porque date() devolve um texto."
-    ],
-    "correta": 3,
-    "explicacao": "date() devolve sempre um texto (por exemplo '2026'). O (int) converte-o num número inteiro para as comparações.",
-    "manual": "7.4, 12.4"
-  },
-  {
-    "id": "php-072",
+    "id": "base-063",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "dificil",
@@ -1124,17 +1124,251 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "isset dá true e empty dá true.",
-      "isset dá false e empty dá true.",
-      "isset dá true e empty dá false.",
-      "isset dá false e empty dá false."
+      "isset() dá false e empty() dá true",
+      "isset() dá true e empty() dá false",
+      "isset() dá false e empty() dá false",
+      "isset() dá true e empty() dá true"
     ],
-    "correta": 0,
-    "explicacao": "isset() vê se a variável existe (existe, é um array); empty() vê se está vazia (está, não tem elementos).",
+    "correta": 3,
+    "explicacao": "A variável existe e não é null, por isso isset dá true. Um array sem elementos conta como vazio, por isso empty também dá true.",
     "manual": "7.4"
   },
   {
-    "id": "php-073",
+    "id": "base-064",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "dificil",
+    "pergunta": "Este livro veio da base de dados sem ISBN. O que mostra este código?",
+    "codigo": "$livro = ['titulo' => 'Os Maias', 'isbn' => null];\necho isset($livro['isbn']) ? 'tem ISBN' : 'sem ISBN';",
+    "linguagem": "php",
+    "alternativas": [
+      "sem ISBN",
+      "tem ISBN",
+      "Aviso: isbn não existe",
+      "null"
+    ],
+    "correta": 0,
+    "explicacao": "A chave existe, mas o valor é null, e isset() dá false quando o valor é null.",
+    "manual": "7.4, 7.2"
+  },
+  {
+    "id": "base-065",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "No registo, a caixa do consentimento não foi assinalada. O que acontece aqui?",
+    "codigo": "if (!isset($_POST['consentimento'])) {\n    $erros[] = 'Tens de aceitar a política.';\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "O campo vem vazio e passa",
+      "O campo vem com 'off' e passa",
+      "O campo não vem e o erro é acrescentado",
+      "Aparece só um aviso de chave inexistente no ecrã"
+    ],
+    "correta": 2,
+    "explicacao": "Uma checkbox por assinalar não é enviada. isset() dá false, o ! inverte e o erro entra na lista.",
+    "manual": "7.4, 7.5, 10.2"
+  },
+  {
+    "id": "base-066",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "facil",
+    "pergunta": "O que devolve date('Y')?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O dia da semana",
+      "A data completa de hoje",
+      "O ano em que o ficheiro foi criado no servidor",
+      "O ano atual com 4 algarismos"
+    ],
+    "correta": 3,
+    "explicacao": "O 'Y' pede o ano com quatro algarismos, por exemplo 2026.",
+    "manual": "7.4"
+  },
+  {
+    "id": "base-067",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "Porque é que se escreve $anoAtual = (int) date('Y'); antes de comparar o ano?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Porque date() devolve um array com dia, mês e ano",
+      "Porque date() devolve um texto",
+      "Para tirar os espaços da data",
+      "Para guardar o ano na sessão"
+    ],
+    "correta": 1,
+    "explicacao": "date() devolve sempre texto, como '2026'. O (int) torna-o um inteiro para comparar com números.",
+    "manual": "7.4, 12.4"
+  },
+  {
+    "id": "base-068",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "Um colega validou o ano com if ($ano > 2026). Que vantagem tem usar date('Y')?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Aceita anos no futuro",
+      "Continua certo nos anos seguintes",
+      "Converte o ano para texto",
+      "Dispensa a validação do ano no servidor"
+    ],
+    "correta": 1,
+    "explicacao": "Com o ano fixo no código, em 2027 o ano atual seria recusado. date('Y') acompanha sempre o ano corrente.",
+    "manual": "7.4, 12.4"
+  },
+  {
+    "id": "base-069",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "facil",
+    "pergunta": "O que faz nl2br($texto)?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Tira as mudanças de linha",
+      "Troca os <br> que já existem por mudanças de linha",
+      "Divide o texto num array de linhas",
+      "Troca as mudanças de linha por <br>"
+    ],
+    "correta": 3,
+    "explicacao": "nl2br quer dizer \"new line to br\": cada \\n passa a ter um <br>, para o browser mostrar as linhas.",
+    "manual": "7.4"
+  },
+  {
+    "id": "base-070",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "dificil",
+    "pergunta": "Porque se escreve nl2br(htmlspecialchars($sinopse)) e não ao contrário?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Ao contrário, o texto perdia todos os acentos",
+      "O nl2br() só aceita texto já escapado",
+      "Ao contrário, os <br> apareciam como texto",
+      "Ao contrário, as linhas eram apagadas"
+    ],
+    "correta": 2,
+    "explicacao": "O htmlspecialchars() transforma < em &lt;. Se viesse por fora, também estragava os <br> acabados de criar.",
+    "manual": "7.4, 12.3"
+  },
+  {
+    "id": "base-071",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "Para que serve http_response_code(404) quando o livro pedido não existe?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Redireciona para a página 404.php",
+      "Termina o PHP e mostra uma página em branco",
+      "Escreve \"404\" na página",
+      "Muda o código de estado para 404"
+    ],
+    "correta": 3,
+    "explicacao": "Só muda o código da resposta. A página continua a correr e mostra a sua mensagem.",
+    "manual": "7.4, 12.3"
+  },
+  {
+    "id": "base-072",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "Para que serve filter_var($email, FILTER_VALIDATE_EMAIL)?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Enviar um email de confirmação",
+      "Ver se o email já está registado na base de dados",
+      "Verificar se tem formato de email",
+      "Passar o email para minúsculas"
+    ],
+    "correta": 2,
+    "explicacao": "Devolve o email se o formato for válido e false se não for. Saber se já existe exige uma consulta à base de dados.",
+    "manual": "7.4, 10.2"
+  },
+  {
+    "id": "base-073",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "facil",
+    "pergunta": "O que devolve preg_match() quando o texto bate com o padrão?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "1",
+      "0",
+      "O texto encontrado",
+      "false"
+    ],
+    "correta": 0,
+    "explicacao": "preg_match() devolve 1 se encontrar e 0 se não encontrar. Por isso !preg_match(...) é verdadeiro quando o texto não bate.",
+    "manual": "12.4"
+  },
+  {
+    "id": "base-074",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "A validação do ISBN usa este padrão. Qual destes valores é aceite?",
+    "codigo": "preg_match('/^[0-9]{10}([0-9]{3})?$/', $isbn)",
+    "linguagem": "php",
+    "alternativas": [
+      "978972203629",
+      "9789722036290",
+      "978-972203629",
+      "ISBN9722036"
+    ],
+    "correta": 1,
+    "explicacao": "O padrão pede 10 algarismos e, opcionalmente, mais 3: ou seja, 10 ou 13 algarismos e nada mais.",
+    "manual": "7.4, 12.4"
+  },
+  {
+    "id": "base-075",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "dificil",
+    "pergunta": "O utilizador escreve o ISBN 978-9722036597. O que acontece?",
+    "codigo": "if ($isbn !== '' && !preg_match('/^[0-9]{10}([0-9]{3})?$/', $isbn)) {\n    $erros[] = 'O ISBN tem de ter 10 ou 13 algarismos.';\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Passa: os hífenes são ignorados",
+      "Passa: tem 13 algarismos",
+      "Entra o erro: o hífen não é algarismo",
+      "Dá erro fatal no preg_match()"
+    ],
+    "correta": 2,
+    "explicacao": "O padrão vai do início (^) ao fim ($) e só aceita [0-9]. O hífen faz falhar e o ! torna a condição verdadeira.",
+    "manual": "12.4"
+  },
+  {
+    "id": "base-076",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "Um título tem exatamente 200 caracteres. Esta verificação acrescenta o erro?",
+    "codigo": "if ($titulo === '' || mb_strlen($titulo) > 200) {\n    $erros[] = 'Título inválido.';\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Não: 200 > 200 é falso",
+      "Sim: 200 já passa o limite",
+      "Sim: o === falha",
+      "Só se tiver acentos"
+    ],
+    "correta": 0,
+    "explicacao": "Com > 200, o limite ainda é aceite. Só 201 ou mais caracteres dão erro.",
+    "manual": "7.4, 12.4"
+  },
+  {
+    "id": "base-077",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
@@ -1142,107 +1376,107 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "$_GET['id']",
       "$_POST['id']",
-      "$_SERVER['id']",
-      "$_SESSION['id']"
+      "$_GET[3]",
+      "$_GET['id']",
+      "$_SERVER['id']"
     ],
-    "correta": 0,
-    "explicacao": "Os valores do endereço, depois do ?, ficam em $_GET. Em $_POST só estão os campos de formulários com method=\"post\".",
+    "correta": 2,
+    "explicacao": "Os parâmetros do endereço (depois do ?) chegam em $_GET, com o nome antes do = como chave.",
     "manual": "7.5, Anexo B"
   },
   {
-    "id": "php-074",
+    "id": "base-078",
     "bloco": "php",
     "tema": "PHP essencial",
-    "dificuldade": "dificil",
-    "pergunta": "O pedido é livro_ver.php?id=3. O que mostra este código?",
-    "codigo": "if ($_GET['id'] === 3) {\n    echo 'igual';\n} else {\n    echo 'diferente';\n}",
-    "linguagem": "php",
+    "dificuldade": "media",
+    "pergunta": "Abres livro_ver.php?id=3. Que valor tem $_GET['id']?",
+    "codigo": "",
+    "linguagem": "",
     "alternativas": [
-      "igual",
-      "diferente",
-      "Nada, porque falta o (int).",
-      "Dá erro: não se compara texto com número."
+      "O texto '3'",
+      "O inteiro 3",
+      "O texto 'id=3'",
+      "null"
     ],
-    "correta": 1,
-    "explicacao": "$_GET['id'] é o texto '3' e o === compara também o tipo: texto e inteiro nunca são idênticos. É uma das razões para fazer (int).",
+    "correta": 0,
+    "explicacao": "Tudo o que vem no pedido chega como texto. Por isso se converte com (int).",
     "manual": "7.5"
   },
   {
-    "id": "php-075",
+    "id": "base-079",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
-    "pergunta": "Um formulário com method=\"post\" tem o campo <input id=\"campo-titulo\" name=\"titulo\">. Como lês o valor no servidor?",
+    "pergunta": "Num formulário POST, o campo é <input id=\"campo-titulo\" name=\"titulo\">. Como lês o valor?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
       "$_POST['campo-titulo']",
+      "$_POST['titulo']",
       "$_GET['titulo']",
-      "$_POST['input']",
-      "$_POST['titulo']"
+      "$_POST['input']"
     ],
-    "correta": 3,
-    "explicacao": "A chave em $_POST é o atributo name. O id serve para o <label for>, o CSS e o JavaScript.",
+    "correta": 1,
+    "explicacao": "O servidor recebe os campos pelo name. O id só serve ao HTML, ao CSS e ao JavaScript.",
     "manual": "7.5, 4.2"
   },
   {
-    "id": "php-078",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "facil",
-    "pergunta": "O que significa o !== em if ($_SERVER['REQUEST_METHOD'] !== 'POST')?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Igual no valor e no tipo.",
-      "Atribuir um valor novo.",
-      "Menor ou igual.",
-      "Diferente (no valor ou no tipo)."
-    ],
-    "correta": 3,
-    "explicacao": "!== é o contrário de ===: a condição é verdadeira se o método não for 'POST'. Na livro_apagar.php, isso manda o GET de volta para a lista.",
-    "manual": "7.5, 12.6"
-  },
-  {
-    "id": "php-079",
+    "id": "base-080",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
-    "pergunta": "Porque é que ler_livro() faz (int) ($_POST['id_autor'] ?? 0)?",
+    "pergunta": "A pesquisa tem method=\"get\" e o campo name=\"q\". Pesquisas \"mar\". Onde vai o texto?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Para cifrar o id do autor antes de o gravar.",
-      "Porque a caixa de seleção envia o nome do autor e não o id.",
-      "Para o browser não deixar o campo vazio.",
-      "Os campos chegam como texto e o (int) dá um inteiro."
+      "No corpo do pedido, lido com $_POST['q']",
+      "No endereço, ?q=mar, lido com $_GET['q']",
+      "Num cookie, lido com $_COOKIE['q']",
+      "Na sessão, lido com $_SESSION['q']"
     ],
-    "correta": 3,
-    "explicacao": "Tudo o que vem do formulário é texto. O (int) garante um inteiro; se o valor faltar ou não for número, fica 0.",
-    "manual": "7.5, 12.4"
-  },
-  {
-    "id": "php-081",
-    "bloco": "php",
-    "tema": "PHP essencial",
-    "dificuldade": "media",
-    "pergunta": "A pesquisa é um formulário com method=\"get\" e o campo name=\"q\". Pesquisas \"mar\". Onde vai o texto e como se lê?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "No corpo do pedido, lido com $_POST['q'].",
-      "No endereço (?q=mar), lido com $_POST['q'].",
-      "No endereço (?q=mar), lido com $_GET['q'].",
-      "Na sessão, lido com $_SESSION['q']."
-    ],
-    "correta": 2,
-    "explicacao": "Com method=\"get\" os campos vão no URL e leem-se em $_GET. Por isso uma pesquisa pode ir para os favoritos.",
+    "correta": 1,
+    "explicacao": "Com GET, os campos vão no endereço. Por isso a pesquisa pode ser guardada nos favoritos.",
     "manual": "7.5, 12.2"
   },
   {
-    "id": "php-082",
+    "id": "base-081",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "facil",
+    "pergunta": "Que variável diz se o pedido chegou por GET ou por POST?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "$_GET['method']",
+      "$_POST['REQUEST_METHOD']",
+      "$_SERVER['REQUEST_METHOD']",
+      "$_SESSION['method']"
+    ],
+    "correta": 2,
+    "explicacao": "O método do pedido está em $_SERVER['REQUEST_METHOD'], com o valor 'GET' ou 'POST' em maiúsculas.",
+    "manual": "7.5, 12.6"
+  },
+  {
+    "id": "base-082",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "dificil",
+    "pergunta": "Um colega escreveu assim o teste. Preenches tudo bem e carregas em Guardar. O que acontece?",
+    "codigo": "if ($_SERVER['REQUEST_METHOD'] === 'post') {\n    $livro = ler_livro();\n    // ... validar, gravar e redirecionar\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "O livro é gravado normalmente",
+      "Aparece um erro fatal",
+      "O livro é gravado duas vezes",
+      "Nada é gravado"
+    ],
+    "correta": 3,
+    "explicacao": "O valor é 'POST' em maiúsculas. O === compara exatamente, por isso a condição nunca é verdadeira.",
+    "manual": "7.5, 7.8"
+  },
+  {
+    "id": "base-083",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
@@ -1250,35 +1484,35 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Dá '' se $_POST['nome'] não existir.",
-      "Compara $_POST['nome'] com ''.",
-      "Apaga o campo nome de $_POST.",
-      "Dá erro se o nome vier vazio."
+      "Dá '' se o campo não existir",
+      "Apaga o campo nome",
+      "Compara o nome com ''",
+      "Obriga a preencher o nome"
     ],
     "correta": 0,
-    "explicacao": "O ?? dá um valor por omissão quando o da esquerda não existe (ou é null). Assim não aparece o aviso de chave indefinida.",
+    "explicacao": "O ?? devolve o valor da esquerda se existir e não for null; senão, o da direita.",
     "manual": "7.5"
   },
   {
-    "id": "php-083",
+    "id": "base-084",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "dificil",
-    "pergunta": "Um campo não veio no pedido. O que acontece se a linha for escrita sem o ?? ''?",
+    "pergunta": "Um campo não veio no pedido. O que acontece com esta linha?",
     "codigo": "$nome = trim($_POST['nome']);",
     "linguagem": "php",
     "alternativas": [
-      "$nome fica com o texto 'nome'.",
-      "A resposta passa a ter o código 404.",
-      "Aparece o aviso Undefined array key \"nome\".",
-      "Nada: $_POST['nome'] vale '' por omissão."
+      "$nome fica null sem aviso",
+      "Erro fatal e a página para",
+      "$nome fica com 'nome'",
+      "Aviso: Undefined array key \"nome\""
     ],
-    "correta": 2,
-    "explicacao": "Ler uma chave que não existe dá o aviso \"Undefined array key\". O ?? '' evita-o, dando um texto vazio.",
+    "correta": 3,
+    "explicacao": "Ler uma chave que não existe dá esse aviso. Por isso se escreve $_POST['nome'] ?? ''.",
     "manual": "7.5, 17.1"
   },
   {
-    "id": "php-084",
+    "id": "base-085",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "dificil",
@@ -1286,35 +1520,35 @@
     "codigo": "$isbn = '';\necho $isbn ?? 'sem ISBN';",
     "linguagem": "php",
     "alternativas": [
-      "Nada (um texto vazio).",
+      "Nada (texto vazio)",
       "sem ISBN",
-      "null",
-      "Dá erro, porque $isbn está vazio."
+      "Aviso: $isbn está vazia",
+      "null"
     ],
     "correta": 0,
-    "explicacao": "O ?? só usa o valor da direita quando a variável não existe ou é null. Um texto vazio existe, por isso fica o ''. Para \"vazio\" é que se usa o ?:.",
-    "manual": "7.5, 12.4"
+    "explicacao": "O ?? só usa a alternativa se a variável não existir ou for null. Um texto vazio existe, por isso é mostrado.",
+    "manual": "7.5"
   },
   {
-    "id": "php-085",
+    "id": "base-086",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
-    "pergunta": "Na página de detalhe, um livro tem o ISBN a NULL. O que aparece nesta linha?",
+    "pergunta": "O livro tem o ISBN a NULL. O que fica no HTML?",
     "codigo": "<dd><?= htmlspecialchars($livro['isbn'] ?? '—') ?></dd>",
     "linguagem": "php",
     "alternativas": [
-      "<dd>—</dd>",
-      "<dd>null</dd>",
       "<dd></dd>",
+      "<dd>NULL</dd>",
+      "<dd>—</dd>",
       "<dd>0</dd>"
     ],
-    "correta": 0,
-    "explicacao": "O NULL da base de dados chega ao PHP como null, e o ?? substitui-o pelo valor da direita, o travessão.",
+    "correta": 2,
+    "explicacao": "Com o valor a null, o ?? usa '—'. Assim o htmlspecialchars() também não recebe null.",
     "manual": "7.5, 12.3"
   },
   {
-    "id": "php-087",
+    "id": "base-087",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
@@ -1322,35 +1556,53 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Verifica se é inteiro e dá erro se não for.",
-      "Arredonda o valor para cima.",
-      "Converte o valor num número inteiro.",
-      "Conta os algarismos do valor."
+      "Verifica se o valor existe",
+      "Escapa o valor para HTML",
+      "Converte o valor num inteiro",
+      "Recusa valores negativos"
     ],
     "correta": 2,
-    "explicacao": "O (int) não valida nem dá erro: converte. Assim, mesmo um valor estranho passa a ser um inteiro seguro.",
+    "explicacao": "(int) converte para número inteiro. Um texto que não é número passa a 0.",
     "manual": "7.5"
   },
   {
-    "id": "php-088",
+    "id": "base-088",
     "bloco": "php",
     "tema": "PHP essencial",
-    "dificuldade": "dificil",
-    "pergunta": "Alguém abre livro_ver.php sem nada depois do nome (sem ?id=). O que acontece?",
-    "codigo": "$id = (int) ($_GET['id'] ?? 0);\n// ... SELECT ... WHERE l.id_livro = ?  com [$id]\nif (!$livro) {\n    http_response_code(404);\n    // ... mostra \"Livro não encontrado\"\n}",
+    "dificuldade": "media",
+    "pergunta": "Que valor fica em $id?",
+    "codigo": "$id = (int) 'abc';",
     "linguagem": "php",
     "alternativas": [
-      "$id fica 0, nenhum livro tem esse id e a resposta é 404.",
-      "Aparece Undefined array key \"id\" e a página para.",
-      "$id fica null e é mostrado o primeiro livro da tabela.",
-      "O PHP redireciona sozinho para a lista de livros."
+      "'abc'",
+      "null",
+      "0",
+      "Erro fatal"
     ],
-    "correta": 0,
-    "explicacao": "O ?? dá 0 quando o id não vem, e o (int) mantém-no 0. O fetch() devolve false e a página responde 404.",
-    "manual": "7.5, 12.3"
+    "correta": 2,
+    "explicacao": "Um texto que não começa por algarismos convertido com (int) dá 0. Assim nenhum id válido é encontrado.",
+    "manual": "7.5"
   },
   {
-    "id": "php-091",
+    "id": "base-089",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "media",
+    "pergunta": "Porque se lê o autor escolhido com (int) ($_POST['id_autor'] ?? 0)?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Para esconder o id no HTML",
+      "Os campos chegam como texto",
+      "Para o autor ficar obrigatório",
+      "Para evitar o XSS no nome"
+    ],
+    "correta": 1,
+    "explicacao": "O valor da caixa chega como texto, por exemplo '4'. O (int) dá um inteiro para comparar e gravar.",
+    "manual": "7.5, 12.4"
+  },
+  {
+    "id": "base-090",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
@@ -1358,35 +1610,71 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "== compara o valor e o tipo; === só compara o valor.",
-      "== atribui um valor; === compara dois valores.",
-      "=== compara o valor e o tipo; == só compara o valor.",
-      "=== só serve para textos; == só para números."
+      "== compara valor e tipo",
+      "=== só compara textos",
+      "=== compara valor e tipo",
+      "== atribui um valor"
     ],
     "correta": 2,
-    "explicacao": "'3' == 3 é verdadeiro, mas '3' === 3 é falso, porque um é texto e o outro inteiro. A atribuição é o = simples.",
+    "explicacao": "== converte antes de comparar, por isso '3' == 3 é true. === exige também o mesmo tipo.",
     "manual": "7.5"
   },
   {
-    "id": "php-092",
+    "id": "base-091",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "dificil",
+    "pergunta": "O pedido é livro_ver.php?id=3. O que mostra este código?",
+    "codigo": "if ($_GET['id'] === 3) {\n    echo 'igual';\n} else {\n    echo 'diferente';\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "diferente",
+      "igual",
+      "Erro de sintaxe",
+      "Nada"
+    ],
+    "correta": 0,
+    "explicacao": "$_GET['id'] é o texto '3' e o 3 é inteiro. O === exige o mesmo tipo, por isso dá falso.",
+    "manual": "7.5"
+  },
+  {
+    "id": "base-092",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
-    "pergunta": "Quando é executado o bloco que grava o livro?",
-    "codigo": "$erros = validar_livro($pdo, $livro);\nif (!$erros) {\n    // INSERT ...\n}",
+    "pergunta": "O que mostra este código?",
+    "codigo": "if ('0' == 0) {\n    echo 'igual';\n} else {\n    echo 'diferente';\n}",
     "linguagem": "php",
     "alternativas": [
-      "Quando $erros está vazio: um array vazio conta como falso.",
-      "Quando $erros tem pelo menos uma mensagem de erro lá dentro.",
-      "Sempre, porque a variável $erros existe.",
-      "Nunca, porque o ! não se aplica a arrays."
+      "diferente",
+      "igual",
+      "Erro de tipos",
+      "Nada"
     ],
-    "correta": 0,
-    "explicacao": "validar_livro() devolve um array vazio quando está tudo certo. Um array vazio é falso, por isso !$erros é verdadeiro e grava.",
-    "manual": "7.3, 12.4"
+    "correta": 1,
+    "explicacao": "O == converte o texto '0' em número antes de comparar. Com === daria diferente.",
+    "manual": "7.5"
   },
   {
-    "id": "php-094",
+    "id": "base-093",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "facil",
+    "pergunta": "O que significa o !== em if ($metodo !== 'POST')?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Igual no valor e no tipo",
+      "Atribui 'POST' a $metodo",
+      "Diferente só no valor",
+      "Diferente no valor ou no tipo"
+    ],
+    "correta": 3,
+    "explicacao": "O !== é o contrário do ===: dá true se o valor ou o tipo forem diferentes.",
+    "manual": "7.5, 12.6"
+  },
+  {
+    "id": "base-094",
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
@@ -1394,35 +1682,53 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Atribui o valor da direita à variável $stmt.",
-      "Associa uma chave a um valor num array.",
-      "Chama o método execute() do objeto $stmt.",
-      "Compara se os dois lados são iguais."
+      "Lê uma chave de array",
+      "Associa chave a valor",
+      "Chama um método do objeto",
+      "Junta dois textos"
     ],
     "correta": 2,
-    "explicacao": "A -> usa-se com objetos como $pdo e $stmt: $pdo->prepare(...), $stmt->fetch(...). O => é que associa chaves a valores.",
+    "explicacao": "A -> acede a métodos de um objeto, como $pdo->prepare() ou $stmt->execute(). Chave => valor é nos arrays.",
     "manual": "8.2"
   },
   {
-    "id": "php-095",
+    "id": "base-095",
     "bloco": "php",
     "tema": "PHP essencial",
-    "dificuldade": "facil",
-    "pergunta": "Em ['titulo' => 'Os Maias'], o que faz o =>?",
+    "dificuldade": "media",
+    "pergunta": "O que indica o :: em PDO::FETCH_ASSOC?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Compara se 'titulo' é maior ou igual ao valor.",
-      "Chama um método sobre o texto 'titulo'.",
-      "Associa a chave 'titulo' ao valor 'Os Maias'.",
-      "Copia o valor de 'titulo' para 'Os Maias'."
+      "Uma constante da classe PDO",
+      "Um método do objeto $pdo",
+      "Uma chave do array $pdo",
+      "Um comentário do PHP"
     ],
-    "correta": 2,
-    "explicacao": "É assim que se escrevem arrays associativos (chave => valor), como a linha de um livro ou a mensagem guardada na sessão.",
-    "manual": "7.2"
+    "correta": 0,
+    "explicacao": "O :: acede a algo da própria classe, como a constante FETCH_ASSOC. A -> usa-se com um objeto.",
+    "manual": "7.5, 8.2"
   },
   {
-    "id": "inc-001",
+    "id": "base-096",
+    "bloco": "php",
+    "tema": "PHP essencial",
+    "dificuldade": "dificil",
+    "pergunta": "O ano veio do formulário como texto '1300'. O que mostra este código?",
+    "codigo": "$ano = '1300';\nif ($ano < 1450) {\n    echo 'antigo';\n} else {\n    echo 'aceite';\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "aceite",
+      "antigo",
+      "Erro: texto com número",
+      "Nada"
+    ],
+    "correta": 1,
+    "explicacao": "Um texto numérico comparado com um número é convertido em número. 1300 < 1450, por isso mostra antigo.",
+    "manual": "7.3, 12.4"
+  },
+  {
+    "id": "incl-001",
     "bloco": "php",
     "tema": "include e require",
     "dificuldade": "facil",
@@ -1430,107 +1736,233 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Abre o ficheiro numa janela nova do browser, ao lado da página.",
-      "Insere ali esse ficheiro, como se lá estivesse escrito.",
-      "Redireciona o browser para esse ficheiro, como o header().",
-      "Copia o ficheiro para a pasta da página."
+      "Insere ali o ficheiro, como se lá estivesse",
+      "Redireciona o browser para esse ficheiro, como o header()",
+      "Abre o ficheiro numa janela nova",
+      "Liga o ficheiro como o <link> do CSS"
     ],
-    "correta": 1,
-    "explicacao": "include e require inserem outro ficheiro naquele ponto. O resultado é uma só página, sem pedido nem redirecionamento.",
+    "correta": 0,
+    "explicacao": "include e require inserem outro ficheiro naquele ponto. O resultado é uma só página, sem novo pedido.",
     "manual": "7.6"
   },
   {
-    "id": "inc-002",
+    "id": "incl-002",
     "bloco": "php",
     "tema": "include e require",
     "dificuldade": "facil",
-    "pergunta": "Para que usa a Biblioteca include/require?",
+    "pergunta": "Para que usa a Biblioteca o include/require?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Para carregar a folha de estilos no browser.",
-      "Para partilhar cabeçalho, rodapé e ligação.",
-      "Para redirecionar depois de gravar um formulário.",
-      "Para proteger as consultas contra injeção de SQL."
+      "Carregar a folha de estilos",
+      "Redirecionar depois de gravar",
+      "Partilhar cabeçalho, rodapé e ligação",
+      "Proteger as consultas contra injeção de SQL"
     ],
-    "correta": 1,
-    "explicacao": "Escreve-se uma vez (cabeçalho, rodapé, db.php) e todas as páginas reutilizam. O CSS liga-se com <link> e o redirecionamento faz-se com header().",
+    "correta": 2,
+    "explicacao": "O que se repete em todas as páginas escreve-se uma vez e inclui-se. O CSS liga-se com <link> e o redirecionamento faz-se com header().",
     "manual": "7.6, 9.2"
   },
   {
-    "id": "inc-003",
+    "id": "incl-003",
     "bloco": "php",
     "tema": "include e require",
     "dificuldade": "facil",
-    "pergunta": "Em PHP, que instrução reutiliza o ficheiro header.php no topo de todas as páginas?",
+    "pergunta": "Com require, o que acontece se o ficheiro incluído não existir?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "header('Location: header.php');",
-      "<link rel=\"import\" href=\"header.php\">",
-      "echo 'header.php';",
-      "include 'header.php';"
+      "Aviso e a página continua",
+      "O PHP cria o ficheiro vazio",
+      "Erro fatal e a página para",
+      "É ignorado sem mensagem"
     ],
-    "correta": 3,
-    "explicacao": "include (ou require) insere o ficheiro do cabeçalho. O header('Location: ...') é outra coisa: manda o browser ir a outra página.",
-    "manual": "7.8, Anexo B"
-  },
-  {
-    "id": "inc-005",
-    "bloco": "php",
-    "tema": "include e require",
-    "dificuldade": "media",
-    "pergunta": "Porque é que a Biblioteca usa sempre require e nunca include?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Porque o require é o único que aceita caminhos com pastas.",
-      "Porque o include não deixa usar as variáveis do ficheiro incluído.",
-      "Porque o include é mais lento e só se usa em ficheiros HTML.",
-      "Sem esses ficheiros a página não funciona, por isso é melhor parar."
-    ],
-    "correta": 3,
-    "explicacao": "Se faltar o inicio.php ou o auth.php, continuar seria pior (sem ligação ou sem proteção). O require gera um erro fatal e para.",
+    "correta": 2,
+    "explicacao": "O require exige o ficheiro: se faltar, dá erro fatal e o resto da página não corre.",
     "manual": "7.6"
   },
   {
-    "id": "inc-007",
+    "id": "incl-004",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "media",
+    "pergunta": "Com include, o que acontece se o ficheiro incluído não existir?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Erro fatal e a página para",
+      "Mostra a página de erro 404",
+      "Procura-o noutra pasta",
+      "Aviso e a página continua"
+    ],
+    "correta": 3,
+    "explicacao": "O include só avisa e segue em frente. É a única diferença em relação ao require.",
+    "manual": "7.6"
+  },
+  {
+    "id": "incl-005",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "media",
+    "pergunta": "Porque é que a Biblioteca usa sempre require e não include?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O require é mais rápido a carregar",
+      "O include não aceita pastas no caminho",
+      "Sem esses ficheiros, é melhor parar",
+      "O include não partilha variáveis"
+    ],
+    "correta": 2,
+    "explicacao": "Sem a ligação ou sem o auth.php, continuar seria pior (sem dados ou sem proteção). O require para logo.",
+    "manual": "7.6"
+  },
+  {
+    "id": "incl-006",
     "bloco": "php",
     "tema": "include e require",
     "dificuldade": "facil",
-    "pergunta": "Este é o includes/inicio.php, incluído na primeira linha de cada página. Que três coisas faz?",
-    "codigo": "<?php\n// Incluído na PRIMEIRA linha de todas as páginas.\nsession_start();\nrequire __DIR__ . '/../config/db.php';\n\n// Guarda uma mensagem para mostrar na página seguinte (depois do redirect)\nfunction mensagem($tipo, $texto)\n{\n    $_SESSION['msg'] = ['tipo' => $tipo, 'texto' => $texto];\n}",
-    "linguagem": "php",
+    "pergunta": "O que faz o require_once?",
+    "codigo": "",
+    "linguagem": "",
     "alternativas": [
-      "session_start(), require do db.php e a função mensagem().",
-      "session_start(), o cabeçalho HTML e o rodapé.",
-      "Verifica o login, abre o <html> e liga o CSS.",
-      "Cria a base de dados, as tabelas e os dados de exemplo."
+      "Inclui o ficheiro uma vez por sessão",
+      "Inclui só a 1.ª linha do ficheiro",
+      "Inclui só se ainda não foi incluído",
+      "Inclui e depois para a página"
     ],
-    "correta": 0,
-    "explicacao": "Ativa a sessão, liga à base de dados (cria o $pdo) e define a função mensagem(). O cabeçalho e o controlo de acesso estão noutros ficheiros.",
-    "manual": "9.1"
+    "correta": 2,
+    "explicacao": "O _once lembra-se dos ficheiros já incluídos neste pedido e não os repete.",
+    "manual": "7.6"
   },
   {
-    "id": "inc-008",
+    "id": "incl-007",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "media",
+    "pergunta": "Em que caso faz mais sentido usar require_once?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "No rodapé que fecha o </html>",
+      "Num ficheiro que define funções",
+      "No cabeçalho com o menu",
+      "Num ficheiro que mostra a lista de erros"
+    ],
+    "correta": 1,
+    "explicacao": "Definir a mesma função duas vezes é erro fatal. O _once garante que o ficheiro de funções entra uma só vez.",
+    "manual": "7.4, 7.6"
+  },
+  {
+    "id": "incl-008",
     "bloco": "php",
     "tema": "include e require",
     "dificuldade": "dificil",
-    "pergunta": "Porque é que o inicio.php usa __DIR__ para incluir a ligação?",
+    "pergunta": "O funcoes.php define a função mensagem(). O que acontece aqui?",
+    "codigo": "require 'includes/funcoes.php';\nrequire 'includes/funcoes.php';",
+    "linguagem": "php",
+    "alternativas": [
+      "Funciona: o segundo require é simplesmente ignorado",
+      "Erro fatal: mensagem() declarada 2 vezes",
+      "Só um aviso, e a página continua",
+      "A função mensagem() corre duas vezes"
+    ],
+    "correta": 1,
+    "explicacao": "O require normal inclui de novo e a função seria declarada outra vez (\"Cannot redeclare\"). Com require_once não aconteceria.",
+    "manual": "7.4, 7.6"
+  },
+  {
+    "id": "incl-009",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "media",
+    "pergunta": "Quantas vezes aparece o rodapé?",
+    "codigo": "include_once 'includes/rodape.php';\ninclude_once 'includes/rodape.php';",
+    "linguagem": "php",
+    "alternativas": [
+      "Duas vezes",
+      "Nenhuma: dá erro",
+      "Duas, com um aviso",
+      "Uma vez"
+    ],
+    "correta": 3,
+    "explicacao": "O include_once vê que o ficheiro já foi incluído e salta a segunda vez.",
+    "manual": "7.6"
+  },
+  {
+    "id": "incl-010",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "facil",
+    "pergunta": "O que é o __DIR__ no PHP?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A pasta do ficheiro onde está escrito",
+      "A pasta htdocs do servidor",
+      "A pasta da página que está aberta no browser",
+      "O endereço do site"
+    ],
+    "correta": 0,
+    "explicacao": "__DIR__ é o caminho da pasta do próprio ficheiro, seja qual for a página que o incluiu.",
+    "manual": "7.6, 9.1"
+  },
+  {
+    "id": "incl-011",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "facil",
+    "pergunta": "No caminho __DIR__ . '/../config/db.php', o que faz o ../?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Sobe uma pasta",
+      "Indica a pasta atual",
+      "Volta à raiz do disco",
+      "Entra numa pasta escondida"
+    ],
+    "correta": 0,
+    "explicacao": "O .. é a pasta acima. Partindo de includes/, sobe para a pasta do site e entra em config/.",
+    "manual": "7.6, 9.1"
+  },
+  {
+    "id": "incl-012",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "dificil",
+    "pergunta": "Porque é que o includes/inicio.php usa __DIR__ nesta linha?",
     "codigo": "require __DIR__ . '/../config/db.php';",
     "linguagem": "php",
     "alternativas": [
-      "__DIR__ é a pasta htdocs, por isso o caminho começa sempre na raiz do servidor.",
-      "__DIR__ impede que o db.php seja incluído mais do que uma vez.",
-      "__DIR__ é a pasta do próprio inicio.php, por isso o caminho não depende da página.",
-      "__DIR__ esconde o caminho do ficheiro para o browser não o ver."
+      "O caminho não depende da página",
+      "Impede incluir o db.php duas vezes",
+      "Esconde o caminho do browser",
+      "Faz o caminho começar no htdocs"
     ],
-    "correta": 2,
-    "explicacao": "Assim, o caminho para config/db.php funciona seja qual for a página que inclui o inicio.php.",
+    "correta": 0,
+    "explicacao": "__DIR__ é a pasta do inicio.php. Assim o caminho para config/db.php funciona seja qual for a página que o inclui.",
     "manual": "9.1"
   },
   {
-    "id": "inc-009",
+    "id": "incl-013",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "media",
+    "pergunta": "De onde vem o $pdo que a página usa logo a seguir?",
+    "codigo": "<?php\nrequire 'includes/inicio.php';\n$stmt = $pdo->prepare('SELECT * FROM autores');",
+    "linguagem": "php",
+    "alternativas": [
+      "Da sessão, guardado no login",
+      "Do browser, em cada pedido",
+      "Do db.php, incluído pelo inicio.php",
+      "O PHP cria-o sozinho"
+    ],
+    "correta": 2,
+    "explicacao": "O código incluído funciona como se estivesse na página. O inicio.php inclui o db.php, que cria o $pdo.",
+    "manual": "7.6, 8.1, 9.1"
+  },
+  {
+    "id": "incl-014",
     "bloco": "php",
     "tema": "include e require",
     "dificuldade": "dificil",
@@ -1538,211 +1970,175 @@
     "codigo": "<?php\nrequire 'includes/inicio.php';\nrequire 'includes/cabecalho.php';\n$titulo = 'Livros';",
     "linguagem": "php",
     "alternativas": [
-      "Nenhum: quando o cabeçalho corre, $titulo ainda não existe.",
-      "'Livros', porque o PHP lê o ficheiro todo antes de correr.",
-      "'Livros', porque o cabeçalho é incluído no fim da página.",
-      "O nome do ficheiro, que o require põe em $titulo."
+      "'Livros', porque o PHP lê a página toda antes",
+      "Nenhum: ainda não foi definido",
+      "Um texto vazio ''",
+      "O nome do ficheiro incluído"
     ],
-    "correta": 0,
-    "explicacao": "O ficheiro incluído corre naquele ponto e só vê as variáveis já definidas. Por isso cada página define $titulo antes do require do cabeçalho.",
+    "correta": 1,
+    "explicacao": "O ficheiro incluído corre naquele ponto e só vê as variáveis já definidas. Por isso $titulo vem antes do require.",
     "manual": "9.2, 7.6"
   },
   {
-    "id": "inc-010",
-    "bloco": "php",
-    "tema": "include e require",
-    "dificuldade": "media",
-    "pergunta": "Este é um excerto do includes/livro_form.php, partilhado por livro_novo.php e livro_editar.php. Que variáveis tem a página de definir antes de o incluir?",
-    "codigo": "<?php require 'includes/erros.php'; // mostra a lista $erros ?>\n\n<form method=\"post\" action=\"<?= $acao ?>\" id=\"form-principal\" class=\"formulario\" novalidate>\n    <label for=\"titulo\">Título</label>\n    <input type=\"text\" id=\"titulo\" name=\"titulo\" maxlength=\"200\" required\n           value=\"<?= htmlspecialchars($livro['titulo']) ?>\">\n\n    <label for=\"id_autor\">Autor</label>\n    <select id=\"id_autor\" name=\"id_autor\" required>\n        <option value=\"\">— escolhe —</option>\n        <?php foreach ($autores as $autor): ?>\n            <?php $sel = $autor['id_autor'] == $livro['id_autor'] ? 'selected' : ''; ?>\n            <option value=\"<?= $autor['id_autor'] ?>\" <?= $sel ?>><?= htmlspecialchars($autor['nome']) ?></option>\n        <?php endforeach; ?>\n    </select>\n    <!-- ... isbn, ano_edicao e sinopse, também com $livro[...] ... -->\n    <button type=\"submit\">Guardar</button>\n</form>",
-    "linguagem": "php",
-    "alternativas": [
-      "Só $titulo, porque o resto vem do formulário.",
-      "$pdo e $stmt, para o formulário fazer a consulta.",
-      "$livro, $autores, $erros e $acao.",
-      "Nenhuma: o livro_form.php cria as suas variáveis."
-    ],
-    "correta": 2,
-    "explicacao": "O formulário usa $livro (os valores), $autores (a lista da caixa), $erros (via erros.php) e $acao (para onde envia). A página prepara-os primeiro.",
-    "manual": "12.4"
-  },
-  {
-    "id": "inc-011",
-    "bloco": "php",
-    "tema": "include e require",
-    "dificuldade": "dificil",
-    "pergunta": "Na livro_editar.php, aberta com ?id=7, que action fica no formulário que o livro_form.php escreve?",
-    "codigo": "$acao = \"livro_editar.php?id=$id\";\n// ...\n<form method=\"post\" action=\"<?= $acao ?>\" ...>",
-    "linguagem": "php",
-    "alternativas": [
-      "livro_novo.php",
-      "livro_editar.php?id=7",
-      "livro_form.php",
-      "livro_editar.php?id=$id"
-    ],
-    "correta": 1,
-    "explicacao": "O livro_form.php vê a variável $acao da página que o inclui. Com aspas duplas, o $id foi substituído por 7.",
-    "manual": "12.4, 12.5"
-  },
-  {
-    "id": "inc-012",
-    "bloco": "php",
-    "tema": "include e require",
-    "dificuldade": "media",
-    "pergunta": "A página faz require 'includes/inicio.php'; (em baixo) e logo a seguir usa $pdo->prepare(...). De onde vem o $pdo?",
-    "codigo": "<?php\n// Incluído na PRIMEIRA linha de todas as páginas.\nsession_start();\nrequire __DIR__ . '/../config/db.php';\n\n// Guarda uma mensagem para mostrar na página seguinte (depois do redirect)\nfunction mensagem($tipo, $texto)\n{\n    $_SESSION['msg'] = ['tipo' => $tipo, 'texto' => $texto];\n}",
-    "linguagem": "php",
-    "alternativas": [
-      "Do browser, que envia a ligação em cada pedido.",
-      "Da sessão, onde o login guardou a ligação.",
-      "O PHP cria-o sozinho quando encontra $pdo->prepare.",
-      "Do db.php, que o inicio.php inclui."
-    ],
-    "correta": 3,
-    "explicacao": "O código incluído funciona como se estivesse escrito na página, por isso o $pdo criado no db.php pode ser usado logo a seguir.",
-    "manual": "7.6, 8.1, 9.1"
-  },
-  {
-    "id": "inc-013",
-    "bloco": "php",
-    "tema": "include e require",
-    "dificuldade": "media",
-    "pergunta": "Uma página da Biblioteca precisa da sessão e do $pdo, só abre com login, trata um formulário que acaba num redirecionamento e mostra HTML. Qual é a ordem certa das partes?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "cabeçalho, inicio.php, auth.php, tratar o POST, rodapé.",
-      "auth.php, inicio.php, cabeçalho, tratar o POST, rodapé.",
-      "inicio.php, cabeçalho, auth.php, tratar o POST, preparar os dados.",
-      "inicio.php, auth.php, tratar o POST, preparar dados, cabeçalho."
-    ],
-    "correta": 3,
-    "explicacao": "Primeiro processa-se, depois mostra-se: sessão e ligação, proteção, POST, dados para mostrar e só no fim o HTML (cabeçalho ... rodapé).",
-    "manual": "7.8"
-  },
-  {
-    "id": "inc-014",
-    "bloco": "php",
-    "tema": "include e require",
-    "dificuldade": "dificil",
-    "pergunta": "Alguém trocou a ordem destas duas linhas e abriu a página sem sessão iniciada. O que acontece?",
-    "codigo": "<?php\nrequire 'includes/auth.php';\nrequire 'includes/inicio.php';",
-    "linguagem": "php",
-    "alternativas": [
-      "Funciona igual: a ordem dos require não importa.",
-      "Mostra a página sem verificar o acesso e sem mensagem.",
-      "Erro: mensagem() ainda não existe e não há sessão.",
-      "O auth.php inclui o inicio.php sozinho e continua."
-    ],
-    "correta": 2,
-    "explicacao": "O auth.php usa $_SESSION e chama mensagem(), que só existem depois do inicio.php. Por isso o inicio.php vem sempre na primeira linha.",
-    "manual": "7.8, 9.1, 11.2"
-  },
-  {
-    "id": "inc-015",
-    "bloco": "php",
-    "tema": "include e require",
-    "dificuldade": "dificil",
-    "pergunta": "Uma página faz require do cabeçalho e só depois trata o POST, que acaba em header('Location: livros.php');. O que acontece ao gravar?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Funciona: o header() envia sempre o redirecionamento primeiro.",
-      "O livro não é gravado, porque o POST é apagado pelo cabeçalho.",
-      "O browser mostra o cabeçalho duas vezes e depois redireciona.",
-      "\"headers already sent\": o HTML já saiu e não redireciona."
-    ],
-    "correta": 3,
-    "explicacao": "O cabeçalho escreve HTML. Depois disso o header() já não consegue mudar a resposta. Processa-se o POST antes do require do cabeçalho.",
-    "manual": "7.8, 17.1"
-  },
-  {
-    "id": "inc-016",
-    "bloco": "php",
-    "tema": "include e require",
-    "dificuldade": "media",
-    "pergunta": "Uma página nova começa assim e, mesmo com login feito, és sempre mandado para o login. Qual é a causa?",
-    "codigo": "<?php\nrequire 'config/db.php';\nif (!isset($_SESSION['id_utilizador'])) {\n    header('Location: login.php');\n    exit;\n}",
-    "linguagem": "php",
-    "alternativas": [
-      "Falta o inicio.php, que faz o session_start().",
-      "O require do db.php devia ser um include.",
-      "O isset() só funciona com dados de formulários.",
-      "Falta o require do cabeçalho antes da verificação."
-    ],
-    "correta": 0,
-    "explicacao": "Sem session_start(), $_SESSION está vazio nesta página. Por isso todas as páginas começam por require 'includes/inicio.php';.",
-    "manual": "17.1, 9.1"
-  },
-  {
-    "id": "inc-017",
-    "bloco": "php",
-    "tema": "include e require",
-    "dificuldade": "media",
-    "pergunta": "O cabecalho.php começa logo por <!DOCTYPE html>, sem <?php. Isso funciona quando é incluído?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Não: um ficheiro incluído tem de começar por <?php.",
-      "Sim: o que está fora de <?php ?> é enviado tal e qual.",
-      "Só se for incluído com include, não com require.",
-      "Só se o HTML for escrito dentro de um echo."
-    ],
-    "correta": 1,
-    "explicacao": "Um ficheiro incluído é tratado como qualquer .php: o HTML vai para o browser e os blocos <?php ... ?> são executados.",
-    "manual": "7.1, 9.2"
-  },
-  {
-    "id": "inc-018",
+    "id": "incl-015",
     "bloco": "php",
     "tema": "include e require",
     "dificuldade": "facil",
-    "pergunta": "Queres acrescentar um link ao menu de todas as páginas da Biblioteca. Onde o fazes?",
+    "pergunta": "Mudaste a password da base de dados. Que ficheiro alteras?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Em cada página, logo a seguir ao require.",
-      "No includes/inicio.php, junto ao session_start().",
-      "Só no includes/cabecalho.php.",
-      "No includes/rodape.php, que fecha o menu."
+      "Todas as páginas com consultas",
+      "Só o config/db.php",
+      "O inicio.php e o auth.php",
+      "O ficheiro .sql da base de dados"
     ],
-    "correta": 2,
-    "explicacao": "O menu está no cabeçalho, que todas as páginas incluem. Muda-se num sítio e a alteração aparece em todas.",
-    "manual": "9.2"
-  },
-  {
-    "id": "inc-019",
-    "bloco": "php",
-    "tema": "include e require",
-    "dificuldade": "facil",
-    "pergunta": "Mudaste a password da base de dados. Que ficheiro tens de alterar?",
-    "codigo": "",
-    "linguagem": "",
-    "alternativas": [
-      "Todas as páginas que fazem consultas.",
-      "O includes/inicio.php e o includes/auth.php.",
-      "Só o config/db.php.",
-      "O base_dados.sql, voltando a importá-lo."
-    ],
-    "correta": 2,
-    "explicacao": "As credenciais estão num único ficheiro, incluído por todas as páginas através do inicio.php.",
+    "correta": 1,
+    "explicacao": "As credenciais estão num único ficheiro, que todas as páginas incluem. Muda-se num só sítio.",
     "manual": "8.1, 7.6"
   },
   {
-    "id": "inc-020",
+    "id": "incl-016",
     "bloco": "php",
     "tema": "include e require",
-    "dificuldade": "media",
-    "pergunta": "Criaste a página autores.php mas esqueceste-te do require 'includes/auth.php';. Qual é a consequência?",
+    "dificuldade": "facil",
+    "pergunta": "Queres um link novo no menu de todas as páginas. Onde o acrescentas?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Fica aberta a quem não tem sessão iniciada.",
-      "A página dá erro fatal e não abre para ninguém.",
-      "Só os utilizadores com sessão a conseguem ver.",
-      "O menu deixa de mostrar o link Autores."
+      "Em cada página, após o require",
+      "No includes/inicio.php",
+      "No config/db.php",
+      "No includes/cabecalho.php"
+    ],
+    "correta": 3,
+    "explicacao": "O menu está no cabeçalho, que todas as páginas incluem. A alteração aparece em todas.",
+    "manual": "9.2"
+  },
+  {
+    "id": "incl-017",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "media",
+    "pergunta": "O cabecalho.php começa por <!DOCTYPE html>, sem <?php. Funciona quando é incluído?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Não: tem de começar por <?php",
+      "Sim: o HTML é enviado tal e qual",
+      "Só com include, não com require",
+      "Só se o HTML estiver num echo"
+    ],
+    "correta": 1,
+    "explicacao": "Um ficheiro incluído é tratado como qualquer .php: o HTML vai para o browser e os blocos PHP correm.",
+    "manual": "7.1, 9.2"
+  },
+  {
+    "id": "incl-018",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "dificil",
+    "pergunta": "O formulário é válido. O que acontece ao gravar?",
+    "codigo": "require 'includes/cabecalho.php';\nif ($_SERVER['REQUEST_METHOD'] === 'POST') {\n    // ... gravar\n    header('Location: livros.php');\n    exit;\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "\"headers already sent\": não redireciona",
+      "Grava e redireciona normalmente",
+      "O cabeçalho aparece duas vezes",
+      "Não grava nada por causa do cabeçalho"
     ],
     "correta": 0,
-    "explicacao": "A proteção só existe onde o auth.php é incluído. Esconder o link do menu não chega: qualquer um pode escrever o endereço.",
+    "explicacao": "O cabeçalho já enviou HTML, por isso o header() já não muda a resposta. Trata-se o POST antes do require do cabeçalho.",
+    "manual": "7.8, 17.1"
+  },
+  {
+    "id": "incl-019",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "media",
+    "pergunta": "Criaste a página autores.php sem o require 'includes/auth.php';. Qual é a consequência?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Dá erro fatal para toda a gente",
+      "Só abre para quem tem sessão",
+      "Some do menu de navegação",
+      "Abre mesmo sem sessão iniciada"
+    ],
+    "correta": 3,
+    "explicacao": "A proteção só existe onde o auth.php é incluído. Esconder o link não chega: o endereço pode ser escrito à mão.",
     "manual": "11.2"
+  },
+  {
+    "id": "incl-020",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "media",
+    "pergunta": "O livro_funcoes.php só tem definições de funções. O que acontece no require dele?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Correm todas logo, por ordem",
+      "Corre só a primeira função definida no ficheiro",
+      "Ficam definidas; correm quando chamadas",
+      "O código aparece na página"
+    ],
+    "correta": 2,
+    "explicacao": "Incluir um ficheiro com function ... { } só define as funções. Correm quando a página as chama.",
+    "manual": "7.4, 7.6"
+  },
+  {
+    "id": "incl-021",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "media",
+    "pergunta": "Mudas validar_livro() no includes/livro_funcoes.php. Que páginas usam a regra nova?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Nenhuma, até copiares a função",
+      "As que incluem esse ficheiro",
+      "Só a página de criar livros",
+      "Só depois de reiniciar o Apache"
+    ],
+    "correta": 1,
+    "explicacao": "A livro_novo.php e a livro_editar.php fazem require desse ficheiro, por isso usam logo a versão nova.",
+    "manual": "7.6, 12.4, 12.5"
+  },
+  {
+    "id": "incl-022",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "dificil",
+    "pergunta": "A livro_editar.php foi aberta com ?id=7. Que action escreve o livro_form.php incluído?",
+    "codigo": "// livro_editar.php\n$acao = \"livro_editar.php?id=$id\";\nrequire 'includes/livro_form.php';\n// includes/livro_form.php\n<form method=\"post\" action=\"<?= $acao ?>\">",
+    "linguagem": "php",
+    "alternativas": [
+      "livro_editar.php?id=7",
+      "livro_editar.php?id=$id",
+      "livro_form.php",
+      "Fica vazio"
+    ],
+    "correta": 0,
+    "explicacao": "O ficheiro incluído vê as variáveis da página. Com aspas duplas, o $id já foi trocado por 7.",
+    "manual": "12.4, 12.5"
+  },
+  {
+    "id": "incl-023",
+    "bloco": "php",
+    "tema": "include e require",
+    "dificuldade": "media",
+    "pergunta": "Numa página com login, POST e HTML, qual é a ordem certa?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "cabecalho.php, inicio.php, auth.php, POST, dados",
+      "auth.php, inicio.php, cabecalho.php, POST, dados",
+      "inicio.php, cabecalho.php, auth.php, POST, dados",
+      "inicio.php, auth.php, POST, dados, cabecalho.php"
+    ],
+    "correta": 3,
+    "explicacao": "Primeiro processa-se, depois mostra-se: sessão e ligação, proteção, POST e dados; só no fim o HTML.",
+    "manual": "7.8"
   }
 ]

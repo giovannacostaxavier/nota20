@@ -1,0 +1,2252 @@
+[
+  {
+    "id": "ligacao-001",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Em que ficheiro da Biblioteca fica a ligação à base de dados, com as credenciais?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "config/db.php",
+      "includes/cabecalho.php",
+      "includes/auth.php",
+      "index.php"
+    ],
+    "correta": 0,
+    "explicacao": "As credenciais ficam num único sítio, config/db.php, que as outras páginas incluem (através do inicio.php). Assim, mudar a password da BD é mudar um só ficheiro.",
+    "manual": "8.1"
+  },
+  {
+    "id": "ligacao-002",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Que linha abre uma ligação ao MySQL com PDO?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "$pdo = new PDO($dsn, $user, $pass);",
+      "$pdo = PDO::connect($dsn, $user, $pass);",
+      "$pdo = mysqli_connect($dsn, $user, $pass);",
+      "$pdo = new PDO($user, $pass, $dsn);"
+    ],
+    "correta": 0,
+    "explicacao": "A ligação cria-se com new PDO(DSN, utilizador, password). PDO::connect não existe e mysqli_connect é outra extensão, que a Biblioteca não usa.",
+    "manual": "8.1, Anexo B"
+  },
+  {
+    "id": "ligacao-003",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Qual é a ordem dos argumentos de `new PDO(...)`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "DSN, utilizador, password",
+      "Utilizador, password, DSN",
+      "DSN, password, utilizador",
+      "Host, base de dados, utilizador"
+    ],
+    "correta": 0,
+    "explicacao": "Primeiro vem o DSN (tipo, host, base de dados e charset), depois o utilizador e por fim a password.",
+    "manual": "8.1"
+  },
+  {
+    "id": "ligacao-004",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "No DSN `mysql:host=localhost;dbname=biblioteca;charset=utf8mb4`, o que indica `dbname=biblioteca`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O nome da tabela principal",
+      "O nome da base de dados",
+      "O nome do utilizador do MySQL",
+      "O nome do servidor"
+    ],
+    "correta": 1,
+    "explicacao": "dbname diz a que base de dados te ligas. O servidor vem em host e o utilizador é o segundo argumento do new PDO.",
+    "manual": "8.1"
+  },
+  {
+    "id": "ligacao-005",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve `charset=utf8mb4` no DSN?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Para os acentos virem certos",
+      "Para cifrar a ligação ao MySQL",
+      "Para escolher a língua dos erros",
+      "Para limitar o tamanho dos textos"
+    ],
+    "correta": 0,
+    "explicacao": "utf8mb4 é a codificação dos caracteres trocados com o MySQL. Sem ela, um nome como \"José\" pode aparecer como \"JosÃ©\".",
+    "manual": "8.1"
+  },
+  {
+    "id": "ligacao-006",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "No DSN `mysql:host=localhost;dbname=biblioteca`, o que indica a parte `mysql:` do início?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O nome da base de dados",
+      "O utilizador que se liga",
+      "O protocolo usado pelo browser",
+      "O tipo de base de dados"
+    ],
+    "correta": 3,
+    "explicacao": "O DSN começa pelo tipo de base de dados (o driver do PDO). O nome da base de dados vem depois, em dbname.",
+    "manual": "8.1"
+  },
+  {
+    "id": "ligacao-007",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "No XAMPP, com a configuração de origem, com que utilizador e password se liga a aplicação ao MySQL?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "admin, com a password admin",
+      "root, com a password root",
+      "root, sem password",
+      "O utilizador do Windows"
+    ],
+    "correta": 2,
+    "explicacao": "O MySQL do XAMPP vem com o utilizador root sem password. Se mudares isso, tens de mudar também o config/db.php.",
+    "manual": "8.1, 17.2"
+  },
+  {
+    "id": "ligacao-008",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "O que faz esta linha do db.php?",
+    "codigo": "$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);",
+    "linguagem": "php",
+    "alternativas": [
+      "Esconde os erros de SQL ao utilizador",
+      "Mostra os erros como aviso e continua a página",
+      "Liga o modo de depuração do Apache",
+      "Faz os erros de SQL lançarem uma exceção"
+    ],
+    "correta": 3,
+    "explicacao": "Com ERRMODE_EXCEPTION, um erro de SQL lança uma PDOException, que se pode apanhar com try/catch. É isso que permite tratar o código 23000.",
+    "manual": "8.1"
+  },
+  {
+    "id": "ligacao-009",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "No modo antigo do PDO, sem ERRMODE_EXCEPTION, o que acontecia a uma consulta com erro?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Parava a página com um erro fatal",
+      "Era corrigida pelo próprio MySQL",
+      "Respondia ao browser com um 404",
+      "Falhava em silêncio, sem exceção"
+    ],
+    "correta": 3,
+    "explicacao": "Sem esse modo, o execute() só devolvia false e a página continuava como se nada fosse. Por isso o db.php liga sempre o ERRMODE_EXCEPTION.",
+    "manual": "8.1"
+  },
+  {
+    "id": "ligacao-010",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "dificil",
+    "pergunta": "Que valor fica em `$dsn`?",
+    "codigo": "$host = 'localhost';\n$bd = 'loja';\n$dsn = \"mysql:host=$host;dbname=$bd;charset=utf8mb4\";",
+    "linguagem": "php",
+    "alternativas": [
+      "mysql:host=$host;dbname=$bd;charset=utf8mb4",
+      "mysql:host=localhost;dbname=loja;charset=utf8mb4",
+      "mysql:localhost;loja;utf8mb4",
+      "mysql:host=localhost;dbname=$bd;charset=utf8mb4"
+    ],
+    "correta": 1,
+    "explicacao": "Entre aspas duplas, o PHP substitui as variáveis pelo seu valor. Com aspas simples é que ficaria o texto $host tal e qual.",
+    "manual": "8.1"
+  },
+  {
+    "id": "ligacao-011",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Uma página nova começa logo por `$stmt = $pdo->prepare(...)`, sem fazer require do inicio.php. O que acontece?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Erro: a variável $pdo não existe",
+      "O PHP liga-se sozinho à base de dados",
+      "A consulta corre, mas devolve vazio",
+      "O browser pede a password do MySQL"
+    ],
+    "correta": 0,
+    "explicacao": "$pdo só existe depois de incluir o ficheiro que faz o new PDO (o db.php, via inicio.php). Sem esse require, a variável não está definida.",
+    "manual": "8.1, 9.1"
+  },
+  {
+    "id": "ligacao-012",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Quais são, por ordem, os três passos de uma consulta preparada?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "execute, prepare, fetch",
+      "query, prepare, fetchAll",
+      "prepare, execute, fetch",
+      "prepare, fetch, execute"
+    ],
+    "correta": 2,
+    "explicacao": "Primeiro prepara-se o SQL com os marcadores, depois executa-se com os valores e só então se leem as linhas com fetch ou fetchAll.",
+    "manual": "8.2"
+  },
+  {
+    "id": "ligacao-013",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Numa consulta preparada, o que representa cada `?`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Um nome de coluna escolhido mais tarde",
+      "O lugar de um valor do execute()",
+      "Qualquer carácter, como o % no LIKE",
+      "Um valor opcional que pode faltar"
+    ],
+    "correta": 1,
+    "explicacao": "Cada ? guarda o lugar de um valor. O valor chega separado, no array do execute(), e nunca é misturado com o texto do SQL.",
+    "manual": "8.2"
+  },
+  {
+    "id": "ligacao-014",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Como se passam os valores para os `?` no execute()?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Num array, por ordem alfabética",
+      "Como argumentos soltos: execute($a, $b)",
+      "Num array, pela ordem dos ?",
+      "Escritos no SQL, no lugar do ?"
+    ],
+    "correta": 2,
+    "explicacao": "O execute() recebe um array: o primeiro valor vai para o primeiro ?, o segundo para o segundo, e assim por diante.",
+    "manual": "8.2"
+  },
+  {
+    "id": "ligacao-015",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "O que devolve `$pdo->prepare($sql)`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "As linhas que a consulta encontrou",
+      "Um objeto pronto a executar ($stmt)",
+      "O número de linhas encontradas",
+      "O texto do SQL já com os valores lá dentro"
+    ],
+    "correta": 1,
+    "explicacao": "O prepare() devolve um PDOStatement, que se guarda em $stmt. As linhas só aparecem depois do execute(), com fetch ou fetchAll.",
+    "manual": "8.2"
+  },
+  {
+    "id": "ligacao-016",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Qual é o problema deste código?",
+    "codigo": "$stmt = $pdo->prepare('SELECT * FROM livros WHERE id_livro = ?');\n$stmt->execute();\n$livro = $stmt->fetch(PDO::FETCH_ASSOC);",
+    "linguagem": "php",
+    "alternativas": [
+      "Falta chamar o fetchAll() antes do execute()",
+      "Falta passar o valor do ? ao execute()",
+      "O ? tinha de estar entre plicas",
+      "O fetch() tinha de vir antes do execute()"
+    ],
+    "correta": 1,
+    "explicacao": "Há um ? no SQL, por isso o execute() tem de receber um array com um valor: $stmt->execute([$id]).",
+    "manual": "8.2"
+  },
+  {
+    "id": "ligacao-017",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "dificil",
+    "pergunta": "Que erro dá este código?",
+    "codigo": "$stmt = $pdo->prepare('INSERT INTO autores (nome, nacionalidade) VALUES (?, ?)');\n$stmt->execute([$nome]);",
+    "linguagem": "php",
+    "alternativas": [
+      "SQLSTATE[HY093] Invalid parameter number",
+      "SQLSTATE[23000] Integrity constraint violation",
+      "SQLSTATE[42S22] Unknown column",
+      "SQLSTATE[HY000] [1049] Unknown database"
+    ],
+    "correta": 0,
+    "explicacao": "Há dois ? e o array só tem um valor. Quando o número de valores não bate com o número de marcadores, o PDO dá HY093.",
+    "manual": "17.2, 8.2"
+  },
+  {
+    "id": "ligacao-018",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "dificil",
+    "pergunta": "Qual é o problema desta consulta?",
+    "codigo": "$stmt = $pdo->prepare(\"SELECT * FROM livros WHERE titulo = '?'\");\n$stmt->execute([$titulo]);",
+    "linguagem": "php",
+    "alternativas": [
+      "Faltava usar LIKE em vez de =",
+      "O prepare() não aceita aspas duplas",
+      "Entre plicas, o ? deixa de ser um marcador",
+      "O $titulo tinha de ir entre plicas"
+    ],
+    "correta": 2,
+    "explicacao": "O ? nunca se põe entre plicas: '?' é o texto \"?\". O PDO já trata o valor como texto sozinho.",
+    "manual": "8.2"
+  },
+  {
+    "id": "ligacao-019",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "dificil",
+    "pergunta": "Queres ordenar a lista pela coluna escolhida pelo utilizador. Este código funciona?",
+    "codigo": "$stmt = $pdo->prepare('SELECT * FROM livros ORDER BY ?');\n$stmt->execute([$coluna]);",
+    "linguagem": "php",
+    "alternativas": [
+      "Não: o ? só substitui valores, não colunas",
+      "Sim: o ? aceita qualquer parte do SQL",
+      "Sim, se a $coluna vier por GET",
+      "Não: o ? tinha de estar entre plicas"
+    ],
+    "correta": 0,
+    "explicacao": "Os marcadores substituem apenas valores, nunca nomes de tabelas ou colunas. O valor passa a ser um texto fixo e a ordenação não muda.",
+    "manual": "8.2, 3.7"
+  },
+  {
+    "id": "ligacao-020",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Que SQL preparado grava um autor novo?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "INSERT INTO autores (nome, nacionalidade) VALUES ('$n', '$x')",
+      "UPDATE autores SET nome = ?, nacionalidade = ?",
+      "INSERT INTO autores (nome, nacionalidade) VALUES (?, ?)",
+      "INSERT INTO autores (nome, nacionalidade) VALUES ('?', '?')"
+    ],
+    "correta": 2,
+    "explicacao": "Gravar uma linha nova é INSERT, com um ? sem plicas por cada valor. Pôr variáveis no texto do SQL abre a porta à injeção de SQL.",
+    "manual": "3.7, 8.2"
+  },
+  {
+    "id": "ligacao-021",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Numa loja, que SQL preparado apaga um produto pelo id?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "DELETE FROM produtos WHERE id_produto = ?",
+      "DELETE FROM produtos",
+      "DELETE * FROM produtos WHERE id_produto = ?",
+      "DROP produtos WHERE id_produto = ?"
+    ],
+    "correta": 0,
+    "explicacao": "DELETE FROM tabela WHERE id = ? apaga só essa linha. Sem WHERE apagava a tabela inteira, e DROP serve para eliminar tabelas.",
+    "manual": "3.7, 13.4"
+  },
+  {
+    "id": "ligacao-022",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Que método usas para ler o resultado de `SELECT COUNT(*) FROM livros`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "fetchColumn()",
+      "rowCount()",
+      "fetchAll()",
+      "lastInsertId()"
+    ],
+    "correta": 0,
+    "explicacao": "O COUNT(*) devolve um só valor, e fetchColumn() lê-o diretamente. O rowCount() conta as linhas afetadas por um UPDATE ou DELETE, não o resultado de um SELECT.",
+    "manual": "8.2, 12.4"
+  },
+  {
+    "id": "ligacao-023",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "dificil",
+    "pergunta": "O autor 1 tem dois livros: \"A Cidade e as Serras\" e \"Os Maias\". O que mostra este código?",
+    "codigo": "$stmt = $pdo->prepare('SELECT titulo FROM livros WHERE id_autor = ? ORDER BY titulo');\n$stmt->execute([1]);\n$a = $stmt->fetch(PDO::FETCH_ASSOC);\n$b = $stmt->fetch(PDO::FETCH_ASSOC);\necho $b['titulo'];",
+    "linguagem": "php",
+    "alternativas": [
+      "Os Maias",
+      "A Cidade e as Serras",
+      "Os dois títulos seguidos",
+      "Nada, porque o segundo fetch() devolve false"
+    ],
+    "correta": 0,
+    "explicacao": "Cada fetch() lê a linha seguinte do resultado. O primeiro dá \"A Cidade e as Serras\" e o segundo dá \"Os Maias\"; só um terceiro fetch() devolveria false.",
+    "manual": "8.2"
+  },
+  {
+    "id": "ligacao-024",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Na página que cria um livro, quando é que se chama `$pdo->lastInsertId()`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Antes do execute() do INSERT",
+      "Depois do fetch() do INSERT",
+      "Antes do prepare() do INSERT",
+      "Logo depois do execute() do INSERT"
+    ],
+    "correta": 3,
+    "explicacao": "O id só existe depois de o INSERT correr, por isso lê-se logo a seguir ao execute(). Um INSERT não devolve linhas, por isso não leva fetch().",
+    "manual": "8.2, 12.4"
+  },
+  {
+    "id": "ligacao-025",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "dificil",
+    "pergunta": "A autora 2 tem três livros. O que mostra este código?",
+    "codigo": "$stmt = $pdo->prepare('DELETE FROM livros WHERE id_autor = ?');\n$stmt->execute([2]);\necho $stmt->rowCount();",
+    "linguagem": "php",
+    "alternativas": [
+      "1",
+      "3",
+      "2",
+      "0"
+    ],
+    "correta": 1,
+    "explicacao": "O rowCount() dá o número de linhas afetadas. O WHERE apanha os três livros da autora 2, por isso apagam-se três linhas e mostra 3.",
+    "manual": "8.2, 12.6"
+  },
+  {
+    "id": "ligacao-026",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Um autor chama-se O'Neill. Com prepare() e execute(), o que acontece ao gravar?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Dá erro de SQL por causa da plica",
+      "Grava normalmente: a plica é só um dado",
+      "Grava O\\'Neill, com uma barra a mais",
+      "Grava só o texto O, até à plica"
+    ],
+    "correta": 1,
+    "explicacao": "Com consultas preparadas, o valor nunca entra no texto do SQL, por isso uma plica no nome não estraga nada.",
+    "manual": "8.4"
+  },
+  {
+    "id": "ligacao-027",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Esta consulta não tem nenhum `?`. Que linha falta para ela funcionar?",
+    "codigo": "$stmt = $pdo->prepare('SELECT * FROM autores ORDER BY nome');\n// linha em falta\n$autores = $stmt->fetchAll(PDO::FETCH_ASSOC);",
+    "linguagem": "php",
+    "alternativas": [
+      "$stmt->execute([$nome]);",
+      "$pdo->execute($stmt);",
+      "$stmt->query();",
+      "$stmt->execute();"
+    ],
+    "correta": 3,
+    "explicacao": "Mesmo sem marcadores, a consulta preparada tem de ser executada. Sem ? o execute() vai sem array.",
+    "manual": "12.4, 8.2"
+  },
+  {
+    "id": "ligacao-028",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Que array tem de levar o execute() deste UPDATE?",
+    "codigo": "$stmt = $pdo->prepare('UPDATE autores SET nome = ?, nacionalidade = ? WHERE id_autor = ?');",
+    "linguagem": "php",
+    "alternativas": [
+      "[$id, $nome, $nacionalidade]",
+      "['nome' => $nome, 'nacionalidade' => $nacionalidade]",
+      "[$nome, $nacionalidade, $id]",
+      "[$id]"
+    ],
+    "correta": 2,
+    "explicacao": "Os valores seguem a ordem dos ? no SQL: primeiro o nome, depois a nacionalidade e por fim o id do WHERE.",
+    "manual": "13.2, 8.2"
+  },
+  {
+    "id": "ligacao-029",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Que método devolve todas as linhas do resultado, como na lista de livros?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "fetch()",
+      "fetchAll()",
+      "fetchColumn()",
+      "rowCount()"
+    ],
+    "correta": 1,
+    "explicacao": "fetchAll() devolve um array com todas as linhas. O fetch() devolve só uma de cada vez.",
+    "manual": "8.2, Anexo B"
+  },
+  {
+    "id": "ligacao-030",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Para mostrar a página de um livro, procurado pelo id, que método usas para ler o resultado?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "fetchAll()",
+      "rowCount()",
+      "fetch()",
+      "lastInsertId()"
+    ],
+    "correta": 2,
+    "explicacao": "Procurar pelo id dá no máximo uma linha, por isso basta o fetch(), que devolve essa linha ou false.",
+    "manual": "8.2"
+  },
+  {
+    "id": "ligacao-031",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "O que quer dizer `PDO::FETCH_ASSOC` num fetch()?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "As linhas vêm ordenadas pela chave primária",
+      "A linha vem com os nomes das colunas como chaves",
+      "Vem só o valor da primeira coluna",
+      "A linha vem só com as chaves 0, 1, 2…"
+    ],
+    "correta": 1,
+    "explicacao": "FETCH_ASSOC dá um array associativo: lês $livro['titulo'] em vez de $livro[0].",
+    "manual": "8.2"
+  },
+  {
+    "id": "ligacao-032",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Não existe nenhum livro com o id 999. Que valor fica em `$livro`?",
+    "codigo": "$stmt = $pdo->prepare('SELECT * FROM livros WHERE id_livro = ?');\n$stmt->execute([999]);\n$livro = $stmt->fetch(PDO::FETCH_ASSOC);",
+    "linguagem": "php",
+    "alternativas": [
+      "null",
+      "false",
+      "[] (array vazio)",
+      "0"
+    ],
+    "correta": 1,
+    "explicacao": "Quando não há linha, o fetch() devolve false. É por isso que a página testa if (!$livro).",
+    "manual": "8.2, 12.3"
+  },
+  {
+    "id": "ligacao-033",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "A pesquisa não encontrou nenhum livro. O que devolve o fetchAll()?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "false",
+      "null",
+      "Um array vazio",
+      "Um array com uma linha vazia"
+    ],
+    "correta": 2,
+    "explicacao": "O fetchAll() devolve sempre um array; sem resultados vem vazio. A página testa isso para mostrar \"Não foi encontrado nenhum livro.\"",
+    "manual": "8.2, 12.2"
+  },
+  {
+    "id": "ligacao-034",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Sabendo que o autor 3 é o Eça de Queirós, o que mostra este código?",
+    "codigo": "$stmt = $pdo->prepare('SELECT nome FROM autores WHERE id_autor = ?');\n$stmt->execute([3]);\n$autor = $stmt->fetch(PDO::FETCH_ASSOC);\necho $autor['nome'];",
+    "linguagem": "php",
+    "alternativas": [
+      "3",
+      "Array",
+      "nome",
+      "Eça de Queirós"
+    ],
+    "correta": 3,
+    "explicacao": "O fetch() devolve a linha como array associativo; $autor['nome'] é o valor da coluna nome dessa linha.",
+    "manual": "8.2"
+  },
+  {
+    "id": "ligacao-035",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "O autor 1 tem dois livros. O que mostra este código?",
+    "codigo": "$stmt = $pdo->prepare('SELECT * FROM livros WHERE id_autor = ?');\n$stmt->execute([1]);\n$livros = $stmt->fetchAll(PDO::FETCH_ASSOC);\necho count($livros);",
+    "linguagem": "php",
+    "alternativas": [
+      "2",
+      "1",
+      "0",
+      "true"
+    ],
+    "correta": 0,
+    "explicacao": "O fetchAll() devolve uma linha por livro encontrado, e count() conta essas linhas.",
+    "manual": "8.2"
+  },
+  {
+    "id": "ligacao-036",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "dificil",
+    "pergunta": "A autora 2 tem os livros \"O Cavaleiro da Dinamarca\" e \"A Menina do Mar\". O que mostra este código?",
+    "codigo": "$stmt = $pdo->prepare('SELECT titulo FROM livros WHERE id_autor = ? ORDER BY titulo');\n$stmt->execute([2]);\n$livro = $stmt->fetch(PDO::FETCH_ASSOC);\necho $livro['titulo'];",
+    "linguagem": "php",
+    "alternativas": [
+      "A Menina do Mar",
+      "O Cavaleiro da Dinamarca",
+      "Os dois títulos, um a seguir ao outro",
+      "Array"
+    ],
+    "correta": 0,
+    "explicacao": "O fetch() lê só a primeira linha. Com ORDER BY titulo, a primeira por ordem alfabética é \"A Menina do Mar\".",
+    "manual": "8.2"
+  },
+  {
+    "id": "ligacao-037",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Uma consulta aos livros devolveu duas linhas: \"Os Maias\" e \"A Cidade e as Serras\". O que mostra este código?",
+    "codigo": "$livros = $stmt->fetchAll(PDO::FETCH_ASSOC);\nforeach ($livros as $l) {\n    echo $l['titulo'] . ';';\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Os Maias;A Cidade e as Serras;",
+      "Os Maias;",
+      "Array;Array;",
+      "A Cidade e as Serras;"
+    ],
+    "correta": 0,
+    "explicacao": "O fetchAll() traz as duas linhas e o foreach percorre-as uma a uma, escrevendo o título seguido de ;.",
+    "manual": "8.2"
+  },
+  {
+    "id": "ligacao-038",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "dificil",
+    "pergunta": "Qual é o problema deste código?",
+    "codigo": "$stmt = $pdo->prepare('SELECT * FROM livros WHERE id_livro = ?');\n$stmt->execute([$id]);\n$livro = $stmt->fetchAll(PDO::FETCH_ASSOC);\necho $livro['titulo'];",
+    "linguagem": "php",
+    "alternativas": [
+      "O ? tinha de estar entre plicas",
+      "Faltava usar PDO::FETCH_NUM",
+      "O fetchAll() devolve uma lista: o título está em $livro[0]",
+      "O execute() tinha de vir depois do fetch"
+    ],
+    "correta": 2,
+    "explicacao": "fetchAll() devolve um array de linhas, mesmo que só haja uma. Para um único livro usa-se fetch(), que devolve logo a linha.",
+    "manual": "8.2"
+  },
+  {
+    "id": "ligacao-039",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "No login, porque se usa fetch() e não fetchAll() para procurar o utilizador pelo email?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O fetchAll() não funciona com WHERE",
+      "O fetch() já verifica a password",
+      "O email é único: há no máximo uma linha",
+      "O fetch() é o único que protege contra injeção"
+    ],
+    "correta": 2,
+    "explicacao": "Como o email é UNIQUE, a consulta encontra uma linha ou nenhuma. O fetch() devolve essa linha ou false, que é o que o login testa.",
+    "manual": "8.2, 10.4"
+  },
+  {
+    "id": "ligacao-040",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "No registo, quando é que este `if` é verdadeiro?",
+    "codigo": "$stmt = $pdo->prepare('SELECT id_utilizador FROM utilizadores WHERE email = ?');\n$stmt->execute([$email]);\nif ($stmt->fetch()) {\n    $erros[] = 'Já existe uma conta com esse email.';\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Quando já existe uma conta com esse email",
+      "Quando o email tem um formato válido",
+      "Quando o SELECT tem um erro de SQL",
+      "Quando ainda não há nenhuma conta"
+    ],
+    "correta": 0,
+    "explicacao": "Se encontrar uma linha, o fetch() devolve um array (verdadeiro); se não encontrar, devolve false. Logo, o if apanha o email repetido.",
+    "manual": "10.2, 8.2"
+  },
+  {
+    "id": "ligacao-041",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "O que devolve fetchColumn()?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Os nomes de todas as colunas",
+      "Todas as linhas de uma coluna, numa lista simples",
+      "O número de colunas da tabela",
+      "O valor da primeira coluna, como um COUNT(*)"
+    ],
+    "correta": 3,
+    "explicacao": "fetchColumn() devolve um só valor: a primeira coluna da linha seguinte. É ideal para SELECT COUNT(*).",
+    "manual": "8.2, 12.4"
+  },
+  {
+    "id": "ligacao-042",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "dificil",
+    "pergunta": "O pedido chega com `id_autor=999`, que não existe. O que acontece?",
+    "codigo": "$stmt = $pdo->prepare('SELECT COUNT(*) FROM autores WHERE id_autor = ?');\n$stmt->execute([$idAutor]);\nif ($stmt->fetchColumn() == 0) {\n    $erros[] = 'Escolhe um autor válido.';\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "O livro é gravado, mas sem autor",
+      "Dá uma PDOException com o código 23000",
+      "O fetchColumn() devolve false e o livro é gravado",
+      "Junta o erro e o livro não é gravado"
+    ],
+    "correta": 3,
+    "explicacao": "COUNT(*) dá sempre um número; para um autor que não existe dá 0. O if junta o erro e o INSERT não chega a correr.",
+    "manual": "12.4"
+  },
+  {
+    "id": "ligacao-043",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Porque é que a validação do livro confirma na base de dados que o autor escolhido existe?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O select do formulário pode vir vazio",
+      "Para mostrar o nome do autor na lista",
+      "Alguém pode alterar o pedido e enviar outro id",
+      "O required não funciona num select"
+    ],
+    "correta": 2,
+    "explicacao": "O formulário só mostra autores que existem, mas o pedido pode ser alterado. A validação a sério é no servidor.",
+    "manual": "12.4"
+  },
+  {
+    "id": "ligacao-044",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "dificil",
+    "pergunta": "Com esta consulta, como lês o nome do autor depois do fetch()?",
+    "codigo": "$stmt = $pdo->prepare('SELECT l.titulo, a.nome\n    FROM livros l JOIN autores a ON a.id_autor = l.id_autor\n    WHERE l.id_livro = ?');\n$stmt->execute([$id]);\n$livro = $stmt->fetch(PDO::FETCH_ASSOC);",
+    "linguagem": "php",
+    "alternativas": [
+      "$livro['a.nome']",
+      "$livro->nome",
+      "$livro['nome']",
+      "$livro['autores']"
+    ],
+    "correta": 2,
+    "explicacao": "No array associativo, a chave é o nome da coluna sem o prefixo da tabela: a.nome chega como 'nome'.",
+    "manual": "8.2, 12.2"
+  },
+  {
+    "id": "ligacao-045",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Na página que mostra um livro, quando é que se entra neste `if`?",
+    "codigo": "$livro = $stmt->fetch(PDO::FETCH_ASSOC);\nif (!$livro) {\n    http_response_code(404);\n    echo '<h1>Livro não encontrado</h1>';\n    exit;\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Quando há mais do que um livro",
+      "Quando não há nenhum livro com esse id",
+      "Quando o livro não tem título",
+      "Quando a ligação ao MySQL falha no execute()"
+    ],
+    "correta": 1,
+    "explicacao": "Sem linha, o fetch() devolve false e !$livro é verdadeiro: a página responde 404. Se a ligação falhasse, era uma exceção, não este if.",
+    "manual": "12.3, 1.3"
+  },
+  {
+    "id": "ligacao-046",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Alguém abre `livro_ver.php?id=abc` e a página lê o id com `(int)`. O que acontece?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Dá erro de SQL por o id ser texto",
+      "Mostra o primeiro livro da tabela",
+      "O id fica 0 e aparece \"Livro não encontrado\"",
+      "O texto abc entra no SQL"
+    ],
+    "correta": 2,
+    "explicacao": "(int) 'abc' dá 0. Não há livro com id 0, por isso o fetch() devolve false e a página mostra o 404.",
+    "manual": "12.3"
+  },
+  {
+    "id": "ligacao-047",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "O que devolve `$stmt->rowCount()` depois de um DELETE?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O id da linha apagada",
+      "true ou false",
+      "As linhas que ficam na tabela",
+      "O número de linhas apagadas"
+    ],
+    "correta": 3,
+    "explicacao": "rowCount() conta as linhas afetadas pelo último UPDATE ou DELETE. 0 quer dizer que não havia nada para apagar.",
+    "manual": "8.2, 12.6"
+  },
+  {
+    "id": "ligacao-048",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Que método usas para saber se o DELETE apagou mesmo alguma linha?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "fetch()",
+      "lastInsertId()",
+      "fetchColumn()",
+      "rowCount()"
+    ],
+    "correta": 3,
+    "explicacao": "Depois de um DELETE não há linhas para ler; o que interessa é quantas foram afetadas, e isso é o rowCount().",
+    "manual": "8.2, 12.6"
+  },
+  {
+    "id": "ligacao-049",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Não existe nenhum autor com o id 99. O que mostra este código?",
+    "codigo": "$stmt = $pdo->prepare('UPDATE autores SET nome = ? WHERE id_autor = ?');\n$stmt->execute(['Ana', 99]);\necho $stmt->rowCount();",
+    "linguagem": "php",
+    "alternativas": [
+      "1",
+      "99",
+      "0",
+      "Lança uma PDOException"
+    ],
+    "correta": 2,
+    "explicacao": "Um UPDATE que não encontra linhas não é um erro: só não altera nada, e o rowCount() dá 0.",
+    "manual": "8.2"
+  },
+  {
+    "id": "ligacao-050",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "dificil",
+    "pergunta": "Abres o mesmo livro em dois separadores e carregas em Apagar nos dois. Que mensagem aparece no segundo?",
+    "codigo": "$stmt = $pdo->prepare('DELETE FROM livros WHERE id_livro = ?');\n$stmt->execute([$id]);\nif ($stmt->rowCount() === 1) {\n    mensagem('sucesso', 'Livro apagado.');\n} else {\n    mensagem('erro', 'O livro já não existia.');\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Livro apagado.",
+      "O livro já não existia.",
+      "Um erro com o código 23000",
+      "Uma página de erro 404"
+    ],
+    "correta": 1,
+    "explicacao": "No segundo pedido o livro já foi apagado, por isso o DELETE afeta 0 linhas e o rowCount() não é 1.",
+    "manual": "12.6"
+  },
+  {
+    "id": "ligacao-051",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve `$pdo->lastInsertId()`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Dá o maior id que existe na tabela",
+      "Dá o número de linhas inseridas",
+      "Dá o id gerado pelo último INSERT",
+      "Apaga a última linha inserida"
+    ],
+    "correta": 2,
+    "explicacao": "Depois de um INSERT numa tabela com AUTO_INCREMENT, lastInsertId() dá o id que o MySQL acabou de gerar.",
+    "manual": "8.2, 12.4"
+  },
+  {
+    "id": "ligacao-052",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Os autores existentes têm os ids 1 a 4 e nunca se apagou nenhum. Que valor fica em `$novoId`?",
+    "codigo": "$stmt = $pdo->prepare('INSERT INTO autores (nome) VALUES (?)');\n$stmt->execute(['Florbela Espanca']);\n$novoId = $pdo->lastInsertId();",
+    "linguagem": "php",
+    "alternativas": [
+      "4",
+      "1",
+      "5",
+      "true"
+    ],
+    "correta": 2,
+    "explicacao": "O AUTO_INCREMENT dá o número a seguir ao último usado (4), e o lastInsertId() devolve esse novo id.",
+    "manual": "8.2, 3.5"
+  },
+  {
+    "id": "ligacao-053",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "O INSERT gerou o id 12. Para onde vai o browser?",
+    "codigo": "$stmt->execute([$titulo, $idAutor]);\n$novoId = $pdo->lastInsertId();\nheader(\"Location: livro_ver.php?id=$novoId\");\nexit;",
+    "linguagem": "php",
+    "alternativas": [
+      "livro_ver.php?id=$novoId",
+      "livros.php",
+      "livro_novo.php?id=12",
+      "livro_ver.php?id=12"
+    ],
+    "correta": 3,
+    "explicacao": "O lastInsertId() dá 12 e, entre aspas duplas, $novoId é substituído. O browser vai ver o livro acabado de criar.",
+    "manual": "12.4, 8.2"
+  },
+  {
+    "id": "ligacao-054",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Qual é a forma certa de chamar lastInsertId()?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "$stmt->lastInsertId()",
+      "$stmt->fetch()['id']",
+      "lastInsertId($stmt)",
+      "$pdo->lastInsertId()"
+    ],
+    "correta": 3,
+    "explicacao": "lastInsertId() é um método da ligação ($pdo), não do $stmt. Já o rowCount() é do $stmt: é uma confusão comum.",
+    "manual": "8.2"
+  },
+  {
+    "id": "ligacao-055",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Em catch (PDOException $e), o que é o $e?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A ligação à base de dados que falhou",
+      "O array de valores que o execute() recebeu",
+      "O número da linha do erro no PHP",
+      "A exceção apanhada, com os dados do erro"
+    ],
+    "correta": 3,
+    "explicacao": "O $e é o objeto da exceção apanhada. Traz os dados do erro, como o código que $e->getCode() devolve (por exemplo, 23000).",
+    "manual": "8.5"
+  },
+  {
+    "id": "ligacao-056",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "No DSN `mysql:host=localhost;dbname=biblioteca`, o que indica `host=localhost`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O nome da base de dados",
+      "O computador onde corre o MySQL",
+      "O endereço da página no browser",
+      "O utilizador do MySQL"
+    ],
+    "correta": 1,
+    "explicacao": "O host diz onde está o servidor MySQL. No XAMPP é o próprio computador, localhost. O nome da base de dados vem no dbname e o utilizador vai à parte, no new PDO().",
+    "manual": "8.1"
+  },
+  {
+    "id": "ligacao-057",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Qual destas instruções é vulnerável a injeção de SQL?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "$pdo->prepare('SELECT * FROM livros WHERE titulo = ?');",
+      "$pdo->prepare('SELECT * FROM livros WHERE ano = ?');",
+      "$stmt->execute([$t]);",
+      "$pdo->query(\"SELECT * FROM livros WHERE titulo = '$t'\");"
+    ],
+    "correta": 3,
+    "explicacao": "O query() mete a variável dentro do texto do SQL. As outras usam o marcador ? e passam o valor à parte, no execute().",
+    "manual": "8.4"
+  },
+  {
+    "id": "ligacao-058",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Na tentativa de injeção `' OR 1=1 -- `, o que faz o `--`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Comenta o resto do SQL",
+      "Subtrai 1 ao valor anterior",
+      "Fecha o texto que estava aberto",
+      "Separa dois comandos SQL"
+    ],
+    "correta": 0,
+    "explicacao": "Em SQL, -- começa um comentário. Assim, o que vinha a seguir na consulta original (como a plica final) é ignorado.",
+    "manual": "8.4"
+  },
+  {
+    "id": "ligacao-059",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Num login vulnerável, que junta o email ao texto do SQL, o que consegue um atacante com `' OR 1=1 -- `?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Entrar sem saber a password",
+      "Ver o código PHP da página",
+      "Ler o cookie de sessão de outros",
+      "Apagar o ficheiro config/db.php"
+    ],
+    "correta": 0,
+    "explicacao": "O OR 1=1 torna a condição sempre verdadeira e o -- anula o resto. A consulta devolve utilizadores sem verificar nada.",
+    "manual": "8.4"
+  },
+  {
+    "id": "ligacao-060",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "dificil",
+    "pergunta": "Este código usa prepare(). Está protegido contra injeção de SQL?",
+    "codigo": "$stmt = $pdo->prepare(\"SELECT * FROM utilizadores WHERE email = '$email'\");\n$stmt->execute();",
+    "linguagem": "php",
+    "alternativas": [
+      "Sim: o prepare() protege sempre",
+      "Sim: o email está entre plicas",
+      "Não: falta usar o FETCH_ASSOC",
+      "Não: a variável está dentro do SQL"
+    ],
+    "correta": 3,
+    "explicacao": "Só é uma consulta preparada se o valor for por um ? e chegar no execute(). Variável no texto do SQL é vulnerável, mesmo dentro do prepare().",
+    "manual": "8.4"
+  },
+  {
+    "id": "ligacao-061",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "dificil",
+    "pergunta": "Queres os livros do autor 3 editados depois de 1900. O que acontece com este código?",
+    "codigo": "$stmt = $pdo->prepare('SELECT * FROM livros WHERE id_autor = ? AND ano_edicao > ?');\n$stmt->execute([1900, 3]);\n$livros = $stmt->fetchAll(PDO::FETCH_ASSOC);",
+    "linguagem": "php",
+    "alternativas": [
+      "Dá o erro SQLSTATE[HY093] Invalid parameter number",
+      "Não dá erro, mas procura os livros do autor 1900",
+      "O PDO troca os valores e devolve os livros certos",
+      "Dá erro, porque os ? não aceitam números"
+    ],
+    "correta": 1,
+    "explicacao": "O 1.º valor vai para o 1.º ? e o 2.º para o 2.º. Trocados, a consulta procura id_autor = 1900, não encontra nada e o fetchAll() dá um array vazio. O HY093 só aparece quando o número de valores não bate com o de ?.",
+    "manual": "8.2"
+  },
+  {
+    "id": "ligacao-062",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Qual é a forma segura de pesquisar os livros cujo título contém `$q`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "SQL com LIKE '%$q%' e execute() sem valores",
+      "SQL com LIKE %?% e execute([$q])",
+      "SQL com LIKE ? e execute(['%' . $q . '%'])",
+      "SQL com LIKE '%?%' e execute([$q])"
+    ],
+    "correta": 2,
+    "explicacao": "Os % vão no valor, nunca no SQL. O SQL fica só com LIKE ? e o execute() recebe '%' . $q . '%'.",
+    "manual": "8.4, 12.2"
+  },
+  {
+    "id": "ligacao-063",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "A pesquisa usa `LIKE ?` com `'%' . $q . '%'` e a caixa foi enviada vazia. Que livros aparecem?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Nenhum, porque a pesquisa vazia não procura nada",
+      "Dá erro, porque falta o valor do ?",
+      "Todos, porque '%%' apanha qualquer título",
+      "Só os livros sem título"
+    ],
+    "correta": 2,
+    "explicacao": "Com $q vazio, o valor fica '%%', que corresponde a qualquer texto. Por isso a lista mostra todos os livros.",
+    "manual": "12.2"
+  },
+  {
+    "id": "ligacao-064",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "dificil",
+    "pergunta": "A pesquisa usa prepare() com `LIKE ?`. Escreves `' OR 1=1 -- ` na caixa. O que acontece?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Mostra todos os livros da tabela",
+      "Dá um erro de sintaxe no SQL",
+      "Apaga a tabela dos livros",
+      "Procura esse texto num título e não encontra"
+    ],
+    "correta": 3,
+    "explicacao": "Com consultas preparadas, o que escreves é sempre um dado. O MySQL procura um título com esse texto estranho, e não há nenhum.",
+    "manual": "8.4, 16"
+  },
+  {
+    "id": "ligacao-065",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Que tipo de exceção lança o PDO quando uma consulta falha?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "SQLException",
+      "PDOException",
+      "MySQLException",
+      "PDOError"
+    ],
+    "correta": 1,
+    "explicacao": "Com ERRMODE_EXCEPTION, os erros do PDO chegam como PDOException, que se apanha com catch (PDOException $e).",
+    "manual": "8.5"
+  },
+  {
+    "id": "ligacao-066",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Que método da exceção dá o código do erro, como 23000?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "$e->getMessage()",
+      "$e->getCode()",
+      "$e->code()",
+      "$e->errno()"
+    ],
+    "correta": 1,
+    "explicacao": "getCode() dá o código (como 23000); getMessage() dá o texto do erro.",
+    "manual": "8.5"
+  },
+  {
+    "id": "ligacao-067",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "O que quer dizer o código 23000 numa PDOException?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A base de dados não foi encontrada",
+      "Uma restrição foi violada (UNIQUE ou chave estrangeira)",
+      "Uma coluna tem o nome mal escrito",
+      "O MySQL está desligado"
+    ],
+    "correta": 1,
+    "explicacao": "23000 é violação de restrição: um valor UNIQUE repetido ou uma chave estrangeira que impede a operação.",
+    "manual": "8.5"
+  },
+  {
+    "id": "ligacao-068",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Num try/catch, onde se escreve o código que pode lançar a exceção?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Dentro do bloco try",
+      "Dentro do bloco catch",
+      "Depois do bloco catch",
+      "Antes do require do db.php"
+    ],
+    "correta": 0,
+    "explicacao": "O try envolve o código arriscado (o execute()). Se ele lançar uma exceção, o PHP salta para o catch.",
+    "manual": "8.5"
+  },
+  {
+    "id": "ligacao-069",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "dificil",
+    "pergunta": "Porque é que este catch faz `throw $e;` no else?",
+    "codigo": "} catch (PDOException $e) {\n    if ($e->getCode() == 23000) {\n        $erros[] = 'Já existe um livro com esse ISBN.';\n    } else {\n        throw $e;\n    }\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Para não esconder os outros erros",
+      "Para tentar gravar o livro outra vez",
+      "Para mostrar a mensagem do ISBN",
+      "Para redirecionar para a lista"
+    ],
+    "correta": 0,
+    "explicacao": "Só o 23000 é o caso previsto (ISBN repetido). Qualquer outro erro é relançado, para não ser disfarçado de ISBN repetido.",
+    "manual": "8.5"
+  },
+  {
+    "id": "ligacao-070",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "A coluna isbn é UNIQUE. Gravas um livro com um ISBN que já existe. O que vê o utilizador?",
+    "codigo": "try {\n    $stmt->execute([$titulo, $isbn]);\n} catch (PDOException $e) {\n    if ($e->getCode() == 23000) {\n        $erros[] = 'Já existe um livro com esse ISBN.';\n    }\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Uma página de erro com SQLSTATE[23000]",
+      "O formulário com a mensagem do ISBN",
+      "O livro gravado em duplicado",
+      "A mensagem \"Livro criado.\""
+    ],
+    "correta": 1,
+    "explicacao": "O MySQL recusa o valor repetido e lança a exceção 23000. O catch transforma-a numa mensagem amiga no formulário.",
+    "manual": "8.5, 12.4"
+  },
+  {
+    "id": "ligacao-071",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "dificil",
+    "pergunta": "Porque é que o header() e o exit estão dentro do try, logo a seguir ao execute()?",
+    "codigo": "try {\n    $stmt->execute([$titulo, $isbn]);\n    header('Location: livros.php');\n    exit;\n} catch (PDOException $e) {\n    // trata o 23000\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "O header() só funciona dentro de um try",
+      "Para apanhar os erros do header()",
+      "Só redireciona se o INSERT não falhou",
+      "Para o redirecionamento ser mais rápido"
+    ],
+    "correta": 2,
+    "explicacao": "Se o execute() lançar uma exceção, o PHP salta logo para o catch e as linhas seguintes não correm: não há redirecionamento e o formulário mostra o erro.",
+    "manual": "12.4, 8.5"
+  },
+  {
+    "id": "ligacao-072",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Se a página que cria livros não tivesse try/catch e o ISBN fosse repetido, o que acontecia?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O livro era gravado em duplicado",
+      "Aparecia a mensagem do ISBN repetido",
+      "O livro era ignorado em silêncio",
+      "A página parava com um erro técnico"
+    ],
+    "correta": 3,
+    "explicacao": "Uma exceção que ninguém apanha para o script e mostra o erro técnico. O teste do manual pede uma mensagem sem página de erro.",
+    "manual": "8.5, 16"
+  },
+  {
+    "id": "ligacao-073",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "dificil",
+    "pergunta": "A chave estrangeira de livros tem `ON DELETE RESTRICT`. Quem impede que um autor com livros seja apagado?",
+    "codigo": "try {\n    $stmt = $pdo->prepare('DELETE FROM autores WHERE id_autor = ?');\n    $stmt->execute([$id]);\n    mensagem('sucesso', 'Autor apagado.');\n} catch (PDOException $e) {\n    mensagem('erro', 'Não é possível apagar este autor, porque tem livros.');\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Um if que conta os livros do autor",
+      "A base de dados, pela chave estrangeira",
+      "O confirm() do JavaScript",
+      "O auth.php, que só deixa o admin"
+    ],
+    "correta": 1,
+    "explicacao": "É o MySQL que recusa o DELETE, por causa do RESTRICT. O PHP só apanha a exceção (código 23000) e explica o que aconteceu.",
+    "manual": "13.3, 3.3"
+  },
+  {
+    "id": "ligacao-074",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Ao abrir a aplicação aparece `SQLSTATE[HY000] [2002] ... connection refused`. Qual é a causa provável?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O nome da base de dados está errado",
+      "A password do root está errada",
+      "Uma coluna tem o nome mal escrito",
+      "O MySQL está desligado no XAMPP"
+    ],
+    "correta": 3,
+    "explicacao": "Connection refused quer dizer que ninguém atendeu a ligação: o MySQL não está a correr. Liga-o no painel do XAMPP.",
+    "manual": "17.2"
+  },
+  {
+    "id": "ligacao-075",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Aparece `SQLSTATE[HY000] [1049] Unknown database 'biblioteca'`. O que deves verificar?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Se o MySQL está ligado no XAMPP",
+      "Se importaste o .sql e o nome está certo",
+      "Se a password do root está certa no db.php",
+      "Se o charset é utf8mb4"
+    ],
+    "correta": 1,
+    "explicacao": "O MySQL respondeu, mas não conhece essa base de dados: falta importar o ficheiro .sql ou o nome no dbname está errado.",
+    "manual": "17.2"
+  },
+  {
+    "id": "ligacao-076",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Aparece `SQLSTATE[HY000] [1045] Access denied for user 'root'`. Qual é a causa provável?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O utilizador ou a password estão errados",
+      "O MySQL está desligado no XAMPP",
+      "A base de dados ainda não foi importada do .sql",
+      "O SQL tem um ? a mais"
+    ],
+    "correta": 0,
+    "explicacao": "Access denied é um problema de credenciais: confirma o utilizador e a password no config/db.php.",
+    "manual": "17.2"
+  },
+  {
+    "id": "ligacao-077",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Que erro dá esta consulta?",
+    "codigo": "$stmt = $pdo->prepare('SELECT titlo FROM livros');\n$stmt->execute();",
+    "linguagem": "php",
+    "alternativas": [
+      "SQLSTATE[23000] Duplicate entry",
+      "SQLSTATE[HY093] Invalid parameter number",
+      "SQLSTATE[HY000] [1049] Unknown database",
+      "SQLSTATE[42S22] Unknown column"
+    ],
+    "correta": 3,
+    "explicacao": "A coluna chama-se titulo e está escrita titlo. Uma coluna que não existe dá o erro 42S22, Unknown column.",
+    "manual": "17.2"
+  },
+  {
+    "id": "ligacao-078",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "A lista mostra \"JosÃ©\" em vez de \"José\". Qual é a causa provável?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Falta o charset=utf8mb4 no DSN",
+      "Falta o htmlspecialchars() na lista",
+      "O nome foi gravado com hash",
+      "Falta o FETCH_ASSOC no fetchAll()"
+    ],
+    "correta": 0,
+    "explicacao": "Os caracteres estragados são um problema de codificação entre o PHP e o MySQL. Resolve-se com charset=utf8mb4 no DSN.",
+    "manual": "17.2, 8.1"
+  },
+  {
+    "id": "ligacao-079",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Para que serve `$isbn ?: null` antes de gravar o livro?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Dá um erro de validação se o campo vier vazio",
+      "Converte o ISBN para um número",
+      "Grava NULL quando o campo vem vazio",
+      "Protege contra a injeção de SQL"
+    ],
+    "correta": 2,
+    "explicacao": "O ?: devolve o valor da direita quando o da esquerda é vazio. Assim, um campo opcional por preencher fica NULL e não ''.",
+    "manual": "12.4"
+  },
+  {
+    "id": "ligacao-080",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "media",
+    "pergunta": "Na página \"A minha conta\", de onde vem o valor do `?` do SELECT dos dados pessoais?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Do $_GET['id'] no endereço",
+      "De um campo escondido no formulário",
+      "Do $pdo->lastInsertId()",
+      "Do $_SESSION['id_utilizador']"
+    ],
+    "correta": 3,
+    "explicacao": "O id vem da sessão, que o utilizador não consegue alterar. Se viesse do URL, bastava mudar o número para ver os dados de outra pessoa.",
+    "manual": "15.4"
+  },
+  {
+    "id": "ligacao-081",
+    "bloco": "php",
+    "tema": "PDO",
+    "dificuldade": "facil",
+    "pergunta": "Na página que edita um livro (livro_editar.php), para que serve o SELECT feito no pedido GET?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Para preencher o formulário com o livro",
+      "Para gravar as alterações do livro",
+      "Para apagar a versão antiga do livro antes do UPDATE",
+      "Para contar quantos livros existem"
+    ],
+    "correta": 0,
+    "explicacao": "No GET, a página lê o livro pelo id e põe os valores atuais no formulário. A gravação (UPDATE) só acontece no POST.",
+    "manual": "12.5"
+  },
+  {
+    "id": "redir-001",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "facil",
+    "pergunta": "O que faz `header('Location: livros.php');`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Inclui livros.php nesta página",
+      "Escreve o cabeçalho HTML da página",
+      "Guarda o endereço na sessão",
+      "Manda o browser pedir livros.php"
+    ],
+    "correta": 3,
+    "explicacao": "O header Location diz ao browser para fazer um novo pedido a outro endereço. Não é um include: o browser é que vai lá.",
+    "manual": "7.7"
+  },
+  {
+    "id": "redir-002",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "facil",
+    "pergunta": "Que código de estado HTTP acompanha um `header('Location: ...')`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "302",
+      "200",
+      "404",
+      "500"
+    ],
+    "correta": 0,
+    "explicacao": "O PHP responde com 302 (redirecionamento). 200 é OK, 404 é não encontrado e 500 é erro no servidor.",
+    "manual": "1.3, 7.7"
+  },
+  {
+    "id": "redir-003",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "facil",
+    "pergunta": "Qual é a forma certa de redirecionar depois de gravar?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "header('livros.php'); exit;",
+      "redirect('Location: livros.php'); exit;",
+      "header('Location: livros.php'); exit;",
+      "include 'livros.php'; exit;"
+    ],
+    "correta": 2,
+    "explicacao": "Redireciona-se com header('Location: ...') seguido de exit. Sem a palavra Location o browser não sabe para onde ir.",
+    "manual": "7.7, Anexo B"
+  },
+  {
+    "id": "redir-004",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "facil",
+    "pergunta": "Porque é que se escreve `exit` logo a seguir ao `header('Location: ...')`?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Para fechar a ligação à base de dados aberta",
+      "Senão o resto do código continua a correr",
+      "Para o browser aceitar o código 302",
+      "Para apagar a mensagem da sessão"
+    ],
+    "correta": 1,
+    "explicacao": "O header() só prepara a resposta; o script não para sozinho. O exit garante que nada mais corre, o que é uma questão de segurança.",
+    "manual": "7.7"
+  },
+  {
+    "id": "redir-005",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "dificil",
+    "pergunta": "Qual é o problema deste início do livro_apagar.php, a página que apaga livros?",
+    "codigo": "if ($_SERVER['REQUEST_METHOD'] !== 'POST') {\n    header('Location: livros.php');\n}\n$stmt = $pdo->prepare('DELETE FROM livros WHERE id_livro = ?');\n$stmt->execute([(int) ($_POST['id_livro'] ?? 0)]);",
+    "linguagem": "php",
+    "alternativas": [
+      "Devia ser == 'POST' e não !== 'POST'",
+      "O header() devia vir depois do DELETE",
+      "Falta responder com 404 a qualquer pedido GET",
+      "Falta o exit: o DELETE corre mesmo num GET"
+    ],
+    "correta": 3,
+    "explicacao": "Sem exit, o script continua depois do header() e chega ao DELETE. O exit é obrigatório depois de cada redirecionamento.",
+    "manual": "7.7, 12.6"
+  },
+  {
+    "id": "redir-006",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "facil",
+    "pergunta": "O que causa o aviso \"Cannot modify header information - headers already sent\"?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Chamar header() depois de já ter saído HTML",
+      "Chamar header() duas vezes seguidas na página",
+      "Esquecer o exit depois do header()",
+      "Chamar header() dentro de um if"
+    ],
+    "correta": 0,
+    "explicacao": "Os cabeçalhos vão antes do conteúdo. Se já saiu HTML ou um echo, é tarde demais para mudar os cabeçalhos.",
+    "manual": "17.1, 7.7"
+  },
+  {
+    "id": "redir-007",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Como se resolve o \"headers already sent\"?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Pôr o header() no fim, depois do rodapé",
+      "Trocar o require por include",
+      "Redirecionar antes de escrever HTML",
+      "Tirar o exit a seguir ao header()"
+    ],
+    "correta": 2,
+    "explicacao": "É a regra das páginas: primeiro processa-se (e redireciona-se se for preciso), só depois se escreve o HTML.",
+    "manual": "17.1"
+  },
+  {
+    "id": "redir-008",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Um colega escreveu header('Location: livros.php'); exit; e só depois mensagem('sucesso', 'Livro criado.');. O que acontece?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A mensagem aparece na lista de livros.",
+      "A mensagem aparece duas vezes.",
+      "Dá o aviso \"headers already sent\".",
+      "Nunca aparece: o exit para o script."
+    ],
+    "correta": 3,
+    "explicacao": "O exit termina o script, por isso a linha do mensagem() nunca corre. Primeiro guarda-se a mensagem; só depois se redireciona com header() e exit.",
+    "manual": "7.7, 9.3"
+  },
+  {
+    "id": "redir-009",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Qual é o problema deste código?",
+    "codigo": "<h1>Novo livro</h1>\n<?php\nheader('Location: livros.php');\nexit;",
+    "linguagem": "php",
+    "alternativas": [
+      "Falta fechar o bloco com ?>",
+      "O exit devia vir antes do header()",
+      "O header() tinha de usar aspas duplas no endereço",
+      "O header() vem depois de HTML já enviado"
+    ],
+    "correta": 3,
+    "explicacao": "O <h1> já foi enviado ao browser antes do header(). Isso dá o aviso \"headers already sent\" e o redirecionamento falha.",
+    "manual": "17.1, 7.7"
+  },
+  {
+    "id": "redir-010",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "facil",
+    "pergunta": "Qual é a regra que resume o padrão das páginas da Biblioteca?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Processar antes de mostrar",
+      "Mostrar antes de processar",
+      "Validar só no browser",
+      "Redirecionar antes de validar"
+    ],
+    "correta": 0,
+    "explicacao": "Cada página trata primeiro o pedido (ler, validar, gravar, redirecionar) e só depois mostra o cabeçalho, o HTML e o rodapé.",
+    "manual": "7.8"
+  },
+  {
+    "id": "redir-011",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "No padrão das páginas da Biblioteca, o que se faz quando o pedido é POST?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Mostrar o formulário vazio",
+      "Ler, validar, gravar e redirecionar",
+      "Ler, gravar e mostrar sem redirecionar",
+      "Validar e mostrar logo a lista"
+    ],
+    "correta": 1,
+    "explicacao": "Um POST traz dados: lê-se, valida-se e, se estiver tudo bem, grava-se e redireciona-se.",
+    "manual": "7.8"
+  },
+  {
+    "id": "redir-012",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "facil",
+    "pergunta": "No padrão das páginas da Biblioteca, qual é o último passo?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Ler, validar e gravar os dados do POST",
+      "Mostrar o cabeçalho, o HTML e o rodapé",
+      "Fazer o require do includes/inicio.php",
+      "Redirecionar com header() e exit"
+    ],
+    "correta": 1,
+    "explicacao": "A ordem é: inicio.php, auth.php se a página for restrita, tratar o POST, preparar os dados e, por fim, cabeçalho, HTML e rodapé. Processa-se antes de mostrar.",
+    "manual": "7.8"
+  },
+  {
+    "id": "redir-013",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Abres o formulário de criar livros (livro_novo.php) pela primeira vez, a partir de um link. O que acontece?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "É um POST: grava um livro vazio na base de dados",
+      "É um GET: mostra o formulário vazio",
+      "Redireciona para livros.php",
+      "Responde 404, porque não há id"
+    ],
+    "correta": 1,
+    "explicacao": "Um link faz sempre um pedido GET. O bloco do POST não corre e a página mostra o formulário por preencher.",
+    "manual": "12.4, 7.8"
+  },
+  {
+    "id": "redir-014",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Na página que cria livros, a lista de autores para o select só é lida depois do bloco que trata o POST. Porquê?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O POST apagaria a variável $autores",
+      "Se o POST redirecionar, a lista nem chega a ser usada",
+      "O lista_autores() só funciona depois de um POST",
+      "O $pdo só existe depois do bloco do POST"
+    ],
+    "correta": 1,
+    "explicacao": "Primeiro processa-se o pedido. Só se a página for mesmo mostrar o formulário é que vale a pena ir buscar os autores.",
+    "manual": "7.8, 12.4"
+  },
+  {
+    "id": "redir-015",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "facil",
+    "pergunta": "Porque se redireciona depois de um POST bem sucedido?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Para a página ir para os favoritos",
+      "Para limpar os dados da sessão",
+      "Para o pedido ser mais rápido",
+      "Para o F5 não voltar a gravar"
+    ],
+    "correta": 3,
+    "explicacao": "Depois do redirecionamento, a última coisa que o browser fez foi um GET. Um F5 repete só esse GET e não grava outra vez.",
+    "manual": "9.5, Anexo B"
+  },
+  {
+    "id": "redir-016",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "facil",
+    "pergunta": "Como se chama o padrão \"gravar com POST, responder com redirecionamento e mostrar com GET\"?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Model-View-Controller",
+      "Create/Read/Update/Delete",
+      "Request/Response",
+      "Post/Redirect/Get"
+    ],
+    "correta": 3,
+    "explicacao": "É o Post/Redirect/Get (PRG): evita gravar duas vezes quando o utilizador recarrega a página.",
+    "manual": "9.5"
+  },
+  {
+    "id": "redir-017",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Uma página grava o livro e responde ao POST com \"Livro criado.\", sem redirecionar. O utilizador carrega em F5 e confirma. O que acontece?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Não acontece nada",
+      "O livro é gravado outra vez",
+      "Volta à lista de livros",
+      "Aparece um erro 404"
+    ],
+    "correta": 1,
+    "explicacao": "Sem redirecionamento, o último pedido foi o POST. O F5 repete-o e o livro fica em duplicado.",
+    "manual": "9.5"
+  },
+  {
+    "id": "redir-018",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "facil",
+    "pergunta": "O que quer dizer o aviso do browser \"Confirmar reenvio do formulário\"?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A sessão do utilizador expirou",
+      "O browser vai repetir o POST anterior",
+      "O formulário tem campos com erros",
+      "O servidor pede a password do utilizador outra vez"
+    ],
+    "correta": 1,
+    "explicacao": "Aparece quando recarregas uma página que veio de um POST. É o sinal de que falta o Post/Redirect/Get.",
+    "manual": "9.5"
+  },
+  {
+    "id": "redir-019",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Que teste confirma que o Post/Redirect/Get está a funcionar?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Desligar o JavaScript e enviar o formulário vazio",
+      "Abrir uma página restrita em modo anónimo",
+      "Criar um livro e carregar em F5 sem duplicar",
+      "Pesquisar ' OR 1=1 -- na caixa"
+    ],
+    "correta": 2,
+    "explicacao": "O PRG existe para o F5 não gravar outra vez. Os outros testes verificam a validação, o controlo de acesso e a injeção de SQL.",
+    "manual": "16, 9.5"
+  },
+  {
+    "id": "redir-020",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Quando a validação no servidor falha, o que faz a página?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Mostra o formulário com os erros, sem redirecionar",
+      "Redireciona para a lista com um erro",
+      "Redireciona para o formulário vazio",
+      "Grava na mesma e mostra um aviso"
+    ],
+    "correta": 0,
+    "explicacao": "Só se redireciona depois de gravar com sucesso. Com erros, a página mostra logo o formulário com os erros e os valores escritos.",
+    "manual": "9.5"
+  },
+  {
+    "id": "redir-021",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "dificil",
+    "pergunta": "Este código trata a validação falhada. Qual é o problema?",
+    "codigo": "if ($erros) {\n    mensagem('erro', 'Há erros no formulário.');\n    header('Location: livro_novo.php');\n    exit;\n}",
+    "linguagem": "php",
+    "alternativas": [
+      "Perdem-se os erros e o que foi escrito",
+      "Falta o session_start() antes de mensagem()",
+      "A mensagem() só aceita o tipo 'sucesso'",
+      "O exit devia vir antes do header()"
+    ],
+    "correta": 0,
+    "explicacao": "Ao redirecionar, a página nova chega vazia: sem a lista de erros nem os valores escritos. Com erros, não se redireciona.",
+    "manual": "9.4, 9.5"
+  },
+  {
+    "id": "redir-022",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Porque é que o título escrito volta a aparecer no formulário quando há um erro de validação?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O browser guarda sozinho tudo o que escreveste antes",
+      "A sessão guarda o formulário inteiro",
+      "A página não redirecionou e ainda tem os dados",
+      "O JavaScript repõe os valores"
+    ],
+    "correta": 2,
+    "explicacao": "Como não houve redirecionamento, a página ainda tem os valores do POST e escreve-os no value de cada campo.",
+    "manual": "12.4, 9.5"
+  },
+  {
+    "id": "redir-023",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Na página que cria livros (livro_novo.php), quando é que há redirecionamento?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Só depois de gravar com sucesso",
+      "Sempre que o pedido é POST",
+      "Quando a validação encontra erros",
+      "Ao abrir a página com um GET"
+    ],
+    "correta": 0,
+    "explicacao": "O redirecionamento é o \"R\" do PRG: só acontece depois de um POST que gravou mesmo.",
+    "manual": "12.4, 9.5"
+  },
+  {
+    "id": "redir-024",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "facil",
+    "pergunta": "Onde é que a função mensagem() guarda o texto a mostrar?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Num cookie com o texto",
+      "No endereço da página seguinte, em $_GET['msg']",
+      "No array $erros",
+      "Na sessão, em $_SESSION['msg']"
+    ],
+    "correta": 3,
+    "explicacao": "A mensagem fica na sessão, no servidor, para sobreviver ao redirecionamento e ser mostrada no pedido seguinte.",
+    "manual": "9.1, 9.3"
+  },
+  {
+    "id": "redir-025",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Porque é que a mensagem \"Livro criado.\" tem de passar pela sessão?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "O header() apaga o HTML da página",
+      "O redirecionamento faz um pedido novo",
+      "O $_POST só pode ser lido uma vez",
+      "Para a mensagem não ser escrita na página atual"
+    ],
+    "correta": 1,
+    "explicacao": "Cada pedido começa do zero: as variáveis do POST perdem-se. A sessão é o que se mantém entre o POST e o GET seguinte.",
+    "manual": "9.3"
+  },
+  {
+    "id": "redir-026",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "O que faz o `unset` neste excerto do cabeçalho?",
+    "codigo": "<?php if (isset($_SESSION['msg'])): ?>\n    <div class=\"msg <?= $_SESSION['msg']['tipo'] ?>\">\n        <?= htmlspecialchars($_SESSION['msg']['texto']) ?>\n    </div>\n    <?php unset($_SESSION['msg']); ?>\n<?php endif; ?>",
+    "linguagem": "php",
+    "alternativas": [
+      "Apaga a mensagem, para ser mostrada uma vez",
+      "Termina a sessão do utilizador",
+      "Apaga todos os dados de $_SESSION",
+      "Esconde a mensagem com CSS"
+    ],
+    "correta": 0,
+    "explicacao": "A mensagem mostra-se e apaga-se logo. Só sai a chave msg: a sessão e o id do utilizador continuam.",
+    "manual": "9.2, 9.3"
+  },
+  {
+    "id": "redir-027",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "dificil",
+    "pergunta": "Se tirasses o `unset($_SESSION['msg'])` do cabeçalho, o que acontecia?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "A mensagem nunca chegava a aparecer",
+      "A mensagem repetia-se em todas as páginas",
+      "A mensagem aparecia só uma vez",
+      "A sessão terminava logo depois de mostrar a mensagem"
+    ],
+    "correta": 1,
+    "explicacao": "Sem unset, a mensagem fica na sessão e o cabeçalho volta a mostrá-la em cada página seguinte.",
+    "manual": "9.2, 9.3"
+  },
+  {
+    "id": "redir-028",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Que HTML escreve este excerto depois de `mensagem('erro', 'Esse livro não existe.');`?",
+    "codigo": "<div class=\"msg <?= $_SESSION['msg']['tipo'] ?>\">\n    <?= htmlspecialchars($_SESSION['msg']['texto']) ?>\n</div>",
+    "linguagem": "php",
+    "alternativas": [
+      "<div class=\"msg erro\">Esse livro não existe.</div>",
+      "<div class=\"msg sucesso\">Esse livro não existe.</div>",
+      "<div class=\"erro\">msg Esse livro não existe.</div>",
+      "<div class=\"msg\">erro: Esse livro não existe.</div>"
+    ],
+    "correta": 0,
+    "explicacao": "O tipo ('erro') vira a segunda classe do div e o texto vai lá dentro. O CSS da classe erro pinta-o de vermelho.",
+    "manual": "9.2, 9.3"
+  },
+  {
+    "id": "redir-029",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "facil",
+    "pergunta": "Para que serve o tipo ('sucesso' ou 'erro') de uma mensagem?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Define o código HTTP da resposta",
+      "Decide se a página redireciona",
+      "Vira uma classe CSS: verde ou vermelho",
+      "Escolhe a página de destino"
+    ],
+    "correta": 2,
+    "explicacao": "O tipo é usado como classe do div (msg sucesso ou msg erro), e o CSS dá a cor certa a cada um.",
+    "manual": "9.3"
+  },
+  {
+    "id": "redir-030",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "facil",
+    "pergunta": "Como se chama uma mensagem guardada para ser mostrada uma só vez na página seguinte?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Cookie de sessão",
+      "Alerta de JavaScript",
+      "Mensagem flash",
+      "Registo de erros"
+    ],
+    "correta": 2,
+    "explicacao": "Uma mensagem flash aparece uma vez, depois de um redirecionamento, e desaparece.",
+    "manual": "9.3"
+  },
+  {
+    "id": "redir-031",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Porque é que os erros de validação não precisam da sessão, ao contrário das mensagens de sucesso?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "São guardados num cookie do browser",
+      "Vão no endereço da página seguinte",
+      "São mostrados só pelo JavaScript",
+      "São mostrados no mesmo pedido, sem redirecionar"
+    ],
+    "correta": 3,
+    "explicacao": "Com erros não há redirecionamento: o array $erros é mostrado logo, na resposta ao próprio POST.",
+    "manual": "9.4"
+  },
+  {
+    "id": "redir-032",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Quando é que este bloco mostra a caixa de erros?",
+    "codigo": "<?php if (!empty($erros)): ?>\n    <ul id=\"erros-js\" class=\"msg erro\">\n        <?php foreach ($erros as $e): ?><li><?= $e ?></li><?php endforeach; ?>\n    </ul>\n<?php endif; ?>",
+    "linguagem": "php",
+    "alternativas": [
+      "Quando $erros tem pelo menos um erro",
+      "Quando $erros está vazio",
+      "Sempre que o pedido é POST",
+      "Quando há uma mensagem na sessão"
+    ],
+    "correta": 0,
+    "explicacao": "!empty($erros) é verdadeiro quando o array tem algum elemento. Num GET, ou num POST sem erros, a caixa não aparece.",
+    "manual": "9.4"
+  },
+  {
+    "id": "redir-033",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "dificil",
+    "pergunta": "O livro é gravado, mas o browser vai para uma página errada. Porquê?",
+    "codigo": "$novoId = $pdo->lastInsertId();\nheader('Location: livro_ver.php?id=$novoId');\nexit;",
+    "linguagem": "php",
+    "alternativas": [
+      "O lastInsertId() devolve sempre 0 depois do INSERT",
+      "Falta indicar o código 302",
+      "O exit corta o redirecionamento",
+      "Com plicas, $novoId não é substituído"
+    ],
+    "correta": 3,
+    "explicacao": "Entre aspas simples o PHP não substitui variáveis: o URL leva o texto $novoId. Com aspas duplas ficava id=12, por exemplo.",
+    "manual": "12.4, 7.2"
+  },
+  {
+    "id": "redir-034",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "facil",
+    "pergunta": "O que faz livro_apagar.php se receber um pedido GET?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Apaga o livro indicado no endereço",
+      "Mostra uma página de confirmação",
+      "Responde com o erro 404",
+      "Redireciona para livros.php sem apagar"
+    ],
+    "correta": 3,
+    "explicacao": "livro_apagar.php só aceita POST. Se o pedido for GET, redireciona logo para a lista, sem tocar na base de dados.",
+    "manual": "12.6"
+  },
+  {
+    "id": "redir-035",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Porque é que livro_apagar.php só aceita POST?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Porque o POST vai cifrado",
+      "Um GET não deve alterar dados",
+      "Porque o GET não consegue enviar o id",
+      "Porque o PRG só funciona com POST"
+    ],
+    "correta": 1,
+    "explicacao": "Um link (GET) pode ser seguido por um robô ou por uma pré-visualização e apagaria livros. Alterar dados é sempre com POST.",
+    "manual": "1.2, 12.6"
+  },
+  {
+    "id": "redir-036",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "livro_apagar.php redireciona sempre para livros.php. Como fica o utilizador a saber se o livro foi apagado?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Pelo código HTTP: 200 ou 404",
+      "Por um alert() escrito pela página",
+      "Pela mensagem guardada com mensagem()",
+      "Pelo $erros, que segue no redirecionamento"
+    ],
+    "correta": 2,
+    "explicacao": "Antes de redirecionar, guarda \"Livro apagado.\" ou \"O livro já não existia.\" na sessão. O cabeçalho da lista mostra-a.",
+    "manual": "12.6, 9.3"
+  },
+  {
+    "id": "redir-037",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "dificil",
+    "pergunta": "Como lê o livro_editar.php o id do livro quando o formulário é gravado?",
+    "codigo": "<form action=\"livro_editar.php?id=7\" method=\"post\">\n    <input name=\"titulo\" value=\"Os Maias\">\n    <button>Guardar</button>\n</form>",
+    "linguagem": "html",
+    "alternativas": [
+      "Com $_POST['id'], porque o formulário é um POST",
+      "Com $_SESSION['id'], guardado antes",
+      "Com $_GET['id'], porque vem no action",
+      "Não lê: o id perde-se no POST"
+    ],
+    "correta": 2,
+    "explicacao": "O id está no endereço do action. Num POST, o que vem no URL continua em $_GET; o que vem dos campos está em $_POST.",
+    "manual": "12.5, 7.5"
+  },
+  {
+    "id": "redir-038",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Abres `livro_editar.php?id=999` e esse livro não existe. O que acontece?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Abre o formulário vazio para criar um livro novo",
+      "Aparece um erro 500 do servidor",
+      "Mensagem de erro e volta para a lista",
+      "Grava um livro novo com id 999"
+    ],
+    "correta": 2,
+    "explicacao": "No GET, a página procura o livro; se não existir, guarda uma mensagem de erro e redireciona para livros.php.",
+    "manual": "12.5"
+  },
+  {
+    "id": "redir-039",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "media",
+    "pergunta": "Editas o livro 7, sem erros, e carregas em Guardar. Que página aparece a seguir?",
+    "codigo": "$stmt->execute([$titulo, $idAutor, $id]);\nmensagem('sucesso', 'Livro atualizado.');\nheader(\"Location: livro_ver.php?id=$id\");\nexit;",
+    "linguagem": "php",
+    "alternativas": [
+      "O formulário de novo, com \"Livro atualizado.\"",
+      "livros.php, sem nenhuma mensagem",
+      "livro_ver.php?id=7, com \"Livro atualizado.\"",
+      "livro_editar.php?id=7, sem mensagem"
+    ],
+    "correta": 2,
+    "explicacao": "Depois do UPDATE, guarda a mensagem e redireciona para a página do livro. O cabeçalho dessa página mostra a mensagem.",
+    "manual": "12.5, 9.3"
+  },
+  {
+    "id": "redir-040",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "dificil",
+    "pergunta": "Antes de redirecionar, um colega chamou mensagem() duas vezes. O que aparece na página seguinte?",
+    "codigo": "mensagem('sucesso', 'Livro criado.');\nmensagem('sucesso', 'Obrigado!');\nheader('Location: livros.php');\nexit;",
+    "linguagem": "php",
+    "alternativas": [
+      "Só \"Livro criado.\"",
+      "As duas, uma por baixo da outra",
+      "Nenhuma das duas mensagens",
+      "Só \"Obrigado!\""
+    ],
+    "correta": 3,
+    "explicacao": "mensagem() guarda sempre em $_SESSION['msg']. A segunda chamada substitui a primeira, por isso só fica \"Obrigado!\".",
+    "manual": "9.1, 9.3"
+  },
+  {
+    "id": "redir-041",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "dificil",
+    "pergunta": "Depois de gravar, um colega redireciona para obrigado.html, uma página só com HTML, sem o cabeçalho da Biblioteca. Onde aparece a mensagem?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Em obrigado.html, no topo",
+      "Na próxima página com o cabeçalho",
+      "Em lado nenhum: perde-se",
+      "Num alert() do browser"
+    ],
+    "correta": 1,
+    "explicacao": "Quem mostra a mensagem é o cabeçalho. Ela fica na sessão até uma página com esse cabeçalho a mostrar e apagar.",
+    "manual": "9.2, 9.3"
+  },
+  {
+    "id": "redir-042",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "dificil",
+    "pergunta": "Enviaste um livro sem título e a página mostrou o formulário com o erro. Carregas em F5 e confirmas o reenvio. O que acontece?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Grava o livro sem título",
+      "Volta à lista de livros",
+      "Envia de novo e mostra o mesmo erro",
+      "Termina a sessão e pede um novo login"
+    ],
+    "correta": 2,
+    "explicacao": "O F5 repete o POST com os mesmos dados. Continuam inválidos, por isso a validação volta a falhar e nada é gravado.",
+    "manual": "9.4, 9.5"
+  },
+  {
+    "id": "redir-043",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "dificil",
+    "pergunta": "Um colega tirou o `exit` a seguir ao header(). Crias um livro sem erros. O que acontece?",
+    "codigo": "mensagem('sucesso', 'Livro criado.');\nheader(\"Location: livro_ver.php?id=$novoId\");\n// falta o exit\n$autores = lista_autores($pdo);\nrequire 'includes/cabecalho.php'; // mostra e apaga a msg",
+    "linguagem": "php",
+    "alternativas": [
+      "Vai para o livro, mas sem \"Livro criado.\"",
+      "Vai para o livro, com \"Livro criado.\"",
+      "Fica no formulário, sem redirecionar",
+      "O livro fica gravado duas vezes"
+    ],
+    "correta": 0,
+    "explicacao": "Sem exit, o resto corre: o cabeçalho mostra e apaga a mensagem numa resposta que o browser não exibe, porque segue o redirecionamento. Quando chega ao livro, a mensagem já não está na sessão.",
+    "manual": "7.7, 9.3"
+  },
+  {
+    "id": "redir-044",
+    "bloco": "php",
+    "tema": "Redirecionar e PRG",
+    "dificuldade": "facil",
+    "pergunta": "No separador Rede (F12), o que vês depois de gravar um livro na Biblioteca?",
+    "codigo": "",
+    "linguagem": "",
+    "alternativas": [
+      "Um POST com 302 e depois um GET com 200",
+      "Só um POST com o código 200",
+      "Um GET com 302 e depois um POST com o código 200",
+      "Um POST com o código 404"
+    ],
+    "correta": 0,
+    "explicacao": "O POST grava e responde 302; o browser segue o Location com um GET, que responde 200.",
+    "manual": "1.3, 9.5"
+  }
+]

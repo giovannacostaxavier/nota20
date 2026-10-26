@@ -1,4 +1,4 @@
-// Junta dados/amostra.json + dados/parciais/*.json num só banco,
+// Junta dados/parciais/*.json num só banco,
 // valida tudo e gera dados/banco.json e js/banco.js (usado pelo site).
 // Uso: node scripts/juntar.mjs
 import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs';
@@ -10,8 +10,8 @@ const raiz = join(dirname(fileURLToPath(import.meta.url)), '..');
 const pasta = join(raiz, 'dados', 'parciais');
 
 const pedidos = process.argv.slice(2);
-const fontes = pedidos.length ? [join(raiz, 'dados', 'amostra.json'), ...pedidos] : [join(raiz, 'dados', 'amostra.json')]
-    .concat(existsSync(pasta) ? readdirSync(pasta).filter(f => f.endsWith('.json')).sort().map(f => join(pasta, f)) : []);
+const fontes = pedidos.length ? pedidos
+    : existsSync(pasta) ? readdirSync(pasta).filter(f => f.endsWith('.json')).sort().map(f => join(pasta, f)) : [];
 
 let banco = [];
 for (const f of fontes) {

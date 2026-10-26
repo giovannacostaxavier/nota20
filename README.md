@@ -34,9 +34,10 @@ Site de simulados para o teste da UC00615. As regras são as do teste do formado
 - As perguntas estão em `dados/` e são geradas a partir do **manual do formador** (a aplicação "Biblioteca") e da secção 3.1 do dossier, a matéria oficial do teste.
 - Cada pergunta indica a secção do manual que a sustenta.
 - Não há perguntas sobre projetos de alunos.
+- O estilo segue o teste do formador: enunciados e opções curtos e claros, sem pegadinhas, e código pequeno (no máximo 8 linhas). Cerca de 35% das perguntas são fáceis, 45% médias e 20% difíceis.
+- Cada simulado tem no máximo 1/3 das perguntas com código (15 no teste geral e 5 nos de 15 perguntas).
 
 ```
-dados/amostra.json        perguntas de exemplo
 dados/parciais/*.json     perguntas por tema
 dados/banco.json          banco completo (gerado)
 js/banco.js               o mesmo banco, carregado pelo site (gerado)
