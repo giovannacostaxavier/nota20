@@ -550,11 +550,11 @@
     "alternativas": [
       "Para apagar os dados do formulário",
       "Para mostrar já os erros na página",
-      "Para criar a tabela de erros",
-      "Para começar com uma lista vazia"
+      "Para guardar os erros na sessão",
+      "Para o $erros existir mesmo sem erros"
     ],
     "correta": 3,
-    "explicacao": "Cada regra que falha acrescenta um texto. Se no fim o array continuar vazio, não houve erros.",
+    "explicacao": "Cada regra que falha acrescenta um texto. Sem o $erros = [];, um formulário sem erros deixava a variável por criar e o return/if dava aviso. Se no fim o array continuar vazio, não houve erros.",
     "manual": "7.2, 10.2"
   },
   {
@@ -1030,17 +1030,17 @@
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "dificil",
-    "pergunta": "Uma função lê $_POST sem o receber como parâmetro, mas para usar o $pdo tem de o receber. Porquê?",
+    "pergunta": "Dentro de uma função, que variáveis de fora se usam sem as passar como parâmetro?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O $_POST vê-se em qualquer função; o $pdo, não",
-      "Uma função só pode usar uma variável de fora",
-      "O $_POST só existe dentro de funções",
-      "É só um hábito, porque as duas formas funcionam bem"
+      "$_POST e $_SESSION",
+      "$pdo e $_POST",
+      "Só o $pdo",
+      "Nenhuma: tudo entra por parâmetro"
     ],
     "correta": 0,
-    "explicacao": "As superglobais ($_POST, $_GET, $_SESSION) existem em todo o lado. Uma variável normal como $pdo tem de entrar como parâmetro.",
+    "explicacao": "As superglobais ($_POST, $_GET, $_SESSION) existem em todo o lado. Uma variável normal como $pdo, criada fora da função, tem de entrar como parâmetro.",
     "manual": "7.4, 7.5, 12.4"
   },
   {
@@ -1048,17 +1048,17 @@
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
-    "pergunta": "Qual destas funções foi escrita pela Biblioteca e não vem com o PHP?",
+    "pergunta": "O que é preciso para uma página poder chamar a mensagem()?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "mensagem()",
-      "trim()",
-      "count()",
-      "htmlspecialchars()"
+      "Incluir o ficheiro que a define",
+      "Nada: já vem com o PHP",
+      "Ativá-la no php.ini",
+      "Chamá-la com new"
     ],
     "correta": 0,
-    "explicacao": "mensagem() está definida no includes/inicio.php. As outras são funções nativas do PHP.",
+    "explicacao": "mensagem() não é nativa: está definida no includes/inicio.php, que cada página inclui. Funções nativas como trim() ou count() estão sempre disponíveis.",
     "manual": "7.4, 9.1"
   },
   {
@@ -1163,7 +1163,7 @@
       "O campo vem vazio e passa",
       "O campo vem com 'off' e passa",
       "O campo não vem e o erro é acrescentado",
-      "Aparece só um aviso de chave inexistente no ecrã"
+      "Dá aviso: a chave não existe"
     ],
     "correta": 2,
     "explicacao": "Uma checkbox por assinalar não é enviada. isset() dá false, o ! inverte e o erro entra na lista.",
@@ -1180,11 +1180,11 @@
     "alternativas": [
       "O dia da semana",
       "A data completa de hoje",
-      "O ano em que o ficheiro foi criado no servidor",
+      "O ano atual com 2 algarismos",
       "O ano atual com 4 algarismos"
     ],
     "correta": 3,
-    "explicacao": "O 'Y' pede o ano com quatro algarismos, por exemplo 2026.",
+    "explicacao": "O 'Y' maiúsculo pede o ano com quatro algarismos, por exemplo 2026.",
     "manual": "7.4"
   },
   {
@@ -1268,10 +1268,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Redireciona para a página 404.php",
-      "Termina o PHP e mostra uma página em branco",
-      "Escreve \"404\" na página",
-      "Muda o código de estado para 404"
+      "Mostra a página de erro 404 do Apache",
+      "Termina o PHP, como o exit",
+      "Redireciona para a página 404",
+      "Só muda o código de estado para 404"
     ],
     "correta": 3,
     "explicacao": "Só muda o código da resposta. A página continua a correr e mostra a sua mensagem.",
@@ -1282,17 +1282,17 @@
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
-    "pergunta": "Para que serve filter_var($email, FILTER_VALIDATE_EMAIL)?",
+    "pergunta": "O que verifica filter_var($email, FILTER_VALIDATE_EMAIL)?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Enviar um email de confirmação",
-      "Ver se o email já está registado na base de dados",
-      "Verificar se tem formato de email",
-      "Passar o email para minúsculas"
+      "Se o email já está registado",
+      "Se a caixa de email existe",
+      "Se tem formato de email",
+      "Se o email foi confirmado"
     ],
     "correta": 2,
-    "explicacao": "Devolve o email se o formato for válido e false se não for. Saber se já existe exige uma consulta à base de dados.",
+    "explicacao": "Devolve o email se o formato for válido e false se não for. Não contacta o servidor de email; saber se já existe exige uma consulta à base de dados.",
     "manual": "7.4, 10.2"
   },
   {
@@ -1322,7 +1322,7 @@
     "codigo": "preg_match('/^[0-9]{10}([0-9]{3})?$/', $isbn)",
     "linguagem": "php",
     "alternativas": [
-      "978972203629",
+      "97897220",
       "9789722036290",
       "978-972203629",
       "ISBN9722036"
@@ -1556,13 +1556,13 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Verifica se o valor existe",
-      "Escapa o valor para HTML",
+      "Verifica se o valor é inteiro",
+      "Recusa valores que não são números",
       "Converte o valor num inteiro",
-      "Recusa valores negativos"
+      "Dá erro se o valor for texto"
     ],
     "correta": 2,
-    "explicacao": "(int) converte para número inteiro. Um texto que não é número passa a 0.",
+    "explicacao": "(int) converte para número inteiro, não valida nem dá erro. Um texto que não é número passa a 0.",
     "manual": "7.5"
   },
   {
@@ -1737,7 +1737,7 @@
     "linguagem": "",
     "alternativas": [
       "Insere ali o ficheiro, como se lá estivesse",
-      "Redireciona o browser para esse ficheiro, como o header()",
+      "Redireciona o browser para esse ficheiro",
       "Abre o ficheiro numa janela nova",
       "Liga o ficheiro como o <link> do CSS"
     ],
@@ -1862,7 +1862,7 @@
     "codigo": "require 'includes/funcoes.php';\nrequire 'includes/funcoes.php';",
     "linguagem": "php",
     "alternativas": [
-      "Funciona: o segundo require é simplesmente ignorado",
+      "Funciona: o 2.º require é ignorado",
       "Erro fatal: mensagem() declarada 2 vezes",
       "Só um aviso, e a página continua",
       "A função mensagem() corre duas vezes"
@@ -1877,16 +1877,16 @@
     "tema": "include e require",
     "dificuldade": "media",
     "pergunta": "Quantas vezes aparece o rodapé?",
-    "codigo": "include_once 'includes/rodape.php';\ninclude_once 'includes/rodape.php';",
+    "codigo": "include 'includes/rodape.php';\ninclude 'includes/rodape.php';",
     "linguagem": "php",
     "alternativas": [
-      "Duas vezes",
+      "Uma vez: o 2.º é ignorado",
       "Nenhuma: dá erro",
-      "Duas, com um aviso",
-      "Uma vez"
+      "Uma vez, com um aviso",
+      "Duas vezes"
     ],
     "correta": 3,
-    "explicacao": "O include_once vê que o ficheiro já foi incluído e salta a segunda vez.",
+    "explicacao": "O include insere o ficheiro sempre que aparece. Só o include_once/require_once salta a segunda vez.",
     "manual": "7.6"
   },
   {
@@ -1953,9 +1953,9 @@
     "linguagem": "php",
     "alternativas": [
       "Da sessão, guardado no login",
-      "Do browser, em cada pedido",
+      "Do auth.php, que verifica o login",
       "Do db.php, incluído pelo inicio.php",
-      "O PHP cria-o sozinho"
+      "Do cabecalho.php, incluído pelo inicio.php"
     ],
     "correta": 2,
     "explicacao": "O código incluído funciona como se estivesse na página. O inicio.php inclui o db.php, que cria o $pdo.",
@@ -1990,8 +1990,8 @@
     "alternativas": [
       "Todas as páginas com consultas",
       "Só o config/db.php",
-      "O inicio.php e o auth.php",
-      "O ficheiro .sql da base de dados"
+      "O config/db.php e o inicio.php",
+      "Só o includes/inicio.php"
     ],
     "correta": 1,
     "explicacao": "As credenciais estão num único ficheiro, que todas as páginas incluem. Muda-se num só sítio.",
@@ -2008,7 +2008,7 @@
     "alternativas": [
       "Em cada página, após o require",
       "No includes/inicio.php",
-      "No config/db.php",
+      "No includes/rodape.php",
       "No includes/cabecalho.php"
     ],
     "correta": 3,
@@ -2062,7 +2062,7 @@
     "alternativas": [
       "Dá erro fatal para toda a gente",
       "Só abre para quem tem sessão",
-      "Some do menu de navegação",
+      "Desaparece do menu",
       "Abre mesmo sem sessão iniciada"
     ],
     "correta": 3,
@@ -2079,7 +2079,7 @@
     "linguagem": "",
     "alternativas": [
       "Correm todas logo, por ordem",
-      "Corre só a primeira função definida no ficheiro",
+      "Corre só a primeira função",
       "Ficam definidas; correm quando chamadas",
       "O código aparece na página"
     ],

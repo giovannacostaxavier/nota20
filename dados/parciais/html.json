@@ -58,17 +58,17 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "facil",
-    "pergunta": "Que linha faz a página adaptar-se à largura do ecrã do telemóvel?",
+    "pergunta": "Que valor de name tem o <meta> que adapta a página à largura do telemóvel?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "<meta name=\"mobile\" content=\"width=device-width\">",
-      "<meta charset=\"UTF-8\">",
-      "<html lang=\"pt\" mobile>",
-      "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+      "mobile",
+      "screen",
+      "device",
+      "viewport"
     ],
     "correta": 3,
-    "explicacao": "O <meta name=\"viewport\"> faz o telemóvel usar a sua largura real. Sem ele, a página aparece encolhida e as media queries não funcionam.",
+    "explicacao": "O <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"> faz o telemóvel usar a sua largura real. Sem ele, a página aparece encolhida e as media queries não funcionam.",
     "manual": "4.1"
   },
   {
@@ -153,8 +153,8 @@
     "linguagem": "",
     "alternativas": [
       "<head> tem o PHP; <body> tem o HTML",
-      "<head> é o cabeçalho visível da página; <body> é todo o resto",
-      "<head> tem informação sobre a página; <body> tem o que se vê",
+      "<head> é o cabeçalho visível; <body> é o resto",
+      "<head> tem dados da página; <body> o que se vê",
       "<head> tem o CSS; <body> tem o JavaScript"
     ],
     "correta": 2,
@@ -238,17 +238,17 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "facil",
-    "pergunta": "Para que serve o atributo value de um <input>?",
+    "pergunta": "Num <input type=\"text\">, o que faz o atributo value?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Dá o texto da etiqueta",
+      "Mostra uma dica que some ao escrever",
       "Dá a chave com que chega ao servidor",
-      "Dá o valor inicial do campo",
+      "Põe esse texto no campo ao abrir",
       "Dá o número máximo de caracteres"
     ],
     "correta": 2,
-    "explicacao": "O value é o valor que o campo já traz quando a página abre. A chave no servidor é o name e o limite de caracteres é o maxlength.",
+    "explicacao": "O value é o texto que o campo já traz quando a página abre. A dica que desaparece é o placeholder, a chave no servidor é o name e o limite de caracteres é o maxlength.",
     "manual": "4.2"
   },
   {
@@ -388,7 +388,7 @@
     "alternativas": [
       "<tfoot>",
       "<footer>",
-      "<bottom>",
+      "<section>",
       "<foot>"
     ],
     "correta": 1,
@@ -405,12 +405,12 @@
     "linguagem": "",
     "alternativas": [
       "<main>",
-      "<menu-links>",
+      "<header>",
       "<navigation>",
       "<nav>"
     ],
     "correta": 3,
-    "explicacao": "O <nav> é o elemento semântico para a navegação. O <main> é para o conteúdo principal de cada página.",
+    "explicacao": "O <nav> é o elemento semântico para a navegação. O <header> é o cabeçalho, que pode conter o <nav>, e o <main> é o conteúdo principal.",
     "manual": "9.2"
   },
   {
@@ -423,7 +423,7 @@
     "linguagem": "",
     "alternativas": [
       "Mostra um texto ao passar o rato",
-      "Dá um texto alternativo à imagem",
+      "Descreve a imagem a quem não a vê",
       "Define a altura da imagem",
       "Indica o endereço da imagem"
     ],
@@ -616,7 +616,7 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "facil",
-    "pergunta": "Que atributos se usam para guardar dados extra que o JavaScript vai ler, como o tamanho mínimo?",
+    "pergunta": "Que atributos se usam para o JavaScript ler valores extra de um campo, como o tamanho mínimo?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -749,7 +749,7 @@
       "São iguais, basta usar um deles",
       "O id é para POST e o name para GET",
       "O id serve à página; o name dá a chave no servidor",
-      "O id dá a chave no servidor; o name serve à página e ao CSS"
+      "O id dá a chave no servidor; o name serve à página"
     ],
     "correta": 2,
     "explicacao": "O id identifica o campo na página (label for, CSS #id, getElementById). O name é a chave com que o valor chega a $_POST ou $_GET.",
@@ -802,8 +802,8 @@
     "alternativas": [
       "Falta o value no campo",
       "O name devia ser igual ao for",
-      "O for não é igual ao id, por isso não ficam ligados",
-      "O <label> tem de vir sempre depois do campo a que se liga"
+      "O for não é igual ao id",
+      "O <label> tem de vir depois do campo"
     ],
     "correta": 2,
     "explicacao": "O <label> liga-se ao campo cujo id é igual ao seu for. Aqui for=\"email\" e id=\"mail\" não coincidem.",
@@ -818,7 +818,7 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Não, o browser já não deixa enviar campos vazios ao servidor",
+      "Não, o browser já não deixa enviar vazios",
       "Sim, as regras do browser podem ser contornadas",
       "Só se o JavaScript estiver desligado",
       "Não, o required também atua no PHP"
@@ -909,8 +909,8 @@
     "linguagem": "php",
     "alternativas": [
       "A <textarea> não pode ter PHP",
-      "A <textarea> não usa value: o texto vai entre as tags",
-      "Falta o nl2br() à volta do texto para manter as mudanças de linha",
+      "O texto vai entre as tags, não no value",
+      "Falta o nl2br() à volta do texto",
       "Falta o atributo rows"
     ],
     "correta": 1,
@@ -944,7 +944,7 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Porque o nome de um autor não pode ser enviado por POST",
+      "Porque o nome não pode ir por POST",
       "Porque o id é mais fácil de ler",
       "Porque o browser não envia texto",
       "Porque a tabela livros guarda o id do autor"
@@ -1001,7 +1001,7 @@
       "Um link faz GET, e o GET não deve alterar dados",
       "Os links não podem chamar ficheiros PHP",
       "Um link faz POST, que é mais lento",
-      "O id não pode ir no URL de um link, só num campo hidden"
+      "O id só pode ir num campo hidden"
     ],
     "correta": 0,
     "explicacao": "Um link faz um pedido GET, e um robô ou uma pré-visualização podia segui-lo e apagar livros. Apagar é sempre um formulário POST.",
@@ -1102,14 +1102,14 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "media",
-    "pergunta": "O que deve ficar dentro do <main>?",
+    "pergunta": "Na página livros.php, o que deve ficar dentro do <main>?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O menu de navegação",
-      "O rodapé com os links",
-      "Os <link> do CSS e os <meta> da página",
-      "O conteúdo principal de cada página"
+      "O menu com os links das páginas",
+      "O rodapé com os direitos",
+      "Os <link> do CSS e os <meta>",
+      "A lista de livros"
     ],
     "correta": 3,
     "explicacao": "O <main> tem o conteúdo próprio da página (lista, formulário, detalhe). O menu vai no <nav> e o rodapé no <footer>.",
@@ -1192,7 +1192,7 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "media",
-    "pergunta": "O registo falhou e o formulário voltou com os erros. Porque é que o campo do nome tem value=\"<?= htmlspecialchars($nome) ?>\"?",
+    "pergunta": "O registo falhou. Porque é que o campo do nome tem value=\"<?= htmlspecialchars($nome) ?>\"?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -1289,7 +1289,7 @@
       "Para o script correr no servidor",
       "Porque o <head> não aceita scripts",
       "Para o HTML já existir quando o script corre",
-      "Para a página carregar o CSS do <head> antes do script"
+      "Para o script carregar mais depressa"
     ],
     "correta": 2,
     "explicacao": "No fim do <body>, os elementos já existem quando o JavaScript os procura (por exemplo, com getElementById).",
@@ -1408,7 +1408,7 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "media",
-    "pergunta": "O cabecalho.php tem <title><?= htmlspecialchars($titulo) ?></title>. Que título aparece no separador ao abrir esta página?",
+    "pergunta": "O cabecalho.php tem <title><?= htmlspecialchars($titulo) ?></title>. Que título aparece nesta página?",
     "codigo": "<?php\n// autores.php\n$titulo = 'Autores';\nrequire 'includes/cabecalho.php';",
     "linguagem": "php",
     "alternativas": [
@@ -1505,7 +1505,7 @@
       "O formulário não é enviado",
       "Chega ao servidor, que tem de verificar o tamanho",
       "O browser corta o título para 200",
-      "O PHP aplica o maxlength sozinho e corta o título a 200"
+      "O PHP corta o título a 200 sozinho"
     ],
     "correta": 1,
     "explicacao": "O maxlength é uma regra do browser e foi removida. Só a validação no servidor (por exemplo, com mb_strlen) garante o limite.",
@@ -1534,7 +1534,7 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "dificil",
-    "pergunta": "O formulário de pesquisa não tem id=\"form-principal\". Este é o validacao.js. Ele valida o formulário de pesquisa?",
+    "pergunta": "A pesquisa não tem id=\"form-principal\". O validacao.js valida o formulário de pesquisa?",
     "codigo": "document.addEventListener('DOMContentLoaded', function () {\n  const form = document.getElementById('form-principal');\n  if (!form) {\n    return;\n  }\n  form.addEventListener('submit', validar);\n});",
     "linguagem": "javascript",
     "alternativas": [
@@ -1552,17 +1552,17 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "dificil",
-    "pergunta": "Esta caixa foi assinalada e não tem value. Que valor chega ao servidor?",
+    "pergunta": "Como verifica o PHP se esta caixa foi assinalada?",
     "codigo": "<input type=\"checkbox\" name=\"consentimento\">",
     "linguagem": "html",
     "alternativas": [
-      "'1'",
-      "'on'",
-      "'consentimento'",
-      "'true'"
+      "$_POST['consentimento'] === true",
+      "isset($_POST['consentimento'])",
+      "$_POST['consentimento'] === 1",
+      "empty($_POST['consentimento'])"
     ],
     "correta": 1,
-    "explicacao": "Uma checkbox assinalada sem value envia o texto \"on\". Por isso o PHP só verifica se a chave existe, com isset().",
+    "explicacao": "Uma checkbox só é enviada se estiver assinalada, por isso basta ver se a chave existe com isset(). O empty() daria o contrário.",
     "manual": "7.5, 10.2"
   },
   {
@@ -1570,17 +1570,17 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "dificil",
-    "pergunta": "As opções não têm value. O utilizador escolhe a segunda. O que chega ao servidor?",
-    "codigo": "<select name=\"estado\">\n  <option>Disponível</option>\n  <option>Emprestado</option>\n</select>",
+    "pergunta": "Nenhuma opção tem selected. O utilizador não mexe e envia. O que chega ao servidor?",
+    "codigo": "<select name=\"estado\">\n  <option value=\"d\">Disponível</option>\n  <option value=\"e\">Emprestado</option>\n</select>",
     "linguagem": "html",
     "alternativas": [
-      "Nada, sem value não envia",
-      "'2'",
-      "'1'",
-      "'Emprestado'"
+      "Nada, nenhuma foi escolhida",
+      "'Disponível'",
+      "'e'",
+      "'d'"
     ],
     "correta": 3,
-    "explicacao": "Quando uma <option> não tem value, o browser envia o texto da opção. Com value, envia o value.",
+    "explicacao": "Sem selected, a primeira opção fica escolhida, e o <select> envia o value dela, não o texto visível.",
     "manual": "4.3"
   },
   {
@@ -1647,7 +1647,7 @@
     "linguagem": "html",
     "alternativas": [
       "Não se vê na página, mas está no código-fonte",
-      "Aparece como texto normal na página, no sítio onde está",
+      "Aparece como texto na página",
       "Dá erro no PHP",
       "Não chega ao browser"
     ],
@@ -1660,13 +1660,13 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "dificil",
-    "pergunta": "O ficheiro includes/cabecalho.php tem <link href=\"css/estilo.css\">, sem ../. Porque é que o CSS carrega em livros.php, que está na raiz e inclui esse cabeçalho?",
+    "pergunta": "O includes/cabecalho.php liga css/estilo.css, sem ../. Porque funciona em livros.php, na raiz?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
       "O browser resolve o endereço a partir da página pedida",
       "O href ignora as pastas",
-      "O require copia a pasta css/ para dentro da pasta includes/",
+      "O require copia a pasta css/",
       "O PHP corrige os caminhos dos includes"
     ],
     "correta": 0,
@@ -1697,8 +1697,8 @@
     "tema": "HTML e formulários",
     "dificuldade": "dificil",
     "pergunta": "O campo do email tem maxlength=\"150\". Porque é esse o número?",
-    "codigo": "-- base_dados.sql\nemail VARCHAR(150) NOT NULL UNIQUE",
-    "linguagem": "sql",
+    "codigo": "",
+    "linguagem": "",
     "alternativas": [
       "É o tamanho de um email válido",
       "É o tamanho da coluna email na tabela",
@@ -1786,7 +1786,7 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "dificil",
-    "pergunta": "Enviaste o registo com uma password curta e o servidor mostra o formulário outra vez. Que campo não se volta a preencher?",
+    "pergunta": "O registo falhou e o formulário volta a aparecer. Que campo não vem preenchido?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -1808,7 +1808,7 @@
     "codigo": "<input type=\"checkbox\" name=\"consentimento\" required>",
     "linguagem": "html",
     "alternativas": [
-      "O servidor passa a recusar sozinho se não estiver assinalada",
+      "O servidor recusa sozinho a caixa vazia",
       "A caixa já aparece assinalada",
       "O browser só deixa enviar com a caixa assinalada",
       "A caixa é sempre enviada, mesmo vazia"

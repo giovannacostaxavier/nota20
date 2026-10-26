@@ -58,17 +58,17 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "facil",
-    "pergunta": "Que linha faz a página adaptar-se à largura do ecrã do telemóvel?",
+    "pergunta": "Que valor de name tem o <meta> que adapta a página à largura do telemóvel?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "<meta name=\"mobile\" content=\"width=device-width\">",
-      "<meta charset=\"UTF-8\">",
-      "<html lang=\"pt\" mobile>",
-      "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+      "mobile",
+      "screen",
+      "device",
+      "viewport"
     ],
     "correta": 3,
-    "explicacao": "O <meta name=\"viewport\"> faz o telemóvel usar a sua largura real. Sem ele, a página aparece encolhida e as media queries não funcionam.",
+    "explicacao": "O <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"> faz o telemóvel usar a sua largura real. Sem ele, a página aparece encolhida e as media queries não funcionam.",
     "manual": "4.1"
   },
   {
@@ -153,8 +153,8 @@
     "linguagem": "",
     "alternativas": [
       "<head> tem o PHP; <body> tem o HTML",
-      "<head> é o cabeçalho visível da página; <body> é todo o resto",
-      "<head> tem informação sobre a página; <body> tem o que se vê",
+      "<head> é o cabeçalho visível; <body> é o resto",
+      "<head> tem dados da página; <body> o que se vê",
       "<head> tem o CSS; <body> tem o JavaScript"
     ],
     "correta": 2,
@@ -238,17 +238,17 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "facil",
-    "pergunta": "Para que serve o atributo value de um <input>?",
+    "pergunta": "Num <input type=\"text\">, o que faz o atributo value?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Dá o texto da etiqueta",
+      "Mostra uma dica que some ao escrever",
       "Dá a chave com que chega ao servidor",
-      "Dá o valor inicial do campo",
+      "Põe esse texto no campo ao abrir",
       "Dá o número máximo de caracteres"
     ],
     "correta": 2,
-    "explicacao": "O value é o valor que o campo já traz quando a página abre. A chave no servidor é o name e o limite de caracteres é o maxlength.",
+    "explicacao": "O value é o texto que o campo já traz quando a página abre. A dica que desaparece é o placeholder, a chave no servidor é o name e o limite de caracteres é o maxlength.",
     "manual": "4.2"
   },
   {
@@ -388,7 +388,7 @@
     "alternativas": [
       "<tfoot>",
       "<footer>",
-      "<bottom>",
+      "<section>",
       "<foot>"
     ],
     "correta": 1,
@@ -405,12 +405,12 @@
     "linguagem": "",
     "alternativas": [
       "<main>",
-      "<menu-links>",
+      "<header>",
       "<navigation>",
       "<nav>"
     ],
     "correta": 3,
-    "explicacao": "O <nav> é o elemento semântico para a navegação. O <main> é para o conteúdo principal de cada página.",
+    "explicacao": "O <nav> é o elemento semântico para a navegação. O <header> é o cabeçalho, que pode conter o <nav>, e o <main> é o conteúdo principal.",
     "manual": "9.2"
   },
   {
@@ -423,7 +423,7 @@
     "linguagem": "",
     "alternativas": [
       "Mostra um texto ao passar o rato",
-      "Dá um texto alternativo à imagem",
+      "Descreve a imagem a quem não a vê",
       "Define a altura da imagem",
       "Indica o endereço da imagem"
     ],
@@ -616,7 +616,7 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "facil",
-    "pergunta": "Que atributos se usam para guardar dados extra que o JavaScript vai ler, como o tamanho mínimo?",
+    "pergunta": "Que atributos se usam para o JavaScript ler valores extra de um campo, como o tamanho mínimo?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -749,7 +749,7 @@
       "São iguais, basta usar um deles",
       "O id é para POST e o name para GET",
       "O id serve à página; o name dá a chave no servidor",
-      "O id dá a chave no servidor; o name serve à página e ao CSS"
+      "O id dá a chave no servidor; o name serve à página"
     ],
     "correta": 2,
     "explicacao": "O id identifica o campo na página (label for, CSS #id, getElementById). O name é a chave com que o valor chega a $_POST ou $_GET.",
@@ -802,8 +802,8 @@
     "alternativas": [
       "Falta o value no campo",
       "O name devia ser igual ao for",
-      "O for não é igual ao id, por isso não ficam ligados",
-      "O <label> tem de vir sempre depois do campo a que se liga"
+      "O for não é igual ao id",
+      "O <label> tem de vir depois do campo"
     ],
     "correta": 2,
     "explicacao": "O <label> liga-se ao campo cujo id é igual ao seu for. Aqui for=\"email\" e id=\"mail\" não coincidem.",
@@ -818,7 +818,7 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Não, o browser já não deixa enviar campos vazios ao servidor",
+      "Não, o browser já não deixa enviar vazios",
       "Sim, as regras do browser podem ser contornadas",
       "Só se o JavaScript estiver desligado",
       "Não, o required também atua no PHP"
@@ -909,8 +909,8 @@
     "linguagem": "php",
     "alternativas": [
       "A <textarea> não pode ter PHP",
-      "A <textarea> não usa value: o texto vai entre as tags",
-      "Falta o nl2br() à volta do texto para manter as mudanças de linha",
+      "O texto vai entre as tags, não no value",
+      "Falta o nl2br() à volta do texto",
       "Falta o atributo rows"
     ],
     "correta": 1,
@@ -944,7 +944,7 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Porque o nome de um autor não pode ser enviado por POST",
+      "Porque o nome não pode ir por POST",
       "Porque o id é mais fácil de ler",
       "Porque o browser não envia texto",
       "Porque a tabela livros guarda o id do autor"
@@ -1001,7 +1001,7 @@
       "Um link faz GET, e o GET não deve alterar dados",
       "Os links não podem chamar ficheiros PHP",
       "Um link faz POST, que é mais lento",
-      "O id não pode ir no URL de um link, só num campo hidden"
+      "O id só pode ir num campo hidden"
     ],
     "correta": 0,
     "explicacao": "Um link faz um pedido GET, e um robô ou uma pré-visualização podia segui-lo e apagar livros. Apagar é sempre um formulário POST.",
@@ -1102,14 +1102,14 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "media",
-    "pergunta": "O que deve ficar dentro do <main>?",
+    "pergunta": "Na página livros.php, o que deve ficar dentro do <main>?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O menu de navegação",
-      "O rodapé com os links",
-      "Os <link> do CSS e os <meta> da página",
-      "O conteúdo principal de cada página"
+      "O menu com os links das páginas",
+      "O rodapé com os direitos",
+      "Os <link> do CSS e os <meta>",
+      "A lista de livros"
     ],
     "correta": 3,
     "explicacao": "O <main> tem o conteúdo próprio da página (lista, formulário, detalhe). O menu vai no <nav> e o rodapé no <footer>.",
@@ -1192,7 +1192,7 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "media",
-    "pergunta": "O registo falhou e o formulário voltou com os erros. Porque é que o campo do nome tem value=\"<?= htmlspecialchars($nome) ?>\"?",
+    "pergunta": "O registo falhou. Porque é que o campo do nome tem value=\"<?= htmlspecialchars($nome) ?>\"?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -1289,7 +1289,7 @@
       "Para o script correr no servidor",
       "Porque o <head> não aceita scripts",
       "Para o HTML já existir quando o script corre",
-      "Para a página carregar o CSS do <head> antes do script"
+      "Para o script carregar mais depressa"
     ],
     "correta": 2,
     "explicacao": "No fim do <body>, os elementos já existem quando o JavaScript os procura (por exemplo, com getElementById).",
@@ -1408,7 +1408,7 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "media",
-    "pergunta": "O cabecalho.php tem <title><?= htmlspecialchars($titulo) ?></title>. Que título aparece no separador ao abrir esta página?",
+    "pergunta": "O cabecalho.php tem <title><?= htmlspecialchars($titulo) ?></title>. Que título aparece nesta página?",
     "codigo": "<?php\n// autores.php\n$titulo = 'Autores';\nrequire 'includes/cabecalho.php';",
     "linguagem": "php",
     "alternativas": [
@@ -1505,7 +1505,7 @@
       "O formulário não é enviado",
       "Chega ao servidor, que tem de verificar o tamanho",
       "O browser corta o título para 200",
-      "O PHP aplica o maxlength sozinho e corta o título a 200"
+      "O PHP corta o título a 200 sozinho"
     ],
     "correta": 1,
     "explicacao": "O maxlength é uma regra do browser e foi removida. Só a validação no servidor (por exemplo, com mb_strlen) garante o limite.",
@@ -1534,7 +1534,7 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "dificil",
-    "pergunta": "O formulário de pesquisa não tem id=\"form-principal\". Este é o validacao.js. Ele valida o formulário de pesquisa?",
+    "pergunta": "A pesquisa não tem id=\"form-principal\". O validacao.js valida o formulário de pesquisa?",
     "codigo": "document.addEventListener('DOMContentLoaded', function () {\n  const form = document.getElementById('form-principal');\n  if (!form) {\n    return;\n  }\n  form.addEventListener('submit', validar);\n});",
     "linguagem": "javascript",
     "alternativas": [
@@ -1552,17 +1552,17 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "dificil",
-    "pergunta": "Esta caixa foi assinalada e não tem value. Que valor chega ao servidor?",
+    "pergunta": "Como verifica o PHP se esta caixa foi assinalada?",
     "codigo": "<input type=\"checkbox\" name=\"consentimento\">",
     "linguagem": "html",
     "alternativas": [
-      "'1'",
-      "'on'",
-      "'consentimento'",
-      "'true'"
+      "$_POST['consentimento'] === true",
+      "isset($_POST['consentimento'])",
+      "$_POST['consentimento'] === 1",
+      "empty($_POST['consentimento'])"
     ],
     "correta": 1,
-    "explicacao": "Uma checkbox assinalada sem value envia o texto \"on\". Por isso o PHP só verifica se a chave existe, com isset().",
+    "explicacao": "Uma checkbox só é enviada se estiver assinalada, por isso basta ver se a chave existe com isset(). O empty() daria o contrário.",
     "manual": "7.5, 10.2"
   },
   {
@@ -1570,17 +1570,17 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "dificil",
-    "pergunta": "As opções não têm value. O utilizador escolhe a segunda. O que chega ao servidor?",
-    "codigo": "<select name=\"estado\">\n  <option>Disponível</option>\n  <option>Emprestado</option>\n</select>",
+    "pergunta": "Nenhuma opção tem selected. O utilizador não mexe e envia. O que chega ao servidor?",
+    "codigo": "<select name=\"estado\">\n  <option value=\"d\">Disponível</option>\n  <option value=\"e\">Emprestado</option>\n</select>",
     "linguagem": "html",
     "alternativas": [
-      "Nada, sem value não envia",
-      "'2'",
-      "'1'",
-      "'Emprestado'"
+      "Nada, nenhuma foi escolhida",
+      "'Disponível'",
+      "'e'",
+      "'d'"
     ],
     "correta": 3,
-    "explicacao": "Quando uma <option> não tem value, o browser envia o texto da opção. Com value, envia o value.",
+    "explicacao": "Sem selected, a primeira opção fica escolhida, e o <select> envia o value dela, não o texto visível.",
     "manual": "4.3"
   },
   {
@@ -1647,7 +1647,7 @@
     "linguagem": "html",
     "alternativas": [
       "Não se vê na página, mas está no código-fonte",
-      "Aparece como texto normal na página, no sítio onde está",
+      "Aparece como texto na página",
       "Dá erro no PHP",
       "Não chega ao browser"
     ],
@@ -1660,13 +1660,13 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "dificil",
-    "pergunta": "O ficheiro includes/cabecalho.php tem <link href=\"css/estilo.css\">, sem ../. Porque é que o CSS carrega em livros.php, que está na raiz e inclui esse cabeçalho?",
+    "pergunta": "O includes/cabecalho.php liga css/estilo.css, sem ../. Porque funciona em livros.php, na raiz?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
       "O browser resolve o endereço a partir da página pedida",
       "O href ignora as pastas",
-      "O require copia a pasta css/ para dentro da pasta includes/",
+      "O require copia a pasta css/",
       "O PHP corrige os caminhos dos includes"
     ],
     "correta": 0,
@@ -1697,8 +1697,8 @@
     "tema": "HTML e formulários",
     "dificuldade": "dificil",
     "pergunta": "O campo do email tem maxlength=\"150\". Porque é esse o número?",
-    "codigo": "-- base_dados.sql\nemail VARCHAR(150) NOT NULL UNIQUE",
-    "linguagem": "sql",
+    "codigo": "",
+    "linguagem": "",
     "alternativas": [
       "É o tamanho de um email válido",
       "É o tamanho da coluna email na tabela",
@@ -1786,7 +1786,7 @@
     "bloco": "web",
     "tema": "HTML e formulários",
     "dificuldade": "dificil",
-    "pergunta": "Enviaste o registo com uma password curta e o servidor mostra o formulário outra vez. Que campo não se volta a preencher?",
+    "pergunta": "O registo falhou e o formulário volta a aparecer. Que campo não vem preenchido?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -1808,7 +1808,7 @@
     "codigo": "<input type=\"checkbox\" name=\"consentimento\" required>",
     "linguagem": "html",
     "alternativas": [
-      "O servidor passa a recusar sozinho se não estiver assinalada",
+      "O servidor recusa sozinho a caixa vazia",
       "A caixa já aparece assinalada",
       "O browser só deixa enviar com a caixa assinalada",
       "A caixa é sempre enviada, mesmo vazia"
@@ -1858,17 +1858,17 @@
     "bloco": "web",
     "tema": "CSS",
     "dificuldade": "facil",
-    "pergunta": "Para que serve rel=\"stylesheet\" no <link>?",
+    "pergunta": "Que atributo do <link> diz que o ficheiro é uma folha de estilos?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Indica o caminho do ficheiro CSS",
-      "Faz o ficheiro CSS carregar mais depressa no browser",
-      "Aplica o CSS só a esta página",
-      "Diz que o ficheiro é uma folha de estilos"
+      "href",
+      "src",
+      "type",
+      "rel"
     ],
     "correta": 3,
-    "explicacao": "O rel diz a relação com o ficheiro: stylesheet quer dizer folha de estilos. O caminho vai no href.",
+    "explicacao": "O rel=\"stylesheet\" diz a relação com o ficheiro: é uma folha de estilos. O caminho vai no href.",
     "manual": "5.1"
   },
   {
@@ -1898,10 +1898,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O CSS deixa de precisar de seletores",
-      "O CSS passa a ser processado no servidor web",
+      "A página carrega o CSS antes do HTML",
+      "O CSS passa a funcionar em todos os browsers",
       "Mudas o aspeto do site todo num só sítio",
-      "O HTML deixa de precisar do <head>"
+      "As regras ganham sempre ao atributo style"
     ],
     "correta": 2,
     "explicacao": "Com um só estilo.css ligado em todas as páginas, uma alteração no ficheiro muda o site inteiro.",
@@ -1930,17 +1930,17 @@
     "bloco": "web",
     "tema": "CSS",
     "dificuldade": "dificil",
-    "pergunta": "A página está na pasta principal e o ficheiro em css/estilo.css. Porque é que o CSS não pega?",
+    "pergunta": "A página está na pasta principal e o estilo.css dentro da pasta css. Porque é que o CSS não pega?",
     "codigo": "<link rel=\"stylesheet\" href=\"estilo.css\">",
     "linguagem": "html",
     "alternativas": [
       "O href devia ser css/estilo.css",
-      "Falta fechar com </link>",
-      "O rel devia ser \"style\"",
+      "O href devia ser ../css/estilo.css",
+      "O href devia ser /estilo.css",
       "O <link> devia estar dentro do <body>"
     ],
     "correta": 0,
-    "explicacao": "O href é um caminho relativo à página. Como o ficheiro está na pasta css, o caminho tem de ser css/estilo.css.",
+    "explicacao": "O href é um caminho relativo à página. Como o ficheiro está na pasta css, ao lado da página, o caminho é css/estilo.css. O ../ subiria uma pasta.",
     "manual": "5.1, 2.5"
   },
   {
@@ -2002,14 +2002,14 @@
     "bloco": "web",
     "tema": "CSS",
     "dificuldade": "facil",
-    "pergunta": "Que forma de aplicar CSS se deve evitar, por misturar o estilo com o HTML?",
+    "pergunta": "Porque se deve evitar o atributo style=\"...\" nos elementos?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O atributo style=\"...\" no elemento",
-      "Um ficheiro .css ligado com <link>",
-      "Uma regra de classe no estilo.css",
-      "Um seletor de elemento no estilo.css"
+      "Mistura o estilo com o HTML",
+      "Não funciona em todos os browsers",
+      "Perde sempre para o estilo.css",
+      "Só aceita uma propriedade"
     ],
     "correta": 0,
     "explicacao": "O CSS inline (style=\"...\") fica espalhado pelo HTML e só vale para aquele elemento. O ideal é um ficheiro externo.",
@@ -2025,8 +2025,8 @@
     "linguagem": "",
     "alternativas": [
       "Para mudar uma cor tens de editar todas",
-      "As regras do <style> não valem nos <h1>",
-      "O <style> só funciona no <body>",
+      "O <style> só aceita seletores de elemento",
+      "O <style> só funciona dentro do <body>",
       "O browser ignora o <style> se houver <link>"
     ],
     "correta": 0,
@@ -2116,7 +2116,7 @@
     "alternativas": [
       "Tira os espaços que há entre as palavras",
       "Impede o texto de partir em duas linhas",
-      "Põe fundo branco nos links",
+      "Alinha o texto dos links à esquerda",
       "Esconde o texto que não cabe"
     ],
     "correta": 1,
@@ -2254,17 +2254,17 @@
     "bloco": "web",
     "tema": "CSS",
     "dificuldade": "dificil",
-    "pergunta": "Qual é a diferença entre .menu a e .menu, a?",
+    "pergunta": "Que elementos apanha o seletor .menu, a?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      ".menu a: o .menu e todos os links; .menu, a: os links dentro de .menu",
-      ".menu a: os links dentro de .menu; .menu, a: o .menu e todos os links",
-      "Nenhuma: os dois apanham os mesmos elementos",
-      ".menu a: os links com a classe menu; .menu, a: os links dentro de .menu"
+      "Só os links dentro de .menu",
+      "O .menu e todos os links da página",
+      "Só os links com a classe menu",
+      "Os .menu que estão dentro de um link"
     ],
     "correta": 1,
-    "explicacao": "O espaço quer dizer \"dentro de\". A vírgula junta dois seletores independentes: o .menu e todos os <a> da página.",
+    "explicacao": "A vírgula junta dois seletores independentes: o .menu e todos os <a> da página. Os links dentro de .menu seriam .menu a, com espaço.",
     "manual": "5.2"
   },
   {
@@ -2848,17 +2848,17 @@
     "bloco": "web",
     "tema": "CSS",
     "dificuldade": "media",
-    "pergunta": "O que seleciona .btn.perigo (sem espaço)?",
+    "pergunta": "Que regra apanha o <p class=\"msg erro\">?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Os elementos que têm as duas classes, btn e perigo",
-      "Os elementos .perigo que estão dentro de um .btn",
-      "Os elementos que têm a classe btn ou a classe perigo",
-      "Os elementos com class=\"btn.perigo\""
+      ".erro { color: red; }",
+      "#erro { color: red; }",
+      ".msg-erro { color: red; }",
+      "erro { color: red; }"
     ],
     "correta": 0,
-    "explicacao": "Sem espaço, .btn.perigo exige as duas classes no mesmo elemento, como <button class=\"btn perigo\">. Com espaço (.btn .perigo) seria um .perigo dentro de um .btn; com vírgula, um ou outro.",
+    "explicacao": "Cada classe do atributo vale sozinha: .erro (ou .msg) apanha o parágrafo. #erro procura um id, .msg-erro é outra classe e erro sem ponto procura um elemento <erro>.",
     "manual": "5.2"
   },
   {
@@ -3015,9 +3015,9 @@
     "linguagem": "",
     "alternativas": [
       "Centra a página no ecrã",
-      "Tira o padding dos parágrafos",
-      "Tira a margem que o browser põe na página",
-      "Põe o body com a altura toda do ecrã do browser"
+      "Tira a margem de todos os parágrafos",
+      "Tira a margem à volta da página",
+      "Tira a margem só no topo da página"
     ],
     "correta": 2,
     "explicacao": "O browser dá ao body uma pequena margem por omissão. margin: 0 tira-a, para o cabeçalho encostar às bordas.",
@@ -3172,7 +3172,7 @@
     "bloco": "web",
     "tema": "CSS",
     "dificuldade": "facil",
-    "pergunta": "Que unidade representa uma fração do espaço de uma grelha?",
+    "pergunta": "Que unidade divide o espaço livre de uma grelha em partes?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -3460,17 +3460,17 @@
     "bloco": "web",
     "tema": "CSS",
     "dificuldade": "media",
-    "pergunta": "Porque é que as etiquetas e os campos ficam uns por baixo dos outros?",
+    "pergunta": "Como ficam as etiquetas e os campos deste formulário?",
     "codigo": ".formulario {\n    display: flex;\n    flex-direction: column;\n    gap: 12px;\n}",
     "linguagem": "css",
     "alternativas": [
-      "Por causa do gap: 12px",
-      "Porque o flex põe sempre em coluna",
-      "Porque os <input> são de bloco",
-      "Por causa de flex-direction: column"
+      "Lado a lado, com 12px entre eles",
+      "Lado a lado, em duas colunas",
+      "Uns por baixo dos outros, sem espaço entre eles",
+      "Uns por baixo dos outros, com 12px entre eles"
     ],
     "correta": 3,
-    "explicacao": "Por omissão o flex põe os filhos em linha (row). flex-direction: column põe-nos em coluna.",
+    "explicacao": "Por omissão o flex põe os filhos em linha (row). flex-direction: column põe-nos uns por baixo dos outros, e o gap: 12px deixa espaço entre eles.",
     "manual": "5.4"
   },
   {
@@ -3838,7 +3838,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "facil",
-    "pergunta": "Que teste prova que o servidor valida sozinho, sem ajuda do browser?",
+    "pergunta": "Como verificas que a validação do servidor funciona no registo?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -3860,10 +3860,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Ctrl + Shift + N, para abrir uma janela anónima.",
+      "F12, separador Consola e Disable JavaScript.",
       "F12, Ctrl + Shift + P e Disable JavaScript.",
-      "F12, separador Rede e Disable cache.",
-      "Ctrl + F5, para recarregar sem cache."
+      "F12, separador Rede e Disable JavaScript.",
+      "F12, Ctrl + Shift + M e Disable JavaScript."
     ],
     "correta": 1,
     "explicacao": "Nas ferramentas (F12), Ctrl + Shift + P abre a lista de comandos, onde escolhes Disable JavaScript. A janela anónima só serve para testar sem sessão.",
@@ -3964,7 +3964,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "dificil",
-    "pergunta": "O computador do utilizador tem a data num ano errado, 2024. Que ano dá new Date().getFullYear() no validacao.js?",
+    "pergunta": "O relógio do computador está em 2024. Que ano dá new Date().getFullYear() no validacao.js?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -4072,17 +4072,17 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "facil",
-    "pergunta": "Qual é a diferença entre querySelector e querySelectorAll?",
+    "pergunta": "Na página há três elementos com class=\"aviso\". O que devolve document.querySelector('.aviso')?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O primeiro procura por id; o segundo, por classe.",
-      "O primeiro devolve um elemento; o segundo, todos.",
-      "O primeiro é para CSS; o segundo, para HTML.",
-      "Nenhuma: o segundo é só a versão nova."
+      "Uma lista com os três.",
+      "Só o primeiro.",
+      "Só o último.",
+      "null, porque há mais de um."
     ],
     "correta": 1,
-    "explicacao": "Os dois recebem um seletor CSS. querySelector devolve o primeiro elemento que bate, querySelectorAll devolve a lista de todos.",
+    "explicacao": "querySelector devolve só o primeiro elemento que bate com o seletor. Para os ter todos, usa-se querySelectorAll.",
     "manual": "6.2"
   },
   {
@@ -4198,17 +4198,17 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "facil",
-    "pergunta": "Que método liga uma função a um evento, como o clique num botão?",
+    "pergunta": "No validacao.js, que método faz a validação correr quando se envia o formulário?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "getElementById()",
+      "querySelectorAll()",
       "addEventListener()",
       "preventDefault()",
-      "appendChild()"
+      "forEach()"
     ],
     "correta": 1,
-    "explicacao": "el.addEventListener('click', funcao) corre a função sempre que o evento acontece nesse elemento.",
+    "explicacao": "form.addEventListener('submit', funcao) corre a função sempre que se tenta enviar. O preventDefault só trava o envio, dentro dessa função.",
     "manual": "Anexo B, 6.4"
   },
   {
@@ -4234,17 +4234,17 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "media",
-    "pergunta": "Que evento usas para reagir quando o utilizador muda a opção de um <select>?",
+    "pergunta": "Que evento usas para reagir quando o utilizador escolhe outra opção num <select>?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
       "submit",
       "change",
       "DOMContentLoaded",
-      "load"
+      "click"
     ],
     "correta": 1,
-    "explicacao": "O change dá-se quando o valor de um campo muda. O submit é do formulário e o DOMContentLoaded é da página.",
+    "explicacao": "O change dá-se quando o valor de um campo muda, como ao escolher outra opção. O click dá-se a cada clique, mesmo sem mudar nada; o submit é do formulário e o DOMContentLoaded é da página.",
     "manual": "6.2"
   },
   {
@@ -4252,14 +4252,14 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "facil",
-    "pergunta": "Para que serve o evento DOMContentLoaded?",
+    "pergunta": "Quando corre a função passada ao DOMContentLoaded?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Correr o código quando o formulário é enviado.",
-      "Correr o código só quando a página já carregou.",
-      "Correr o código sempre que um campo muda de valor.",
-      "Descarregar o ficheiro .js do servidor."
+      "Quando o utilizador envia o formulário.",
+      "Quando o HTML da página já foi todo lido.",
+      "Antes de o browser ler o <body>.",
+      "Sempre que um campo muda de valor."
     ],
     "correta": 1,
     "explicacao": "document.addEventListener('DOMContentLoaded', ...) espera que o HTML esteja todo carregado. Só então o getElementById encontra os elementos.",
@@ -4270,7 +4270,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "dificil",
-    "pergunta": "O script está no <head> e chama getElementById('form-principal') sem esperar pelo DOMContentLoaded. O que acontece?",
+    "pergunta": "No <head>, sem esperar pelo DOMContentLoaded, o JS chama getElementById('form-principal'). O que dá?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -4329,7 +4329,7 @@
     "linguagem": "",
     "alternativas": [
       "Envia o formulário mais depressa.",
-      "Impede o evento de chegar aos pais.",
+      "Mostra os erros na caixa da página.",
       "Impede que o formulário seja enviado.",
       "Apaga tudo o que se escreveu nos campos."
     ],
@@ -4396,7 +4396,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "facil",
-    "pergunta": "Que propriedade muda o texto de um elemento sem interpretar HTML?",
+    "pergunta": "Para escrever num <p> o nome que o utilizador escreveu, sem risco de XSS, que propriedade usas?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -4414,14 +4414,14 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "facil",
-    "pergunta": "Qual é o risco de usar innerHTML com texto escrito pelo utilizador?",
+    "pergunta": "O que pode acontecer se usares innerHTML com texto escrito pelo utilizador?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O texto aparece todo em maiúsculas.",
-      "A página deixa de carregar o CSS do site.",
-      "Pode correr código malicioso (XSS).",
-      "O formulário é enviado duas vezes."
+      "O texto aparece com as tags à vista.",
+      "O browser recusa texto com < ou >.",
+      "Pode correr código que lá vier (XSS).",
+      "Só funciona em elementos de um <form>."
     ],
     "correta": 2,
     "explicacao": "innerHTML interpreta o texto como HTML, incluindo um <script> ou um <img onerror>. Com dados do utilizador, usa textContent.",
@@ -4492,7 +4492,7 @@
     "alternativas": [
       "Para o texto nunca ser lido como HTML.",
       "Porque o innerHTML não funciona em <li>.",
-      "Para o texto aparecer a negrito.",
+      "Para os acentos aparecerem bem.",
       "Porque textContent tira os espaços."
     ],
     "correta": 0,
@@ -4522,7 +4522,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "dificil",
-    "pergunta": "Imagina o validacao.js sem caixa.innerHTML = ''. Envias duas vezes, com os mesmos 2 erros. Quantos <li> ficam na caixa?",
+    "pergunta": "Sem caixa.innerHTML = '', envias duas vezes com os mesmos 2 erros. Quantos <li> ficam na caixa?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -4558,9 +4558,9 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "media",
-    "pergunta": "Porque é que a caixa de erros do JavaScript não se vê enquanto não há erros?",
-    "codigo": "/* estilo.css */\n#erros-js {\n    display: none;\n}",
-    "linguagem": "css",
+    "pergunta": "Porque é que a caixa #erros-js não se vê enquanto não há erros?",
+    "codigo": "",
+    "linguagem": "",
     "alternativas": [
       "O browser esconde as caixas que estão vazias.",
       "O PHP só a cria quando há erros.",
@@ -4689,7 +4689,7 @@
     "linguagem": "",
     "alternativas": [
       "campo.classList.remove('erro')",
-      "campo.classList.add('erro')",
+      "campo.classList.delete('erro')",
       "campo.style.remove('erro')",
       "campo.classList.removeClass('erro')"
     ],
@@ -4720,7 +4720,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "facil",
-    "pergunta": "Que propriedade diz se uma checkbox está assinalada?",
+    "pergunta": "Que propriedade diz se a caixa do consentimento está assinalada?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -4738,17 +4738,17 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "dificil",
-    "pergunta": "Uma checkbox sem atributo value está por assinalar. Que valor dá campo.value?",
+    "pergunta": "Porque é que o validacao.js testa a checkbox com campo.checked e não com campo.value?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "'on'",
-      "'' (texto vazio)",
-      "false",
-      "null"
+      "O value não diz se está assinalada.",
+      "Uma checkbox não tem value.",
+      "O value de uma checkbox dá sempre null.",
+      "O checked também lê o texto da label."
     ],
     "correta": 0,
-    "explicacao": "Sem value no HTML, uma checkbox dá sempre 'on', assinalada ou não. Por isso o validacao.js usa campo.checked nas checkboxes.",
+    "explicacao": "Numa checkbox, o value não muda quando se assinala. Quem diz se está assinalada é o checked (true ou false).",
     "manual": "6.3, 4.2"
   },
   {
@@ -4850,9 +4850,9 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Só existe dentro de um if.",
-      "Fica disponível em todas as páginas.",
-      "O valor fica guardado no servidor.",
+      "Só pode guardar números.",
+      "Tem de ter o nome em maiúsculas.",
+      "Não pode guardar arrays.",
       "Não lhe podes atribuir outro valor."
     ],
     "correta": 3,
@@ -4904,9 +4904,9 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Não: com const o array não pode receber elementos.",
-      "Só se o array tiver sido declarado com let.",
-      "Não: push() só funciona em arrays declarados com let.",
+      "Não: com const o array fica sempre vazio.",
+      "Só se o array for declarado com let.",
+      "Não: dá erro de reatribuição.",
       "Sim: a const só impede atribuir outro valor."
     ],
     "correta": 3,
@@ -4954,14 +4954,14 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "facil",
-    "pergunta": "Que método corre uma função para cada elemento de uma lista?",
+    "pergunta": "Que método usas para percorrer todos os elementos de um array?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
       "forEach()",
       "push()",
       "includes()",
-      "addEventListener()"
+      "length()"
     ],
     "correta": 0,
     "explicacao": "lista.forEach(function (x) { ... }) corre a função uma vez por elemento, como o foreach do PHP.",
@@ -4990,14 +4990,14 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "facil",
-    "pergunta": "Que método testa se um texto contém outro, como o @ num email?",
+    "pergunta": "Que método usa o validacao.js para ver se o email tem @?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
       "push()",
       "trim()",
       "includes()",
-      "length"
+      "forEach()"
     ],
     "correta": 2,
     "explicacao": "texto.includes('@') dá true se o @ estiver no texto e false se não estiver.",
@@ -5120,7 +5120,7 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Porque o JavaScript não aceita escrever o número 2026.",
+      "Para o browser validar mais depressa.",
       "Para usar a data guardada no servidor.",
       "Para ir buscar o ano à base de dados.",
       "Para a regra continuar certa nos próximos anos."
@@ -5141,10 +5141,10 @@
       "=",
       "==",
       "===",
-      "!=="
+      "!="
     ],
     "correta": 2,
-    "explicacao": "=== só dá true se o valor e o tipo forem iguais. = atribui, == compara sem olhar ao tipo e !== quer dizer diferente.",
+    "explicacao": "=== só dá true se o valor e o tipo forem iguais. = atribui, == compara sem olhar ao tipo e != vê se são diferentes, também sem olhar ao tipo.",
     "manual": "6.3"
   },
   {
@@ -5282,10 +5282,10 @@
     "codigo": "if (ano < 1450 && ano > 2026) {\n    erros.push('Ano inválido.');\n}",
     "linguagem": "javascript",
     "alternativas": [
-      "Para nenhum: um ano não é < 1450 e > 2026 ao mesmo tempo.",
+      "Para nenhum ano.",
       "Para os anos fora de 1450 a 2026.",
       "Para os anos entre 1450 e 2026.",
-      "Só para os anos maiores do que 2026, como 2030."
+      "Só para os anos depois de 2026."
     ],
     "correta": 0,
     "explicacao": "Com &&, as duas condições têm de ser verdadeiras ao mesmo tempo, e nenhum ano é menor do que 1450 e maior do que 2026. Aqui era preciso ||.",
@@ -5350,7 +5350,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "dificil",
-    "pergunta": "No HTML o formulário tem id=\"form_principal\" e o JS procura 'form-principal'. Envias com erros. O que acontece?",
+    "pergunta": "O JS procura 'form-principal', mas o formulário tem outro id. Envias com erros. O que acontece?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -5458,7 +5458,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "dificil",
-    "pergunta": "O formulário tem só nome, email e consentimento, todos required. Escreves o nome Ana, o email ana e não assinalas o consentimento. Quantos erros ficam?",
+    "pergunta": "Campos required: nome, email e consentimento. Escreves Ana, ana e não assinalas. Quantos erros ficam?",
     "codigo": "const email = document.getElementById('email');\nform.querySelectorAll('[required]').forEach(function (campo) {\n    if (campo.type === 'checkbox') {\n        if (!campo.checked) erros.push('Aceita a política.');\n    } else if (campo.value.trim() === '') erros.push('Preenche o campo.');\n});\nif (email && email.value !== '' && !email.value.includes('@')) erros.push('Email inválido.');",
     "linguagem": "javascript",
     "alternativas": [
@@ -5570,13 +5570,13 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Apaga o livro logo, sem perguntar nada.",
+      "Mostra uma caixa para escrever texto.",
       "Mostra uma mensagem só com OK.",
       "Envia o formulário ao servidor.",
       "Mostra uma janela com OK e Cancelar."
     ],
     "correta": 3,
-    "explicacao": "confirm() pergunta e espera pela resposta: dá true com OK e false com Cancelar. A janela só com OK é o alert().",
+    "explicacao": "confirm() pergunta e espera pela resposta: dá true com OK e false com Cancelar. A janela só com OK é o alert(); a que deixa escrever texto é o prompt().",
     "manual": "6.4"
   },
   {
@@ -5624,7 +5624,7 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Não: o servidor é que verifica permissões.",
+      "Não: isso é verificado no servidor.",
       "Sim: sem carregar em OK, nada chega a ser apagado.",
       "Sim, desde que o formulário use POST.",
       "Sim, desde que o JavaScript esteja ligado."
@@ -5638,7 +5638,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "dificil",
-    "pergunta": "Com o JavaScript desligado, carregas em Apagar num formulário com onsubmit=\"return confirm(...)\". O que acontece?",
+    "pergunta": "Com o JavaScript desligado, carregas em Apagar (onsubmit com confirm). O que acontece?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -5908,7 +5908,7 @@
     "bloco": "dados",
     "tema": "HTTP",
     "dificuldade": "media",
-    "pergunta": "Depois de enviar um formulário POST, carregas em F5 e confirmas o reenvio. O que acontece?",
+    "pergunta": "Depois de enviar um formulário POST, carregas em F5 e aceitas o aviso do browser. O que acontece?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -6003,7 +6003,7 @@
     "linguagem": "html",
     "alternativas": [
       "O link não consegue enviar o id ao servidor.",
-      "O link faz um POST, que se repete sempre que carregas em F5.",
+      "O link faz um POST, que se repete com F5.",
       "Os links não funcionam com ficheiros .php.",
       "Um robô ou uma pré-visualização pode seguir o link."
     ],
@@ -6020,10 +6020,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Os formulários carregam mais depressa do que os links.",
-      "Editar altera dados e apagar só lê.",
+      "O formulário esconde o id do livro.",
+      "Só um formulário consegue pedir confirmação.",
       "Os links não conseguem levar o id do livro.",
-      "Editar só lê (GET); apagar altera dados (POST)."
+      "Apagar altera dados, por isso usa POST."
     ],
     "correta": 3,
     "explicacao": "O link Editar só abre o formulário de edição, por isso é um GET. Apagar muda a base de dados, por isso tem de ser POST.",
@@ -6070,7 +6070,7 @@
     "bloco": "dados",
     "tema": "HTTP",
     "dificuldade": "media",
-    "pergunta": "Quando gravas as alterações de um livro que já existe, que método HTTP e que comando SQL são usados?",
+    "pergunta": "Ao gravar as alterações de um livro existente, que método HTTP e que SQL se usam?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -6250,7 +6250,7 @@
     "bloco": "dados",
     "tema": "HTTP",
     "dificuldade": "media",
-    "pergunta": "Abres localhost/biblioteca/livro.php (sem o s) e aparece Not Found. Qual é a causa provável?",
+    "pergunta": "Abres localhost/biblioteca/livro.php e recebes um 404. Qual é a causa provável?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -6597,7 +6597,7 @@
     "linguagem": "",
     "alternativas": [
       "O POST cifra a password.",
-      "O GET não consegue enviar campos de texto nem passwords.",
+      "O GET não consegue enviar passwords.",
       "Com GET, a password ficava no endereço.",
       "Só o POST funciona com sessões."
     ],
@@ -6700,7 +6700,7 @@
     "bloco": "dados",
     "tema": "HTTP",
     "dificuldade": "dificil",
-    "pergunta": "Carregas no link Sair (<a href=\"logout.php\">) com o separador Rede aberto. Quais são os dois primeiros pedidos?",
+    "pergunta": "Com o separador Rede aberto, clicas no link Sair (logout.php). Quais são os dois primeiros pedidos?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -6736,7 +6736,7 @@
     "bloco": "dados",
     "tema": "HTTP",
     "dificuldade": "dificil",
-    "pergunta": "Abres livro.php (o ficheiro não existe) e livro_ver.php?id=999 (o livro não existe). Ambos dão 404. Quem produz cada um?",
+    "pergunta": "Dois 404: livro.php (ficheiro inexistente) e livro_ver.php?id=999 (livro inexistente). Quem produz cada um?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -6758,13 +6758,13 @@
     "codigo": "http_response_code(404);",
     "linguagem": "php",
     "alternativas": [
+      "Envia o código 404 e termina o script.",
       "Redireciona para a página 404.php.",
-      "Mostra o texto 404 no ecrã.",
-      "Termina o script com um erro.",
-      "Define o código de estado: 404."
+      "Mostra a página de erro do Apache.",
+      "Define o código 404; o script continua."
     ],
     "correta": 3,
-    "explicacao": "http_response_code() só muda o código de estado da resposta. A página continua e pode mostrar uma mensagem ao utilizador.",
+    "explicacao": "http_response_code() só muda o código de estado da resposta. Não redireciona nem termina o script: a página continua, por isso a Biblioteca mostra a mensagem e faz exit a seguir.",
     "manual": "12.3"
   },
   {
@@ -6812,13 +6812,13 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Apaga o registo anterior.",
-      "Cria um registo duplicado.",
-      "Dá sempre erro 500.",
-      "Transforma o pedido em GET."
+      "Atualiza o livro que já existe.",
+      "Cria um livro duplicado.",
+      "O MySQL recusa por causa da chave primária.",
+      "O browser envia um GET em vez do POST."
     ],
     "correta": 1,
-    "explicacao": "Cada POST de criação faz um INSERT. Se for enviado duas vezes, ficam dois registos iguais. Repetir um GET não faz mal.",
+    "explicacao": "Cada POST de criação faz um INSERT. Com AUTO_INCREMENT, o segundo INSERT recebe um id novo e fica um livro igual ao primeiro. Repetir um GET não faz mal.",
     "manual": "1.2"
   },
   {
@@ -6988,7 +6988,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "A tabela autores foi criada agora e tem estes 3 autores (id_autor é AUTO_INCREMENT). Que id recebe o próximo autor inserido?",
+    "pergunta": "A tabela autores é nova e tem estes 3 autores (id_autor é AUTO_INCREMENT). Que id recebe o próximo?",
     "codigo": "id_autor | nome\n1        | José Saramago\n2        | Sophia de Mello Breyner\n3        | Eça de Queirós",
     "linguagem": "tabela",
     "alternativas": [
@@ -7049,7 +7049,7 @@
       "A chave primária de uma tabela importada",
       "Uma coluna que a base de dados preenche sozinha",
       "Uma coluna que não pode ter repetidos",
-      "Coluna com a chave primária de outra tabela"
+      "Uma coluna com a chave primária de outra tabela"
     ],
     "correta": 3,
     "explicacao": "A chave estrangeira liga duas tabelas: livros.id_autor guarda o id_autor (chave primária) de um autor. Não ter repetidos é o UNIQUE.",
@@ -7096,7 +7096,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "Numa loja, uma categoria tem vários produtos e cada produto tem uma só categoria. Que coluna é a chave estrangeira?",
+    "pergunta": "Uma categoria tem vários produtos e cada produto tem uma só categoria. Qual é a chave estrangeira?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -7204,7 +7204,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "Inseriste a autora Ana (id_autor 5) e ainda não lhe associaste nenhum livro. O que há sobre ela na tabela livros?",
+    "pergunta": "Inseriste a autora Ana (id_autor 5) e mais nada. O que há sobre ela na tabela livros?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -7246,7 +7246,7 @@
     "alternativas": [
       "Que a tabela autores ganha uma coluna id_livro",
       "Que a tabela autores é copiada para livros",
-      "Que id_autor passa a ser a chave primária da tabela livros",
+      "Que id_autor passa a ser a chave primária",
       "Que livros.id_autor aponta para autores.id_autor"
     ],
     "correta": 3,
@@ -7317,12 +7317,12 @@
     "linguagem": "",
     "alternativas": [
       "Apaga o autor e põe id_autor a NULL nos livros dele",
-      "Apaga os livros do autor e deixa o autor na tabela",
+      "Apaga o autor e todos os livros dele",
       "Deixa o autor na tabela e põe o nome dele a NULL",
-      "Recusa apagar o autor enquanto tiver livros"
+      "Só apaga o autor se ele não tiver livros"
     ],
     "correta": 0,
-    "explicacao": "SET NULL apaga o pai e deixa a chave estrangeira dos filhos sem valor (NULL). Os livros ficam na tabela, mas sem autor.",
+    "explicacao": "SET NULL apaga o pai e deixa a chave estrangeira dos filhos sem valor (NULL). Os livros ficam na tabela, mas sem autor. Apagar também os livros é o CASCADE.",
     "manual": "3.3"
   },
   {
@@ -7366,7 +7366,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "Numa loja, apagar a conta de um cliente deve apagar também as encomendas dele. Que opção usas na FK encomendas.id_cliente?",
+    "pergunta": "Numa loja, apagar um cliente deve apagar também as encomendas dele. Que opção usas na FK?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -7384,7 +7384,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
-    "pergunta": "A FK livros.id_autor é ON DELETE CASCADE. Quantos livros ficam depois de DELETE FROM autores WHERE id_autor = 1?",
+    "pergunta": "A FK é ON DELETE CASCADE. Quantos livros ficam depois de DELETE FROM autores WHERE id_autor = 1?",
     "codigo": "id_livro | titulo                  | id_autor\n1        | Memorial do Convento    | 1\n2        | Ensaio sobre a Cegueira | 1\n3        | A Menina do Mar         | 2\n4        | Os Maias                | 3",
     "linguagem": "tabela",
     "alternativas": [
@@ -7420,7 +7420,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
-    "pergunta": "A autora Ana (id 5) não tem livros e a FK é ON DELETE RESTRICT. O que acontece a DELETE FROM autores WHERE id_autor = 5?",
+    "pergunta": "A Ana (id 5) não tem livros e a FK é RESTRICT. O que acontece a DELETE FROM autores WHERE id_autor = 5?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -7492,7 +7492,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "facil",
-    "pergunta": "Que tipo de dados serve para um texto longo, como a sinopse de um livro?",
+    "pergunta": "Que tipo de dados serve para a sinopse de um livro, com vários parágrafos?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -7586,13 +7586,13 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "TEXT",
+      "VARCHAR('ativo','inativo')",
       "ENUM('ativo','inativo')",
-      "DATETIME",
-      "INT"
+      "CHECK('ativo','inativo')",
+      "BOOLEAN('ativo','inativo')"
     ],
     "correta": 1,
-    "explicacao": "ENUM define uma lista fixa de valores aceites. Qualquer valor fora da lista é recusado.",
+    "explicacao": "ENUM define uma lista fixa de valores aceites e recusa qualquer outro. VARCHAR e BOOLEAN não recebem uma lista, e CHECK é uma restrição, não um tipo.",
     "manual": "3.4"
   },
   {
@@ -7600,17 +7600,17 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "Que tipo deve ter a chave estrangeira livros.id_autor, que aponta para autores.id_autor (INT)?",
+    "pergunta": "autores.id_autor é INT AUTO_INCREMENT PRIMARY KEY. Que tipo deve ter a chave estrangeira livros.id_autor?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "DECIMAL(8,2)",
-      "VARCHAR(100)",
+      "INT AUTO_INCREMENT",
+      "INT PRIMARY KEY",
       "INT",
-      "BOOLEAN"
+      "VARCHAR(100)"
     ],
     "correta": 2,
-    "explicacao": "A chave estrangeira guarda a chave primária da outra tabela, por isso tem o mesmo tipo: INT. O nome do autor fica só na tabela autores.",
+    "explicacao": "A chave estrangeira tem o mesmo tipo da chave primária para onde aponta: INT. Não leva AUTO_INCREMENT nem PRIMARY KEY, porque vários livros podem ter o mesmo id_autor.",
     "manual": "3.4, 3.5"
   },
   {
@@ -7731,7 +7731,7 @@
     "linguagem": "",
     "alternativas": [
       "O ISBN é opcional e pode repetir-se à vontade",
-      "O ISBN é obrigatório e não se pode repetir em dois livros",
+      "O ISBN é obrigatório e não se repete",
       "O ISBN é preenchido pela base de dados",
       "O ISBN é opcional, mas quando existe não se repete"
     ],
@@ -7785,9 +7785,9 @@
     "linguagem": "",
     "alternativas": [
       "Recusa linhas em que o fim não vem depois do início",
-      "Ordena as linhas pela data de fim",
-      "Calcula quantos dias passam entre as duas datas",
-      "Preenche a data de fim automaticamente"
+      "Mostra um aviso, mas grava a linha na mesma",
+      "Troca as duas datas quando vêm ao contrário",
+      "Ordena as linhas pela data de fim"
     ],
     "correta": 0,
     "explicacao": "CHECK define uma condição que cada linha tem de cumprir. Se a data de fim não for posterior à de início, o INSERT ou UPDATE é recusado.",
@@ -7816,17 +7816,17 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
-    "pergunta": "A coluna isbn é opcional e UNIQUE. Porque é que se grava um ISBN em branco como NULL e não como texto vazio?",
-    "codigo": "$isbn = $_POST['isbn'] ?: null;  // '' passa a NULL",
+    "pergunta": "O campo ISBN do formulário veio vazio. Com esta linha, o que fica gravado na coluna isbn?",
+    "codigo": "$isbn = $_POST['isbn'] ?: null;",
     "linguagem": "php",
     "alternativas": [
-      "NULL aparece sempre primeiro quando se usa ORDER BY",
-      "Uma coluna VARCHAR não aceita texto vazio",
-      "O UNIQUE aceita vários NULL, mas só um texto vazio",
-      "NULL ocupa menos espaço do que um texto vazio"
+      "Texto vazio ('')",
+      "O número 0",
+      "NULL",
+      "O texto 'null'"
     ],
     "correta": 2,
-    "explicacao": "O UNIQUE ignora os NULL, por isso vários livros podem não ter ISBN. Já o texto vazio é um valor: o segundo livro com texto vazio dava Duplicate entry.",
+    "explicacao": "O ?: troca o texto vazio por null, e o PDO grava NULL. Assim um campo opcional deixado em branco fica sem valor (NULL), como o manual pede.",
     "manual": "3.4, 12.4"
   },
   {
@@ -7834,17 +7834,17 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
-    "pergunta": "O email é UNIQUE, a base usa utf8mb4_unicode_ci e já existe demo@biblioteca.pt. O que acontece ao inserir DEMO@biblioteca.pt?",
+    "pergunta": "Ao registar um utilizador aparece \"SQLSTATE[23000] … 1062 Duplicate entry\". O que quer dizer?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Grava, porque as maiúsculas fazem outro email",
-      "Grava e passa o email a minúsculas",
-      "Grava e substitui o email que já existia",
-      "Falha, porque o _ci o considera o mesmo email"
+      "O email está mal escrito",
+      "Falta preencher o email, que é NOT NULL",
+      "A tabela utilizadores não existe",
+      "Já existe um utilizador com esse email"
     ],
     "correta": 3,
-    "explicacao": "O _ci (case insensitive) compara sem distinguir maiúsculas de minúsculas. Para o UNIQUE, os dois emails são iguais e dá Duplicate entry.",
+    "explicacao": "O 1062 Duplicate entry aparece quando um valor repete uma coluna UNIQUE, como o email. Tabela inexistente e campo em falta dão outros erros.",
     "manual": "3.4, 17.2"
   },
   {
@@ -8014,7 +8014,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "facil",
-    "pergunta": "Como importas o base_dados.sql no phpMyAdmin?",
+    "pergunta": "Recebeste o base_dados.sql de um colega. Como crias a base no teu phpMyAdmin?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -8482,7 +8482,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "Na pesquisa de livros (WHERE titulo LIKE ?), a caixa ficou vazia e o valor enviado é '%%'. O que devolve a consulta?",
+    "pergunta": "Na pesquisa (titulo LIKE ?), a caixa ficou vazia e o valor enviado é '%%'. O que devolve a consulta?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -8500,17 +8500,17 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
-    "pergunta": "A base usa utf8mb4_unicode_ci. Que diferença há entre pesquisar com LIKE '%MAR%' e com LIKE '%mar%'?",
+    "pergunta": "Que padrão encontra os títulos cuja segunda letra é a?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "'%MAR%' só devolve títulos em maiúsculas",
-      "'%MAR%' não devolve nenhum título",
-      "Nenhuma: devolvem os mesmos títulos",
-      "'%MAR%' dá erro de sintaxe"
+      "LIKE '%a%'",
+      "LIKE '_a'",
+      "LIKE '_a%'",
+      "LIKE '%a_'"
     ],
     "correta": 2,
-    "explicacao": "O _ci (case insensitive) compara sem distinguir maiúsculas de minúsculas. \"MAR\" e \"mar\" encontram os mesmos títulos.",
+    "explicacao": "O _ vale exatamente um carácter (a primeira letra), depois vem o a, e o % aceita o resto. '_a' só serve para títulos com duas letras.",
     "manual": "12.2"
   },
   {
@@ -8680,14 +8680,14 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "facil",
-    "pergunta": "O que faz AS autor em SELECT l.titulo, a.nome AS autor?",
+    "pergunta": "Em SELECT l.titulo, a.nome AS autor, como se chama no resultado a coluna com o nome do autor?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Filtra os livros pelo autor",
-      "Cria uma coluna nova chamada autor na tabela autores",
-      "Dá o nome autor a essa coluna do resultado",
-      "Junta a tabela autor à consulta"
+      "nome",
+      "a.nome",
+      "autor",
+      "autores.nome"
     ],
     "correta": 2,
     "explicacao": "AS renomeia a coluna no resultado; no PHP lês $linha['autor']. Ajuda quando duas tabelas têm uma coluna com o mesmo nome, como nome.",
@@ -8759,7 +8759,7 @@
       "Para ordenar os livros pelo autor",
       "Porque o ON só aceita colunas com alias",
       "Porque as duas tabelas têm uma coluna id_autor",
-      "Porque os aliases são obrigatórios em todas as colunas do SELECT"
+      "Porque os aliases são sempre obrigatórios"
     ],
     "correta": 2,
     "explicacao": "As duas tabelas têm uma coluna id_autor, e o alias diz de qual se trata. Sem ele, o MySQL dá erro de coluna ambígua.",
@@ -8846,7 +8846,7 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Porque COUNT(*) não funciona quando a consulta tem LEFT JOIN",
+      "Porque COUNT(*) não funciona com LEFT JOIN",
       "Porque COUNT(*) conta as colunas",
       "Porque COUNT(l.id_livro) é mais rápido",
       "Porque COUNT(*) dava 1 aos autores sem livros"
@@ -8860,7 +8860,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "Na consulta que conta os livros de cada autor (LEFT JOIN com COUNT), para que serve o GROUP BY a.id_autor, a.nome?",
+    "pergunta": "Na consulta que conta os livros de cada autor, para que serve o GROUP BY a.id_autor, a.nome?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -8878,7 +8878,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
-    "pergunta": "Há duas autoras diferentes chamadas Ana (ids 5 e 6), cada uma com um livro. O que mostra esta consulta para \"Ana\"?",
+    "pergunta": "Há duas autoras diferentes chamadas Ana (ids 5 e 6), cada uma com um livro. O que mostra a consulta?",
     "codigo": "SELECT a.nome, COUNT(l.id_livro) AS total\nFROM autores a\nLEFT JOIN livros l ON l.id_autor = a.id_autor\nGROUP BY a.nome;",
     "linguagem": "sql",
     "alternativas": [
@@ -8932,13 +8932,13 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "A tabela livros só guarda o id_autor. Porque é que a página de detalhe de um livro faz JOIN com autores?",
+    "pergunta": "Porque é que a página de detalhe de um livro faz JOIN com autores?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
       "Para contar os livros do autor",
       "Para ordenar os livros pelo nome do autor",
-      "Para apagar o autor ao mesmo tempo",
+      "Para confirmar que o autor existe",
       "Para mostrar o nome do autor"
     ],
     "correta": 3,
@@ -8986,7 +8986,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "facil",
-    "pergunta": "Que função conta o número de linhas?",
+    "pergunta": "Que função dá o número de linhas do resultado?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -9256,17 +9256,17 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "Qual destes UPDATE muda a nacionalidade do autor 4?",
+    "pergunta": "Qual destes UPDATE muda o nome do autor 4 para Ana?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "UPDATE autores SET nacionalidade = 'Brasileira' WHERE id_autor = 4",
-      "UPDATE autores SET nacionalidade = 'Brasileira'",
-      "UPDATE autores SET nacionalidade = 'Brasileira' WHERE id_autor == 4",
-      "UPDATE autores nacionalidade = 'Brasileira' WHERE id_autor = 4"
+      "UPDATE autores SET nome = 'Ana' WHERE id_autor = 4",
+      "UPDATE autores SET nome = 'Ana'",
+      "UPDATE autores SET nome = 'Ana' WHERE id_autor == 4",
+      "UPDATE autores nome = 'Ana' WHERE id_autor = 4"
     ],
     "correta": 0,
-    "explicacao": "A forma é UPDATE tabela SET coluna = valor WHERE condição, sempre com um só =. Sem WHERE, a nacionalidade mudava em todos os autores.",
+    "explicacao": "A forma é UPDATE tabela SET coluna = valor WHERE condição, sempre com um só =. Sem WHERE, o nome mudava em todos os autores.",
     "manual": "3.7"
   },
   {
@@ -9310,7 +9310,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
-    "pergunta": "Os livros guardam só o id_autor. Depois deste UPDATE, que nome de autor aparece nos livros do autor 3, numa lista feita com JOIN?",
+    "pergunta": "Os livros guardam só o id_autor. Depois deste UPDATE, que nome aparece nos livros do autor 3, numa lista com JOIN?",
     "codigo": "UPDATE autores SET nome = 'Eça de Queiroz' WHERE id_autor = 3;",
     "linguagem": "sql",
     "alternativas": [
@@ -9418,7 +9418,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "CRUD são as quatro operações sobre os dados (criar, ler, alterar, apagar). Que instruções SQL lhes correspondem?",
+    "pergunta": "CRUD é criar, ler, alterar e apagar. Que instruções SQL lhes correspondem?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -9454,7 +9454,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "Na página de editar um livro (livro_editar.php?id=7), que SQL corre no pedido GET, antes de se mostrar o formulário?",
+    "pergunta": "Em livro_editar.php?id=7, que SQL corre no pedido GET, antes de se mostrar o formulário?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -9778,7 +9778,7 @@
     "bloco": "dados",
     "tema": "Segurança",
     "dificuldade": "media",
-    "pergunta": "Como fica provado que o utilizador deu o consentimento?",
+    "pergunta": "Depois do registo, como se prova que o utilizador marcou a caixa da política de privacidade?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -9832,7 +9832,7 @@
     "bloco": "dados",
     "tema": "Segurança",
     "dificuldade": "media",
-    "pergunta": "No dossier, a secção de segurança tem uma tabela com uma linha para cada uma das seis medidas. O que escreves em cada linha?",
+    "pergunta": "No dossier, a tabela de segurança tem uma linha por medida. O que se escreve em cada uma?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -9872,10 +9872,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Usar um link GET para apagar dados.",
-      "Gravar um script que corre no browser de outros utilizadores.",
+      "Uma consulta SQL com um erro de sintaxe.",
+      "Gravar um script que corre no browser de outros.",
       "Um texto num campo que altera o SQL executado.",
-      "Guardar uma password sem hash."
+      "Um link GET que apaga dados da base de dados."
     ],
     "correta": 2,
     "explicacao": "Na injeção de SQL, o texto escrito pelo utilizador entra no SQL e muda o que a base de dados faz. O script no browser é o XSS, outro ataque.",
@@ -10106,10 +10106,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "prepare(\"UPDATE livros SET titulo = ? WHERE id_livro = $id\")",
-      "prepare('UPDATE livros SET titulo = ? WHERE id_livro = ?')",
-      "prepare(\"UPDATE livros SET titulo = '$t' WHERE id_livro = ?\")",
-      "query(\"UPDATE livros SET titulo = ? WHERE id_livro = $id\")"
+      "prepare(\"... titulo = ? WHERE id_livro = $id\")",
+      "prepare('... titulo = ? WHERE id_livro = ?')",
+      "prepare(\"... titulo = '$t' WHERE id_livro = ?\")",
+      "query(\"... titulo = ? WHERE id_livro = $id\")"
     ],
     "correta": 1,
     "explicacao": "Só a opção b) tem ? no lugar de todos os valores. As outras metem $t ou $id no texto do SQL, mesmo quando usam prepare().",
@@ -10174,7 +10174,7 @@
     "bloco": "dados",
     "tema": "Segurança",
     "dificuldade": "facil",
-    "pergunta": "O que é o XSS (cross-site scripting)?",
+    "pergunta": "O que é o XSS?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -10196,10 +10196,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "A de SQL corre no browser; o XSS corre no servidor.",
+      "A de SQL corre no browser; o XSS, no servidor.",
       "São o mesmo ataque, com nomes diferentes.",
-      "A de SQL ataca os utilizadores; o XSS ataca a base de dados.",
-      "A de SQL ataca a base de dados; o XSS ataca os utilizadores."
+      "A de SQL ataca os utilizadores; o XSS, a base de dados.",
+      "A de SQL ataca a base de dados; o XSS, os utilizadores."
     ],
     "correta": 3,
     "explicacao": "A injeção de SQL muda as consultas à base de dados. O XSS põe código a correr no browser de outras pessoas. São problemas diferentes, com defesas diferentes.",
@@ -10264,7 +10264,7 @@
     "bloco": "dados",
     "tema": "Segurança",
     "dificuldade": "media",
-    "pergunta": "As consultas são todas preparadas, mas a lista mostra os títulos sem escapar. Um título tem <script>. Quem é afetado?",
+    "pergunta": "As consultas são preparadas, mas a lista não escapa os títulos. Um tem <script>. Quem é afetado?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -10305,12 +10305,12 @@
     "linguagem": "",
     "alternativas": [
       "password_hash()",
-      "sha1()",
+      "password_verify()",
       "md5()",
-      "base64_encode()"
+      "sha1()"
     ],
     "correta": 0,
-    "explicacao": "O password_hash() cria um hash bcrypt com sal aleatório. md5 e sha1 são rápidos e fracos; base64 nem é hash.",
+    "explicacao": "O password_hash() cria um hash bcrypt com sal aleatório. O password_verify() serve no login, para comparar a password com o hash; md5 e sha1 são rápidos e fracos.",
     "manual": "10.1, 14"
   },
   {
@@ -10323,9 +10323,9 @@
     "linguagem": "",
     "alternativas": [
       "O JavaScript pode ser desligado ou contornado.",
-      "O browser não sabe validar emails.",
-      "Para o JavaScript ter menos código.",
-      "O servidor mostra os erros mais depressa ao utilizador."
+      "O browser não valida o formato do email.",
+      "Para proteger contra a injeção de SQL.",
+      "O servidor mostra os erros mais depressa."
     ],
     "correta": 0,
     "explicacao": "Tudo o que corre no browser é controlado pelo utilizador: desliga o JS, mexe no F12 ou envia o pedido sem formulário. A segurança está no servidor.",
@@ -10396,11 +10396,11 @@
     "alternativas": [
       "Só se os campos tinham o atributo required no HTML.",
       "Vazios, tamanhos, formatos e valores das listas.",
-      "Se o texto foi escrito sem acentos.",
+      "Se o texto tem etiquetas HTML ou scripts.",
       "Só se o JavaScript já validou primeiro."
     ],
     "correta": 1,
-    "explicacao": "O servidor repete todas as regras: obrigatórios, tamanhos, formato do email e se o valor escolhido numa lista existe mesmo.",
+    "explicacao": "O servidor repete todas as regras: obrigatórios, tamanhos, formato do email e se o valor escolhido numa lista existe mesmo. Os scripts tratam-se ao mostrar, com htmlspecialchars().",
     "manual": "12.4, 14"
   },
   {
@@ -10426,11 +10426,11 @@
     "bloco": "dados",
     "tema": "Segurança",
     "dificuldade": "media",
-    "pergunta": "Ao criar um livro, aparece \"Já existe um livro com esse ISBN.\". Esta verificação pode ser feita pelo validacao.js, no browser?",
+    "pergunta": "O validacao.js, no browser, consegue avisar que já existe um livro com esse ISBN?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Não: só aparece no phpMyAdmin.",
+      "Sim: com o atributo pattern no campo.",
       "Sim: o JavaScript consegue ler a tabela livros na BD.",
       "Sim, se o campo tiver required.",
       "Não: só o servidor consulta a base de dados."
@@ -10466,10 +10466,10 @@
     "codigo": "session_regenerate_id(true);",
     "linguagem": "php",
     "alternativas": [
-      "Dá à sessão um novo id, contra a fixação de sessão.",
-      "Gera um novo hash para a password.",
-      "Termina a sessão do utilizador.",
-      "Guarda o id do utilizador na sessão, para o auth.php ver."
+      "Contra a fixação de sessão.",
+      "Contra o roubo da sessão por XSS.",
+      "Contra sessões que nunca expiram.",
+      "Contra a injeção de SQL no login."
     ],
     "correta": 0,
     "explicacao": "Um id de sessão conhecido antes do login deixa de servir. É uma das boas práticas: novo id de sessão no login.",
@@ -10502,9 +10502,9 @@
     "codigo": "<a href=\"livro_apagar.php?id=7\">Apagar</a>",
     "linguagem": "html",
     "alternativas": [
-      "Falta o atributo target.",
+      "Falta htmlspecialchars() no id.",
       "Um link não pode levar ?id= no fim.",
-      "O id devia ir no texto do link.",
+      "O href devia ser um endereço absoluto.",
       "Um GET não deve alterar dados."
     ],
     "correta": 3,
@@ -10534,14 +10534,14 @@
     "bloco": "dados",
     "tema": "Segurança",
     "dificuldade": "facil",
-    "pergunta": "Que boa prática mostra o onsubmit deste formulário?",
+    "pergunta": "Neste formulário, o que acontece se o utilizador carregar em Cancelar?",
     "codigo": "<form method=\"post\" action=\"livro_apagar.php\"\n      onsubmit=\"return confirm('Apagar este livro?');\">",
     "linguagem": "html",
     "alternativas": [
-      "Pede confirmação antes de apagar.",
-      "Valida os campos no servidor.",
-      "Protege a página contra XSS.",
-      "Envia o pedido por GET."
+      "O formulário não é enviado.",
+      "O livro é apagado na mesma.",
+      "O formulário é enviado sem o id.",
+      "Aparece um erro no browser."
     ],
     "correta": 0,
     "explicacao": "O confirm() devolve true (OK) e o formulário segue, ou false (Cancelar) e não é enviado. POST para alterar + confirmação é uma boa prática do manual.",
@@ -10552,14 +10552,14 @@
     "bloco": "dados",
     "tema": "Segurança",
     "dificuldade": "facil",
-    "pergunta": "Porque é que as credenciais da base de dados ficam só no config/db.php?",
+    "pergunta": "Porque é que as credenciais da base de dados ficam no config/db.php?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O browser lê-as de lá mais depressa.",
-      "Assim ficam cifradas automaticamente.",
+      "Assim o PDO liga-se mais depressa.",
+      "Assim ficam cifradas no servidor.",
       "Ficam num só sítio, fora das outras páginas.",
-      "O phpMyAdmin só procura as credenciais nesse ficheiro."
+      "Assim o phpMyAdmin usa as mesmas."
     ],
     "correta": 2,
     "explicacao": "Com as credenciais num único ficheiro, se a password mudar altera-se um só sítio, e não ficam espalhadas pelas páginas.",
@@ -10665,12 +10665,12 @@
     "linguagem": "",
     "alternativas": [
       "Um limite de tentativas de login.",
-      "O htmlspecialchars() no login.",
-      "Consultas preparadas.",
+      "A mensagem \"Email ou password errados.\".",
+      "O session_regenerate_id() no login.",
       "Tokens CSRF nos formulários."
     ],
     "correta": 0,
-    "explicacao": "Bloquear ou atrasar depois de várias falhas trava a adivinhação de passwords. Está na lista do que faltaria numa aplicação real.",
+    "explicacao": "Bloquear ou atrasar depois de várias falhas trava a adivinhação de passwords. Está na lista do que faltaria numa aplicação real. A mensagem igual só esconde que emails têm conta.",
     "manual": "14.3"
   },
   {
@@ -10696,17 +10696,17 @@
     "bloco": "dados",
     "tema": "Segurança",
     "dificuldade": "facil",
-    "pergunta": "No projeto, basta a password ter 8 caracteres. O que pediria uma aplicação real?",
+    "pergunta": "No projeto, a password só precisa de ter 8 caracteres. O que diz o manual sobre isto?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Passwords visíveis no registo.",
-      "Passwords mais curtas, para o utilizador se lembrar.",
-      "Passwords guardadas com md5().",
-      "Uma política de passwords mais exigente."
+      "É uma falha: o projeto perde pontos.",
+      "É obrigatório exigir pelo menos 12.",
+      "Não importa, porque a password tem hash.",
+      "Chega no projeto; uma app real seria mais exigente."
     ],
     "correta": 3,
-    "explicacao": "Exigir passwords mais fortes (tamanho, variedade) está na lista do que faltaria numa aplicação real.",
+    "explicacao": "Uma política de passwords mais exigente está na lista do que faltaria numa aplicação real, mas não é obrigatória no projeto. O hash não torna forte uma password fraca.",
     "manual": "14.3"
   },
   {
@@ -10822,14 +10822,14 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "media",
-    "pergunta": "Para que serve guardar a data do consentimento?",
+    "pergunta": "A tabela utilizadores tem a coluna consentimento_em. Para que serve?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Saber quando apagar a conta.",
-      "Ordenar os utilizadores na lista.",
-      "Provar quando o utilizador deu o consentimento.",
-      "Calcular a idade do utilizador."
+      "Saber quando a conta deve ser apagada.",
+      "Mostrar a data de registo em \"A minha conta\".",
+      "Provar que o utilizador aceitou a política.",
+      "Contar o prazo de conservação dos dados."
     ],
     "correta": 2,
     "explicacao": "A data em consentimento_em é a prova de que, naquele momento, o utilizador aceitou a política de privacidade.",
@@ -10934,7 +10934,7 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Como estão feitas as tabelas e as colunas da base de dados.",
+      "A estrutura das tabelas da base de dados.",
       "Que dados, para quê, base legal, prazo e direitos.",
       "Que algoritmo de hash se usa nas passwords.",
       "Quem programou a aplicação e quando."
@@ -10966,13 +10966,13 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "facil",
-    "pergunta": "No registo, porque é que a caixa de consentimento tem ao lado um link para a política de privacidade?",
+    "pergunta": "Porque é que a caixa de consentimento tem ao lado um link para a política de privacidade?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Para a caixa ficar marcada ao abrir o link.",
+      "Para o servidor registar que abriste a política.",
       "Para o servidor guardar a data do consentimento.",
-      "Porque o link dispensa a caixa de consentimento.",
+      "Porque o link substitui a caixa de consentimento.",
       "Para saberes o que estás a aceitar."
     ],
     "correta": 3,
@@ -10984,17 +10984,17 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "media",
-    "pergunta": "O link para a política está no includes/rodape.php. Porque é que isso basta para ele aparecer em todas as páginas?",
+    "pergunta": "Onde se põe o link para a política, para aparecer em todas as páginas?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O browser repete o último link visto.",
-      "O Apache junta-o às páginas sozinho.",
-      "O auth.php mostra-o a quem tem sessão.",
-      "Todas as páginas incluem esse rodapé."
+      "No auth.php.",
+      "Só no registo.php.",
+      "No index.php.",
+      "No includes/rodape.php."
     ],
     "correta": 3,
-    "explicacao": "Cada página faz require do rodapé, por isso o mesmo link aparece em todas, com ou sem sessão.",
+    "explicacao": "Todas as páginas incluem o rodapé, por isso um link no includes/rodape.php aparece em todas. O auth.php só entra nas páginas restritas e a política tem de abrir com e sem sessão.",
     "manual": "9.2, 14"
   },
   {
@@ -11056,7 +11056,7 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "facil",
-    "pergunta": "Que direito cumpre o botão \"Apagar a minha conta\"?",
+    "pergunta": "A Maria quer que a Biblioteca deixe de ter os dados dela. Que direito exerce?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -11074,7 +11074,7 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "media",
-    "pergunta": "Uma clínica guarda o telefone dos donos dos animais, que não têm conta. Este dado entra na tabela de dados pessoais?",
+    "pergunta": "Uma clínica guarda o telefone dos donos dos animais, que não têm conta. Entra na tabela de dados pessoais?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -11128,14 +11128,14 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "dificil",
-    "pergunta": "Porque é que se chama session_destroy() depois do DELETE?",
+    "pergunta": "Se faltasse o session_destroy() depois do DELETE, o que acontecia?",
     "codigo": "$stmt = $pdo->prepare('DELETE FROM utilizadores WHERE id_utilizador = ?');\n$stmt->execute([$_SESSION['id_utilizador']]);\nsession_destroy();",
     "linguagem": "php",
     "alternativas": [
-      "Para apagar a linha da base de dados.",
-      "Para apagar o hash da password.",
-      "Para guardar a data do apagamento.",
-      "Para a pessoa deixar de ter sessão iniciada."
+      "A linha ficava na base de dados.",
+      "O utilizador ia logo para o login.",
+      "O DELETE dava erro.",
+      "A sessão ficava com um id que já não existe."
     ],
     "correta": 3,
     "explicacao": "O DELETE já apagou a linha. Falta terminar a sessão, senão a pessoa continuava \"dentro\" com uma conta que já não existe.",
@@ -11218,7 +11218,7 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "media",
-    "pergunta": "A tabela utilizadores tem id_utilizador, nome, email, password_hash e consentimento_em. Que dados pessoais se declaram?",
+    "pergunta": "A tabela utilizadores tem id_utilizador, nome, email, password_hash e consentimento_em. Que dados se declaram?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -11236,13 +11236,13 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "media",
-    "pergunta": "Para que serve o nome do utilizador na Biblioteca?",
+    "pergunta": "Que finalidade declara a Biblioteca para o nome do utilizador?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
       "Iniciar sessão, junto com a password.",
       "Enviar publicidade.",
-      "Tratá-lo pelo nome no menu.",
+      "Aparecer no menu, depois do login.",
       "Fazer estatísticas."
     ],
     "correta": 2,
@@ -11290,7 +11290,7 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "dificil",
-    "pergunta": "O registo.php não verifica o consentimento. Alguém tira o required com o F12 e envia sem marcar a caixa. O que acontece?",
+    "pergunta": "O servidor não verifica o consentimento. Alguém tira o required (F12) e não assinala a caixa. O que acontece?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -11326,7 +11326,7 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "dificil",
-    "pergunta": "A Maria criou livros e depois apagou a conta. Sabendo como é a tabela livros, o que acontece a esses livros?",
+    "pergunta": "A Maria criou livros e depois apagou a conta. Com esta tabela livros, o que acontece a esses livros?",
     "codigo": "livros: id_livro | titulo | ano | id_autor",
     "linguagem": "tabela",
     "alternativas": [
@@ -11384,13 +11384,13 @@
     "codigo": "if (!isset($_POST['consentimento'])) {\n    $erros[] = 'Tens de aceitar a política de privacidade.';\n}",
     "linguagem": "php",
     "alternativas": [
-      "Assinala a caixa automaticamente.",
+      "Assinala a caixa, se vier vazia.",
       "Grava a data do consentimento.",
-      "Recusa o registo se a caixa não foi marcada.",
-      "Mostra a política de privacidade num novo separador."
+      "Recusa o registo sem a caixa marcada.",
+      "Só avisa; a conta é criada na mesma."
     ],
     "correta": 2,
-    "explicacao": "Uma checkbox desmarcada não é enviada, por isso não existe em $_POST. Nesse caso junta-se um erro e o registo não avança.",
+    "explicacao": "Uma checkbox desmarcada não é enviada, por isso não existe em $_POST. Nesse caso junta-se um erro a $erros e o registo não é gravado.",
     "manual": "15.2, 10.2"
   },
   {
@@ -11398,7 +11398,7 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "facil",
-    "pergunta": "O nome, o email e o telefone de uma pessoa são o quê, para o RGPD?",
+    "pergunta": "Para o RGPD, o que são o nome, o email e o telefone de um cliente?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -12052,11 +12052,11 @@
     "alternativas": [
       "Para apagar os dados do formulário",
       "Para mostrar já os erros na página",
-      "Para criar a tabela de erros",
-      "Para começar com uma lista vazia"
+      "Para guardar os erros na sessão",
+      "Para o $erros existir mesmo sem erros"
     ],
     "correta": 3,
-    "explicacao": "Cada regra que falha acrescenta um texto. Se no fim o array continuar vazio, não houve erros.",
+    "explicacao": "Cada regra que falha acrescenta um texto. Sem o $erros = [];, um formulário sem erros deixava a variável por criar e o return/if dava aviso. Se no fim o array continuar vazio, não houve erros.",
     "manual": "7.2, 10.2"
   },
   {
@@ -12532,17 +12532,17 @@
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "dificil",
-    "pergunta": "Uma função lê $_POST sem o receber como parâmetro, mas para usar o $pdo tem de o receber. Porquê?",
+    "pergunta": "Dentro de uma função, que variáveis de fora se usam sem as passar como parâmetro?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O $_POST vê-se em qualquer função; o $pdo, não",
-      "Uma função só pode usar uma variável de fora",
-      "O $_POST só existe dentro de funções",
-      "É só um hábito, porque as duas formas funcionam bem"
+      "$_POST e $_SESSION",
+      "$pdo e $_POST",
+      "Só o $pdo",
+      "Nenhuma: tudo entra por parâmetro"
     ],
     "correta": 0,
-    "explicacao": "As superglobais ($_POST, $_GET, $_SESSION) existem em todo o lado. Uma variável normal como $pdo tem de entrar como parâmetro.",
+    "explicacao": "As superglobais ($_POST, $_GET, $_SESSION) existem em todo o lado. Uma variável normal como $pdo, criada fora da função, tem de entrar como parâmetro.",
     "manual": "7.4, 7.5, 12.4"
   },
   {
@@ -12550,17 +12550,17 @@
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "facil",
-    "pergunta": "Qual destas funções foi escrita pela Biblioteca e não vem com o PHP?",
+    "pergunta": "O que é preciso para uma página poder chamar a mensagem()?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "mensagem()",
-      "trim()",
-      "count()",
-      "htmlspecialchars()"
+      "Incluir o ficheiro que a define",
+      "Nada: já vem com o PHP",
+      "Ativá-la no php.ini",
+      "Chamá-la com new"
     ],
     "correta": 0,
-    "explicacao": "mensagem() está definida no includes/inicio.php. As outras são funções nativas do PHP.",
+    "explicacao": "mensagem() não é nativa: está definida no includes/inicio.php, que cada página inclui. Funções nativas como trim() ou count() estão sempre disponíveis.",
     "manual": "7.4, 9.1"
   },
   {
@@ -12665,7 +12665,7 @@
       "O campo vem vazio e passa",
       "O campo vem com 'off' e passa",
       "O campo não vem e o erro é acrescentado",
-      "Aparece só um aviso de chave inexistente no ecrã"
+      "Dá aviso: a chave não existe"
     ],
     "correta": 2,
     "explicacao": "Uma checkbox por assinalar não é enviada. isset() dá false, o ! inverte e o erro entra na lista.",
@@ -12682,11 +12682,11 @@
     "alternativas": [
       "O dia da semana",
       "A data completa de hoje",
-      "O ano em que o ficheiro foi criado no servidor",
+      "O ano atual com 2 algarismos",
       "O ano atual com 4 algarismos"
     ],
     "correta": 3,
-    "explicacao": "O 'Y' pede o ano com quatro algarismos, por exemplo 2026.",
+    "explicacao": "O 'Y' maiúsculo pede o ano com quatro algarismos, por exemplo 2026.",
     "manual": "7.4"
   },
   {
@@ -12770,10 +12770,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Redireciona para a página 404.php",
-      "Termina o PHP e mostra uma página em branco",
-      "Escreve \"404\" na página",
-      "Muda o código de estado para 404"
+      "Mostra a página de erro 404 do Apache",
+      "Termina o PHP, como o exit",
+      "Redireciona para a página 404",
+      "Só muda o código de estado para 404"
     ],
     "correta": 3,
     "explicacao": "Só muda o código da resposta. A página continua a correr e mostra a sua mensagem.",
@@ -12784,17 +12784,17 @@
     "bloco": "php",
     "tema": "PHP essencial",
     "dificuldade": "media",
-    "pergunta": "Para que serve filter_var($email, FILTER_VALIDATE_EMAIL)?",
+    "pergunta": "O que verifica filter_var($email, FILTER_VALIDATE_EMAIL)?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Enviar um email de confirmação",
-      "Ver se o email já está registado na base de dados",
-      "Verificar se tem formato de email",
-      "Passar o email para minúsculas"
+      "Se o email já está registado",
+      "Se a caixa de email existe",
+      "Se tem formato de email",
+      "Se o email foi confirmado"
     ],
     "correta": 2,
-    "explicacao": "Devolve o email se o formato for válido e false se não for. Saber se já existe exige uma consulta à base de dados.",
+    "explicacao": "Devolve o email se o formato for válido e false se não for. Não contacta o servidor de email; saber se já existe exige uma consulta à base de dados.",
     "manual": "7.4, 10.2"
   },
   {
@@ -12824,7 +12824,7 @@
     "codigo": "preg_match('/^[0-9]{10}([0-9]{3})?$/', $isbn)",
     "linguagem": "php",
     "alternativas": [
-      "978972203629",
+      "97897220",
       "9789722036290",
       "978-972203629",
       "ISBN9722036"
@@ -13058,13 +13058,13 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Verifica se o valor existe",
-      "Escapa o valor para HTML",
+      "Verifica se o valor é inteiro",
+      "Recusa valores que não são números",
       "Converte o valor num inteiro",
-      "Recusa valores negativos"
+      "Dá erro se o valor for texto"
     ],
     "correta": 2,
-    "explicacao": "(int) converte para número inteiro. Um texto que não é número passa a 0.",
+    "explicacao": "(int) converte para número inteiro, não valida nem dá erro. Um texto que não é número passa a 0.",
     "manual": "7.5"
   },
   {
@@ -13239,7 +13239,7 @@
     "linguagem": "",
     "alternativas": [
       "Insere ali o ficheiro, como se lá estivesse",
-      "Redireciona o browser para esse ficheiro, como o header()",
+      "Redireciona o browser para esse ficheiro",
       "Abre o ficheiro numa janela nova",
       "Liga o ficheiro como o <link> do CSS"
     ],
@@ -13364,7 +13364,7 @@
     "codigo": "require 'includes/funcoes.php';\nrequire 'includes/funcoes.php';",
     "linguagem": "php",
     "alternativas": [
-      "Funciona: o segundo require é simplesmente ignorado",
+      "Funciona: o 2.º require é ignorado",
       "Erro fatal: mensagem() declarada 2 vezes",
       "Só um aviso, e a página continua",
       "A função mensagem() corre duas vezes"
@@ -13379,16 +13379,16 @@
     "tema": "include e require",
     "dificuldade": "media",
     "pergunta": "Quantas vezes aparece o rodapé?",
-    "codigo": "include_once 'includes/rodape.php';\ninclude_once 'includes/rodape.php';",
+    "codigo": "include 'includes/rodape.php';\ninclude 'includes/rodape.php';",
     "linguagem": "php",
     "alternativas": [
-      "Duas vezes",
+      "Uma vez: o 2.º é ignorado",
       "Nenhuma: dá erro",
-      "Duas, com um aviso",
-      "Uma vez"
+      "Uma vez, com um aviso",
+      "Duas vezes"
     ],
     "correta": 3,
-    "explicacao": "O include_once vê que o ficheiro já foi incluído e salta a segunda vez.",
+    "explicacao": "O include insere o ficheiro sempre que aparece. Só o include_once/require_once salta a segunda vez.",
     "manual": "7.6"
   },
   {
@@ -13455,9 +13455,9 @@
     "linguagem": "php",
     "alternativas": [
       "Da sessão, guardado no login",
-      "Do browser, em cada pedido",
+      "Do auth.php, que verifica o login",
       "Do db.php, incluído pelo inicio.php",
-      "O PHP cria-o sozinho"
+      "Do cabecalho.php, incluído pelo inicio.php"
     ],
     "correta": 2,
     "explicacao": "O código incluído funciona como se estivesse na página. O inicio.php inclui o db.php, que cria o $pdo.",
@@ -13492,8 +13492,8 @@
     "alternativas": [
       "Todas as páginas com consultas",
       "Só o config/db.php",
-      "O inicio.php e o auth.php",
-      "O ficheiro .sql da base de dados"
+      "O config/db.php e o inicio.php",
+      "Só o includes/inicio.php"
     ],
     "correta": 1,
     "explicacao": "As credenciais estão num único ficheiro, que todas as páginas incluem. Muda-se num só sítio.",
@@ -13510,7 +13510,7 @@
     "alternativas": [
       "Em cada página, após o require",
       "No includes/inicio.php",
-      "No config/db.php",
+      "No includes/rodape.php",
       "No includes/cabecalho.php"
     ],
     "correta": 3,
@@ -13564,7 +13564,7 @@
     "alternativas": [
       "Dá erro fatal para toda a gente",
       "Só abre para quem tem sessão",
-      "Some do menu de navegação",
+      "Desaparece do menu",
       "Abre mesmo sem sessão iniciada"
     ],
     "correta": 3,
@@ -13581,7 +13581,7 @@
     "linguagem": "",
     "alternativas": [
       "Correm todas logo, por ordem",
-      "Corre só a primeira função definida no ficheiro",
+      "Corre só a primeira função",
       "Ficam definidas; correm quando chamadas",
       "O código aparece na página"
     ],
@@ -13653,7 +13653,7 @@
     "linguagem": "",
     "alternativas": [
       "config/db.php",
-      "includes/cabecalho.php",
+      "includes/inicio.php",
       "includes/auth.php",
       "index.php"
     ],
@@ -13702,17 +13702,17 @@
     "bloco": "php",
     "tema": "PDO",
     "dificuldade": "facil",
-    "pergunta": "No DSN `mysql:host=localhost;dbname=biblioteca;charset=utf8mb4`, o que indica `dbname=biblioteca`?",
+    "pergunta": "A base de dados chama-se loja e o MySQL corre no próprio computador. Que DSN está certo?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O nome da tabela principal",
-      "O nome da base de dados",
-      "O nome do utilizador do MySQL",
-      "O nome do servidor"
+      "mysql:host=loja;dbname=localhost",
+      "mysql:host=localhost;dbname=loja",
+      "mysql:host=localhost;user=loja",
+      "mysql:localhost;loja"
     ],
     "correta": 1,
-    "explicacao": "dbname diz a que base de dados te ligas. O servidor vem em host e o utilizador é o segundo argumento do new PDO.",
+    "explicacao": "No DSN, host diz onde corre o MySQL (localhost) e dbname diz a que base de dados te ligas (loja). O utilizador não vai no DSN: é o segundo argumento do new PDO.",
     "manual": "8.1"
   },
   {
@@ -13774,14 +13774,14 @@
     "bloco": "php",
     "tema": "PDO",
     "dificuldade": "media",
-    "pergunta": "O que faz esta linha do db.php?",
+    "pergunta": "Com esta linha no db.php, o que acontece quando uma consulta tem um erro de SQL?",
     "codigo": "$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);",
     "linguagem": "php",
     "alternativas": [
-      "Esconde os erros de SQL ao utilizador",
-      "Mostra os erros como aviso e continua a página",
-      "Liga o modo de depuração do Apache",
-      "Faz os erros de SQL lançarem uma exceção"
+      "O erro fica escondido do utilizador",
+      "Aparece um aviso e a página continua",
+      "O MySQL tenta corrigir a consulta",
+      "Lança um erro que se apanha com catch"
     ],
     "correta": 3,
     "explicacao": "Com ERRMODE_EXCEPTION, um erro de SQL lança uma PDOException, que se pode apanhar com try/catch. É isso que permite tratar o código 23000.",
@@ -13799,7 +13799,7 @@
       "Parava a página com um erro fatal",
       "Era corrigida pelo próprio MySQL",
       "Respondia ao browser com um 404",
-      "Falhava em silêncio, sem exceção"
+      "Falhava em silêncio e a página seguia"
     ],
     "correta": 3,
     "explicacao": "Sem esse modo, o execute() só devolvia false e a página continuava como se nada fosse. Por isso o db.php liga sempre o ERRMODE_EXCEPTION.",
@@ -13828,14 +13828,14 @@
     "bloco": "php",
     "tema": "PDO",
     "dificuldade": "media",
-    "pergunta": "Uma página nova começa logo por `$stmt = $pdo->prepare(...)`, sem fazer require do inicio.php. O que acontece?",
+    "pergunta": "Uma página nova usa `$pdo->prepare(...)` sem fazer require do inicio.php. O que acontece?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
       "Erro: a variável $pdo não existe",
-      "O PHP liga-se sozinho à base de dados",
+      "O PHP liga-se com os dados do db.php",
       "A consulta corre, mas devolve vazio",
-      "O browser pede a password do MySQL"
+      "Funciona, se o db.php estiver na pasta"
     ],
     "correta": 0,
     "explicacao": "$pdo só existe depois de incluir o ficheiro que faz o new PDO (o db.php, via inicio.php). Sem esse require, a variável não está definida.",
@@ -13905,7 +13905,7 @@
     "linguagem": "",
     "alternativas": [
       "As linhas que a consulta encontrou",
-      "Um objeto pronto a executar ($stmt)",
+      "Um objeto $stmt, ainda sem resultados",
       "O número de linhas encontradas",
       "O texto do SQL já com os valores lá dentro"
     ],
@@ -13994,10 +13994,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "INSERT INTO autores (nome, nacionalidade) VALUES ('$n', '$x')",
-      "UPDATE autores SET nome = ?, nacionalidade = ?",
-      "INSERT INTO autores (nome, nacionalidade) VALUES (?, ?)",
-      "INSERT INTO autores (nome, nacionalidade) VALUES ('?', '?')"
+      "INSERT INTO autores (nome) VALUES ('$n')",
+      "UPDATE autores SET nome = ?",
+      "INSERT INTO autores (nome) VALUES (?)",
+      "INSERT INTO autores (nome) VALUES ('?')"
     ],
     "correta": 2,
     "explicacao": "Gravar uma linha nova é INSERT, com um ? sem plicas por cada valor. Pôr variáveis no texto do SQL abre a porta à injeção de SQL.",
@@ -14116,7 +14116,7 @@
     "bloco": "php",
     "tema": "PDO",
     "dificuldade": "media",
-    "pergunta": "Esta consulta não tem nenhum `?`. Que linha falta para ela funcionar?",
+    "pergunta": "Que linha falta para esta consulta funcionar?",
     "codigo": "$stmt = $pdo->prepare('SELECT * FROM autores ORDER BY nome');\n// linha em falta\n$autores = $stmt->fetchAll(PDO::FETCH_ASSOC);",
     "linguagem": "php",
     "alternativas": [
@@ -14152,7 +14152,7 @@
     "bloco": "php",
     "tema": "PDO",
     "dificuldade": "facil",
-    "pergunta": "Que método devolve todas as linhas do resultado, como na lista de livros?",
+    "pergunta": "Na página com a lista de livros, que método lê o resultado do SELECT?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -14193,7 +14193,7 @@
     "linguagem": "",
     "alternativas": [
       "As linhas vêm ordenadas pela chave primária",
-      "A linha vem com os nomes das colunas como chaves",
+      "Vem com os nomes das colunas como chaves",
       "Vem só o valor da primeira coluna",
       "A linha vem só com as chaves 0, 1, 2…"
     ],
@@ -14296,7 +14296,7 @@
     "bloco": "php",
     "tema": "PDO",
     "dificuldade": "media",
-    "pergunta": "Uma consulta aos livros devolveu duas linhas: \"Os Maias\" e \"A Cidade e as Serras\". O que mostra este código?",
+    "pergunta": "A consulta devolveu \"Os Maias\" e \"A Cidade e as Serras\". O que mostra este código?",
     "codigo": "$livros = $stmt->fetchAll(PDO::FETCH_ASSOC);\nforeach ($livros as $l) {\n    echo $l['titulo'] . ';';\n}",
     "linguagem": "php",
     "alternativas": [
@@ -14320,7 +14320,7 @@
     "alternativas": [
       "O ? tinha de estar entre plicas",
       "Faltava usar PDO::FETCH_NUM",
-      "O fetchAll() devolve uma lista: o título está em $livro[0]",
+      "O título está em $livro[0]['titulo']",
       "O execute() tinha de vir depois do fetch"
     ],
     "correta": 2,
@@ -14351,16 +14351,16 @@
     "tema": "PDO",
     "dificuldade": "media",
     "pergunta": "No registo, quando é que este `if` é verdadeiro?",
-    "codigo": "$stmt = $pdo->prepare('SELECT id_utilizador FROM utilizadores WHERE email = ?');\n$stmt->execute([$email]);\nif ($stmt->fetch()) {\n    $erros[] = 'Já existe uma conta com esse email.';\n}",
+    "codigo": "$stmt = $pdo->prepare('SELECT id_utilizador FROM utilizadores WHERE email = ?');\n$stmt->execute([$email]);\nif ($stmt->fetch()) {\n    // junta um erro\n}",
     "linguagem": "php",
     "alternativas": [
-      "Quando já existe uma conta com esse email",
+      "Quando o SELECT encontra esse email",
       "Quando o email tem um formato válido",
       "Quando o SELECT tem um erro de SQL",
-      "Quando ainda não há nenhuma conta"
+      "Quando o SELECT não encontra o email"
     ],
     "correta": 0,
-    "explicacao": "Se encontrar uma linha, o fetch() devolve um array (verdadeiro); se não encontrar, devolve false. Logo, o if apanha o email repetido.",
+    "explicacao": "Se encontrar uma linha, o fetch() devolve um array (verdadeiro); se não encontrar, devolve false. Logo, o if apanha o email que já tem conta.",
     "manual": "10.2, 8.2"
   },
   {
@@ -14410,7 +14410,7 @@
     "alternativas": [
       "O select do formulário pode vir vazio",
       "Para mostrar o nome do autor na lista",
-      "Alguém pode alterar o pedido e enviar outro id",
+      "Alguém pode alterar o id no pedido",
       "O required não funciona num select"
     ],
     "correta": 2,
@@ -14441,7 +14441,7 @@
     "tema": "PDO",
     "dificuldade": "media",
     "pergunta": "Na página que mostra um livro, quando é que se entra neste `if`?",
-    "codigo": "$livro = $stmt->fetch(PDO::FETCH_ASSOC);\nif (!$livro) {\n    http_response_code(404);\n    echo '<h1>Livro não encontrado</h1>';\n    exit;\n}",
+    "codigo": "$livro = $stmt->fetch(PDO::FETCH_ASSOC);\nif (!$livro) {\n    http_response_code(404);\n    exit;\n}",
     "linguagem": "php",
     "alternativas": [
       "Quando há mais do que um livro",
@@ -14548,17 +14548,17 @@
     "bloco": "php",
     "tema": "PDO",
     "dificuldade": "facil",
-    "pergunta": "Para que serve `$pdo->lastInsertId()`?",
+    "pergunta": "Acabaste de inserir um livro. Como sabes o id que ele recebeu?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Dá o maior id que existe na tabela",
-      "Dá o número de linhas inseridas",
-      "Dá o id gerado pelo último INSERT",
-      "Apaga a última linha inserida"
+      "$stmt->rowCount()",
+      "$stmt->fetchColumn()",
+      "$pdo->lastInsertId()",
+      "$stmt->fetch()"
     ],
     "correta": 2,
-    "explicacao": "Depois de um INSERT numa tabela com AUTO_INCREMENT, lastInsertId() dá o id que o MySQL acabou de gerar.",
+    "explicacao": "Depois de um INSERT numa tabela com AUTO_INCREMENT, lastInsertId() dá o id que o MySQL acabou de gerar. O rowCount() dá o número de linhas inseridas e o fetch() não serve num INSERT.",
     "manual": "8.2, 12.4"
   },
   {
@@ -14624,10 +14624,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "A ligação à base de dados que falhou",
-      "O array de valores que o execute() recebeu",
-      "O número da linha do erro no PHP",
-      "A exceção apanhada, com os dados do erro"
+      "A ligação $pdo que falhou",
+      "Só o texto da mensagem de erro",
+      "Só o código do erro, como 23000",
+      "Um objeto com a mensagem e o código"
     ],
     "correta": 3,
     "explicacao": "O $e é o objeto da exceção apanhada. Traz os dados do erro, como o código que $e->getCode() devolve (por exemplo, 23000).",
@@ -14800,7 +14800,7 @@
     "bloco": "php",
     "tema": "PDO",
     "dificuldade": "facil",
-    "pergunta": "Que tipo de exceção lança o PDO quando uma consulta falha?",
+    "pergunta": "Que classe se escreve no catch para apanhar os erros das consultas?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -14841,7 +14841,7 @@
     "linguagem": "",
     "alternativas": [
       "A base de dados não foi encontrada",
-      "Uma restrição foi violada (UNIQUE ou chave estrangeira)",
+      "Violou um UNIQUE ou uma chave estrangeira",
       "Uma coluna tem o nome mal escrito",
       "O MySQL está desligado"
     ],
@@ -14944,17 +14944,17 @@
     "bloco": "php",
     "tema": "PDO",
     "dificuldade": "dificil",
-    "pergunta": "A chave estrangeira de livros tem `ON DELETE RESTRICT`. Quem impede que um autor com livros seja apagado?",
+    "pergunta": "O autor tem livros. Neste código, o que impede que ele seja apagado?",
     "codigo": "try {\n    $stmt = $pdo->prepare('DELETE FROM autores WHERE id_autor = ?');\n    $stmt->execute([$id]);\n    mensagem('sucesso', 'Autor apagado.');\n} catch (PDOException $e) {\n    mensagem('erro', 'Não é possível apagar este autor, porque tem livros.');\n}",
     "linguagem": "php",
     "alternativas": [
       "Um if que conta os livros do autor",
-      "A base de dados, pela chave estrangeira",
+      "O MySQL, que recusa o DELETE",
       "O confirm() do JavaScript",
-      "O auth.php, que só deixa o admin"
+      "O catch, que cancela o DELETE"
     ],
     "correta": 1,
-    "explicacao": "É o MySQL que recusa o DELETE, por causa do RESTRICT. O PHP só apanha a exceção (código 23000) e explica o que aconteceu.",
+    "explicacao": "É o MySQL que recusa o DELETE, por causa da chave estrangeira com ON DELETE RESTRICT. O PHP só apanha a exceção (código 23000) e explica o que aconteceu.",
     "manual": "13.3, 3.3"
   },
   {
@@ -15056,10 +15056,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Dá um erro de validação se o campo vier vazio",
-      "Converte o ISBN para um número",
+      "Dá um erro de validação se vier vazio",
+      "Grava o texto 'null' se vier vazio",
       "Grava NULL quando o campo vem vazio",
-      "Protege contra a injeção de SQL"
+      "Grava NULL quando o ISBN é repetido"
     ],
     "correta": 2,
     "explicacao": "O ?: devolve o valor da direita quando o da esquerda é vazio. Assim, um campo opcional por preencher fica NULL e não ''.",
@@ -15232,7 +15232,7 @@
     "bloco": "php",
     "tema": "Redirecionar e PRG",
     "dificuldade": "media",
-    "pergunta": "Um colega escreveu header('Location: livros.php'); exit; e só depois mensagem('sucesso', 'Livro criado.');. O que acontece?",
+    "pergunta": "Um colega pôs `mensagem(...)` depois de `header(...); exit;`. O que acontece à mensagem?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -15322,7 +15322,7 @@
     "bloco": "php",
     "tema": "Redirecionar e PRG",
     "dificuldade": "media",
-    "pergunta": "Abres o formulário de criar livros (livro_novo.php) pela primeira vez, a partir de um link. O que acontece?",
+    "pergunta": "Abres o livro_novo.php pela primeira vez, a partir de um link. O que acontece?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -15340,12 +15340,12 @@
     "bloco": "php",
     "tema": "Redirecionar e PRG",
     "dificuldade": "media",
-    "pergunta": "Na página que cria livros, a lista de autores para o select só é lida depois do bloco que trata o POST. Porquê?",
+    "pergunta": "Em livro_novo.php, a lista de autores só é lida depois do bloco do POST. Porquê?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
       "O POST apagaria a variável $autores",
-      "Se o POST redirecionar, a lista nem chega a ser usada",
+      "Se o POST redirecionar, a lista não é precisa",
       "O lista_autores() só funciona depois de um POST",
       "O $pdo só existe depois do bloco do POST"
     ],
@@ -15362,7 +15362,7 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Para a página ir para os favoritos",
+      "Para mostrar os erros de validação",
       "Para limpar os dados da sessão",
       "Para o pedido ser mais rápido",
       "Para o F5 não voltar a gravar"
@@ -15376,7 +15376,7 @@
     "bloco": "php",
     "tema": "Redirecionar e PRG",
     "dificuldade": "facil",
-    "pergunta": "Como se chama o padrão \"gravar com POST, responder com redirecionamento e mostrar com GET\"?",
+    "pergunta": "Como se chama o padrão que evita gravar duas vezes quando se carrega em F5?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -15394,7 +15394,7 @@
     "bloco": "php",
     "tema": "Redirecionar e PRG",
     "dificuldade": "media",
-    "pergunta": "Uma página grava o livro e responde ao POST com \"Livro criado.\", sem redirecionar. O utilizador carrega em F5 e confirma. O que acontece?",
+    "pergunta": "Uma página grava o livro e responde ao POST sem redirecionar. Carregas em F5 e confirmas. O que acontece?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -15416,10 +15416,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "A sessão do utilizador expirou",
+      "O servidor rejeitou o formulário",
       "O browser vai repetir o POST anterior",
-      "O formulário tem campos com erros",
-      "O servidor pede a password do utilizador outra vez"
+      "O browser vai repetir o GET da página",
+      "A sessão expirou e tem de ser renovada"
     ],
     "correta": 1,
     "explicacao": "Aparece quando recarregas uma página que veio de um POST. É o sinal de que falta o Post/Redirect/Get.",
@@ -15452,7 +15452,7 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Mostra o formulário com os erros, sem redirecionar",
+      "Mostra o formulário com os erros",
       "Redireciona para a lista com um erro",
       "Redireciona para o formulário vazio",
       "Grava na mesma e mostra um aviso"
@@ -15628,17 +15628,17 @@
     "bloco": "php",
     "tema": "Redirecionar e PRG",
     "dificuldade": "facil",
-    "pergunta": "Como se chama uma mensagem guardada para ser mostrada uma só vez na página seguinte?",
+    "pergunta": "Que nome tem uma mensagem guardada na sessão para aparecer só na página seguinte?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Cookie de sessão",
-      "Alerta de JavaScript",
+      "Mensagem de sessão",
+      "Mensagem de alerta",
       "Mensagem flash",
-      "Registo de erros"
+      "Mensagem de validação"
     ],
     "correta": 2,
-    "explicacao": "Uma mensagem flash aparece uma vez, depois de um redirecionamento, e desaparece.",
+    "explicacao": "Chama-se mensagem flash: fica na sessão, aparece uma vez depois do redirecionamento e é apagada com unset.",
     "manual": "9.3"
   },
   {
@@ -15653,7 +15653,7 @@
       "São guardados num cookie do browser",
       "Vão no endereço da página seguinte",
       "São mostrados só pelo JavaScript",
-      "São mostrados no mesmo pedido, sem redirecionar"
+      "São mostrados no mesmo pedido"
     ],
     "correta": 3,
     "explicacao": "Com erros não há redirecionamento: o array $erros é mostrado logo, na resposta ao próprio POST.",
@@ -15826,7 +15826,7 @@
     "bloco": "php",
     "tema": "Redirecionar e PRG",
     "dificuldade": "dificil",
-    "pergunta": "Depois de gravar, um colega redireciona para obrigado.html, uma página só com HTML, sem o cabeçalho da Biblioteca. Onde aparece a mensagem?",
+    "pergunta": "Após gravar, um colega redireciona para obrigado.html, que não inclui o cabeçalho. Onde aparece a mensagem?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -15844,7 +15844,7 @@
     "bloco": "php",
     "tema": "Redirecionar e PRG",
     "dificuldade": "dificil",
-    "pergunta": "Enviaste um livro sem título e a página mostrou o formulário com o erro. Carregas em F5 e confirmas o reenvio. O que acontece?",
+    "pergunta": "Enviaste um livro sem título e voltou o formulário com o erro. Carregas em F5 e confirmas. O que acontece?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -15921,9 +15921,9 @@
     "linguagem": "",
     "alternativas": [
       "Muita gente usa a mesma password noutros sites.",
-      "Dá ao atacante acesso ao código PHP do servidor.",
-      "Bloqueia a conta do utilizador em todos os sites.",
-      "Permite ao atacante apagar o cookie da sessão."
+      "O cookie da sessão também abre os outros sites.",
+      "O browser envia essa password aos outros sites.",
+      "Os outros sites leem a mesma base de dados."
     ],
     "correta": 0,
     "explicacao": "As pessoas repetem passwords (email, banco…). Uma password lida na tua base de dados serve para entrar nessas outras contas.",
@@ -16247,7 +16247,7 @@
       "Para ver se a password tem 8 caracteres.",
       "Para impedir SQL injection no email.",
       "Porque fetch() devolve false se o email não existir.",
-      "Porque password_verify() só funciona com a sessão aberta."
+      "password_verify() só funciona com sessão aberta."
     ],
     "correta": 2,
     "explicacao": "Sem nenhuma linha, fetch() devolve false e não há hash para verificar. O && só chama password_verify() se $u existir.",
@@ -16276,7 +16276,7 @@
     "bloco": "php",
     "tema": "Passwords",
     "dificuldade": "media",
-    "pergunta": "O utilizador de teste tem a password Demo1234. Tentas entrar com demo1234, tudo em minúsculas. O que acontece?",
+    "pergunta": "A password é Demo1234. Tentas entrar com demo1234, em minúsculas. O que acontece?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -16352,13 +16352,13 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "strlen($email)",
+      "validate_email($email)",
       "filter_var($email, FILTER_VALIDATE_EMAIL)",
-      "isset($email)",
-      "htmlspecialchars($email)"
+      "filter_var($email, FILTER_SANITIZE_EMAIL)",
+      "is_email($email)"
     ],
     "correta": 1,
-    "explicacao": "filter_var() com FILTER_VALIDATE_EMAIL devolve false se o formato for inválido. htmlspecialchars() é para mostrar, não para validar.",
+    "explicacao": "filter_var() com FILTER_VALIDATE_EMAIL devolve false se o formato for inválido. FILTER_SANITIZE_EMAIL só limpa caracteres, não valida; validate_email() e is_email() não existem no PHP.",
     "manual": "10.2"
   },
   {
@@ -16388,9 +16388,9 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "strlen() não existe nas versões novas do PHP.",
+      "mb_strlen() corta o nome aos 100 caracteres.",
       "mb_strlen() tira os espaços das pontas.",
-      "strlen() só conta algarismos.",
+      "strlen() conta os espaços e mb_strlen() não.",
       "Conta cada letra acentuada como um só carácter."
     ],
     "correta": 3,
@@ -16456,17 +16456,17 @@
     "bloco": "php",
     "tema": "Passwords",
     "dificuldade": "media",
-    "pergunta": "Para que serve o NOW() neste INSERT do registo?",
+    "pergunta": "No registo, o que fica gravado na coluna consentimento_em com este NOW()?",
     "codigo": "INSERT INTO utilizadores (nome, email, password_hash, consentimento_em)\nVALUES (?, ?, ?, NOW())",
     "linguagem": "sql",
     "alternativas": [
-      "Guarda a data do último login.",
-      "Assinala a caixa de consentimento.",
-      "Guarda a data e hora do consentimento.",
-      "Apaga a conta ao fim de um ano."
+      "Só a data do dia, sem a hora.",
+      "A hora do computador do utilizador.",
+      "A data e hora do momento do registo.",
+      "O valor 1, se a caixa foi assinalada."
     ],
     "correta": 2,
-    "explicacao": "NOW() dá a data e hora atuais. Fica registado quando o consentimento foi dado, como pede o RGPD.",
+    "explicacao": "NOW() dá a data e hora atuais, calculadas pelo MySQL no momento do INSERT. Fica registado quando o consentimento foi dado, como pede o RGPD.",
     "manual": "10.2, 15.2"
   },
   {
@@ -16528,7 +16528,7 @@
     "bloco": "php",
     "tema": "Passwords",
     "dificuldade": "dificil",
-    "pergunta": "O login aplica trim() ao email, mas não à password. A password da conta é Demo1234 e escreves \"Demo1234 \" (com um espaço no fim). O que acontece?",
+    "pergunta": "O login não aplica trim() à password. A password é Demo1234 e escreves \"Demo1234 \". O que acontece?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -16546,14 +16546,14 @@
     "bloco": "php",
     "tema": "Passwords",
     "dificuldade": "media",
-    "pergunta": "Um colega criou um utilizador à mão no phpMyAdmin, com a password Teste123 escrita na coluna password_hash. Consegue entrar com Teste123?",
+    "pergunta": "Um colega criou uma conta no phpMyAdmin com Teste123 escrito na coluna password_hash. Entra com Teste123?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
       "Não: o valor guardado não é um hash.",
       "Sim, porque a password está igual.",
       "Sim, mas fica com aviso de segurança.",
-      "Não, porque o email fica bloqueado."
+      "Sim: password_verify() também aceita texto simples."
     ],
     "correta": 0,
     "explicacao": "password_verify() lê algoritmo, custo e sal do valor guardado. Um texto simples não é um hash válido, por isso dá false.",
@@ -16570,7 +16570,7 @@
     "alternativas": [
       "No servidor, no registo.php, depois de validar.",
       "No browser, com JavaScript, antes de enviar.",
-      "No MySQL, automaticamente, quando o INSERT grava a linha.",
+      "No MySQL, automaticamente, ao gravar a linha.",
       "No login, sempre que a pessoa entra."
     ],
     "correta": 0,
@@ -16708,7 +16708,7 @@
     "bloco": "php",
     "tema": "Sessões",
     "dificuldade": "facil",
-    "pergunta": "Em PHP, em que variável estão os dados da sessão?",
+    "pergunta": "Que variável PHP guarda dados entre pedidos, do lado do servidor?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -16718,7 +16718,7 @@
       "$_SERVER"
     ],
     "correta": 0,
-    "explicacao": "$_SESSION é a superglobal da sessão. $_COOKIE tem os cookies enviados pelo browser e $_POST os dados do formulário.",
+    "explicacao": "$_SESSION é a superglobal da sessão e os dados ficam no servidor. $_COOKIE também passa entre pedidos, mas vem do browser; $_POST só tem os dados do formulário desse pedido.",
     "manual": "7.5, 10.3"
   },
   {
@@ -16766,13 +16766,13 @@
     "codigo": "<?php\n// includes/inicio.php\nsession_start();\nrequire __DIR__ . '/../config/db.php';",
     "linguagem": "php",
     "alternativas": [
-      "Para mostrar o cabeçalho com o menu.",
-      "Para verificar se o utilizador fez login.",
-      "Para terminar a sessão no fim de cada página.",
-      "Para a sessão abrir em todas as páginas, antes do HTML."
+      "Para mostrar o menu em todas as páginas.",
+      "Para verificar o login em todas as páginas.",
+      "Para criar uma sessão nova em cada página.",
+      "Para abrir a sessão em todas, antes do HTML."
     ],
     "correta": 3,
-    "explicacao": "O inicio.php abre a sessão (e a ligação) logo na primeira linha. Verificar o login é trabalho do auth.php.",
+    "explicacao": "O inicio.php abre (cria ou retoma) a sessão logo na primeira linha, antes de qualquer HTML. Não cria uma nova em cada página, e verificar o login é trabalho do auth.php.",
     "manual": "9.1, 10.3"
   },
   {
@@ -16816,13 +16816,13 @@
     "bloco": "php",
     "tema": "Sessões",
     "dificuldade": "facil",
-    "pergunta": "Neste login bem sucedido, o que fica guardado na sessão?",
-    "codigo": "$_SESSION['id_utilizador'] = $u['id_utilizador'];\n$_SESSION['nome'] = $u['nome'];",
-    "linguagem": "php",
+    "pergunta": "Depois de um login bem sucedido, o que fica guardado na sessão?",
+    "codigo": "",
+    "linguagem": "",
     "alternativas": [
       "O email e a password.",
       "O id e o hash da password.",
-      "Só o nome do utilizador.",
+      "Só o email do utilizador.",
       "O id e o nome do utilizador."
     ],
     "correta": 3,
@@ -16870,7 +16870,7 @@
     "bloco": "php",
     "tema": "Sessões",
     "dificuldade": "facil",
-    "pergunta": "No logout, que função destrói a sessão?",
+    "pergunta": "No logout, que função termina a sessão no servidor?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -16924,17 +16924,17 @@
     "bloco": "php",
     "tema": "Sessões",
     "dificuldade": "media",
-    "pergunta": "O logout.php vai destruir a sessão. Porque é que começa por require 'includes/inicio.php';?",
+    "pergunta": "Porque é que o logout.php começa por require 'includes/inicio.php';?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
       "Para mostrar o cabeçalho com o menu.",
-      "Para apagar o utilizador da base de dados.",
-      "Para abrir a sessão que vai destruir.",
-      "Para verificar outra vez a password."
+      "Para verificar se o utilizador tem login.",
+      "Para abrir a sessão antes de a terminar.",
+      "Para apagar o cookie PHPSESSID."
     ],
     "correta": 2,
-    "explicacao": "session_destroy() só funciona sobre uma sessão aberta, e é o inicio.php que chama session_start().",
+    "explicacao": "session_destroy() só funciona sobre uma sessão aberta, e é o inicio.php que chama session_start(). Verificar o login é trabalho do auth.php.",
     "manual": "10.5, 9.1"
   },
   {
@@ -17032,7 +17032,7 @@
     "bloco": "php",
     "tema": "Sessões",
     "dificuldade": "media",
-    "pergunta": "No cabeçalho, um colega trocou unset($_SESSION['msg']) por $_SESSION = [];. O que acontece quando aparece uma mensagem?",
+    "pergunta": "No cabeçalho, trocaram unset($_SESSION['msg']) por $_SESSION = [];. O que acontece?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -17109,9 +17109,9 @@
     "linguagem": "",
     "alternativas": [
       "A conta já não existe, por isso a sessão acaba.",
-      "Para apagar o hash da password.",
-      "Porque o DELETE só fica gravado depois de destruir a sessão.",
-      "Para libertar espaço na base de dados."
+      "Para apagar também o cookie do browser.",
+      "Porque o DELETE só grava depois de destruir a sessão.",
+      "Para terminar a sessão também noutros browsers."
     ],
     "correta": 0,
     "explicacao": "Sem terminar a sessão, a pessoa continuava \"com login\" numa conta apagada.",
@@ -17122,7 +17122,7 @@
     "bloco": "php",
     "tema": "Sessões",
     "dificuldade": "media",
-    "pergunta": "Apagas a tua conta em \"A minha conta\" e tentas entrar de novo com o mesmo email e password. O que acontece?",
+    "pergunta": "Apagas a tua conta e tentas entrar de novo com os mesmos dados. O que acontece?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -17212,7 +17212,7 @@
     "bloco": "php",
     "tema": "Sessões",
     "dificuldade": "media",
-    "pergunta": "Em vez da sessão, um colega guarda o login num cookie criado por ele: setcookie('id_utilizador', 7). Que problema tem?",
+    "pergunta": "Um colega guarda o login num cookie criado por ele: setcookie('id_utilizador', 7). Que problema tem?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -17266,7 +17266,7 @@
     "bloco": "php",
     "tema": "Sessões",
     "dificuldade": "media",
-    "pergunta": "Acabaste de criar conta e vês \"Conta criada. Já podes iniciar sessão.\" Sem fazer login, abres livros.php. O que acontece?",
+    "pergunta": "Acabaste de criar conta no registo.php. Sem fazer login, abres livros.php. O que acontece?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -17284,7 +17284,7 @@
     "bloco": "php",
     "tema": "Sessões",
     "dificuldade": "dificil",
-    "pergunta": "Um visitante sem login cria conta e o registo.php guarda \"Conta criada…\" com mensagem() antes de redirecionar. Como chega a mensagem ao login.php?",
+    "pergunta": "Sem login, crias conta. O registo.php chama mensagem() e redireciona. Como chega a mensagem ao login.php?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -17302,7 +17302,7 @@
     "bloco": "php",
     "tema": "Sessões",
     "dificuldade": "media",
-    "pergunta": "Tens sessão iniciada no computador e no telemóvel. Carregas em Sair no computador. O que acontece no telemóvel?",
+    "pergunta": "Tens sessão no computador e no telemóvel. Sais no computador. O que acontece no telemóvel?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -17338,7 +17338,7 @@
     "bloco": "php",
     "tema": "Sessões",
     "dificuldade": "dificil",
-    "pergunta": "Enquanto a Maria tem sessão iniciada, alguém apaga a conta dela no phpMyAdmin. Ela abre uma página que só tem este controlo. O que acontece?",
+    "pergunta": "A Maria tem sessão, mas apagam a conta dela no phpMyAdmin. Ela abre esta página. O que acontece?",
     "codigo": "if (!isset($_SESSION['id_utilizador'])) {\n    header('Location: login.php');\n    exit;\n}",
     "linguagem": "php",
     "alternativas": [
@@ -17378,10 +17378,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "if (!isset($_POST['id_utilizador'])) { header('Location: login.php'); exit; }",
-      "if (!isset($_SESSION['id_utilizador'])) { header('Location: login.php'); }",
-      "if (!isset($_SESSION['id_utilizador'])) { header('Location: login.php'); exit; }",
-      "if (isset($_SESSION['id_utilizador'])) { header('Location: login.php'); exit; }"
+      "if (!isset($_POST['id_utilizador'])) { header(...); exit; }",
+      "if (!isset($_SESSION['id_utilizador'])) { header(...); }",
+      "if (!isset($_SESSION['id_utilizador'])) { header(...); exit; }",
+      "if (isset($_SESSION['id_utilizador'])) { header(...); exit; }"
     ],
     "correta": 2,
     "explicacao": "Verifica-se a sessão (no servidor), com ! para apanhar quem NÃO tem sessão, e termina-se com exit para o resto não correr.",
@@ -17487,7 +17487,7 @@
     "linguagem": "",
     "alternativas": [
       "Não: como não mostra HTML, ninguém a vê.",
-      "Não: o botão Apagar só aparece a quem tem sessão iniciada.",
+      "Não: o botão Apagar só aparece a quem tem sessão.",
       "Só se alguém a abrir por GET.",
       "Sim: senão qualquer um apaga com um pedido direto."
     ],
@@ -17554,7 +17554,7 @@
     "bloco": "php",
     "tema": "Controlo de acesso e XSS",
     "dificuldade": "media",
-    "pergunta": "No auth.php, o que se verifica para saber se alguém iniciou sessão?",
+    "pergunta": "No auth.php, o que se verifica para saber se o utilizador fez login?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -17630,13 +17630,13 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Escondendo o link do menu a quem não é administrador.",
-      "Com uma password extra em JavaScript.",
+      "Escondendo do menu os links de administração.",
+      "Com o auth.php, que já verifica o perfil.",
       "Com um segundo controlo, como o admin.php.",
       "Com um campo hidden perfil=admin."
     ],
     "correta": 2,
-    "explicacao": "O manual sugere um includes/admin.php que verifica $_SESSION['perfil']. Esconder links ou campos do browser não protege.",
+    "explicacao": "O manual sugere um includes/admin.php que verifica $_SESSION['perfil']. O auth.php só vê se há sessão, e esconder links ou campos do browser não protege.",
     "manual": "11.3"
   },
   {
@@ -17662,7 +17662,7 @@
     "bloco": "php",
     "tema": "Controlo de acesso e XSS",
     "dificuldade": "dificil",
-    "pergunta": "Um utilizador com sessão, mas sem perfil de admin, abre uma página de gestão que só tem o auth.php. O que acontece?",
+    "pergunta": "Alguém com sessão, mas sem perfil de admin, abre uma página de gestão só com o auth.php. O que acontece?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -17878,7 +17878,7 @@
     "bloco": "php",
     "tema": "Controlo de acesso e XSS",
     "dificuldade": "media",
-    "pergunta": "No cabeçalho, o tipo da mensagem flash é escrito em class=\"msg ...\" sem htmlspecialchars(). Porque é aceitável?",
+    "pergunta": "O tipo da mensagem flash vai para class=\"msg ...\" sem htmlspecialchars(). Porque é aceitável?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -17914,7 +17914,7 @@
     "bloco": "php",
     "tema": "Controlo de acesso e XSS",
     "dificuldade": "dificil",
-    "pergunta": "Um colega grava o título com htmlspecialchars() e também o mostra com htmlspecialchars(). O título é Ensaio & Prosa. O que se vê no ecrã?",
+    "pergunta": "O título Ensaio & Prosa é escapado ao gravar e outra vez ao mostrar. O que se vê no ecrã?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [

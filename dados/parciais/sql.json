@@ -166,7 +166,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "A tabela autores foi criada agora e tem estes 3 autores (id_autor é AUTO_INCREMENT). Que id recebe o próximo autor inserido?",
+    "pergunta": "A tabela autores é nova e tem estes 3 autores (id_autor é AUTO_INCREMENT). Que id recebe o próximo?",
     "codigo": "id_autor | nome\n1        | José Saramago\n2        | Sophia de Mello Breyner\n3        | Eça de Queirós",
     "linguagem": "tabela",
     "alternativas": [
@@ -227,7 +227,7 @@
       "A chave primária de uma tabela importada",
       "Uma coluna que a base de dados preenche sozinha",
       "Uma coluna que não pode ter repetidos",
-      "Coluna com a chave primária de outra tabela"
+      "Uma coluna com a chave primária de outra tabela"
     ],
     "correta": 3,
     "explicacao": "A chave estrangeira liga duas tabelas: livros.id_autor guarda o id_autor (chave primária) de um autor. Não ter repetidos é o UNIQUE.",
@@ -274,7 +274,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "Numa loja, uma categoria tem vários produtos e cada produto tem uma só categoria. Que coluna é a chave estrangeira?",
+    "pergunta": "Uma categoria tem vários produtos e cada produto tem uma só categoria. Qual é a chave estrangeira?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -382,7 +382,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "Inseriste a autora Ana (id_autor 5) e ainda não lhe associaste nenhum livro. O que há sobre ela na tabela livros?",
+    "pergunta": "Inseriste a autora Ana (id_autor 5) e mais nada. O que há sobre ela na tabela livros?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -424,7 +424,7 @@
     "alternativas": [
       "Que a tabela autores ganha uma coluna id_livro",
       "Que a tabela autores é copiada para livros",
-      "Que id_autor passa a ser a chave primária da tabela livros",
+      "Que id_autor passa a ser a chave primária",
       "Que livros.id_autor aponta para autores.id_autor"
     ],
     "correta": 3,
@@ -495,12 +495,12 @@
     "linguagem": "",
     "alternativas": [
       "Apaga o autor e põe id_autor a NULL nos livros dele",
-      "Apaga os livros do autor e deixa o autor na tabela",
+      "Apaga o autor e todos os livros dele",
       "Deixa o autor na tabela e põe o nome dele a NULL",
-      "Recusa apagar o autor enquanto tiver livros"
+      "Só apaga o autor se ele não tiver livros"
     ],
     "correta": 0,
-    "explicacao": "SET NULL apaga o pai e deixa a chave estrangeira dos filhos sem valor (NULL). Os livros ficam na tabela, mas sem autor.",
+    "explicacao": "SET NULL apaga o pai e deixa a chave estrangeira dos filhos sem valor (NULL). Os livros ficam na tabela, mas sem autor. Apagar também os livros é o CASCADE.",
     "manual": "3.3"
   },
   {
@@ -544,7 +544,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "Numa loja, apagar a conta de um cliente deve apagar também as encomendas dele. Que opção usas na FK encomendas.id_cliente?",
+    "pergunta": "Numa loja, apagar um cliente deve apagar também as encomendas dele. Que opção usas na FK?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -562,7 +562,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
-    "pergunta": "A FK livros.id_autor é ON DELETE CASCADE. Quantos livros ficam depois de DELETE FROM autores WHERE id_autor = 1?",
+    "pergunta": "A FK é ON DELETE CASCADE. Quantos livros ficam depois de DELETE FROM autores WHERE id_autor = 1?",
     "codigo": "id_livro | titulo                  | id_autor\n1        | Memorial do Convento    | 1\n2        | Ensaio sobre a Cegueira | 1\n3        | A Menina do Mar         | 2\n4        | Os Maias                | 3",
     "linguagem": "tabela",
     "alternativas": [
@@ -598,7 +598,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
-    "pergunta": "A autora Ana (id 5) não tem livros e a FK é ON DELETE RESTRICT. O que acontece a DELETE FROM autores WHERE id_autor = 5?",
+    "pergunta": "A Ana (id 5) não tem livros e a FK é RESTRICT. O que acontece a DELETE FROM autores WHERE id_autor = 5?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -670,7 +670,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "facil",
-    "pergunta": "Que tipo de dados serve para um texto longo, como a sinopse de um livro?",
+    "pergunta": "Que tipo de dados serve para a sinopse de um livro, com vários parágrafos?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -764,13 +764,13 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "TEXT",
+      "VARCHAR('ativo','inativo')",
       "ENUM('ativo','inativo')",
-      "DATETIME",
-      "INT"
+      "CHECK('ativo','inativo')",
+      "BOOLEAN('ativo','inativo')"
     ],
     "correta": 1,
-    "explicacao": "ENUM define uma lista fixa de valores aceites. Qualquer valor fora da lista é recusado.",
+    "explicacao": "ENUM define uma lista fixa de valores aceites e recusa qualquer outro. VARCHAR e BOOLEAN não recebem uma lista, e CHECK é uma restrição, não um tipo.",
     "manual": "3.4"
   },
   {
@@ -778,17 +778,17 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "Que tipo deve ter a chave estrangeira livros.id_autor, que aponta para autores.id_autor (INT)?",
+    "pergunta": "autores.id_autor é INT AUTO_INCREMENT PRIMARY KEY. Que tipo deve ter a chave estrangeira livros.id_autor?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "DECIMAL(8,2)",
-      "VARCHAR(100)",
+      "INT AUTO_INCREMENT",
+      "INT PRIMARY KEY",
       "INT",
-      "BOOLEAN"
+      "VARCHAR(100)"
     ],
     "correta": 2,
-    "explicacao": "A chave estrangeira guarda a chave primária da outra tabela, por isso tem o mesmo tipo: INT. O nome do autor fica só na tabela autores.",
+    "explicacao": "A chave estrangeira tem o mesmo tipo da chave primária para onde aponta: INT. Não leva AUTO_INCREMENT nem PRIMARY KEY, porque vários livros podem ter o mesmo id_autor.",
     "manual": "3.4, 3.5"
   },
   {
@@ -909,7 +909,7 @@
     "linguagem": "",
     "alternativas": [
       "O ISBN é opcional e pode repetir-se à vontade",
-      "O ISBN é obrigatório e não se pode repetir em dois livros",
+      "O ISBN é obrigatório e não se repete",
       "O ISBN é preenchido pela base de dados",
       "O ISBN é opcional, mas quando existe não se repete"
     ],
@@ -963,9 +963,9 @@
     "linguagem": "",
     "alternativas": [
       "Recusa linhas em que o fim não vem depois do início",
-      "Ordena as linhas pela data de fim",
-      "Calcula quantos dias passam entre as duas datas",
-      "Preenche a data de fim automaticamente"
+      "Mostra um aviso, mas grava a linha na mesma",
+      "Troca as duas datas quando vêm ao contrário",
+      "Ordena as linhas pela data de fim"
     ],
     "correta": 0,
     "explicacao": "CHECK define uma condição que cada linha tem de cumprir. Se a data de fim não for posterior à de início, o INSERT ou UPDATE é recusado.",
@@ -994,17 +994,17 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
-    "pergunta": "A coluna isbn é opcional e UNIQUE. Porque é que se grava um ISBN em branco como NULL e não como texto vazio?",
-    "codigo": "$isbn = $_POST['isbn'] ?: null;  // '' passa a NULL",
+    "pergunta": "O campo ISBN do formulário veio vazio. Com esta linha, o que fica gravado na coluna isbn?",
+    "codigo": "$isbn = $_POST['isbn'] ?: null;",
     "linguagem": "php",
     "alternativas": [
-      "NULL aparece sempre primeiro quando se usa ORDER BY",
-      "Uma coluna VARCHAR não aceita texto vazio",
-      "O UNIQUE aceita vários NULL, mas só um texto vazio",
-      "NULL ocupa menos espaço do que um texto vazio"
+      "Texto vazio ('')",
+      "O número 0",
+      "NULL",
+      "O texto 'null'"
     ],
     "correta": 2,
-    "explicacao": "O UNIQUE ignora os NULL, por isso vários livros podem não ter ISBN. Já o texto vazio é um valor: o segundo livro com texto vazio dava Duplicate entry.",
+    "explicacao": "O ?: troca o texto vazio por null, e o PDO grava NULL. Assim um campo opcional deixado em branco fica sem valor (NULL), como o manual pede.",
     "manual": "3.4, 12.4"
   },
   {
@@ -1012,17 +1012,17 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
-    "pergunta": "O email é UNIQUE, a base usa utf8mb4_unicode_ci e já existe demo@biblioteca.pt. O que acontece ao inserir DEMO@biblioteca.pt?",
+    "pergunta": "Ao registar um utilizador aparece \"SQLSTATE[23000] … 1062 Duplicate entry\". O que quer dizer?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Grava, porque as maiúsculas fazem outro email",
-      "Grava e passa o email a minúsculas",
-      "Grava e substitui o email que já existia",
-      "Falha, porque o _ci o considera o mesmo email"
+      "O email está mal escrito",
+      "Falta preencher o email, que é NOT NULL",
+      "A tabela utilizadores não existe",
+      "Já existe um utilizador com esse email"
     ],
     "correta": 3,
-    "explicacao": "O _ci (case insensitive) compara sem distinguir maiúsculas de minúsculas. Para o UNIQUE, os dois emails são iguais e dá Duplicate entry.",
+    "explicacao": "O 1062 Duplicate entry aparece quando um valor repete uma coluna UNIQUE, como o email. Tabela inexistente e campo em falta dão outros erros.",
     "manual": "3.4, 17.2"
   },
   {
@@ -1192,7 +1192,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "facil",
-    "pergunta": "Como importas o base_dados.sql no phpMyAdmin?",
+    "pergunta": "Recebeste o base_dados.sql de um colega. Como crias a base no teu phpMyAdmin?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -1660,7 +1660,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "Na pesquisa de livros (WHERE titulo LIKE ?), a caixa ficou vazia e o valor enviado é '%%'. O que devolve a consulta?",
+    "pergunta": "Na pesquisa (titulo LIKE ?), a caixa ficou vazia e o valor enviado é '%%'. O que devolve a consulta?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -1678,17 +1678,17 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
-    "pergunta": "A base usa utf8mb4_unicode_ci. Que diferença há entre pesquisar com LIKE '%MAR%' e com LIKE '%mar%'?",
+    "pergunta": "Que padrão encontra os títulos cuja segunda letra é a?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "'%MAR%' só devolve títulos em maiúsculas",
-      "'%MAR%' não devolve nenhum título",
-      "Nenhuma: devolvem os mesmos títulos",
-      "'%MAR%' dá erro de sintaxe"
+      "LIKE '%a%'",
+      "LIKE '_a'",
+      "LIKE '_a%'",
+      "LIKE '%a_'"
     ],
     "correta": 2,
-    "explicacao": "O _ci (case insensitive) compara sem distinguir maiúsculas de minúsculas. \"MAR\" e \"mar\" encontram os mesmos títulos.",
+    "explicacao": "O _ vale exatamente um carácter (a primeira letra), depois vem o a, e o % aceita o resto. '_a' só serve para títulos com duas letras.",
     "manual": "12.2"
   },
   {
@@ -1858,14 +1858,14 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "facil",
-    "pergunta": "O que faz AS autor em SELECT l.titulo, a.nome AS autor?",
+    "pergunta": "Em SELECT l.titulo, a.nome AS autor, como se chama no resultado a coluna com o nome do autor?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Filtra os livros pelo autor",
-      "Cria uma coluna nova chamada autor na tabela autores",
-      "Dá o nome autor a essa coluna do resultado",
-      "Junta a tabela autor à consulta"
+      "nome",
+      "a.nome",
+      "autor",
+      "autores.nome"
     ],
     "correta": 2,
     "explicacao": "AS renomeia a coluna no resultado; no PHP lês $linha['autor']. Ajuda quando duas tabelas têm uma coluna com o mesmo nome, como nome.",
@@ -1937,7 +1937,7 @@
       "Para ordenar os livros pelo autor",
       "Porque o ON só aceita colunas com alias",
       "Porque as duas tabelas têm uma coluna id_autor",
-      "Porque os aliases são obrigatórios em todas as colunas do SELECT"
+      "Porque os aliases são sempre obrigatórios"
     ],
     "correta": 2,
     "explicacao": "As duas tabelas têm uma coluna id_autor, e o alias diz de qual se trata. Sem ele, o MySQL dá erro de coluna ambígua.",
@@ -2024,7 +2024,7 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Porque COUNT(*) não funciona quando a consulta tem LEFT JOIN",
+      "Porque COUNT(*) não funciona com LEFT JOIN",
       "Porque COUNT(*) conta as colunas",
       "Porque COUNT(l.id_livro) é mais rápido",
       "Porque COUNT(*) dava 1 aos autores sem livros"
@@ -2038,7 +2038,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "Na consulta que conta os livros de cada autor (LEFT JOIN com COUNT), para que serve o GROUP BY a.id_autor, a.nome?",
+    "pergunta": "Na consulta que conta os livros de cada autor, para que serve o GROUP BY a.id_autor, a.nome?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -2056,7 +2056,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
-    "pergunta": "Há duas autoras diferentes chamadas Ana (ids 5 e 6), cada uma com um livro. O que mostra esta consulta para \"Ana\"?",
+    "pergunta": "Há duas autoras diferentes chamadas Ana (ids 5 e 6), cada uma com um livro. O que mostra a consulta?",
     "codigo": "SELECT a.nome, COUNT(l.id_livro) AS total\nFROM autores a\nLEFT JOIN livros l ON l.id_autor = a.id_autor\nGROUP BY a.nome;",
     "linguagem": "sql",
     "alternativas": [
@@ -2110,13 +2110,13 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "A tabela livros só guarda o id_autor. Porque é que a página de detalhe de um livro faz JOIN com autores?",
+    "pergunta": "Porque é que a página de detalhe de um livro faz JOIN com autores?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
       "Para contar os livros do autor",
       "Para ordenar os livros pelo nome do autor",
-      "Para apagar o autor ao mesmo tempo",
+      "Para confirmar que o autor existe",
       "Para mostrar o nome do autor"
     ],
     "correta": 3,
@@ -2164,7 +2164,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "facil",
-    "pergunta": "Que função conta o número de linhas?",
+    "pergunta": "Que função dá o número de linhas do resultado?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -2434,17 +2434,17 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "Qual destes UPDATE muda a nacionalidade do autor 4?",
+    "pergunta": "Qual destes UPDATE muda o nome do autor 4 para Ana?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "UPDATE autores SET nacionalidade = 'Brasileira' WHERE id_autor = 4",
-      "UPDATE autores SET nacionalidade = 'Brasileira'",
-      "UPDATE autores SET nacionalidade = 'Brasileira' WHERE id_autor == 4",
-      "UPDATE autores nacionalidade = 'Brasileira' WHERE id_autor = 4"
+      "UPDATE autores SET nome = 'Ana' WHERE id_autor = 4",
+      "UPDATE autores SET nome = 'Ana'",
+      "UPDATE autores SET nome = 'Ana' WHERE id_autor == 4",
+      "UPDATE autores nome = 'Ana' WHERE id_autor = 4"
     ],
     "correta": 0,
-    "explicacao": "A forma é UPDATE tabela SET coluna = valor WHERE condição, sempre com um só =. Sem WHERE, a nacionalidade mudava em todos os autores.",
+    "explicacao": "A forma é UPDATE tabela SET coluna = valor WHERE condição, sempre com um só =. Sem WHERE, o nome mudava em todos os autores.",
     "manual": "3.7"
   },
   {
@@ -2488,7 +2488,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "dificil",
-    "pergunta": "Os livros guardam só o id_autor. Depois deste UPDATE, que nome de autor aparece nos livros do autor 3, numa lista feita com JOIN?",
+    "pergunta": "Os livros guardam só o id_autor. Depois deste UPDATE, que nome aparece nos livros do autor 3, numa lista com JOIN?",
     "codigo": "UPDATE autores SET nome = 'Eça de Queiroz' WHERE id_autor = 3;",
     "linguagem": "sql",
     "alternativas": [
@@ -2596,7 +2596,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "CRUD são as quatro operações sobre os dados (criar, ler, alterar, apagar). Que instruções SQL lhes correspondem?",
+    "pergunta": "CRUD é criar, ler, alterar e apagar. Que instruções SQL lhes correspondem?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -2632,7 +2632,7 @@
     "bloco": "dados",
     "tema": "SQL e Base de dados",
     "dificuldade": "media",
-    "pergunta": "Na página de editar um livro (livro_editar.php?id=7), que SQL corre no pedido GET, antes de se mostrar o formulário?",
+    "pergunta": "Em livro_editar.php?id=7, que SQL corre no pedido GET, antes de se mostrar o formulário?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [

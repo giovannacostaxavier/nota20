@@ -40,17 +40,17 @@
     "bloco": "web",
     "tema": "CSS",
     "dificuldade": "facil",
-    "pergunta": "Para que serve rel=\"stylesheet\" no <link>?",
+    "pergunta": "Que atributo do <link> diz que o ficheiro é uma folha de estilos?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Indica o caminho do ficheiro CSS",
-      "Faz o ficheiro CSS carregar mais depressa no browser",
-      "Aplica o CSS só a esta página",
-      "Diz que o ficheiro é uma folha de estilos"
+      "href",
+      "src",
+      "type",
+      "rel"
     ],
     "correta": 3,
-    "explicacao": "O rel diz a relação com o ficheiro: stylesheet quer dizer folha de estilos. O caminho vai no href.",
+    "explicacao": "O rel=\"stylesheet\" diz a relação com o ficheiro: é uma folha de estilos. O caminho vai no href.",
     "manual": "5.1"
   },
   {
@@ -80,10 +80,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O CSS deixa de precisar de seletores",
-      "O CSS passa a ser processado no servidor web",
+      "A página carrega o CSS antes do HTML",
+      "O CSS passa a funcionar em todos os browsers",
       "Mudas o aspeto do site todo num só sítio",
-      "O HTML deixa de precisar do <head>"
+      "As regras ganham sempre ao atributo style"
     ],
     "correta": 2,
     "explicacao": "Com um só estilo.css ligado em todas as páginas, uma alteração no ficheiro muda o site inteiro.",
@@ -112,17 +112,17 @@
     "bloco": "web",
     "tema": "CSS",
     "dificuldade": "dificil",
-    "pergunta": "A página está na pasta principal e o ficheiro em css/estilo.css. Porque é que o CSS não pega?",
+    "pergunta": "A página está na pasta principal e o estilo.css dentro da pasta css. Porque é que o CSS não pega?",
     "codigo": "<link rel=\"stylesheet\" href=\"estilo.css\">",
     "linguagem": "html",
     "alternativas": [
       "O href devia ser css/estilo.css",
-      "Falta fechar com </link>",
-      "O rel devia ser \"style\"",
+      "O href devia ser ../css/estilo.css",
+      "O href devia ser /estilo.css",
       "O <link> devia estar dentro do <body>"
     ],
     "correta": 0,
-    "explicacao": "O href é um caminho relativo à página. Como o ficheiro está na pasta css, o caminho tem de ser css/estilo.css.",
+    "explicacao": "O href é um caminho relativo à página. Como o ficheiro está na pasta css, ao lado da página, o caminho é css/estilo.css. O ../ subiria uma pasta.",
     "manual": "5.1, 2.5"
   },
   {
@@ -184,14 +184,14 @@
     "bloco": "web",
     "tema": "CSS",
     "dificuldade": "facil",
-    "pergunta": "Que forma de aplicar CSS se deve evitar, por misturar o estilo com o HTML?",
+    "pergunta": "Porque se deve evitar o atributo style=\"...\" nos elementos?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O atributo style=\"...\" no elemento",
-      "Um ficheiro .css ligado com <link>",
-      "Uma regra de classe no estilo.css",
-      "Um seletor de elemento no estilo.css"
+      "Mistura o estilo com o HTML",
+      "Não funciona em todos os browsers",
+      "Perde sempre para o estilo.css",
+      "Só aceita uma propriedade"
     ],
     "correta": 0,
     "explicacao": "O CSS inline (style=\"...\") fica espalhado pelo HTML e só vale para aquele elemento. O ideal é um ficheiro externo.",
@@ -207,8 +207,8 @@
     "linguagem": "",
     "alternativas": [
       "Para mudar uma cor tens de editar todas",
-      "As regras do <style> não valem nos <h1>",
-      "O <style> só funciona no <body>",
+      "O <style> só aceita seletores de elemento",
+      "O <style> só funciona dentro do <body>",
       "O browser ignora o <style> se houver <link>"
     ],
     "correta": 0,
@@ -298,7 +298,7 @@
     "alternativas": [
       "Tira os espaços que há entre as palavras",
       "Impede o texto de partir em duas linhas",
-      "Põe fundo branco nos links",
+      "Alinha o texto dos links à esquerda",
       "Esconde o texto que não cabe"
     ],
     "correta": 1,
@@ -436,17 +436,17 @@
     "bloco": "web",
     "tema": "CSS",
     "dificuldade": "dificil",
-    "pergunta": "Qual é a diferença entre .menu a e .menu, a?",
+    "pergunta": "Que elementos apanha o seletor .menu, a?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      ".menu a: o .menu e todos os links; .menu, a: os links dentro de .menu",
-      ".menu a: os links dentro de .menu; .menu, a: o .menu e todos os links",
-      "Nenhuma: os dois apanham os mesmos elementos",
-      ".menu a: os links com a classe menu; .menu, a: os links dentro de .menu"
+      "Só os links dentro de .menu",
+      "O .menu e todos os links da página",
+      "Só os links com a classe menu",
+      "Os .menu que estão dentro de um link"
     ],
     "correta": 1,
-    "explicacao": "O espaço quer dizer \"dentro de\". A vírgula junta dois seletores independentes: o .menu e todos os <a> da página.",
+    "explicacao": "A vírgula junta dois seletores independentes: o .menu e todos os <a> da página. Os links dentro de .menu seriam .menu a, com espaço.",
     "manual": "5.2"
   },
   {
@@ -1030,17 +1030,17 @@
     "bloco": "web",
     "tema": "CSS",
     "dificuldade": "media",
-    "pergunta": "O que seleciona .btn.perigo (sem espaço)?",
+    "pergunta": "Que regra apanha o <p class=\"msg erro\">?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Os elementos que têm as duas classes, btn e perigo",
-      "Os elementos .perigo que estão dentro de um .btn",
-      "Os elementos que têm a classe btn ou a classe perigo",
-      "Os elementos com class=\"btn.perigo\""
+      ".erro { color: red; }",
+      "#erro { color: red; }",
+      ".msg-erro { color: red; }",
+      "erro { color: red; }"
     ],
     "correta": 0,
-    "explicacao": "Sem espaço, .btn.perigo exige as duas classes no mesmo elemento, como <button class=\"btn perigo\">. Com espaço (.btn .perigo) seria um .perigo dentro de um .btn; com vírgula, um ou outro.",
+    "explicacao": "Cada classe do atributo vale sozinha: .erro (ou .msg) apanha o parágrafo. #erro procura um id, .msg-erro é outra classe e erro sem ponto procura um elemento <erro>.",
     "manual": "5.2"
   },
   {
@@ -1197,9 +1197,9 @@
     "linguagem": "",
     "alternativas": [
       "Centra a página no ecrã",
-      "Tira o padding dos parágrafos",
-      "Tira a margem que o browser põe na página",
-      "Põe o body com a altura toda do ecrã do browser"
+      "Tira a margem de todos os parágrafos",
+      "Tira a margem à volta da página",
+      "Tira a margem só no topo da página"
     ],
     "correta": 2,
     "explicacao": "O browser dá ao body uma pequena margem por omissão. margin: 0 tira-a, para o cabeçalho encostar às bordas.",
@@ -1354,7 +1354,7 @@
     "bloco": "web",
     "tema": "CSS",
     "dificuldade": "facil",
-    "pergunta": "Que unidade representa uma fração do espaço de uma grelha?",
+    "pergunta": "Que unidade divide o espaço livre de uma grelha em partes?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -1642,17 +1642,17 @@
     "bloco": "web",
     "tema": "CSS",
     "dificuldade": "media",
-    "pergunta": "Porque é que as etiquetas e os campos ficam uns por baixo dos outros?",
+    "pergunta": "Como ficam as etiquetas e os campos deste formulário?",
     "codigo": ".formulario {\n    display: flex;\n    flex-direction: column;\n    gap: 12px;\n}",
     "linguagem": "css",
     "alternativas": [
-      "Por causa do gap: 12px",
-      "Porque o flex põe sempre em coluna",
-      "Porque os <input> são de bloco",
-      "Por causa de flex-direction: column"
+      "Lado a lado, com 12px entre eles",
+      "Lado a lado, em duas colunas",
+      "Uns por baixo dos outros, sem espaço entre eles",
+      "Uns por baixo dos outros, com 12px entre eles"
     ],
     "correta": 3,
-    "explicacao": "Por omissão o flex põe os filhos em linha (row). flex-direction: column põe-nos em coluna.",
+    "explicacao": "Por omissão o flex põe os filhos em linha (row). flex-direction: column põe-nos uns por baixo dos outros, e o gap: 12px deixa espaço entre eles.",
     "manual": "5.4"
   },
   {

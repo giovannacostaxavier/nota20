@@ -58,7 +58,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "facil",
-    "pergunta": "Que teste prova que o servidor valida sozinho, sem ajuda do browser?",
+    "pergunta": "Como verificas que a validação do servidor funciona no registo?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -80,10 +80,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Ctrl + Shift + N, para abrir uma janela anónima.",
+      "F12, separador Consola e Disable JavaScript.",
       "F12, Ctrl + Shift + P e Disable JavaScript.",
-      "F12, separador Rede e Disable cache.",
-      "Ctrl + F5, para recarregar sem cache."
+      "F12, separador Rede e Disable JavaScript.",
+      "F12, Ctrl + Shift + M e Disable JavaScript."
     ],
     "correta": 1,
     "explicacao": "Nas ferramentas (F12), Ctrl + Shift + P abre a lista de comandos, onde escolhes Disable JavaScript. A janela anónima só serve para testar sem sessão.",
@@ -184,7 +184,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "dificil",
-    "pergunta": "O computador do utilizador tem a data num ano errado, 2024. Que ano dá new Date().getFullYear() no validacao.js?",
+    "pergunta": "O relógio do computador está em 2024. Que ano dá new Date().getFullYear() no validacao.js?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -292,17 +292,17 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "facil",
-    "pergunta": "Qual é a diferença entre querySelector e querySelectorAll?",
+    "pergunta": "Na página há três elementos com class=\"aviso\". O que devolve document.querySelector('.aviso')?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O primeiro procura por id; o segundo, por classe.",
-      "O primeiro devolve um elemento; o segundo, todos.",
-      "O primeiro é para CSS; o segundo, para HTML.",
-      "Nenhuma: o segundo é só a versão nova."
+      "Uma lista com os três.",
+      "Só o primeiro.",
+      "Só o último.",
+      "null, porque há mais de um."
     ],
     "correta": 1,
-    "explicacao": "Os dois recebem um seletor CSS. querySelector devolve o primeiro elemento que bate, querySelectorAll devolve a lista de todos.",
+    "explicacao": "querySelector devolve só o primeiro elemento que bate com o seletor. Para os ter todos, usa-se querySelectorAll.",
     "manual": "6.2"
   },
   {
@@ -418,17 +418,17 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "facil",
-    "pergunta": "Que método liga uma função a um evento, como o clique num botão?",
+    "pergunta": "No validacao.js, que método faz a validação correr quando se envia o formulário?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "getElementById()",
+      "querySelectorAll()",
       "addEventListener()",
       "preventDefault()",
-      "appendChild()"
+      "forEach()"
     ],
     "correta": 1,
-    "explicacao": "el.addEventListener('click', funcao) corre a função sempre que o evento acontece nesse elemento.",
+    "explicacao": "form.addEventListener('submit', funcao) corre a função sempre que se tenta enviar. O preventDefault só trava o envio, dentro dessa função.",
     "manual": "Anexo B, 6.4"
   },
   {
@@ -454,17 +454,17 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "media",
-    "pergunta": "Que evento usas para reagir quando o utilizador muda a opção de um <select>?",
+    "pergunta": "Que evento usas para reagir quando o utilizador escolhe outra opção num <select>?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
       "submit",
       "change",
       "DOMContentLoaded",
-      "load"
+      "click"
     ],
     "correta": 1,
-    "explicacao": "O change dá-se quando o valor de um campo muda. O submit é do formulário e o DOMContentLoaded é da página.",
+    "explicacao": "O change dá-se quando o valor de um campo muda, como ao escolher outra opção. O click dá-se a cada clique, mesmo sem mudar nada; o submit é do formulário e o DOMContentLoaded é da página.",
     "manual": "6.2"
   },
   {
@@ -472,14 +472,14 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "facil",
-    "pergunta": "Para que serve o evento DOMContentLoaded?",
+    "pergunta": "Quando corre a função passada ao DOMContentLoaded?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Correr o código quando o formulário é enviado.",
-      "Correr o código só quando a página já carregou.",
-      "Correr o código sempre que um campo muda de valor.",
-      "Descarregar o ficheiro .js do servidor."
+      "Quando o utilizador envia o formulário.",
+      "Quando o HTML da página já foi todo lido.",
+      "Antes de o browser ler o <body>.",
+      "Sempre que um campo muda de valor."
     ],
     "correta": 1,
     "explicacao": "document.addEventListener('DOMContentLoaded', ...) espera que o HTML esteja todo carregado. Só então o getElementById encontra os elementos.",
@@ -490,7 +490,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "dificil",
-    "pergunta": "O script está no <head> e chama getElementById('form-principal') sem esperar pelo DOMContentLoaded. O que acontece?",
+    "pergunta": "No <head>, sem esperar pelo DOMContentLoaded, o JS chama getElementById('form-principal'). O que dá?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -549,7 +549,7 @@
     "linguagem": "",
     "alternativas": [
       "Envia o formulário mais depressa.",
-      "Impede o evento de chegar aos pais.",
+      "Mostra os erros na caixa da página.",
       "Impede que o formulário seja enviado.",
       "Apaga tudo o que se escreveu nos campos."
     ],
@@ -616,7 +616,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "facil",
-    "pergunta": "Que propriedade muda o texto de um elemento sem interpretar HTML?",
+    "pergunta": "Para escrever num <p> o nome que o utilizador escreveu, sem risco de XSS, que propriedade usas?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -634,14 +634,14 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "facil",
-    "pergunta": "Qual é o risco de usar innerHTML com texto escrito pelo utilizador?",
+    "pergunta": "O que pode acontecer se usares innerHTML com texto escrito pelo utilizador?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O texto aparece todo em maiúsculas.",
-      "A página deixa de carregar o CSS do site.",
-      "Pode correr código malicioso (XSS).",
-      "O formulário é enviado duas vezes."
+      "O texto aparece com as tags à vista.",
+      "O browser recusa texto com < ou >.",
+      "Pode correr código que lá vier (XSS).",
+      "Só funciona em elementos de um <form>."
     ],
     "correta": 2,
     "explicacao": "innerHTML interpreta o texto como HTML, incluindo um <script> ou um <img onerror>. Com dados do utilizador, usa textContent.",
@@ -712,7 +712,7 @@
     "alternativas": [
       "Para o texto nunca ser lido como HTML.",
       "Porque o innerHTML não funciona em <li>.",
-      "Para o texto aparecer a negrito.",
+      "Para os acentos aparecerem bem.",
       "Porque textContent tira os espaços."
     ],
     "correta": 0,
@@ -742,7 +742,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "dificil",
-    "pergunta": "Imagina o validacao.js sem caixa.innerHTML = ''. Envias duas vezes, com os mesmos 2 erros. Quantos <li> ficam na caixa?",
+    "pergunta": "Sem caixa.innerHTML = '', envias duas vezes com os mesmos 2 erros. Quantos <li> ficam na caixa?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -778,9 +778,9 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "media",
-    "pergunta": "Porque é que a caixa de erros do JavaScript não se vê enquanto não há erros?",
-    "codigo": "/* estilo.css */\n#erros-js {\n    display: none;\n}",
-    "linguagem": "css",
+    "pergunta": "Porque é que a caixa #erros-js não se vê enquanto não há erros?",
+    "codigo": "",
+    "linguagem": "",
     "alternativas": [
       "O browser esconde as caixas que estão vazias.",
       "O PHP só a cria quando há erros.",
@@ -909,7 +909,7 @@
     "linguagem": "",
     "alternativas": [
       "campo.classList.remove('erro')",
-      "campo.classList.add('erro')",
+      "campo.classList.delete('erro')",
       "campo.style.remove('erro')",
       "campo.classList.removeClass('erro')"
     ],
@@ -940,7 +940,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "facil",
-    "pergunta": "Que propriedade diz se uma checkbox está assinalada?",
+    "pergunta": "Que propriedade diz se a caixa do consentimento está assinalada?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -958,17 +958,17 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "dificil",
-    "pergunta": "Uma checkbox sem atributo value está por assinalar. Que valor dá campo.value?",
+    "pergunta": "Porque é que o validacao.js testa a checkbox com campo.checked e não com campo.value?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "'on'",
-      "'' (texto vazio)",
-      "false",
-      "null"
+      "O value não diz se está assinalada.",
+      "Uma checkbox não tem value.",
+      "O value de uma checkbox dá sempre null.",
+      "O checked também lê o texto da label."
     ],
     "correta": 0,
-    "explicacao": "Sem value no HTML, uma checkbox dá sempre 'on', assinalada ou não. Por isso o validacao.js usa campo.checked nas checkboxes.",
+    "explicacao": "Numa checkbox, o value não muda quando se assinala. Quem diz se está assinalada é o checked (true ou false).",
     "manual": "6.3, 4.2"
   },
   {
@@ -1070,9 +1070,9 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Só existe dentro de um if.",
-      "Fica disponível em todas as páginas.",
-      "O valor fica guardado no servidor.",
+      "Só pode guardar números.",
+      "Tem de ter o nome em maiúsculas.",
+      "Não pode guardar arrays.",
       "Não lhe podes atribuir outro valor."
     ],
     "correta": 3,
@@ -1124,9 +1124,9 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Não: com const o array não pode receber elementos.",
-      "Só se o array tiver sido declarado com let.",
-      "Não: push() só funciona em arrays declarados com let.",
+      "Não: com const o array fica sempre vazio.",
+      "Só se o array for declarado com let.",
+      "Não: dá erro de reatribuição.",
       "Sim: a const só impede atribuir outro valor."
     ],
     "correta": 3,
@@ -1174,14 +1174,14 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "facil",
-    "pergunta": "Que método corre uma função para cada elemento de uma lista?",
+    "pergunta": "Que método usas para percorrer todos os elementos de um array?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
       "forEach()",
       "push()",
       "includes()",
-      "addEventListener()"
+      "length()"
     ],
     "correta": 0,
     "explicacao": "lista.forEach(function (x) { ... }) corre a função uma vez por elemento, como o foreach do PHP.",
@@ -1210,14 +1210,14 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "facil",
-    "pergunta": "Que método testa se um texto contém outro, como o @ num email?",
+    "pergunta": "Que método usa o validacao.js para ver se o email tem @?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
       "push()",
       "trim()",
       "includes()",
-      "length"
+      "forEach()"
     ],
     "correta": 2,
     "explicacao": "texto.includes('@') dá true se o @ estiver no texto e false se não estiver.",
@@ -1340,7 +1340,7 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Porque o JavaScript não aceita escrever o número 2026.",
+      "Para o browser validar mais depressa.",
       "Para usar a data guardada no servidor.",
       "Para ir buscar o ano à base de dados.",
       "Para a regra continuar certa nos próximos anos."
@@ -1361,10 +1361,10 @@
       "=",
       "==",
       "===",
-      "!=="
+      "!="
     ],
     "correta": 2,
-    "explicacao": "=== só dá true se o valor e o tipo forem iguais. = atribui, == compara sem olhar ao tipo e !== quer dizer diferente.",
+    "explicacao": "=== só dá true se o valor e o tipo forem iguais. = atribui, == compara sem olhar ao tipo e != vê se são diferentes, também sem olhar ao tipo.",
     "manual": "6.3"
   },
   {
@@ -1502,10 +1502,10 @@
     "codigo": "if (ano < 1450 && ano > 2026) {\n    erros.push('Ano inválido.');\n}",
     "linguagem": "javascript",
     "alternativas": [
-      "Para nenhum: um ano não é < 1450 e > 2026 ao mesmo tempo.",
+      "Para nenhum ano.",
       "Para os anos fora de 1450 a 2026.",
       "Para os anos entre 1450 e 2026.",
-      "Só para os anos maiores do que 2026, como 2030."
+      "Só para os anos depois de 2026."
     ],
     "correta": 0,
     "explicacao": "Com &&, as duas condições têm de ser verdadeiras ao mesmo tempo, e nenhum ano é menor do que 1450 e maior do que 2026. Aqui era preciso ||.",
@@ -1570,7 +1570,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "dificil",
-    "pergunta": "No HTML o formulário tem id=\"form_principal\" e o JS procura 'form-principal'. Envias com erros. O que acontece?",
+    "pergunta": "O JS procura 'form-principal', mas o formulário tem outro id. Envias com erros. O que acontece?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -1678,7 +1678,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "dificil",
-    "pergunta": "O formulário tem só nome, email e consentimento, todos required. Escreves o nome Ana, o email ana e não assinalas o consentimento. Quantos erros ficam?",
+    "pergunta": "Campos required: nome, email e consentimento. Escreves Ana, ana e não assinalas. Quantos erros ficam?",
     "codigo": "const email = document.getElementById('email');\nform.querySelectorAll('[required]').forEach(function (campo) {\n    if (campo.type === 'checkbox') {\n        if (!campo.checked) erros.push('Aceita a política.');\n    } else if (campo.value.trim() === '') erros.push('Preenche o campo.');\n});\nif (email && email.value !== '' && !email.value.includes('@')) erros.push('Email inválido.');",
     "linguagem": "javascript",
     "alternativas": [
@@ -1790,13 +1790,13 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Apaga o livro logo, sem perguntar nada.",
+      "Mostra uma caixa para escrever texto.",
       "Mostra uma mensagem só com OK.",
       "Envia o formulário ao servidor.",
       "Mostra uma janela com OK e Cancelar."
     ],
     "correta": 3,
-    "explicacao": "confirm() pergunta e espera pela resposta: dá true com OK e false com Cancelar. A janela só com OK é o alert().",
+    "explicacao": "confirm() pergunta e espera pela resposta: dá true com OK e false com Cancelar. A janela só com OK é o alert(); a que deixa escrever texto é o prompt().",
     "manual": "6.4"
   },
   {
@@ -1844,7 +1844,7 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Não: o servidor é que verifica permissões.",
+      "Não: isso é verificado no servidor.",
       "Sim: sem carregar em OK, nada chega a ser apagado.",
       "Sim, desde que o formulário use POST.",
       "Sim, desde que o JavaScript esteja ligado."
@@ -1858,7 +1858,7 @@
     "bloco": "web",
     "tema": "JavaScript",
     "dificuldade": "dificil",
-    "pergunta": "Com o JavaScript desligado, carregas em Apagar num formulário com onsubmit=\"return confirm(...)\". O que acontece?",
+    "pergunta": "Com o JavaScript desligado, carregas em Apagar (onsubmit com confirm). O que acontece?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [

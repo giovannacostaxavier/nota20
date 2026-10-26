@@ -220,7 +220,7 @@
     "bloco": "dados",
     "tema": "HTTP",
     "dificuldade": "media",
-    "pergunta": "Depois de enviar um formulário POST, carregas em F5 e confirmas o reenvio. O que acontece?",
+    "pergunta": "Depois de enviar um formulário POST, carregas em F5 e aceitas o aviso do browser. O que acontece?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -315,7 +315,7 @@
     "linguagem": "html",
     "alternativas": [
       "O link não consegue enviar o id ao servidor.",
-      "O link faz um POST, que se repete sempre que carregas em F5.",
+      "O link faz um POST, que se repete com F5.",
       "Os links não funcionam com ficheiros .php.",
       "Um robô ou uma pré-visualização pode seguir o link."
     ],
@@ -332,10 +332,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Os formulários carregam mais depressa do que os links.",
-      "Editar altera dados e apagar só lê.",
+      "O formulário esconde o id do livro.",
+      "Só um formulário consegue pedir confirmação.",
       "Os links não conseguem levar o id do livro.",
-      "Editar só lê (GET); apagar altera dados (POST)."
+      "Apagar altera dados, por isso usa POST."
     ],
     "correta": 3,
     "explicacao": "O link Editar só abre o formulário de edição, por isso é um GET. Apagar muda a base de dados, por isso tem de ser POST.",
@@ -382,7 +382,7 @@
     "bloco": "dados",
     "tema": "HTTP",
     "dificuldade": "media",
-    "pergunta": "Quando gravas as alterações de um livro que já existe, que método HTTP e que comando SQL são usados?",
+    "pergunta": "Ao gravar as alterações de um livro existente, que método HTTP e que SQL se usam?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -562,7 +562,7 @@
     "bloco": "dados",
     "tema": "HTTP",
     "dificuldade": "media",
-    "pergunta": "Abres localhost/biblioteca/livro.php (sem o s) e aparece Not Found. Qual é a causa provável?",
+    "pergunta": "Abres localhost/biblioteca/livro.php e recebes um 404. Qual é a causa provável?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -909,7 +909,7 @@
     "linguagem": "",
     "alternativas": [
       "O POST cifra a password.",
-      "O GET não consegue enviar campos de texto nem passwords.",
+      "O GET não consegue enviar passwords.",
       "Com GET, a password ficava no endereço.",
       "Só o POST funciona com sessões."
     ],
@@ -1012,7 +1012,7 @@
     "bloco": "dados",
     "tema": "HTTP",
     "dificuldade": "dificil",
-    "pergunta": "Carregas no link Sair (<a href=\"logout.php\">) com o separador Rede aberto. Quais são os dois primeiros pedidos?",
+    "pergunta": "Com o separador Rede aberto, clicas no link Sair (logout.php). Quais são os dois primeiros pedidos?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -1048,7 +1048,7 @@
     "bloco": "dados",
     "tema": "HTTP",
     "dificuldade": "dificil",
-    "pergunta": "Abres livro.php (o ficheiro não existe) e livro_ver.php?id=999 (o livro não existe). Ambos dão 404. Quem produz cada um?",
+    "pergunta": "Dois 404: livro.php (ficheiro inexistente) e livro_ver.php?id=999 (livro inexistente). Quem produz cada um?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -1070,13 +1070,13 @@
     "codigo": "http_response_code(404);",
     "linguagem": "php",
     "alternativas": [
+      "Envia o código 404 e termina o script.",
       "Redireciona para a página 404.php.",
-      "Mostra o texto 404 no ecrã.",
-      "Termina o script com um erro.",
-      "Define o código de estado: 404."
+      "Mostra a página de erro do Apache.",
+      "Define o código 404; o script continua."
     ],
     "correta": 3,
-    "explicacao": "http_response_code() só muda o código de estado da resposta. A página continua e pode mostrar uma mensagem ao utilizador.",
+    "explicacao": "http_response_code() só muda o código de estado da resposta. Não redireciona nem termina o script: a página continua, por isso a Biblioteca mostra a mensagem e faz exit a seguir.",
     "manual": "12.3"
   },
   {
@@ -1124,13 +1124,13 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Apaga o registo anterior.",
-      "Cria um registo duplicado.",
-      "Dá sempre erro 500.",
-      "Transforma o pedido em GET."
+      "Atualiza o livro que já existe.",
+      "Cria um livro duplicado.",
+      "O MySQL recusa por causa da chave primária.",
+      "O browser envia um GET em vez do POST."
     ],
     "correta": 1,
-    "explicacao": "Cada POST de criação faz um INSERT. Se for enviado duas vezes, ficam dois registos iguais. Repetir um GET não faz mal.",
+    "explicacao": "Cada POST de criação faz um INSERT. Com AUTO_INCREMENT, o segundo INSERT recebe um id novo e fica um livro igual ao primeiro. Repetir um GET não faz mal.",
     "manual": "1.2"
   },
   {
@@ -1246,14 +1246,14 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "media",
-    "pergunta": "Para que serve guardar a data do consentimento?",
+    "pergunta": "A tabela utilizadores tem a coluna consentimento_em. Para que serve?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Saber quando apagar a conta.",
-      "Ordenar os utilizadores na lista.",
-      "Provar quando o utilizador deu o consentimento.",
-      "Calcular a idade do utilizador."
+      "Saber quando a conta deve ser apagada.",
+      "Mostrar a data de registo em \"A minha conta\".",
+      "Provar que o utilizador aceitou a política.",
+      "Contar o prazo de conservação dos dados."
     ],
     "correta": 2,
     "explicacao": "A data em consentimento_em é a prova de que, naquele momento, o utilizador aceitou a política de privacidade.",
@@ -1358,7 +1358,7 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Como estão feitas as tabelas e as colunas da base de dados.",
+      "A estrutura das tabelas da base de dados.",
       "Que dados, para quê, base legal, prazo e direitos.",
       "Que algoritmo de hash se usa nas passwords.",
       "Quem programou a aplicação e quando."
@@ -1390,13 +1390,13 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "facil",
-    "pergunta": "No registo, porque é que a caixa de consentimento tem ao lado um link para a política de privacidade?",
+    "pergunta": "Porque é que a caixa de consentimento tem ao lado um link para a política de privacidade?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Para a caixa ficar marcada ao abrir o link.",
+      "Para o servidor registar que abriste a política.",
       "Para o servidor guardar a data do consentimento.",
-      "Porque o link dispensa a caixa de consentimento.",
+      "Porque o link substitui a caixa de consentimento.",
       "Para saberes o que estás a aceitar."
     ],
     "correta": 3,
@@ -1408,17 +1408,17 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "media",
-    "pergunta": "O link para a política está no includes/rodape.php. Porque é que isso basta para ele aparecer em todas as páginas?",
+    "pergunta": "Onde se põe o link para a política, para aparecer em todas as páginas?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O browser repete o último link visto.",
-      "O Apache junta-o às páginas sozinho.",
-      "O auth.php mostra-o a quem tem sessão.",
-      "Todas as páginas incluem esse rodapé."
+      "No auth.php.",
+      "Só no registo.php.",
+      "No index.php.",
+      "No includes/rodape.php."
     ],
     "correta": 3,
-    "explicacao": "Cada página faz require do rodapé, por isso o mesmo link aparece em todas, com ou sem sessão.",
+    "explicacao": "Todas as páginas incluem o rodapé, por isso um link no includes/rodape.php aparece em todas. O auth.php só entra nas páginas restritas e a política tem de abrir com e sem sessão.",
     "manual": "9.2, 14"
   },
   {
@@ -1480,7 +1480,7 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "facil",
-    "pergunta": "Que direito cumpre o botão \"Apagar a minha conta\"?",
+    "pergunta": "A Maria quer que a Biblioteca deixe de ter os dados dela. Que direito exerce?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -1498,7 +1498,7 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "media",
-    "pergunta": "Uma clínica guarda o telefone dos donos dos animais, que não têm conta. Este dado entra na tabela de dados pessoais?",
+    "pergunta": "Uma clínica guarda o telefone dos donos dos animais, que não têm conta. Entra na tabela de dados pessoais?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -1552,14 +1552,14 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "dificil",
-    "pergunta": "Porque é que se chama session_destroy() depois do DELETE?",
+    "pergunta": "Se faltasse o session_destroy() depois do DELETE, o que acontecia?",
     "codigo": "$stmt = $pdo->prepare('DELETE FROM utilizadores WHERE id_utilizador = ?');\n$stmt->execute([$_SESSION['id_utilizador']]);\nsession_destroy();",
     "linguagem": "php",
     "alternativas": [
-      "Para apagar a linha da base de dados.",
-      "Para apagar o hash da password.",
-      "Para guardar a data do apagamento.",
-      "Para a pessoa deixar de ter sessão iniciada."
+      "A linha ficava na base de dados.",
+      "O utilizador ia logo para o login.",
+      "O DELETE dava erro.",
+      "A sessão ficava com um id que já não existe."
     ],
     "correta": 3,
     "explicacao": "O DELETE já apagou a linha. Falta terminar a sessão, senão a pessoa continuava \"dentro\" com uma conta que já não existe.",
@@ -1642,7 +1642,7 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "media",
-    "pergunta": "A tabela utilizadores tem id_utilizador, nome, email, password_hash e consentimento_em. Que dados pessoais se declaram?",
+    "pergunta": "A tabela utilizadores tem id_utilizador, nome, email, password_hash e consentimento_em. Que dados se declaram?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -1660,13 +1660,13 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "media",
-    "pergunta": "Para que serve o nome do utilizador na Biblioteca?",
+    "pergunta": "Que finalidade declara a Biblioteca para o nome do utilizador?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
       "Iniciar sessão, junto com a password.",
       "Enviar publicidade.",
-      "Tratá-lo pelo nome no menu.",
+      "Aparecer no menu, depois do login.",
       "Fazer estatísticas."
     ],
     "correta": 2,
@@ -1714,7 +1714,7 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "dificil",
-    "pergunta": "O registo.php não verifica o consentimento. Alguém tira o required com o F12 e envia sem marcar a caixa. O que acontece?",
+    "pergunta": "O servidor não verifica o consentimento. Alguém tira o required (F12) e não assinala a caixa. O que acontece?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -1750,7 +1750,7 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "dificil",
-    "pergunta": "A Maria criou livros e depois apagou a conta. Sabendo como é a tabela livros, o que acontece a esses livros?",
+    "pergunta": "A Maria criou livros e depois apagou a conta. Com esta tabela livros, o que acontece a esses livros?",
     "codigo": "livros: id_livro | titulo | ano | id_autor",
     "linguagem": "tabela",
     "alternativas": [
@@ -1808,13 +1808,13 @@
     "codigo": "if (!isset($_POST['consentimento'])) {\n    $erros[] = 'Tens de aceitar a política de privacidade.';\n}",
     "linguagem": "php",
     "alternativas": [
-      "Assinala a caixa automaticamente.",
+      "Assinala a caixa, se vier vazia.",
       "Grava a data do consentimento.",
-      "Recusa o registo se a caixa não foi marcada.",
-      "Mostra a política de privacidade num novo separador."
+      "Recusa o registo sem a caixa marcada.",
+      "Só avisa; a conta é criada na mesma."
     ],
     "correta": 2,
-    "explicacao": "Uma checkbox desmarcada não é enviada, por isso não existe em $_POST. Nesse caso junta-se um erro e o registo não avança.",
+    "explicacao": "Uma checkbox desmarcada não é enviada, por isso não existe em $_POST. Nesse caso junta-se um erro a $erros e o registo não é gravado.",
     "manual": "15.2, 10.2"
   },
   {
@@ -1822,7 +1822,7 @@
     "bloco": "dados",
     "tema": "RGPD",
     "dificuldade": "facil",
-    "pergunta": "O nome, o email e o telefone de uma pessoa são o quê, para o RGPD?",
+    "pergunta": "Para o RGPD, o que são o nome, o email e o telefone de um cliente?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [

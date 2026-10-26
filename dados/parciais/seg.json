@@ -130,7 +130,7 @@
     "bloco": "dados",
     "tema": "Segurança",
     "dificuldade": "media",
-    "pergunta": "Como fica provado que o utilizador deu o consentimento?",
+    "pergunta": "Depois do registo, como se prova que o utilizador marcou a caixa da política de privacidade?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -184,7 +184,7 @@
     "bloco": "dados",
     "tema": "Segurança",
     "dificuldade": "media",
-    "pergunta": "No dossier, a secção de segurança tem uma tabela com uma linha para cada uma das seis medidas. O que escreves em cada linha?",
+    "pergunta": "No dossier, a tabela de segurança tem uma linha por medida. O que se escreve em cada uma?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -224,10 +224,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Usar um link GET para apagar dados.",
-      "Gravar um script que corre no browser de outros utilizadores.",
+      "Uma consulta SQL com um erro de sintaxe.",
+      "Gravar um script que corre no browser de outros.",
       "Um texto num campo que altera o SQL executado.",
-      "Guardar uma password sem hash."
+      "Um link GET que apaga dados da base de dados."
     ],
     "correta": 2,
     "explicacao": "Na injeção de SQL, o texto escrito pelo utilizador entra no SQL e muda o que a base de dados faz. O script no browser é o XSS, outro ataque.",
@@ -458,10 +458,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "prepare(\"UPDATE livros SET titulo = ? WHERE id_livro = $id\")",
-      "prepare('UPDATE livros SET titulo = ? WHERE id_livro = ?')",
-      "prepare(\"UPDATE livros SET titulo = '$t' WHERE id_livro = ?\")",
-      "query(\"UPDATE livros SET titulo = ? WHERE id_livro = $id\")"
+      "prepare(\"... titulo = ? WHERE id_livro = $id\")",
+      "prepare('... titulo = ? WHERE id_livro = ?')",
+      "prepare(\"... titulo = '$t' WHERE id_livro = ?\")",
+      "query(\"... titulo = ? WHERE id_livro = $id\")"
     ],
     "correta": 1,
     "explicacao": "Só a opção b) tem ? no lugar de todos os valores. As outras metem $t ou $id no texto do SQL, mesmo quando usam prepare().",
@@ -526,7 +526,7 @@
     "bloco": "dados",
     "tema": "Segurança",
     "dificuldade": "facil",
-    "pergunta": "O que é o XSS (cross-site scripting)?",
+    "pergunta": "O que é o XSS?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -548,10 +548,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "A de SQL corre no browser; o XSS corre no servidor.",
+      "A de SQL corre no browser; o XSS, no servidor.",
       "São o mesmo ataque, com nomes diferentes.",
-      "A de SQL ataca os utilizadores; o XSS ataca a base de dados.",
-      "A de SQL ataca a base de dados; o XSS ataca os utilizadores."
+      "A de SQL ataca os utilizadores; o XSS, a base de dados.",
+      "A de SQL ataca a base de dados; o XSS, os utilizadores."
     ],
     "correta": 3,
     "explicacao": "A injeção de SQL muda as consultas à base de dados. O XSS põe código a correr no browser de outras pessoas. São problemas diferentes, com defesas diferentes.",
@@ -616,7 +616,7 @@
     "bloco": "dados",
     "tema": "Segurança",
     "dificuldade": "media",
-    "pergunta": "As consultas são todas preparadas, mas a lista mostra os títulos sem escapar. Um título tem <script>. Quem é afetado?",
+    "pergunta": "As consultas são preparadas, mas a lista não escapa os títulos. Um tem <script>. Quem é afetado?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -657,12 +657,12 @@
     "linguagem": "",
     "alternativas": [
       "password_hash()",
-      "sha1()",
+      "password_verify()",
       "md5()",
-      "base64_encode()"
+      "sha1()"
     ],
     "correta": 0,
-    "explicacao": "O password_hash() cria um hash bcrypt com sal aleatório. md5 e sha1 são rápidos e fracos; base64 nem é hash.",
+    "explicacao": "O password_hash() cria um hash bcrypt com sal aleatório. O password_verify() serve no login, para comparar a password com o hash; md5 e sha1 são rápidos e fracos.",
     "manual": "10.1, 14"
   },
   {
@@ -675,9 +675,9 @@
     "linguagem": "",
     "alternativas": [
       "O JavaScript pode ser desligado ou contornado.",
-      "O browser não sabe validar emails.",
-      "Para o JavaScript ter menos código.",
-      "O servidor mostra os erros mais depressa ao utilizador."
+      "O browser não valida o formato do email.",
+      "Para proteger contra a injeção de SQL.",
+      "O servidor mostra os erros mais depressa."
     ],
     "correta": 0,
     "explicacao": "Tudo o que corre no browser é controlado pelo utilizador: desliga o JS, mexe no F12 ou envia o pedido sem formulário. A segurança está no servidor.",
@@ -748,11 +748,11 @@
     "alternativas": [
       "Só se os campos tinham o atributo required no HTML.",
       "Vazios, tamanhos, formatos e valores das listas.",
-      "Se o texto foi escrito sem acentos.",
+      "Se o texto tem etiquetas HTML ou scripts.",
       "Só se o JavaScript já validou primeiro."
     ],
     "correta": 1,
-    "explicacao": "O servidor repete todas as regras: obrigatórios, tamanhos, formato do email e se o valor escolhido numa lista existe mesmo.",
+    "explicacao": "O servidor repete todas as regras: obrigatórios, tamanhos, formato do email e se o valor escolhido numa lista existe mesmo. Os scripts tratam-se ao mostrar, com htmlspecialchars().",
     "manual": "12.4, 14"
   },
   {
@@ -778,11 +778,11 @@
     "bloco": "dados",
     "tema": "Segurança",
     "dificuldade": "media",
-    "pergunta": "Ao criar um livro, aparece \"Já existe um livro com esse ISBN.\". Esta verificação pode ser feita pelo validacao.js, no browser?",
+    "pergunta": "O validacao.js, no browser, consegue avisar que já existe um livro com esse ISBN?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Não: só aparece no phpMyAdmin.",
+      "Sim: com o atributo pattern no campo.",
       "Sim: o JavaScript consegue ler a tabela livros na BD.",
       "Sim, se o campo tiver required.",
       "Não: só o servidor consulta a base de dados."
@@ -818,10 +818,10 @@
     "codigo": "session_regenerate_id(true);",
     "linguagem": "php",
     "alternativas": [
-      "Dá à sessão um novo id, contra a fixação de sessão.",
-      "Gera um novo hash para a password.",
-      "Termina a sessão do utilizador.",
-      "Guarda o id do utilizador na sessão, para o auth.php ver."
+      "Contra a fixação de sessão.",
+      "Contra o roubo da sessão por XSS.",
+      "Contra sessões que nunca expiram.",
+      "Contra a injeção de SQL no login."
     ],
     "correta": 0,
     "explicacao": "Um id de sessão conhecido antes do login deixa de servir. É uma das boas práticas: novo id de sessão no login.",
@@ -854,9 +854,9 @@
     "codigo": "<a href=\"livro_apagar.php?id=7\">Apagar</a>",
     "linguagem": "html",
     "alternativas": [
-      "Falta o atributo target.",
+      "Falta htmlspecialchars() no id.",
       "Um link não pode levar ?id= no fim.",
-      "O id devia ir no texto do link.",
+      "O href devia ser um endereço absoluto.",
       "Um GET não deve alterar dados."
     ],
     "correta": 3,
@@ -886,14 +886,14 @@
     "bloco": "dados",
     "tema": "Segurança",
     "dificuldade": "facil",
-    "pergunta": "Que boa prática mostra o onsubmit deste formulário?",
+    "pergunta": "Neste formulário, o que acontece se o utilizador carregar em Cancelar?",
     "codigo": "<form method=\"post\" action=\"livro_apagar.php\"\n      onsubmit=\"return confirm('Apagar este livro?');\">",
     "linguagem": "html",
     "alternativas": [
-      "Pede confirmação antes de apagar.",
-      "Valida os campos no servidor.",
-      "Protege a página contra XSS.",
-      "Envia o pedido por GET."
+      "O formulário não é enviado.",
+      "O livro é apagado na mesma.",
+      "O formulário é enviado sem o id.",
+      "Aparece um erro no browser."
     ],
     "correta": 0,
     "explicacao": "O confirm() devolve true (OK) e o formulário segue, ou false (Cancelar) e não é enviado. POST para alterar + confirmação é uma boa prática do manual.",
@@ -904,14 +904,14 @@
     "bloco": "dados",
     "tema": "Segurança",
     "dificuldade": "facil",
-    "pergunta": "Porque é que as credenciais da base de dados ficam só no config/db.php?",
+    "pergunta": "Porque é que as credenciais da base de dados ficam no config/db.php?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "O browser lê-as de lá mais depressa.",
-      "Assim ficam cifradas automaticamente.",
+      "Assim o PDO liga-se mais depressa.",
+      "Assim ficam cifradas no servidor.",
       "Ficam num só sítio, fora das outras páginas.",
-      "O phpMyAdmin só procura as credenciais nesse ficheiro."
+      "Assim o phpMyAdmin usa as mesmas."
     ],
     "correta": 2,
     "explicacao": "Com as credenciais num único ficheiro, se a password mudar altera-se um só sítio, e não ficam espalhadas pelas páginas.",
@@ -1017,12 +1017,12 @@
     "linguagem": "",
     "alternativas": [
       "Um limite de tentativas de login.",
-      "O htmlspecialchars() no login.",
-      "Consultas preparadas.",
+      "A mensagem \"Email ou password errados.\".",
+      "O session_regenerate_id() no login.",
       "Tokens CSRF nos formulários."
     ],
     "correta": 0,
-    "explicacao": "Bloquear ou atrasar depois de várias falhas trava a adivinhação de passwords. Está na lista do que faltaria numa aplicação real.",
+    "explicacao": "Bloquear ou atrasar depois de várias falhas trava a adivinhação de passwords. Está na lista do que faltaria numa aplicação real. A mensagem igual só esconde que emails têm conta.",
     "manual": "14.3"
   },
   {
@@ -1048,17 +1048,17 @@
     "bloco": "dados",
     "tema": "Segurança",
     "dificuldade": "facil",
-    "pergunta": "No projeto, basta a password ter 8 caracteres. O que pediria uma aplicação real?",
+    "pergunta": "No projeto, a password só precisa de ter 8 caracteres. O que diz o manual sobre isto?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Passwords visíveis no registo.",
-      "Passwords mais curtas, para o utilizador se lembrar.",
-      "Passwords guardadas com md5().",
-      "Uma política de passwords mais exigente."
+      "É uma falha: o projeto perde pontos.",
+      "É obrigatório exigir pelo menos 12.",
+      "Não importa, porque a password tem hash.",
+      "Chega no projeto; uma app real seria mais exigente."
     ],
     "correta": 3,
-    "explicacao": "Exigir passwords mais fortes (tamanho, variedade) está na lista do que faltaria numa aplicação real.",
+    "explicacao": "Uma política de passwords mais exigente está na lista do que faltaria numa aplicação real, mas não é obrigatória no projeto. O hash não torna forte uma password fraca.",
     "manual": "14.3"
   },
   {
@@ -1070,10 +1070,10 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "if (!isset($_POST['id_utilizador'])) { header('Location: login.php'); exit; }",
-      "if (!isset($_SESSION['id_utilizador'])) { header('Location: login.php'); }",
-      "if (!isset($_SESSION['id_utilizador'])) { header('Location: login.php'); exit; }",
-      "if (isset($_SESSION['id_utilizador'])) { header('Location: login.php'); exit; }"
+      "if (!isset($_POST['id_utilizador'])) { header(...); exit; }",
+      "if (!isset($_SESSION['id_utilizador'])) { header(...); }",
+      "if (!isset($_SESSION['id_utilizador'])) { header(...); exit; }",
+      "if (isset($_SESSION['id_utilizador'])) { header(...); exit; }"
     ],
     "correta": 2,
     "explicacao": "Verifica-se a sessão (no servidor), com ! para apanhar quem NÃO tem sessão, e termina-se com exit para o resto não correr.",
@@ -1179,7 +1179,7 @@
     "linguagem": "",
     "alternativas": [
       "Não: como não mostra HTML, ninguém a vê.",
-      "Não: o botão Apagar só aparece a quem tem sessão iniciada.",
+      "Não: o botão Apagar só aparece a quem tem sessão.",
       "Só se alguém a abrir por GET.",
       "Sim: senão qualquer um apaga com um pedido direto."
     ],
@@ -1246,7 +1246,7 @@
     "bloco": "php",
     "tema": "Controlo de acesso e XSS",
     "dificuldade": "media",
-    "pergunta": "No auth.php, o que se verifica para saber se alguém iniciou sessão?",
+    "pergunta": "No auth.php, o que se verifica para saber se o utilizador fez login?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -1322,13 +1322,13 @@
     "codigo": "",
     "linguagem": "",
     "alternativas": [
-      "Escondendo o link do menu a quem não é administrador.",
-      "Com uma password extra em JavaScript.",
+      "Escondendo do menu os links de administração.",
+      "Com o auth.php, que já verifica o perfil.",
       "Com um segundo controlo, como o admin.php.",
       "Com um campo hidden perfil=admin."
     ],
     "correta": 2,
-    "explicacao": "O manual sugere um includes/admin.php que verifica $_SESSION['perfil']. Esconder links ou campos do browser não protege.",
+    "explicacao": "O manual sugere um includes/admin.php que verifica $_SESSION['perfil']. O auth.php só vê se há sessão, e esconder links ou campos do browser não protege.",
     "manual": "11.3"
   },
   {
@@ -1354,7 +1354,7 @@
     "bloco": "php",
     "tema": "Controlo de acesso e XSS",
     "dificuldade": "dificil",
-    "pergunta": "Um utilizador com sessão, mas sem perfil de admin, abre uma página de gestão que só tem o auth.php. O que acontece?",
+    "pergunta": "Alguém com sessão, mas sem perfil de admin, abre uma página de gestão só com o auth.php. O que acontece?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -1570,7 +1570,7 @@
     "bloco": "php",
     "tema": "Controlo de acesso e XSS",
     "dificuldade": "media",
-    "pergunta": "No cabeçalho, o tipo da mensagem flash é escrito em class=\"msg ...\" sem htmlspecialchars(). Porque é aceitável?",
+    "pergunta": "O tipo da mensagem flash vai para class=\"msg ...\" sem htmlspecialchars(). Porque é aceitável?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
@@ -1606,7 +1606,7 @@
     "bloco": "php",
     "tema": "Controlo de acesso e XSS",
     "dificuldade": "dificil",
-    "pergunta": "Um colega grava o título com htmlspecialchars() e também o mostra com htmlspecialchars(). O título é Ensaio & Prosa. O que se vê no ecrã?",
+    "pergunta": "O título Ensaio & Prosa é escapado ao gravar e outra vez ao mostrar. O que se vê no ecrã?",
     "codigo": "",
     "linguagem": "",
     "alternativas": [
