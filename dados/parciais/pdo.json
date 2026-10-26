@@ -2021,7 +2021,7 @@
     "tema": "Redirecionar e PRG",
     "dificuldade": "media",
     "pergunta": "Quando é que este bloco mostra a caixa de erros?",
-    "codigo": "<?php if (!empty($erros)): ?>\n    <ul id=\"erros-js\" class=\"msg erro\">\n        <?php foreach ($erros as $e): ?><li><?= $e ?></li><?php endforeach; ?>\n    </ul>\n<?php endif; ?>",
+    "codigo": "<?php if (!empty($erros)): ?>\n    <ul id=\"erros-js\" class=\"msg erro\">\n        <?php foreach ($erros as $erro): ?><li><?= htmlspecialchars($erro) ?></li><?php endforeach; ?>\n    </ul>\n<?php endif; ?>",
     "linguagem": "php",
     "alternativas": [
       "Quando $erros tem pelo menos um erro",

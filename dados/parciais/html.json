@@ -1019,10 +1019,10 @@
       "Criar um autor",
       "Apagar um livro",
       "Ver o detalhe de um livro",
-      "Terminar a sessão"
+      "Gravar as alterações de um livro"
     ],
     "correta": 2,
-    "explicacao": "Os links fazem GET, que só serve para ler. Ver o detalhe só lê dados; criar, apagar e sair alteram estado e usam formulário POST.",
+    "explicacao": "Os links fazem GET, que só serve para ler. Ver o detalhe só lê dados; criar, apagar e gravar alterações mudam a base de dados e usam formulário POST.",
     "manual": "1.2, 12.1"
   },
   {

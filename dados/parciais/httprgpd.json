@@ -1625,7 +1625,7 @@
     "tema": "RGPD",
     "dificuldade": "media",
     "pergunta": "Porque é que se chama session_start() logo depois do session_destroy()?",
-    "codigo": "session_destroy();\nsession_start();\n$_SESSION['mensagem'] = 'A tua conta foi apagada.';",
+    "codigo": "session_destroy();\nsession_start();\nmensagem('sucesso', 'A tua conta foi apagada.');",
     "linguagem": "php",
     "alternativas": [
       "Para levar a mensagem à página seguinte.",

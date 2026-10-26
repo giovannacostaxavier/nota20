@@ -1019,10 +1019,10 @@
       "Criar um autor",
       "Apagar um livro",
       "Ver o detalhe de um livro",
-      "Terminar a sessão"
+      "Gravar as alterações de um livro"
     ],
     "correta": 2,
-    "explicacao": "Os links fazem GET, que só serve para ler. Ver o detalhe só lê dados; criar, apagar e sair alteram estado e usam formulário POST.",
+    "explicacao": "Os links fazem GET, que só serve para ler. Ver o detalhe só lê dados; criar, apagar e gravar alterações mudam a base de dados e usam formulário POST.",
     "manual": "1.2, 12.1"
   },
   {
@@ -11201,7 +11201,7 @@
     "tema": "RGPD",
     "dificuldade": "media",
     "pergunta": "Porque é que se chama session_start() logo depois do session_destroy()?",
-    "codigo": "session_destroy();\nsession_start();\n$_SESSION['mensagem'] = 'A tua conta foi apagada.';",
+    "codigo": "session_destroy();\nsession_start();\nmensagem('sucesso', 'A tua conta foi apagada.');",
     "linguagem": "php",
     "alternativas": [
       "Para levar a mensagem à página seguinte.",
@@ -13540,7 +13540,7 @@
     "bloco": "php",
     "tema": "include e require",
     "dificuldade": "dificil",
-    "pergunta": "O formulário é válido. O que acontece ao gravar?",
+    "pergunta": "Segundo o manual, o que acontece ao gravar um formulário válido com esta ordem?",
     "codigo": "require 'includes/cabecalho.php';\nif ($_SERVER['REQUEST_METHOD'] === 'POST') {\n    // ... gravar\n    header('Location: livros.php');\n    exit;\n}",
     "linguagem": "php",
     "alternativas": [
@@ -15665,7 +15665,7 @@
     "tema": "Redirecionar e PRG",
     "dificuldade": "media",
     "pergunta": "Quando é que este bloco mostra a caixa de erros?",
-    "codigo": "<?php if (!empty($erros)): ?>\n    <ul id=\"erros-js\" class=\"msg erro\">\n        <?php foreach ($erros as $e): ?><li><?= $e ?></li><?php endforeach; ?>\n    </ul>\n<?php endif; ?>",
+    "codigo": "<?php if (!empty($erros)): ?>\n    <ul id=\"erros-js\" class=\"msg erro\">\n        <?php foreach ($erros as $erro): ?><li><?= htmlspecialchars($erro) ?></li><?php endforeach; ?>\n    </ul>\n<?php endif; ?>",
     "linguagem": "php",
     "alternativas": [
       "Quando $erros tem pelo menos um erro",

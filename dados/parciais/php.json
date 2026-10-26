@@ -2038,7 +2038,7 @@
     "bloco": "php",
     "tema": "include e require",
     "dificuldade": "dificil",
-    "pergunta": "O formulário é válido. O que acontece ao gravar?",
+    "pergunta": "Segundo o manual, o que acontece ao gravar um formulário válido com esta ordem?",
     "codigo": "require 'includes/cabecalho.php';\nif ($_SERVER['REQUEST_METHOD'] === 'POST') {\n    // ... gravar\n    header('Location: livros.php');\n    exit;\n}",
     "linguagem": "php",
     "alternativas": [
